@@ -8,7 +8,7 @@ module.exports = {
     main: "./src/index.ts",
   },
   output: {
-    path: path.resolve(__dirname, './build'),
+    path: path.resolve(__dirname, './snap/src/'),
     filename: "sef.js" // <--- Will be compiled to this single file
   },
   resolve: {

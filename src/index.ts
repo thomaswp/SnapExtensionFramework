@@ -1,5 +1,12 @@
+import { BlockFactory } from "./blocks/BlockFactory";
 import { EventManager } from "./events/SnapEvent";
+import { DefGenerator } from "./meta/DefGenerator";
+import { SnapHelper } from "./snap/SnapHelper";
 
-console.log("Hello!");
-
-window['events'] = new EventManager();
+// Add object to window for debuggin
+window['SEM'] = {
+    events: new EventManager(),
+    blocks: new BlockFactory(),
+    helper: new SnapHelper(),
+    generator: new DefGenerator(),
+};
