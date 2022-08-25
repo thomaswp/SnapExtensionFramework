@@ -1,4 +1,5 @@
 export const nop = window['nop'];
+export const newGuid = window['newGuid'];
 export const localize = window['localize'];
 export const isNil = window['isNil'];
 export const contains = window['contains'];
@@ -183,3 +184,7 @@ export const XML_Serializer = window['XML_Serializer'];
 export const SnapSerializer = window['SnapSerializer'];
 export const Localizer = window['Localizer'];
 export const Cloud = window['Cloud'];
+export const SnapEventManager = window['SnapEventManager'];
+export const hex_sha512 = window['hex_sha512'];
+export const m = window['m'];
+export const loop = window['loop'];

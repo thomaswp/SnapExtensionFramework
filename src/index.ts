@@ -4,7 +4,7 @@ import { DefGenerator } from "./meta/DefGenerator";
 import { SnapHelper } from "./snap/SnapHelper";
 
 // Add object to window for debuggin
-window['SEM'] = {
+window['SEF'] = {
     events: new EventManager(),
     blocks: new BlockFactory(),
     helper: new SnapHelper(),

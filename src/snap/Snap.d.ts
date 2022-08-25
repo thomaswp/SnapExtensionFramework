@@ -1,9 +1,12 @@
+
 export class SnapType {
     prototype: any;
     [key: string]: any;
 }
 
 export function nop();
+
+export function newGuid();
 
 export function localize(string?: any);
 
@@ -7804,6 +7807,7 @@ export class SyntaxElementMorph extends SnapType {
 }
 
 export class BlockMorph extends SnapType {
+    id: any;
     selector: any;
     blockSpec: any;
     comment: any;
@@ -7844,8 +7848,11 @@ export class BlockMorph extends SnapType {
     constructor();
     toggleSnapSound();
     init();
+    getNewID();
     scriptTarget(noError?: any);
     toString();
+    blockId();
+    userDestroy();
     parseSpec(spec?: any);
     setSpec(spec?: any, definition?: any);
     userSetSpec(spec?: any);
@@ -7919,6 +7926,7 @@ export class BlockMorph extends SnapType {
     fixChildrensBlockColor(isForced?: any);
     setCategory(aString?: any);
     hasLabels();
+    copy();
     fullCopy();
     reactToTemplateCopy();
     hasBlockVars();
@@ -8044,7 +8052,6 @@ export class BlockMorph extends SnapType {
     overlappedMorphs();
     getPixelColor(aPoint?: any);
     isTransparentAt(aPoint?: any);
-    copy();
     copyRecordingReferences(map?: any);
     updateReferences(map?: any);
     isCorrectingOutsideDrag();
@@ -8560,6 +8567,7 @@ export class BlockSymbolMorph extends SnapType {
 export class CommandBlockMorph extends SnapType {
     partOfCustomCommand: any;
     exitTag: any;
+    id: any;
     selector: any;
     blockSpec: any;
     comment: any;
@@ -8627,8 +8635,10 @@ export class CommandBlockMorph extends SnapType {
     drawTopLeftEdge(ctx?: any);
     drawBottomRightEdge(ctx?: any);
     toggleSnapSound();
+    getNewID();
     scriptTarget(noError?: any);
     toString();
+    blockId();
     parseSpec(spec?: any);
     setSpec(spec?: any, definition?: any);
     userSetSpec(spec?: any);
@@ -8702,6 +8712,7 @@ export class CommandBlockMorph extends SnapType {
     fixChildrensBlockColor(isForced?: any);
     setCategory(aString?: any);
     hasLabels();
+    copy();
     fullCopy();
     reactToTemplateCopy();
     hasBlockVars();
@@ -8825,7 +8836,6 @@ export class CommandBlockMorph extends SnapType {
     overlappedMorphs();
     getPixelColor(aPoint?: any);
     isTransparentAt(aPoint?: any);
-    copy();
     copyRecordingReferences(map?: any);
     updateReferences(map?: any);
     isCorrectingOutsideDrag();
@@ -8881,6 +8891,7 @@ export class ReporterBlockMorph extends SnapType {
     isPredicate: any;
     cachedSlotSpec: any;
     isLocalVarTemplate: any;
+    id: any;
     selector: any;
     blockSpec: any;
     comment: any;
@@ -8938,8 +8949,10 @@ export class ReporterBlockMorph extends SnapType {
     toXML(serializer?: any);
     toScriptXML(serializer?: any, savePosition?: any);
     toggleSnapSound();
+    getNewID();
     scriptTarget(noError?: any);
     toString();
+    blockId();
     parseSpec(spec?: any);
     setSpec(spec?: any, definition?: any);
     userSetSpec(spec?: any);
@@ -9013,6 +9026,7 @@ export class ReporterBlockMorph extends SnapType {
     fixChildrensBlockColor(isForced?: any);
     setCategory(aString?: any);
     hasLabels();
+    copy();
     fullCopy();
     reactToTemplateCopy();
     hasBlockVars();
@@ -9132,7 +9146,6 @@ export class ReporterBlockMorph extends SnapType {
     overlappedMorphs();
     getPixelColor(aPoint?: any);
     isTransparentAt(aPoint?: any);
-    copy();
     copyRecordingReferences(map?: any);
     updateReferences(map?: any);
     isCorrectingOutsideDrag();
@@ -9235,7 +9248,7 @@ export class ScriptsMorph extends SnapType {
     closestInput(reporter?: any, hand?: any);
     closestBlock(comment?: any, hand?: any);
     userMenu();
-    cleanUp();
+    cleanUp(silently?: any);
     exportScriptsPicture();
     scriptsPicture();
     scriptsXML();
@@ -9424,6 +9437,7 @@ export class ArgMorph extends SnapType {
 
     constructor(type?: any);
     init(type?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     getSpec();
@@ -9647,6 +9661,7 @@ export class CommandSlotMorph extends SnapType {
     drawFlat(ctx?: any);
     drawEdges(ctx?: any);
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -9875,6 +9890,7 @@ export class CSlotMorph extends SnapType {
     drawFlat(ctx?: any);
     drawEdges(ctx?: any);
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -10131,6 +10147,7 @@ export class InputSlotMorph extends SnapType {
     drawRectBorder(ctx?: any);
     drawRoundBorder(ctx?: any);
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -10789,6 +10806,7 @@ export class BooleanSlotMorph extends SnapType {
     drawKnob(ctx?: any, progress?: any);
     textLabelExtent();
     toXML();
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -11161,6 +11179,7 @@ export class ColorSlotMorph extends SnapType {
     render(ctx?: any);
     drawRectBorder(ctx?: any);
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -11331,6 +11350,7 @@ export class ColorSlotMorph extends SnapType {
 export class HatBlockMorph extends SnapType {
     partOfCustomCommand: any;
     exitTag: any;
+    id: any;
     selector: any;
     blockSpec: any;
     comment: any;
@@ -11399,8 +11419,10 @@ export class HatBlockMorph extends SnapType {
     drawFlatBottomDentEdge(ctx?: any);
     drawBottomRightEdge(ctx?: any);
     toggleSnapSound();
+    getNewID();
     scriptTarget(noError?: any);
     toString();
+    blockId();
     parseSpec(spec?: any);
     setSpec(spec?: any, definition?: any);
     userSetSpec(spec?: any);
@@ -11473,6 +11495,7 @@ export class HatBlockMorph extends SnapType {
     fixChildrensBlockColor(isForced?: any);
     setCategory(aString?: any);
     hasLabels();
+    copy();
     fullCopy();
     reactToTemplateCopy();
     hasBlockVars();
@@ -11596,7 +11619,6 @@ export class HatBlockMorph extends SnapType {
     overlappedMorphs();
     getPixelColor(aPoint?: any);
     isTransparentAt(aPoint?: any);
-    copy();
     copyRecordingReferences(map?: any);
     updateReferences(map?: any);
     isCorrectingOutsideDrag();
@@ -11888,6 +11910,7 @@ export class MultiArgMorph extends SnapType {
     evaluate();
     isEmptySlot();
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     slotMenu();
@@ -12101,6 +12124,7 @@ export class TemplateSlotMorph extends SnapType {
     flash();
     unflash();
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -12307,6 +12331,7 @@ export class FunctionSlotMorph extends SnapType {
     drawRounded(ctx?: any);
     drawDiamond(ctx?: any);
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -12524,6 +12549,7 @@ export class ReporterSlotMorph extends SnapType {
     drawRounded(ctx?: any);
     drawDiamond(ctx?: any);
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -12696,6 +12722,7 @@ export class RingMorph extends SnapType {
     isPredicate: any;
     cachedSlotSpec: any;
     isLocalVarTemplate: any;
+    id: any;
     selector: any;
     blockSpec: any;
     comment: any;
@@ -12762,8 +12789,10 @@ export class RingMorph extends SnapType {
     toXML(serializer?: any);
     toScriptXML(serializer?: any, savePosition?: any);
     toggleSnapSound();
+    getNewID();
     scriptTarget(noError?: any);
     toString();
+    blockId();
     parseSpec(spec?: any);
     setSpec(spec?: any, definition?: any);
     userSetSpec(spec?: any);
@@ -12834,6 +12863,7 @@ export class RingMorph extends SnapType {
     fixChildrensBlockColor(isForced?: any);
     setCategory(aString?: any);
     hasLabels();
+    copy();
     fullCopy();
     reactToTemplateCopy();
     hasBlockVars();
@@ -12951,7 +12981,6 @@ export class RingMorph extends SnapType {
     overlappedMorphs();
     getPixelColor(aPoint?: any);
     isTransparentAt(aPoint?: any);
-    copy();
     copyRecordingReferences(map?: any);
     updateReferences(map?: any);
     isCorrectingOutsideDrag();
@@ -13056,6 +13085,7 @@ export class RingCommandSlotMorph extends SnapType {
     drawFlat(ctx?: any);
     drawEdges(ctx?: any);
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -13279,6 +13309,7 @@ export class RingReporterSlotMorph extends SnapType {
     drawRounded(ctx?: any);
     drawDiamond(ctx?: any);
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -13682,6 +13713,7 @@ export class ArgLabelMorph extends SnapType {
     evaluate();
     isEmptySlot();
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     getSpec();
@@ -13944,6 +13976,7 @@ export class TextSlotMorph extends SnapType {
     drawRectBorder(ctx?: any);
     drawRoundBorder(ctx?: any);
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -14850,7 +14883,7 @@ export class SpriteMorph extends SnapType {
     projectionSnap();
     blockForSelector(selector?: any, setDefaults?: any);
     variableBlock(varName?: any, isLocalTemplate?: any);
-    blockTemplates(category?: any, all?: any);
+    blockTemplates();
     makeVariableButton();
     deleteVariableButton();
     categoryText(category?: any);
@@ -15346,7 +15379,7 @@ export class StageMorph extends SnapType {
     removeAllClones();
     editScripts();
     pauseGenericHatBlocks();
-    blockTemplates(category?: any, all?: any);
+    blockTemplates();
     clear();
     userMenu();
     showAll();
@@ -17230,10 +17263,11 @@ export class Project extends SnapType {
     name: any;
     notes: any;
     thumbnail: any;
+    guid: any;
     sceneIdx: any;
     trash: any;
 
-    constructor(scenes?: any, current?: any);
+    constructor(scenes?: any, current?: any, guid?: any);
     initialize();
     addDefaultScene();
     toXML(serializer?: any);
@@ -17279,6 +17313,7 @@ export class Scene extends SnapType {
 }
 
 export class IDE_Morph extends SnapType {
+    projectGUID: any;
     userLanguage: any;
     cloud: any;
     cloudMsg: any;
@@ -17397,6 +17432,7 @@ export class IDE_Morph extends SnapType {
     toggleRetina();
     defaultDesign();
     flatDesign();
+    getProject();
     refreshIDE();
     applySavedSettings();
     saveSetting(key?: any, value?: any);
@@ -21599,6 +21635,7 @@ export class CustomBlockDefinition extends SnapType {
     cachedIsRecursive: any;
     cachedTranslation: any;
     storedSemanticSpec: any;
+    guid: any;
 
     constructor(spec?: any, receiver?: any);
     blockInstance(storeTranslations?: any);
@@ -21653,6 +21690,7 @@ export class CustomCommandBlockMorph extends SnapType {
     storedTranslations: any;
     partOfCustomCommand: any;
     exitTag: any;
+    id: any;
     blockSpec: any;
     comment: any;
     instantiationSpec: any;
@@ -21704,6 +21742,7 @@ export class CustomCommandBlockMorph extends SnapType {
     declarationsFromFragments();
     parseSpec(spec?: any);
     mouseClickLeft();
+    getDefinitionJSON(definition?: any);
     edit();
     labelPart(spec?: any);
     placeHolder();
@@ -21743,8 +21782,10 @@ export class CustomCommandBlockMorph extends SnapType {
     drawTopLeftEdge(ctx?: any);
     drawBottomRightEdge(ctx?: any);
     toggleSnapSound();
+    getNewID();
     scriptTarget(noError?: any);
     toString();
+    blockId();
     setSpec(spec?: any, definition?: any);
     userSetSpec(spec?: any);
     buildSpec();
@@ -21814,6 +21855,7 @@ export class CustomCommandBlockMorph extends SnapType {
     fixChildrensBlockColor(isForced?: any);
     setCategory(aString?: any);
     hasLabels();
+    copy();
     fullCopy();
     hasBlockVars();
     pickUp(wrrld?: any);
@@ -21933,7 +21975,6 @@ export class CustomCommandBlockMorph extends SnapType {
     overlappedMorphs();
     getPixelColor(aPoint?: any);
     isTransparentAt(aPoint?: any);
-    copy();
     copyRecordingReferences(map?: any);
     updateReferences(map?: any);
     isCorrectingOutsideDrag();
@@ -21998,6 +22039,7 @@ export class CustomReporterBlockMorph extends SnapType {
     isPredicate: any;
     cachedSlotSpec: any;
     isLocalVarTemplate: any;
+    id: any;
     blockSpec: any;
     comment: any;
     instantiationSpec: any;
@@ -22077,8 +22119,10 @@ export class CustomReporterBlockMorph extends SnapType {
     toXML(serializer?: any);
     toScriptXML(serializer?: any, savePosition?: any);
     toggleSnapSound();
+    getNewID();
     scriptTarget(noError?: any);
     toString();
+    blockId();
     setSpec(spec?: any, definition?: any);
     userSetSpec(spec?: any);
     buildSpec();
@@ -22148,6 +22192,7 @@ export class CustomReporterBlockMorph extends SnapType {
     fixChildrensBlockColor(isForced?: any);
     setCategory(aString?: any);
     hasLabels();
+    copy();
     fullCopy();
     hasBlockVars();
     pickUp(wrrld?: any);
@@ -22264,7 +22309,6 @@ export class CustomReporterBlockMorph extends SnapType {
     overlappedMorphs();
     getPixelColor(aPoint?: any);
     isTransparentAt(aPoint?: any);
-    copy();
     copyRecordingReferences(map?: any);
     updateReferences(map?: any);
     isCorrectingOutsideDrag();
@@ -22359,6 +22403,9 @@ export class BlockDialogMorph extends SnapType {
 
     constructor(target?: any, action?: any, environment?: any);
     init(target?: any, action?: any, environment?: any);
+    prompt();
+    ok();
+    cancel();
     openForChange(title?: any, category?: any, type?: any, world?: any, pic?: any, preventTypeChange?: any);
     createCategoryButtons();
     addCategoryButton(category?: any);
@@ -22376,7 +22423,6 @@ export class BlockDialogMorph extends SnapType {
     accept();
     inform(title?: any, textString?: any, world?: any, pic?: any);
     askYesNo(title?: any, textString?: any, world?: any, pic?: any);
-    prompt(title?: any, defaultString?: any, world?: any, pic?: any, choices?: any, isReadOnly?: any, isNumeric?: any, sliderMin?: any, sliderMax?: any, sliderAction?: any, decimals?: any);
     promptCode(title?: any, defaultString?: any, world?: any, pic?: any, instructions?: any);
     promptVector(title?: any, point?: any, deflt?: any, xLabel?: any, yLabel?: any, world?: any, pic?: any, msg?: any);
     promptRGB(title?: any, color?: any, world?: any, pic?: any, msg?: any);
@@ -22385,8 +22431,6 @@ export class BlockDialogMorph extends SnapType {
     withKey(key?: any);
     popUp(world?: any);
     destroy();
-    ok();
-    cancel();
     edit();
     justDropped(hand?: any);
     normalizeSpaces(string?: any);
@@ -22567,6 +22611,8 @@ export class BlockEditorMorph extends SnapType {
     children: any;
 
     constructor(definition?: any, target?: any);
+    ok();
+    getDefinitionJSON(definition?: any);
     init(definition?: any, target?: any);
     popUp();
     justDropped();
@@ -22575,6 +22621,7 @@ export class BlockEditorMorph extends SnapType {
     close();
     consolidateDoubles();
     refreshAllBlockInstances(oldSpec?: any);
+    deduplicateBlockIDs();
     updateDefinition();
     context(prototypeHat?: any);
     prototypeSpec();
@@ -22594,7 +22641,6 @@ export class BlockEditorMorph extends SnapType {
     promptCredentials(title?: any, purpose?: any, tosURL?: any, tosLabel?: any, prvURL?: any, prvLabel?: any, checkBoxLabel?: any, world?: any, pic?: any, msg?: any);
     withKey(key?: any);
     destroy();
-    ok();
     edit();
     getInput();
     normalizeSpaces(string?: any);
@@ -22744,6 +22790,7 @@ export class PrototypeHatBlockMorph extends SnapType {
     category: any;
     partOfCustomCommand: any;
     exitTag: any;
+    id: any;
     selector: any;
     blockSpec: any;
     comment: any;
@@ -22816,8 +22863,10 @@ export class PrototypeHatBlockMorph extends SnapType {
     drawFlatBottomDentEdge(ctx?: any);
     drawBottomRightEdge(ctx?: any);
     toggleSnapSound();
+    getNewID();
     scriptTarget(noError?: any);
     toString();
+    blockId();
     parseSpec(spec?: any);
     setSpec(spec?: any, definition?: any);
     userSetSpec(spec?: any);
@@ -22888,6 +22937,7 @@ export class PrototypeHatBlockMorph extends SnapType {
     fixChildrensBlockColor(isForced?: any);
     setCategory(aString?: any);
     hasLabels();
+    copy();
     fullCopy();
     reactToTemplateCopy();
     hasBlockVars();
@@ -23010,7 +23060,6 @@ export class PrototypeHatBlockMorph extends SnapType {
     overlappedMorphs();
     getPixelColor(aPoint?: any);
     isTransparentAt(aPoint?: any);
-    copy();
     copyRecordingReferences(map?: any);
     updateReferences(map?: any);
     isCorrectingOutsideDrag();
@@ -23311,6 +23360,7 @@ export class BlockInputFragmentMorph extends SnapType {
     flash();
     unflash();
     toXML(serializer?: any);
+    argId();
     reactToSliderEdit();
     justDropped();
     userMenu();
@@ -24064,6 +24114,7 @@ export class JaggedBlockMorph extends SnapType {
     isPredicate: any;
     cachedSlotSpec: any;
     isLocalVarTemplate: any;
+    id: any;
     selector: any;
     blockSpec: any;
     comment: any;
@@ -24121,8 +24172,10 @@ export class JaggedBlockMorph extends SnapType {
     toXML(serializer?: any);
     toScriptXML(serializer?: any, savePosition?: any);
     toggleSnapSound();
+    getNewID();
     scriptTarget(noError?: any);
     toString();
+    blockId();
     parseSpec(spec?: any);
     setSpec(spec?: any, definition?: any);
     userSetSpec(spec?: any);
@@ -24196,6 +24249,7 @@ export class JaggedBlockMorph extends SnapType {
     fixChildrensBlockColor(isForced?: any);
     setCategory(aString?: any);
     hasLabels();
+    copy();
     fullCopy();
     reactToTemplateCopy();
     hasBlockVars();
@@ -24315,7 +24369,6 @@ export class JaggedBlockMorph extends SnapType {
     overlappedMorphs();
     getPixelColor(aPoint?: any);
     isTransparentAt(aPoint?: any);
-    copy();
     copyRecordingReferences(map?: any);
     updateReferences(map?: any);
     isCorrectingOutsideDrag();
@@ -26772,6 +26825,7 @@ export class SnapSerializer extends SnapType {
     loadScriptModel(model?: any, object?: any);
     loadScript(model?: any, object?: any);
     loadComment(model?: any);
+    setBlockId(model?: any, block?: any);
     loadBlock(model?: any, isReporter?: any, object?: any);
     obsoleteBlock(isReporter?: any);
     loadInput(model?: any, input?: any, block?: any, object?: any);
@@ -26867,3 +26921,20 @@ export class Cloud extends SnapType {
     removeEditorFromCollection(collectionUsername?: any, collectionName?: any, editorUsername?: any, onSuccess?: any, onError?: any);
     showProjectPath(username?: any, projectname?: any);
 }
+
+export class SnapEventManager extends SnapType {
+    globalListeners: any;
+    eventListeners: any;
+
+    constructor();
+    init();
+    log(eventType?: any, data?: any);
+    addGlobalListener(listener?: any);
+    addEventListener(eventType?: any, listener?: any);
+}
+
+export function hex_sha512(s?: any);
+
+export function m(e?: any, t?: any, n?: any);
+
+export function loop(timestamp?: any);
