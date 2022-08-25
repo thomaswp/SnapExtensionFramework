@@ -137,12 +137,16 @@ class ClassDef {
         // need to manually define all parent types and methods (that aren't shadowed) here
         let code = `export class ${this.name} extends SnapType`;
         code += ` {\n`;
-        for (let field of this.fields.values()) {
-            code += '    ' + field.toTS() + '\n';
+        let fKeys = [...this.fields.keys()];
+        fKeys.sort();
+        for (let fkey of fKeys) {
+            code += '    ' + this.fields.get(fkey).toTS() + '\n';
         }
         code += '\n';
-        for (let method of this.methods.values()) {
-            code += '    ' + method.toTS() + '\n';
+        let mKeys = [...this.methods.keys()];
+        mKeys.sort();
+        for (let mKey of mKeys) {
+            code += '    ' + this.methods.get(mKey).toTS() + '\n';
         }
         code += '}';
         return code;
