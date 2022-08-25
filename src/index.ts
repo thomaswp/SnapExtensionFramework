@@ -1,5 +1,5 @@
 import { BlockFactory } from "./blocks/BlockFactory";
-import { EventManager } from "./events/SnapEvent";
+import { EventManager } from "./events/EventManager";
 import { DefGenerator } from "./meta/DefGenerator";
 import { SnapHelper } from "./snap/SnapHelper";
 

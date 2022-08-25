@@ -30,3 +30,11 @@ export interface BlockIDArgs extends SnapEventArgs {
 export interface InputIDArgs extends BlockIDArgs {
     argIndex: number;
 }
+
+export interface CustomBlockDefArgs extends SnapEventArgs {
+    spec: string;
+    category: string;
+    type: string;
+    guid: string;
+    isGlobal: boolean;
+}

@@ -1,5 +1,5 @@
 
-import { Events } from "./EventTypeManualTest";
+import { Events } from "./SnapEvents";
 import { SnapEventListener } from "./SnapEventListener";
 
 
@@ -19,6 +19,9 @@ export class EventManager {
         }));
         this.addListener(new Events.InputSlot.MenuItemSelectedListener(args => {
             console.log(args.item);
+        }));
+        this.addListener(new Events.Block.CreatedListener(args => {
+            console.log(args.id);
         }));
     }
 }

@@ -13,6 +13,7 @@ function getSpecialArg(name) {
     const map = {
         'blockId(': 'BlockIDArgs',
         'argId(': 'InputIDArgs',
+        'getDefinitionJSON(': 'CustomBlockDefArgs',
     }
     for (key of Object.keys(map)) {
         if (name.includes(key)) return map[key];
@@ -24,7 +25,7 @@ function extractArgs(args) {
     if (!args) return EMPTY_ARGS;
     if (!args.startsWith('{')) {
         const specialArg = getSpecialArg(args);
-        if (specialArg) return { value: specialArg };
+        if (specialArg) return specialArg;
         const simpleExpr = /^[A-Za-z0-9_-]+(\.[A-Za-z0-9_-]+)*$/;
         if (simpleExpr.test(args)) {
             parts = args.split('.');
@@ -38,8 +39,18 @@ function extractArgs(args) {
         return VALUE_ARGS;
     }
 
-    // TODO: Object
-    return VALUE_ARGS;
+    let argObj = {};
+    const propRegex = /['"]?([a-zA-Z0-9-_]+)['"]?:\s*(.+)[,$]/gm;
+    let match = propRegex.exec(args);
+    while (match != null) {
+        let prop = match[1];
+        let value = match[2];
+        let type = getSpecialArg(value) || 'any';
+        argObj[prop] = type;
+        console.log(prop);
+        match = propRegex.exec(args);
+    }
+    return argObj;
 }
 
 function processSourceFile(name, source) {
@@ -74,7 +85,7 @@ function readEvents() {
 }
 
 function generateArgsClass(args, className) {
-    if (args === EMPTY_ARGS || args === VALUE_ARGS) return null;
+    if (typeof args === 'string') return null;
     let code = `export interface ${className} extends SnapEventArgs {\n`;
     for (let [name, type] of Object.entries(args)) {
         code += `    ${name}: ${type};\n`;
@@ -94,7 +105,7 @@ function capitalize(str) {
 }
 
 function generateCode() {
-    let code = 'import { BlockIDArgs, EmptyArgs, InputIDArgs, SnapEventArgs, SnapEventListener, ValueArgs } from "./SnapEventListener";\n';
+    let code = 'import { BlockIDArgs, EmptyArgs, InputIDArgs, CustomBlockDefArgs, SnapEventArgs, SnapEventListener, ValueArgs } from "./SnapEventListener";\n';
     code += 'export namespace Events {\n';
     let keys = Object.keys(events);
     keys.sort();
@@ -125,7 +136,7 @@ function generateCode() {
 
         let argsClass = generateArgsClass(args, argsClassName);
         if (argsClass) {
-            code += indent(argsClass, nSpace);
+            code += indent('\n' + argsClass, nSpace);
         } else {
             argsClassName = args;
         }

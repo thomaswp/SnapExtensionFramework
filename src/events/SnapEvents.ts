@@ -1,115 +1,125 @@
-import { BlockIDArgs, EmptyArgs, InputIDArgs, SnapEventArgs, SnapEventListener, ValueArgs } from "./SnapEventListener";
+import { BlockIDArgs, EmptyArgs, InputIDArgs, CustomBlockDefArgs, SnapEventArgs, SnapEventListener, ValueArgs } from "./SnapEventListener";
 export namespace Events {
     export namespace Block {
-        export interface ClickRunArgs extends SnapEventArgs {
-            value: BlockIDArgs;
-        }
 
         export class ClickRunListener extends SnapEventListener {
             static readonly type = 'Block.clickRun';
-            constructor(args: (args: ClickRunArgs) => void) {
+            constructor(args: (args: BlockIDArgs) => void) {
                 super(ClickRunListener.type, args);
             }
-        }
-        export interface ClickStopRunArgs extends SnapEventArgs {
-            value: BlockIDArgs;
         }
 
         export class ClickStopRunListener extends SnapEventListener {
             static readonly type = 'Block.clickStopRun';
-            constructor(args: (args: ClickStopRunArgs) => void) {
+            constructor(args: (args: BlockIDArgs) => void) {
                 super(ClickStopRunListener.type, args);
             }
-        }
-        export interface CreatedArgs extends SnapEventArgs {
-            value: BlockIDArgs;
         }
 
         export class CreatedListener extends SnapEventListener {
             static readonly type = 'Block.created';
-            constructor(args: (args: CreatedArgs) => void) {
+            constructor(args: (args: BlockIDArgs) => void) {
                 super(CreatedListener.type, args);
             }
-        }
-        export interface DragDestroyArgs extends SnapEventArgs {
-            value: BlockIDArgs;
         }
 
         export class DragDestroyListener extends SnapEventListener {
             static readonly type = 'Block.dragDestroy';
-            constructor(args: (args: DragDestroyArgs) => void) {
+            constructor(args: (args: BlockIDArgs) => void) {
                 super(DragDestroyListener.type, args);
             }
         }
 
+        export interface GrabbedArgs extends SnapEventArgs {
+            id: BlockIDArgs;
+            origin: any;
+        }
+
         export class GrabbedListener extends SnapEventListener {
             static readonly type = 'Block.grabbed';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: GrabbedArgs) => void) {
                 super(GrabbedListener.type, args);
             }
         }
 
+        export interface RefactorVarArgs extends SnapEventArgs {
+            id: BlockIDArgs;
+            oldName: any;
+            newName: any;
+        }
+
         export class RefactorVarListener extends SnapEventListener {
             static readonly type = 'Block.refactorVar';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: RefactorVarArgs) => void) {
                 super(RefactorVarListener.type, args);
             }
         }
 
+        export interface RefactorVarErrorArgs extends SnapEventArgs {
+            id: BlockIDArgs;
+            where: any;
+        }
+
         export class RefactorVarErrorListener extends SnapEventListener {
             static readonly type = 'Block.refactorVarError';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: RefactorVarErrorArgs) => void) {
                 super(RefactorVarErrorListener.type, args);
             }
         }
 
+        export interface RelabelArgs extends SnapEventArgs {
+            id: BlockIDArgs;
+            selector: any;
+        }
+
         export class RelabelListener extends SnapEventListener {
             static readonly type = 'Block.relabel';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: RelabelArgs) => void) {
                 super(RelabelListener.type, args);
             }
         }
 
+        export interface RenameArgs extends SnapEventArgs {
+            id: BlockIDArgs;
+            name: any;
+        }
+
         export class RenameListener extends SnapEventListener {
             static readonly type = 'Block.rename';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: RenameArgs) => void) {
                 super(RenameListener.type, args);
             }
-        }
-        export interface RingifyArgs extends SnapEventArgs {
-            value: BlockIDArgs;
         }
 
         export class RingifyListener extends SnapEventListener {
             static readonly type = 'Block.ringify';
-            constructor(args: (args: RingifyArgs) => void) {
+            constructor(args: (args: BlockIDArgs) => void) {
                 super(RingifyListener.type, args);
             }
-        }
-        export interface ScriptPicArgs extends SnapEventArgs {
-            value: BlockIDArgs;
         }
 
         export class ScriptPicListener extends SnapEventListener {
             static readonly type = 'Block.scriptPic';
-            constructor(args: (args: ScriptPicArgs) => void) {
+            constructor(args: (args: BlockIDArgs) => void) {
                 super(ScriptPicListener.type, args);
             }
-        }
-        export interface ShowHelpArgs extends SnapEventArgs {
-            value: BlockIDArgs;
         }
 
         export class ShowHelpListener extends SnapEventListener {
             static readonly type = 'Block.showHelp';
-            constructor(args: (args: ShowHelpArgs) => void) {
+            constructor(args: (args: BlockIDArgs) => void) {
                 super(ShowHelpListener.type, args);
             }
         }
 
+        export interface SnappedArgs extends SnapEventArgs {
+            id: BlockIDArgs;
+            origin: any;
+        }
+
         export class SnappedListener extends SnapEventListener {
             static readonly type = 'Block.snapped';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: SnappedArgs) => void) {
                 super(SnappedListener.type, args);
             }
         }
@@ -120,23 +130,17 @@ export namespace Events {
                 super(ToggleTransientVariableListener.type, args);
             }
         }
-        export interface UnringifyArgs extends SnapEventArgs {
-            value: BlockIDArgs;
-        }
 
         export class UnringifyListener extends SnapEventListener {
             static readonly type = 'Block.unringify';
-            constructor(args: (args: UnringifyArgs) => void) {
+            constructor(args: (args: BlockIDArgs) => void) {
                 super(UnringifyListener.type, args);
             }
-        }
-        export interface UserDestroyArgs extends SnapEventArgs {
-            value: BlockIDArgs;
         }
 
         export class UserDestroyListener extends SnapEventListener {
             static readonly type = 'Block.userDestroy';
-            constructor(args: (args: UserDestroyArgs) => void) {
+            constructor(args: (args: BlockIDArgs) => void) {
                 super(UserDestroyListener.type, args);
             }
         }
@@ -146,31 +150,32 @@ export namespace Events {
 
         export class CancelListener extends SnapEventListener {
             static readonly type = 'BlockEditor.cancel';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: CustomBlockDefArgs) => void) {
                 super(CancelListener.type, args);
             }
         }
 
         export class ChangeTypeListener extends SnapEventListener {
             static readonly type = 'BlockEditor.changeType';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: CustomBlockDefArgs) => void) {
                 super(ChangeTypeListener.type, args);
             }
         }
 
         export class OkListener extends SnapEventListener {
             static readonly type = 'BlockEditor.ok';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: CustomBlockDefArgs) => void) {
                 super(OkListener.type, args);
             }
         }
 
         export class StartListener extends SnapEventListener {
             static readonly type = 'BlockEditor.start';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: CustomBlockDefArgs) => void) {
                 super(StartListener.type, args);
             }
         }
+
         export interface UpdateBlockLabelArgs extends SnapEventArgs {
             newFragment: any;
         }
@@ -216,9 +221,14 @@ export namespace Events {
 
     export namespace BooleanSlotMorph {
 
+        export interface ToggleValueArgs extends SnapEventArgs {
+            id: InputIDArgs;
+            value: any;
+        }
+
         export class ToggleValueListener extends SnapEventListener {
             static readonly type = 'BooleanSlotMorph.toggleValue';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: ToggleValueArgs) => void) {
                 super(ToggleValueListener.type, args);
             }
         }
@@ -226,9 +236,14 @@ export namespace Events {
 
     export namespace ColorArg {
 
+        export interface ChangeColorArgs extends SnapEventArgs {
+            id: InputIDArgs;
+            color: any;
+        }
+
         export class ChangeColorListener extends SnapEventListener {
             static readonly type = 'ColorArg.changeColor';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: ChangeColorArgs) => void) {
                 super(ChangeColorListener.type, args);
             }
         }
@@ -236,15 +251,21 @@ export namespace Events {
 
     export namespace CommandBlock {
 
+        export interface WrapArgs extends SnapEventArgs {
+            id: BlockIDArgs;
+            target: BlockIDArgs;
+        }
+
         export class WrapListener extends SnapEventListener {
             static readonly type = 'CommandBlock.wrap';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: WrapArgs) => void) {
                 super(WrapListener.type, args);
             }
         }
     }
 
     export namespace IDE {
+
         export interface AddSpriteArgs extends SnapEventArgs {
             name: any;
         }
@@ -255,6 +276,7 @@ export namespace Events {
                 super(AddSpriteListener.type, args);
             }
         }
+
         export interface ChangeCategoryArgs extends SnapEventArgs {
             category: any;
         }
@@ -268,10 +290,11 @@ export namespace Events {
 
         export class DeleteCustomBlockListener extends SnapEventListener {
             static readonly type = 'IDE.deleteCustomBlock';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: CustomBlockDefArgs) => void) {
                 super(DeleteCustomBlockListener.type, args);
             }
         }
+
         export interface DuplicateSpriteArgs extends SnapEventArgs {
             name: any;
         }
@@ -289,6 +312,7 @@ export namespace Events {
                 super(ExportGlobalBlocksListener.type, args);
             }
         }
+
         export interface ExportProejctAsCloudDataArgs extends SnapEventArgs {
             name: any;
         }
@@ -299,6 +323,7 @@ export namespace Events {
                 super(ExportProejctAsCloudDataListener.type, args);
             }
         }
+
         export interface ExportProjectArgs extends SnapEventArgs {
             name: any;
         }
@@ -309,6 +334,7 @@ export namespace Events {
                 super(ExportProjectListener.type, args);
             }
         }
+
         export interface ExportProjectMediaArgs extends SnapEventArgs {
             name: any;
         }
@@ -319,6 +345,7 @@ export namespace Events {
                 super(ExportProjectMediaListener.type, args);
             }
         }
+
         export interface ExportProjectNoMediaArgs extends SnapEventArgs {
             name: any;
         }
@@ -336,6 +363,7 @@ export namespace Events {
                 super(ExportScriptsPictureListener.type, args);
             }
         }
+
         export interface ExportSpriteArgs extends SnapEventArgs {
             name: any;
         }
@@ -353,6 +381,7 @@ export namespace Events {
                 super(GreenFlagListener.type, args);
             }
         }
+
         export interface LoadFailedArgs extends SnapEventArgs {
             err: any;
         }
@@ -391,6 +420,7 @@ export namespace Events {
                 super(OpenMediaStringListener.type, args);
             }
         }
+
         export interface OpenProjectArgs extends SnapEventArgs {
             name: any;
         }
@@ -422,6 +452,7 @@ export namespace Events {
                 super(OpenedListener.type, args);
             }
         }
+
         export interface PaintNewSpriteArgs extends SnapEventArgs {
             name: any;
         }
@@ -439,6 +470,7 @@ export namespace Events {
                 super(PauseListener.type, args);
             }
         }
+
         export interface RotationStyleChangedArgs extends SnapEventArgs {
             rotationStyle: any;
         }
@@ -449,6 +481,7 @@ export namespace Events {
                 super(RotationStyleChangedListener.type, args);
             }
         }
+
         export interface SaveProjectToCloudArgs extends SnapEventArgs {
             name: any;
         }
@@ -459,6 +492,7 @@ export namespace Events {
                 super(SaveProjectToCloudListener.type, args);
             }
         }
+
         export interface SelectSpriteArgs extends SnapEventArgs {
             name: any;
         }
@@ -469,6 +503,7 @@ export namespace Events {
                 super(SelectSpriteListener.type, args);
             }
         }
+
         export interface SetLanguageArgs extends SnapEventArgs {
             lang: any;
         }
@@ -479,6 +514,7 @@ export namespace Events {
                 super(SetLanguageListener.type, args);
             }
         }
+
         export interface SetSpriteDraggableArgs extends SnapEventArgs {
             isDraggable: any;
         }
@@ -489,6 +525,7 @@ export namespace Events {
                 super(SetSpriteDraggableListener.type, args);
             }
         }
+
         export interface SetSpriteTabArgs extends SnapEventArgs {
             tabString: any;
         }
@@ -506,6 +543,7 @@ export namespace Events {
                 super(StopListener.type, args);
             }
         }
+
         export interface ToggleAppModeArgs extends SnapEventArgs {
             isAppMode: any;
         }
@@ -516,6 +554,7 @@ export namespace Events {
                 super(ToggleAppModeListener.type, args);
             }
         }
+
         export interface ToggleStageSizeArgs extends SnapEventArgs {
             isSmallStage: any;
         }
@@ -537,45 +576,50 @@ export namespace Events {
 
     export namespace InputSlot {
 
+        export interface EditedArgs extends SnapEventArgs {
+            id: InputIDArgs;
+            text: any;
+        }
+
         export class EditedListener extends SnapEventListener {
             static readonly type = 'InputSlot.edited';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: EditedArgs) => void) {
                 super(EditedListener.type, args);
             }
         }
 
+        export interface MenuItemSelectedArgs extends SnapEventArgs {
+            id: InputIDArgs;
+            item: any;
+        }
+
         export class MenuItemSelectedListener extends SnapEventListener {
             static readonly type = 'InputSlot.menuItemSelected';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: MenuItemSelectedArgs) => void) {
                 super(MenuItemSelectedListener.type, args);
             }
         }
     }
 
     export namespace MultiArg {
-        export interface AddInputArgs extends SnapEventArgs {
-            value: InputIDArgs;
-        }
 
         export class AddInputListener extends SnapEventListener {
             static readonly type = 'MultiArg.addInput';
-            constructor(args: (args: AddInputArgs) => void) {
+            constructor(args: (args: InputIDArgs) => void) {
                 super(AddInputListener.type, args);
             }
-        }
-        export interface RemoveInputArgs extends SnapEventArgs {
-            value: InputIDArgs;
         }
 
         export class RemoveInputListener extends SnapEventListener {
             static readonly type = 'MultiArg.removeInput';
-            constructor(args: (args: RemoveInputArgs) => void) {
+            constructor(args: (args: InputIDArgs) => void) {
                 super(RemoveInputListener.type, args);
             }
         }
     }
 
     export namespace ProjectDialog {
+
         export interface SetSourceArgs extends SnapEventArgs {
             source: any;
         }
@@ -587,9 +631,14 @@ export namespace Events {
             }
         }
 
+        export interface ShareProjectArgs extends SnapEventArgs {
+            name: any;
+            isThisProject: any;
+        }
+
         export class ShareProjectListener extends SnapEventListener {
             static readonly type = 'ProjectDialog.shareProject';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: ShareProjectArgs) => void) {
                 super(ShareProjectListener.type, args);
             }
         }
@@ -600,6 +649,7 @@ export namespace Events {
                 super(ShownListener.type, args);
             }
         }
+
         export interface UnshareProjectArgs extends SnapEventArgs {
             ProjectName: any;
         }
@@ -628,22 +678,31 @@ export namespace Events {
             }
         }
 
+        export interface RedropArgs extends SnapEventArgs {
+            action: any;
+        }
+
         export class RedropListener extends SnapEventListener {
             static readonly type = 'Scripts.redrop';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: RedropArgs) => void) {
                 super(RedropListener.type, args);
             }
         }
 
+        export interface UndropArgs extends SnapEventArgs {
+            action: any;
+        }
+
         export class UndropListener extends SnapEventListener {
             static readonly type = 'Scripts.undrop';
-            constructor(args: (args: ValueArgs) => void) {
+            constructor(args: (args: UndropArgs) => void) {
                 super(UndropListener.type, args);
             }
         }
     }
 
     export namespace Sprite {
+
         export interface AddVariableArgs extends SnapEventArgs {
             name: any;
         }
@@ -654,6 +713,7 @@ export namespace Events {
                 super(AddVariableListener.type, args);
             }
         }
+
         export interface DeleteVariableArgs extends SnapEventArgs {
             varName: any;
         }
@@ -664,6 +724,7 @@ export namespace Events {
                 super(DeleteVariableListener.type, args);
             }
         }
+
         export interface SetNameArgs extends SnapEventArgs {
             string: any;
         }
@@ -677,6 +738,7 @@ export namespace Events {
     }
 
     export namespace XML {
+
         export interface ParseFailedArgs extends SnapEventArgs {
             xmlString: any;
         }
