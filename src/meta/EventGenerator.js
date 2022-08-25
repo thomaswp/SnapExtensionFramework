@@ -135,8 +135,16 @@ function generateCode() {
         let listenerClassName = classNamePrefix + 'Listener';
 
         let argsClass = generateArgsClass(args, argsClassName);
+        let getValue = '';
         if (argsClass) {
             code += indent('\n' + argsClass, nSpace);
+            let argKeys = Object.keys(args);
+            if (argKeys.length == 1) {
+                let argKey = argKeys[0];
+                if (argKey !== 'value') {
+                    getValue = `\n    getValueKey() { return '${argKey}'; }\n`;
+                }
+            }
         } else {
             argsClassName = args;
         }
@@ -146,7 +154,7 @@ export class ${listenerClassName} extends SnapEventListener {
     static readonly type = '${event}';
     constructor(args: (args: ${argsClassName}) => void) {
         super(${listenerClassName}.type, args);
-    }
+    }${getValue}
 }
 `, nSpace);
 

@@ -55,7 +55,7 @@ class ClassDef {
     name: string;
     uber = null as string;
     functionProxy : Method;
-    fields = new Map<string, Field>; //[] as Field[];
+    fields = new Map<string, Field>;
     methods = new Map<string, Method>;
     addedParentData = false;
 

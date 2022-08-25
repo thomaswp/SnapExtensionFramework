@@ -6,6 +6,16 @@ export class SnapEventListener {
         this.type = type;
         this.callback = callback;
     }
+
+    convertArgs(data: any) {
+        if (data == null) return {};
+        if (typeof data === 'object') return data;
+        let obj = {};
+        obj[this.getValueKey()] = data;
+        return obj;
+    }
+
+    getValueKey() { return 'value'; }
 }
 
 export interface SnapEventArgs {

@@ -185,6 +185,8 @@ export namespace Events {
             constructor(args: (args: UpdateBlockLabelArgs) => void) {
                 super(UpdateBlockLabelListener.type, args);
             }
+            getValueKey() { return 'newFragment'; }
+
         }
     }
 
@@ -275,6 +277,8 @@ export namespace Events {
             constructor(args: (args: AddSpriteArgs) => void) {
                 super(AddSpriteListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export interface ChangeCategoryArgs extends SnapEventArgs {
@@ -286,6 +290,8 @@ export namespace Events {
             constructor(args: (args: ChangeCategoryArgs) => void) {
                 super(ChangeCategoryListener.type, args);
             }
+            getValueKey() { return 'category'; }
+
         }
 
         export class DeleteCustomBlockListener extends SnapEventListener {
@@ -304,6 +310,8 @@ export namespace Events {
             constructor(args: (args: DuplicateSpriteArgs) => void) {
                 super(DuplicateSpriteListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export class ExportGlobalBlocksListener extends SnapEventListener {
@@ -322,6 +330,8 @@ export namespace Events {
             constructor(args: (args: ExportProejctAsCloudDataArgs) => void) {
                 super(ExportProejctAsCloudDataListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export interface ExportProjectArgs extends SnapEventArgs {
@@ -333,6 +343,8 @@ export namespace Events {
             constructor(args: (args: ExportProjectArgs) => void) {
                 super(ExportProjectListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export interface ExportProjectMediaArgs extends SnapEventArgs {
@@ -344,6 +356,8 @@ export namespace Events {
             constructor(args: (args: ExportProjectMediaArgs) => void) {
                 super(ExportProjectMediaListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export interface ExportProjectNoMediaArgs extends SnapEventArgs {
@@ -355,6 +369,8 @@ export namespace Events {
             constructor(args: (args: ExportProjectNoMediaArgs) => void) {
                 super(ExportProjectNoMediaListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export class ExportScriptsPictureListener extends SnapEventListener {
@@ -373,6 +389,8 @@ export namespace Events {
             constructor(args: (args: ExportSpriteArgs) => void) {
                 super(ExportSpriteListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export class GreenFlagListener extends SnapEventListener {
@@ -391,6 +409,8 @@ export namespace Events {
             constructor(args: (args: LoadFailedArgs) => void) {
                 super(LoadFailedListener.type, args);
             }
+            getValueKey() { return 'err'; }
+
         }
 
         export class NewProjectListener extends SnapEventListener {
@@ -430,6 +450,8 @@ export namespace Events {
             constructor(args: (args: OpenProjectArgs) => void) {
                 super(OpenProjectListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export class OpenProjectStringListener extends SnapEventListener {
@@ -462,6 +484,8 @@ export namespace Events {
             constructor(args: (args: PaintNewSpriteArgs) => void) {
                 super(PaintNewSpriteListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export class PauseListener extends SnapEventListener {
@@ -480,6 +504,8 @@ export namespace Events {
             constructor(args: (args: RotationStyleChangedArgs) => void) {
                 super(RotationStyleChangedListener.type, args);
             }
+            getValueKey() { return 'rotationStyle'; }
+
         }
 
         export interface SaveProjectToCloudArgs extends SnapEventArgs {
@@ -491,6 +517,8 @@ export namespace Events {
             constructor(args: (args: SaveProjectToCloudArgs) => void) {
                 super(SaveProjectToCloudListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export interface SelectSpriteArgs extends SnapEventArgs {
@@ -502,6 +530,8 @@ export namespace Events {
             constructor(args: (args: SelectSpriteArgs) => void) {
                 super(SelectSpriteListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export interface SetLanguageArgs extends SnapEventArgs {
@@ -513,6 +543,8 @@ export namespace Events {
             constructor(args: (args: SetLanguageArgs) => void) {
                 super(SetLanguageListener.type, args);
             }
+            getValueKey() { return 'lang'; }
+
         }
 
         export interface SetSpriteDraggableArgs extends SnapEventArgs {
@@ -524,6 +556,8 @@ export namespace Events {
             constructor(args: (args: SetSpriteDraggableArgs) => void) {
                 super(SetSpriteDraggableListener.type, args);
             }
+            getValueKey() { return 'isDraggable'; }
+
         }
 
         export interface SetSpriteTabArgs extends SnapEventArgs {
@@ -535,6 +569,8 @@ export namespace Events {
             constructor(args: (args: SetSpriteTabArgs) => void) {
                 super(SetSpriteTabListener.type, args);
             }
+            getValueKey() { return 'tabString'; }
+
         }
 
         export class StopListener extends SnapEventListener {
@@ -553,6 +589,8 @@ export namespace Events {
             constructor(args: (args: ToggleAppModeArgs) => void) {
                 super(ToggleAppModeListener.type, args);
             }
+            getValueKey() { return 'isAppMode'; }
+
         }
 
         export interface ToggleStageSizeArgs extends SnapEventArgs {
@@ -564,6 +602,8 @@ export namespace Events {
             constructor(args: (args: ToggleStageSizeArgs) => void) {
                 super(ToggleStageSizeListener.type, args);
             }
+            getValueKey() { return 'isSmallStage'; }
+
         }
 
         export class UnpauseListener extends SnapEventListener {
@@ -629,6 +669,8 @@ export namespace Events {
             constructor(args: (args: SetSourceArgs) => void) {
                 super(SetSourceListener.type, args);
             }
+            getValueKey() { return 'source'; }
+
         }
 
         export interface ShareProjectArgs extends SnapEventArgs {
@@ -659,6 +701,8 @@ export namespace Events {
             constructor(args: (args: UnshareProjectArgs) => void) {
                 super(UnshareProjectListener.type, args);
             }
+            getValueKey() { return 'ProjectName'; }
+
         }
     }
 
@@ -687,6 +731,8 @@ export namespace Events {
             constructor(args: (args: RedropArgs) => void) {
                 super(RedropListener.type, args);
             }
+            getValueKey() { return 'action'; }
+
         }
 
         export interface UndropArgs extends SnapEventArgs {
@@ -698,6 +744,8 @@ export namespace Events {
             constructor(args: (args: UndropArgs) => void) {
                 super(UndropListener.type, args);
             }
+            getValueKey() { return 'action'; }
+
         }
     }
 
@@ -712,6 +760,8 @@ export namespace Events {
             constructor(args: (args: AddVariableArgs) => void) {
                 super(AddVariableListener.type, args);
             }
+            getValueKey() { return 'name'; }
+
         }
 
         export interface DeleteVariableArgs extends SnapEventArgs {
@@ -723,6 +773,8 @@ export namespace Events {
             constructor(args: (args: DeleteVariableArgs) => void) {
                 super(DeleteVariableListener.type, args);
             }
+            getValueKey() { return 'varName'; }
+
         }
 
         export interface SetNameArgs extends SnapEventArgs {
@@ -734,6 +786,8 @@ export namespace Events {
             constructor(args: (args: SetNameArgs) => void) {
                 super(SetNameListener.type, args);
             }
+            getValueKey() { return 'string'; }
+
         }
     }
 
@@ -748,6 +802,8 @@ export namespace Events {
             constructor(args: (args: ParseFailedArgs) => void) {
                 super(ParseFailedListener.type, args);
             }
+            getValueKey() { return 'xmlString'; }
+
         }
     }
 }
