@@ -8,11 +8,11 @@ export class SnapTypes {
     }
 
     IDE() : IDE_Morph {
-        return this.world().childThatIsA(window['IDE_Morph']) as IDE_Morph;
+        return this.world()?.childThatIsA(window['IDE_Morph']) as IDE_Morph;
     }
 
     stage() : StageMorph {
-        return this.IDE().stage;
+        return this.IDE()?.stage;
     }
 
 }

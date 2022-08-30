@@ -29,12 +29,12 @@ export class EventManager {
         });
     }
 
-    // trigger(type: SnapEvents) {
-    //     console.log(type);
-    // }
-
     addListener(listener: SnapEventListener) {
-
+        if (!listener) return;
+        let type = listener.type;
+        if (!this.listeners.has(type)) this.listeners.set(type, []);
+        let list = this.listeners.get(listener.type);
+        list.push(listener);
     }
 
     test() {
