@@ -1,15 +1,15 @@
 export class OverrideRegistry {
 
-    static extend(clazz : Function, functionName : string, newFunction) {
+    static extend(clazz : Function, functionName : string, newFunction, countArgs = true) {
         if (!clazz || !clazz.prototype) {
             // eslint-disable-next-line no-console
             console.error('extend requires a class for its first argument');
             return;
         }
-        return OverrideRegistry.extendObject(clazz.prototype, functionName, newFunction);
+        return OverrideRegistry.extendObject(clazz.prototype, functionName, newFunction, countArgs);
     }
 
-    static extendObject(object : object, functionName : string, newFunction) {
+    static extendObject(object : object, functionName : string, newFunction, countArgs = true) {
         if (!object[functionName]) {
             // eslint-disable-next-line no-console
             console.trace();
@@ -21,12 +21,12 @@ export class OverrideRegistry {
 
         var oldFunction = object[functionName];
 
-        if (!oldFunction.extended && oldFunction.length != undefined &&
+        if (countArgs && !oldFunction.extended && oldFunction.length != undefined &&
                 oldFunction.length + 1 !== newFunction.length) {
             var message = 'Extending function with wrong number of arguments: ' +
                 functionName + ' ' +
                 oldFunction.length + ' vs ' + newFunction.length;
-            console.error(message);
+            console.warn(message);
         }
 
         object[functionName] = function() {

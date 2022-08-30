@@ -3,7 +3,6 @@ import { Events } from "./SnapEvents";
 import { SnapEventListener } from "./SnapEventListener";
 import { SnapEventManager } from "../snap/Snap";
 
-
 export class EventManager {
 
     Trace: SnapEventManager;

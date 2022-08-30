@@ -1,4 +1,4 @@
-import { BlockFactory } from "./blocks/BlockFactory";
+import { Blocks } from "./blocks/BlockFactory";
 import { EventManager } from "./events/EventManager";
 import { Extension } from "./extension/Extension";
 import { ExtensionManager } from "./extension/ExtensionManager";
@@ -14,7 +14,7 @@ window.addEventListener('load', () => {
 })
 
 export {
-    BlockFactory,
+    Blocks,
     DefGenerator,
     EventManager,
     Events,
