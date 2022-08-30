@@ -2,11 +2,13 @@ import { BlockFactory } from "./blocks/BlockFactory";
 import { EventManager } from "./events/EventManager";
 import { DefGenerator } from "./meta/DefGenerator";
 import { SnapHelper } from "./snap/SnapHelper";
+import { SnapTypes } from "./snap/SnapTypes";
 
-// Add object to window for debuggin
-window['SEF'] = {
-    events: new EventManager(),
-    blocks: new BlockFactory(),
-    helper: new SnapHelper(),
-    generator: new DefGenerator(),
-};
+
+export {
+    BlockFactory,
+    DefGenerator,
+    EventManager,
+    SnapHelper,
+    SnapTypes,
+}
