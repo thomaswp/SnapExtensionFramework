@@ -1,12 +1,13 @@
 import { OverrideRegistry } from "../extend/OverrideRegistry";
+import { Snap } from "../snap/SnapUtils";
 import { Color, localize, SpriteMorph, StageMorph, ToggleMorph } from "../snap/Snap";
 
 export namespace Blocks {
 
     export class BlockFactory {
 
-        blocks: Block[];
-        needsInit = false;
+        private blocks: Block[];
+        private needsInit = false;
 
         constructor() {
             this.blocks = [];
@@ -61,8 +62,10 @@ export namespace Blocks {
         }
 
         addCategory(name: string, color: Color) {
-            SpriteMorph.prototype.categories.push(name);
-            SpriteMorph.prototype.blockColor[name] = color;
+            // TODO: Fix this so that the layout works
+            // SpriteMorph.prototype.categories.push(name);
+            // SpriteMorph.prototype.blockColor[name] = color;
+            Snap.IDE.addPaletteCategory(name, color);
         }
     }
 
@@ -146,7 +149,7 @@ export namespace Blocks {
             );
         }
 
-        addSpriteAction(action: any) : Block {
+        addSpriteAction(action: (...args : any) => any) : Block {
             SpriteMorph.prototype[this.selector] =
                 StageMorph.prototype[this.selector] = action;
             return this;

@@ -1,16 +1,11 @@
 import { Blocks } from "../blocks/BlockFactory";
 import { EventManager } from "../events/EventManager";
-import { SnapTypes } from "../snap/SnapTypes";
 import { ExtensionManager } from "./ExtensionManager";
 
 export abstract class Extension {
 
     constructor() {
         this.addBlocks(this.blocks);
-    }
-
-    get snap() : SnapTypes {
-        return ExtensionManager.snap;
     }
 
     get events() : EventManager {

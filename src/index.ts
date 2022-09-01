@@ -3,7 +3,7 @@ import { EventManager } from "./events/EventManager";
 import { Extension } from "./extension/Extension";
 import { ExtensionManager } from "./extension/ExtensionManager";
 import { DefGenerator } from "./meta/DefGenerator";
-import { SnapTypes } from "./snap/SnapTypes";
+import { Snap } from "./snap/SnapUtils";
 import { Events } from "./events/SnapEvents";
 
 window.addEventListener('load', () => {
@@ -20,5 +20,5 @@ export {
     Events,
     Extension,
     ExtensionManager,
-    SnapTypes,
+    Snap,
 };
