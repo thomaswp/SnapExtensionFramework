@@ -211,6 +211,7 @@ class Method {
     checkOverride() {
         switch (this.name) {
             case 'childThatIsA': return `${this.name}(...args: any[]);`
+            case 'parentThatIsA': return `${this.name}(...args: any[]);`
         }
         return null;
     }

@@ -5,6 +5,7 @@ import { ExtensionManager } from "./extension/ExtensionManager";
 import { DefGenerator } from "./meta/DefGenerator";
 import { Snap } from "./snap/SnapUtils";
 import { Events } from "./events/SnapEvents";
+import { OverrideRegistry } from "./extend/OverrideRegistry";
 
 window.addEventListener('load', () => {
     setTimeout(() => {
@@ -20,5 +21,6 @@ export {
     Events,
     Extension,
     ExtensionManager,
+    OverrideRegistry,
     Snap,
 };

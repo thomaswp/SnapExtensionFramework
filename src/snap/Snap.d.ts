@@ -15098,7 +15098,7 @@ export class SpriteMorph extends SnapType {
     ownBlocks();
     palette(category?: any);
     paletteBlockInstance(definition?: any);
-    parentThatIsA();
+    parentThatIsA(...types);
     parentThatIsAnyOf(constructors?: any);
     pauseGenericHatBlocks();
     penSize();

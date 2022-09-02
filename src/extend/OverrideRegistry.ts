@@ -9,6 +9,27 @@ export class OverrideRegistry {
         return OverrideRegistry.extendObject(clazz.prototype, functionName, newFunction, countArgs);
     }
 
+    static after(clazz : Function, functionName : string, doAfter: (...args) => void) {
+        OverrideRegistry.wrap(clazz, functionName, null, doAfter);
+    }
+
+    static before(clazz : Function, functionName : string, doBefore: (...args) => void) {
+        OverrideRegistry.wrap(clazz, functionName, doBefore, null);
+    }
+
+    static wrap(
+        clazz : Function, functionName : string,
+        doBefore?: (...args) => void, doAfter?: (...args) => void
+    ) {
+        function override(base: Function) {
+            let args = [...arguments].slice(1);
+            if (doBefore) doBefore.apply(this, args);
+            base.apply(this, args);
+            if (doAfter) doAfter.apply(this, args);
+        }
+        OverrideRegistry.extend(clazz, functionName, override, false);
+    }
+
     static extendObject(object : object, functionName : string, newFunction, countArgs = true) {
         if (!object[functionName]) {
             // eslint-disable-next-line no-console
