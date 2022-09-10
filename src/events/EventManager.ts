@@ -2,6 +2,7 @@
 import { Events } from "./SnapEvents";
 import { SnapEventListener } from "./SnapEventListener";
 import { SnapEventManager } from "../snap/Snap";
+import { Snap } from "../snap/SnapUtils";
 
 export class EventManager {
 
@@ -17,6 +18,10 @@ export class EventManager {
         this.Trace.addGlobalListener((message: string, data: any) => {
             this.handleEvent(message, data);
         });
+
+        this.addListener(new Events.Block.ClickRunListener((id) => {
+            Snap.lastRunBlock = Snap.getBlock(id);
+        }));
     }
 
     private handleEvent(message: string, data: any) {

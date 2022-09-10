@@ -1,8 +1,12 @@
-import { IDE_Morph, SpriteMorph, StageMorph, WorldMorph } from "./Snap";
+// import { Events, ExtensionManager } from "sef";
+import { BlockMorph, IDE_Morph, SpriteMorph, StageMorph, WorldMorph } from "./Snap";
+import { BlockIDArgs } from "../events/SnapEventListener";
 
 
 // TODO: Make an interface with an implementation that fetches from window
 export class Snap {
+
+    static lastRunBlock: BlockMorph;
 
     static get world() : WorldMorph {
         return window["world"];
@@ -26,6 +30,11 @@ export class Snap {
 
     static getSprite(name: string) {
         return this.sprites.filter(sprite => sprite.name == name)[0];
+    }
+
+    static getBlock(id: BlockIDArgs) {
+        return this.world.allChildren()
+            .filter(b => b instanceof BlockMorph && b.id == id.id)[0];
     }
 
 }
