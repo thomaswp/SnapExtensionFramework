@@ -14,7 +14,14 @@ export namespace Blocks {
             this.needsInit = false;
             let myBlocks = this.blocks;
 
+            let myself = this;
             const override = function(base, category: string, all: boolean) {
+                if (myself.needsInit) {
+                    // In case a refresh is pending when blocks are created
+                    // go ahead and do that now.
+                    SpriteMorph.prototype.initBlocks();
+                    myself.needsInit = false;
+                }
                 let blocks = base.call(this, category);
                 let checkSprite = this instanceof StageMorph;
                 let added = 0;
@@ -56,6 +63,7 @@ export namespace Blocks {
             if (this.needsInit) return;
             this.needsInit = true;
             setTimeout(() => {
+                if (!this.needsInit) return;
                 SpriteMorph.prototype.initBlocks();
                 this.needsInit = false;
             }, 1);

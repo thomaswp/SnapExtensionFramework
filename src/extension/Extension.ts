@@ -5,7 +5,6 @@ import { ExtensionManager } from "./ExtensionManager";
 export abstract class Extension {
 
     constructor() {
-        this.addBlocks(this.blocks);
     }
 
     get events() : EventManager {
@@ -16,10 +15,13 @@ export abstract class Extension {
         return ExtensionManager.blocks;
     }
 
-    addBlocks(blocks : Blocks.BlockFactory) {}
     init() {}
 
     register() {
         ExtensionManager.register(this);
+    }
+
+    dependencies(): string[] {
+        return [];
     }
 }
