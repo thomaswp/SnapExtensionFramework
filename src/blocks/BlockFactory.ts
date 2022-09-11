@@ -1,6 +1,6 @@
 import { OverrideRegistry } from "../extend/OverrideRegistry";
 import { Snap } from "../snap/SnapUtils";
-import { Color, localize, SpriteMorph, StageMorph, ToggleMorph } from "../snap/Snap";
+import { Color, localize, SpriteMorph, StageMorph, SyntaxElementMorph, ToggleMorph } from "../snap/Snap";
 
 export namespace Blocks {
 
@@ -67,12 +67,48 @@ export namespace Blocks {
             // SpriteMorph.prototype.blockColor[name] = color;
             Snap.IDE.addPaletteCategory(name, color);
         }
+
+        addLabeledInput(name: string, options: { [key: string]: any }, ...tags: InputTag[]) {
+            if (SyntaxElementMorph.prototype.labelParts[name]) {
+                throw new Error(`Input type with label ${name} already exists.`);
+            }
+            // Ensure that all string values are array-enclosed
+            Object.keys(options).forEach(k => {
+                if (typeof(options[k]) === 'string') {
+                    options[k] = [options[k]];
+                }
+            })
+            SyntaxElementMorph.prototype.labelParts[name] = {
+                type: 'input',
+                tags: tags.join(' '),
+                menu: options,
+            };
+        }
+    }
+
+    export enum InputTag {
+        /** Values will be interpreted as numeric. */
+        Numberic = 'numeric',
+        ReadOnly = 'read-only',
+        Unevaluated = 'unevaluated',
+        /** The input cannot be replaced with a reporter. */
+        Static = 'static',
+        Landscape = 'landscape',
+        /** Monospace font. */
+        Monospace = 'monospace',
+        Fading = 'fading',
+        Protected = 'protected',
+        Loop = 'loop',
+        /** The input is a lambda expression. */
+        Lambda = 'lambda',
+        /** The input is edited using a custom widget. */
+        Widget = 'widget'
     }
 
     export enum BlockType {
-        Command = "command",
-        Reporter = "reporter",
-        Predicate = "predicate",
+        Command = 'command',
+        Reporter = 'reporter',
+        Predicate = 'predicate',
     }
 
     export class Block {

@@ -14,6 +14,9 @@ window.addEventListener('load', () => {
     }, 0);
 })
 
+// For convenience, make snap global
+window['Snap'] = Snap;
+
 export {
     Blocks,
     DefGenerator,
