@@ -44,9 +44,6 @@ export class ExtensionManager {
         this.extensions.forEach(e => {
             e.init();
         });
-        // TODO: Make this work
-        Snap.IDE.flushPaletteCache();
-        Snap.IDE.refreshPalette();
     }
 
     private static loadExtensions(paths: string[]) {
@@ -57,7 +54,6 @@ export class ExtensionManager {
                 if (!success) {
                     console.warn('Extension not found:', path);
                 }
-                console.log('loaded', path);
                 toLoad--;
                 if (toLoad == 0) {
                     this.initExtensions();
@@ -74,7 +70,7 @@ export class ExtensionManager {
         script.setAttribute('type', 'text/javascript');
         script.setAttribute('src', path);
         // TODO: remove simulated lag
-        script.addEventListener('load', () => setTimeout(() => callback(true), 1000));
+        script.addEventListener('load', () => callback(true));
         script.addEventListener('error', () => callback(false));
         document.getElementsByTagName('head')[0].appendChild(script);
     }

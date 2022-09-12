@@ -14,14 +14,7 @@ export namespace Blocks {
             this.needsInit = false;
             let myBlocks = this.blocks;
 
-            let myself = this;
             const override = function(base, category: string, all: boolean) {
-                if (myself.needsInit) {
-                    // In case a refresh is pending when blocks are created
-                    // go ahead and do that now.
-                    SpriteMorph.prototype.initBlocks();
-                    myself.needsInit = false;
-                }
                 let blocks = base.call(this, category);
                 let checkSprite = this instanceof StageMorph;
                 let added = 0;
@@ -51,22 +44,30 @@ export namespace Blocks {
             OverrideRegistry.extend(SpriteMorph, 'blockTemplates', override, false);
             OverrideRegistry.extend(StageMorph, 'blockTemplates', override, false);
 
-            this.refresh();
+            this.queueRefresh();
         }
 
         registerBlock(block: Block) {
             this.blocks.push(block);
-            this.refresh();
+            this.queueRefresh();
         }
 
-        refresh() {
+        queueRefresh() {
             if (this.needsInit) return;
             this.needsInit = true;
             setTimeout(() => {
                 if (!this.needsInit) return;
-                SpriteMorph.prototype.initBlocks();
-                this.needsInit = false;
+                this.refresh();
             }, 1);
+        }
+
+        refresh() {
+            if (!Snap.IDE) return;
+            SpriteMorph.prototype.initBlocks();
+            Snap.IDE.flushBlocksCache();
+            Snap.IDE.refreshPalette();
+            Snap.IDE.categories.refreshEmpty();
+            this.needsInit = false;
         }
 
         addCategory(name: string, color: Color) {
