@@ -1,4 +1,3 @@
-import { Snap } from "sef";
 import { Blocks } from "../blocks/BlockFactory";
 import { EventManager } from "../events/EventManager";
 import { Extension } from "./Extension";
@@ -16,11 +15,11 @@ export class ExtensionManager {
     }
 
     static init() {
-        
-        const configFn = window['getSEFConfig'];
+
+        const configFn =    window['getSEFConfig'];
         if (!configFn) {
             console.warn(
-                'No SEF config file: No extensions loaded. ' + 
+                'No SEF config file: No extensions loaded. ' +
                 'Please create libraries/sef-config.js.'
             );
             return;
@@ -29,7 +28,7 @@ export class ExtensionManager {
         const config = configFn();
         if (!config || !Array.isArray(config.extensions)) {
             console.warn(
-                'Invalid sef-config.js file (no extensions property). ' + 
+                'Invalid sef-config.js file (no extensions property). ' +
                 'Please see libraries/sef-config.example.js for an example.'
             );
             return;
