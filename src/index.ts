@@ -6,7 +6,7 @@ import { DefGenerator } from "./meta/DefGenerator";
 import { Snap } from "./snap/SnapUtils";
 import { Events } from "./events/SnapEvents";
 import { OverrideRegistry } from "./extend/OverrideRegistry";
-import { CloudUtils } from "./io/CloudUtils";
+import { Cloud } from "./io/CloudUtils";
 
 window.addEventListener('load', () => {
     setTimeout(() => {
@@ -20,7 +20,7 @@ window['Snap'] = Snap;
 
 export {
     Blocks,
-    CloudUtils,
+    Cloud,
     DefGenerator,
     EventManager,
     Events,
