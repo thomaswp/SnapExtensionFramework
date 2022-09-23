@@ -35,15 +35,31 @@ export namespace Cloud {
             });
         }
 
-        static async getPublicProject(projectName: string, userName: string) : Promise<void> {
+        static async getPublicProject(projectName: string, userName: string) : Promise<string> {
             return new Promise((resolve, reject) => {
                 Snap.cloud.getPublicProject(projectName, userName, resolve, reject);
+            });
+        }
+
+        /**
+         * @deprecated The cloud backend no longer supports this!
+         */
+        static async getProjectMetadata(projectName: string, userName: string) : Promise<string> {
+            return new Promise((resolve, reject) => {
+                Snap.cloud.getProjectMetadata(projectName, userName, resolve, reject);
             });
         }
 
         static async shareProject(projectName: string) : Promise<void> {
             return new Promise((resolve, reject) => {
                 Snap.cloud.shareProject(projectName, Snap.cloud.userName, resolve, reject);
+            });
+        }
+
+        // TODO: Project should have some sort of plugin permission system...
+        static async deleteProject(projectName: string) : Promise<void> {
+            return new Promise((resolve, reject) => {
+                Snap.cloud.deleteProject(projectName, Snap.cloud.userName, resolve, reject);
             });
         }
 
