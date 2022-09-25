@@ -175,7 +175,7 @@ export namespace Blocks {
             if (StageMorph.prototype.hiddenPrimitives[selector]) {
                 return null;
             }
-            var info = StageMorph.prototype.blocks[selector];
+            var info = SpriteMorph.prototype.blocks[selector];
             return new ToggleMorph(
                 'checkbox',
                 this,
