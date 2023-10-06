@@ -15,8 +15,9 @@ window.addEventListener('load', () => {
     }, 0);
 })
 
-// For convenience, make snap global
+// For convenience, make snap and the EM global
 window['Snap'] = Snap;
+window['ExtensionManager'] = ExtensionManager;
 
 export {
     Blocks,

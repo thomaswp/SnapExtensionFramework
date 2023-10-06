@@ -1,14 +1,16 @@
 import { Blocks } from "../blocks/BlockFactory";
+import { DevMode } from "../dev/DevMode";
 import { EventManager } from "../events/EventManager";
 import { Extension } from "./Extension";
 
 
 export class ExtensionManager {
 
-    static extensions = [] as Extension[];
+    static readonly extensions = [] as Extension[];
 
-    static blocks = new Blocks.BlockFactory();
-    static events = new EventManager();
+    static readonly blocks = new Blocks.BlockFactory();
+    static readonly events = new EventManager();
+    static readonly devMode = new DevMode();
 
     static register(extension : Extension) {
         this.extensions.push(extension);
@@ -35,6 +37,8 @@ export class ExtensionManager {
         }
 
         this.loadExtensions(config.extensions);
+
+        this.devMode.init();
     }
 
     private static initExtensions() {
