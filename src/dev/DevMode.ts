@@ -35,9 +35,13 @@ export class DevMode {
         }
 
         let lastProject = localStorage.getItem(LAST_PROJECT_KEY);
-        if (lastProject) {
-            Snap.IDE.loadProjectXML(lastProject);
-            console.log("Loading last project", Snap.IDE.getProjectName());
+        if (lastProject && lastProject.length > 0) {
+            // TODO: Right now we set to 10ms to wait until after blocks are
+            // loaded - should be a callback way to do it
+            setTimeout(() => {
+                Snap.IDE.loadProjectXML(lastProject);
+                console.log("Loading last project", Snap.IDE.getProjectName());
+            }, 200);
         }
 
         window.onbeforeunload = () => {};
@@ -48,9 +52,8 @@ export class DevMode {
                 if (xml != this.lastProjectXML) {
                     this.lastProjectXML = xml;
                     localStorage.setItem(LAST_PROJECT_KEY, xml);
-                    console.log("Saved project after: " + message);
+                    // console.log("Saved project after: " + message);
                 }
-                
             }, 0);
         });
     }

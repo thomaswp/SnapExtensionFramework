@@ -1,18 +1,21 @@
 import { OverrideRegistry } from "../extend/OverrideRegistry";
 import { Snap } from "../snap/SnapUtils";
-import { Color, localize, SpriteMorph, StageMorph, SyntaxElementMorph, ToggleMorph } from "../snap/Snap";
+import { Color, IDE_Morph, localize, SpriteMorph, StageMorph, SyntaxElementMorph, ToggleMorph } from "../snap/Snap";
 
 export namespace Blocks {
 
     export class BlockFactory {
 
         private blocks: Block[];
+        private categories = [] as { name: string, color: Color }[];
         private needsInit = false;
 
         constructor() {
             this.blocks = [];
             this.needsInit = false;
-            let myBlocks = this.blocks;
+            const myBlocks = this.blocks;
+            const myCategories = this.categories;
+            const myself = this;
 
             const override = function(base, category: string, all: boolean) {
                 let blocks = base.call(this, category);
@@ -36,6 +39,9 @@ export namespace Blocks {
 
             OverrideRegistry.extend(SpriteMorph, 'initBlocks', function(base) {
                 base.call(this);
+                myCategories.forEach(c => {
+                    myself.addCategoryToPallette(c.name, c.color);
+                });
                 myBlocks.forEach(block => {
                     block.addToMap(SpriteMorph.prototype.blocks);
                 });
@@ -43,6 +49,13 @@ export namespace Blocks {
 
             OverrideRegistry.extend(SpriteMorph, 'blockTemplates', override, false);
             OverrideRegistry.extend(StageMorph, 'blockTemplates', override, false);
+
+            OverrideRegistry.before(IDE_Morph, 'createCategories', function(base) {
+                myCategories.forEach(c => {
+                    myself.addCategoryToPallette(c.name, c.color);
+                });
+            });
+
 
             this.queueRefresh();
         }
@@ -70,11 +83,18 @@ export namespace Blocks {
             this.needsInit = false;
         }
 
-        addCategory(name: string, color: Color) {
+        private addCategoryToPallette(name: string, color: Color) {
             // TODO: Fix this so that the layout works
             // SpriteMorph.prototype.categories.push(name);
             // SpriteMorph.prototype.blockColor[name] = color;
-            Snap.IDE.addPaletteCategory(name, color);
+            if (!SpriteMorph.prototype.customCategories.has(name)) {
+                Snap.IDE.addPaletteCategory(name, color);
+            };
+        }
+
+        addCategory(name: string, color: Color) {
+            this.categories.push({ name, color });
+            this.addCategoryToPallette(name, color);
         }
 
         addLabeledInput(name: string, options: { [key: string]: any }, ...tags: InputTag[]) {
