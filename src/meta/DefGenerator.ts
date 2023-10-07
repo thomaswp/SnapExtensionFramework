@@ -186,8 +186,8 @@ class Method {
     }
 
     getParamNames(func: Function) {
-        var fnStr = func.toString().replace(Method.STRIP_COMMENTS, '');
-        var result = fnStr.slice(fnStr.indexOf('(')+1, fnStr.indexOf(')')).match(Method.ARGUMENT_NAMES);
+        let fnStr = func.toString().replace(Method.STRIP_COMMENTS, '');
+        let result = [...fnStr.slice(fnStr.indexOf('(')+1, fnStr.indexOf(')')).match(Method.ARGUMENT_NAMES)];
         if(result === null)
             result = [];
         result = result.filter(param => param.match(/^[a-zA-Z_$][0-9a-zA-Z_$]*$/))
