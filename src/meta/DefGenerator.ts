@@ -26,8 +26,13 @@ export class DefGenerator {
         return this;
     }
 
+    getClasses() {
+        return [...this.classes.values()]
+        .sort((a, b) => a.compareTo(b));
+    }
+
     outputExports() {
-        return [...this.classes.values()].map(c => c.exportStatement()).join('\n');
+        return this.getClasses().map(c => c.exportStatement()).join('\n');
     }
 
     outputDefinitions() {
@@ -35,7 +40,7 @@ export class DefGenerator {
 export class SnapType {
     prototype: any;
     [key: string]: any;
-}\n\n` + [...this.classes.values()].map(c => c.toTS()).join('\n\n');
+}\n\n` + this.getClasses().map(c => c.toTS()).join('\n\n');
     }
 
     downloadAll() {
@@ -67,6 +72,10 @@ class ClassDef {
     methods = new Map<string, Method>;
     addedParentData = false;
 
+    get isPureFunction() {
+        return this.functionProxy != null;
+    }
+
     constructor(func: Function) {
         this.baseFunction = func;
         this.name = func.name;
@@ -93,6 +102,12 @@ class ClassDef {
             }
         }
         this.inferFields(proto['init']);
+    }
+
+    compareTo(other: ClassDef) {
+        if (this.isPureFunction && !other.isPureFunction) return -1;
+        if (!this.isPureFunction && other.isPureFunction) return 1;
+        return this.name.localeCompare(other.name);
     }
 
     addParentData(classes: Map<string, ClassDef>): void {
