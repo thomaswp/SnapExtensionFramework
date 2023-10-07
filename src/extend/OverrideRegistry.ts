@@ -1,24 +1,26 @@
+type FunctionID = Function | string;
+
 export class OverrideRegistry {
 
-    static extend(clazz : Function, functionName : string, newFunction, countArgs = true) {
+    static extend(clazz : Function, func : FunctionID, newFunction, countArgs = true) {
         if (!clazz || !clazz.prototype) {
             // eslint-disable-next-line no-console
             console.error('extend requires a class for its first argument');
             return;
         }
-        return OverrideRegistry.extendObject(clazz.prototype, functionName, newFunction, countArgs);
+        return OverrideRegistry.extendObject(clazz.prototype, func, newFunction, countArgs);
     }
 
-    static after(clazz : Function, functionName : string, doAfter: (...args) => void) {
-        OverrideRegistry.wrap(clazz, functionName, null, doAfter);
+    static after(clazz : Function, func : FunctionID, doAfter: (...args) => void) {
+        OverrideRegistry.wrap(clazz, func, null, doAfter);
     }
 
-    static before(clazz : Function, functionName : string, doBefore: (...args) => void) {
-        OverrideRegistry.wrap(clazz, functionName, doBefore, null);
+    static before(clazz : Function, func : FunctionID, doBefore: (...args) => void) {
+        OverrideRegistry.wrap(clazz, func, doBefore, null);
     }
 
     static wrap(
-        clazz : Function, functionName : string,
+        clazz : Function, func : FunctionID,
         doBefore?: (...args) => void, doAfter?: (...args) => void
     ) {
         function override(base: Function) {
@@ -27,10 +29,11 @@ export class OverrideRegistry {
             base.apply(this, args);
             if (doAfter) doAfter.apply(this, args);
         }
-        OverrideRegistry.extend(clazz, functionName, override, false);
+        OverrideRegistry.extend(clazz, func, override, false);
     }
 
-    static extendObject(object : object, functionName : string, newFunction, countArgs = true) {
+    static extendObject(object : object, func : FunctionID, newFunction, countArgs = true) {
+        let functionName = typeof func === 'string' ? func : func.name;
         if (!object[functionName]) {
             // eslint-disable-next-line no-console
             console.trace();
@@ -59,5 +62,82 @@ export class OverrideRegistry {
 
         return oldFunction;
     }
+}
+
+
+type BaseFunction = (...args) => any;
+
+export class CallContext<ClassType extends Function, FunctionType extends BaseFunction> {
+
+    readonly thisArg: ClassType;
+    readonly originalFunction: FunctionType;
+    readonly originalArgs: Parameters<FunctionType>;
+
+    constructor(thisArg: ClassType, originalFunction: FunctionType, originalArgs: Parameters<FunctionType>) {
+        this.thisArg = thisArg;
+        this.originalFunction = originalFunction;
+        this.originalArgs = originalArgs;
+    }
+
+    apply(args = this.originalArgs) {
+        return this.originalFunction.apply(this.thisArg, args);
+    }
+
+    callWithArgs(...args) {
+        return this.originalFunction.call(this.thisArg, ...args);
+    }
+}
+
+type BaseWithContext<ClassType extends Function, FunctionType> = 
+    FunctionType extends (...a: infer U) => infer R ? 
+        (info: CallContext<ClassType, FunctionType>, ...a:U) => R: 
+        never;
+
+
+export class ParameterizedOverride {
+    static override<ClassType extends Function, FunctionType extends (...args) => any>(
+        clazz: ClassType, 
+        functionDef: FunctionType,
+        override: BaseWithContext<ClassType, FunctionType>,
+    ) {
+        OverrideRegistry.extend(clazz, functionDef.name, function (base) {
+            let originalArgs = [...arguments].slice(1);
+            let info = new CallContext(this, base, originalArgs);
+            return override(info, ...originalArgs);
+        }, true);
+    }
+
+    static after<ClassType extends Function, FunctionType extends BaseFunction>(
+        clazz: ClassType, 
+        functionDef: FunctionType,
+        doAfter: BaseWithContext<ClassType, FunctionType>,
+    ) {
+        ParameterizedOverride.wrap(clazz, functionDef, null, doAfter);
+    }
+
+    static before<ClassType extends Function, FunctionType extends BaseFunction>(
+        clazz: ClassType, 
+        functionDef: FunctionType,
+        doBefore: BaseWithContext<ClassType, FunctionType>,
+    ) {
+        ParameterizedOverride.wrap(clazz, functionDef, doBefore, null);
+    }
+
+    static wrap<ClassType extends Function, FunctionType extends BaseFunction>(
+        clazz: ClassType, 
+        functionDef: FunctionType,
+        doBefore?: BaseWithContext<ClassType, FunctionType>,
+        doAfter?: BaseWithContext<ClassType, FunctionType>,
+    ) {
+        function override(base: BaseFunction) {
+            let originalArgs = [...arguments].slice(1);
+            let info = new CallContext(this, base, originalArgs);
+            if (doBefore) doBefore(info, ...originalArgs);
+            base.apply(this, originalArgs);
+            if (doAfter) doAfter(info, ...originalArgs);
+        }
+        OverrideRegistry.extend(clazz, functionDef.name, override, false);
+    }
+
 }
 
