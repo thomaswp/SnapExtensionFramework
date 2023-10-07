@@ -15,10 +15,11 @@ window.addEventListener('load', () => {
     }, 0);
 })
 
-// For convenience, make snap and the EM global
+// For convenience, make snap global
 window['Snap'] = Snap;
-window['ExtensionManager'] = ExtensionManager;
 
+// Everything else can be accessed via library with
+// SEF.XXX
 export {
     Blocks,
     Cloud,
