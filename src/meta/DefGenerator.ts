@@ -1,3 +1,9 @@
+/**
+ * This class automatically generates typescript definitions
+ * from Snap's source code. To run, open Snap in a browser and
+ * from the console run:
+ * new SEF.DefGenerator().init().downloadAll()
+ */
 export class DefGenerator {
 
     classes = new Map<string, ClassDef>;
@@ -16,6 +22,8 @@ export class DefGenerator {
 
         console.log(this.outputDefinitions());
         console.log(this);
+
+        return this;
     }
 
     outputExports() {
@@ -187,9 +195,8 @@ class Method {
 
     getParamNames(func: Function) {
         let fnStr = func.toString().replace(Method.STRIP_COMMENTS, '');
-        let result = [...fnStr.slice(fnStr.indexOf('(')+1, fnStr.indexOf(')')).match(Method.ARGUMENT_NAMES)];
-        if(result === null)
-            result = [];
+        let resultRegex = fnStr.slice(fnStr.indexOf('(')+1, fnStr.indexOf(')')).match(Method.ARGUMENT_NAMES);
+        let result = resultRegex ? [...resultRegex] : [];
         result = result.filter(param => param.match(/^[a-zA-Z_$][0-9a-zA-Z_$]*$/))
         return result;
     }
