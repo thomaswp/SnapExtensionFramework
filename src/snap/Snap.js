@@ -23,7 +23,6 @@ export const isURL = window['isURL'];
 export const isURLChar = window['isURLChar'];
 export const isWordChar = window['isWordChar'];
 export const localize = window['localize'];
-export const loop = window['loop'];
 export const m = window['m'];
 export const newCanvas = window['newCanvas'];
 export const newGuid = window['newGuid'];
