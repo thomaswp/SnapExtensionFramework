@@ -41,7 +41,7 @@ export class DevMode {
             setTimeout(() => {
                 Snap.IDE.loadProjectXML(lastProject);
                 console.log("Loading last project", Snap.IDE.getProjectName());
-            }, 200);
+            }, 500);
         }
 
         window.onbeforeunload = () => {};

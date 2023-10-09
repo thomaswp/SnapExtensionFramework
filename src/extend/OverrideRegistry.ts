@@ -90,7 +90,11 @@ export class CallContext<ClassType, FunctionType extends BaseFunction> {
         return this.originalFunction.apply(this.thisArg, args);
     }
 
-    callWithArgs(...args) {
+    callWithOriginalArgs() {
+        return this.originalFunction.call(this.thisArg, ...this.originalArgs);
+    }
+
+    callWithNewArgs(...args) {
         return this.originalFunction.call(this.thisArg, ...args);
     }
 }
@@ -114,7 +118,7 @@ class Extender<Proto extends object, FunctionType extends Function> {
             let originalArgs = [...arguments].slice(1);
             let info = new CallContext(this, base, originalArgs);
             return override.call(this, info, ...originalArgs);
-        }, true);
+        }, false);
     }
 
     after(
@@ -137,7 +141,7 @@ class Extender<Proto extends object, FunctionType extends Function> {
             if (doBefore) doBefore.call(this, info, ...originalArgs);
             base.apply(this, originalArgs);
             if (doAfter) doAfter.call(this, info, ...originalArgs);
-        }, true);
+        }, false);
     }
 }
 
