@@ -117,30 +117,27 @@ class Extender<Proto extends object, FunctionType extends Function> {
         }, true);
     }
 
-    after<ClassType extends Function, FunctionType extends BaseFunction>(
-        doAfter: BaseWithContext<ClassType, FunctionType>,
+    after(
+        doAfter: BaseWithContext<Proto, FunctionType>,
     ) {
         this.wrap(null, doAfter);
     }
 
-    before<ClassType extends Function, FunctionType extends BaseFunction>(
-        doBefore: BaseWithContext<ClassType, FunctionType>,
-    ) {
+    before(doBefore: BaseWithContext<Proto, FunctionType>,) {
         this.wrap(doBefore, null);
     }
 
-    wrap<ClassType extends Function, FunctionType extends BaseFunction>(
-        doBefore?: BaseWithContext<ClassType, FunctionType>,
-        doAfter?: BaseWithContext<ClassType, FunctionType>,
+    wrap(
+        doBefore?: BaseWithContext<Proto, FunctionType>,
+        doAfter?: BaseWithContext<Proto, FunctionType>,
     ) {
-        function override(base: BaseFunction) {
+        OverrideRegistry.extendObject(this.prototype, this.originalFunction, function override(base) {
             let originalArgs = [...arguments].slice(1);
             let info = new CallContext(this, base, originalArgs);
             if (doBefore) doBefore(info, ...originalArgs);
             base.apply(this, originalArgs);
             if (doAfter) doAfter(info, ...originalArgs);
-        }
-        OverrideRegistry.extendObject(this.prototype, this.originalFunction, override, false);
+        }, false);
     }
 }
 
