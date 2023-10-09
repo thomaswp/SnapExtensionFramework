@@ -1,4 +1,14 @@
+import { ArgLabelMorph } from "../snap/Snap";
+import { Snap } from "../snap/SnapUtils";
+
 type FunctionID = Function | string;
+
+function getPrototypeFunctionName(prototype: Object, func: Function) {
+    for (let key in prototype) {
+        if (prototype[key] === func) return key;
+    }
+    return null;
+}
 
 export class OverrideRegistry {
 
@@ -33,7 +43,8 @@ export class OverrideRegistry {
     }
 
     static extendObject(object : object, func : FunctionID, newFunction, countArgs = true) {
-        let functionName = typeof func === 'string' ? func : func.name;
+        let functionName = typeof func === 'string' ? func : getPrototypeFunctionName(object, func);
+
         if (!object[functionName]) {
             // eslint-disable-next-line no-console
             console.trace();
