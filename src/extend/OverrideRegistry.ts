@@ -141,18 +141,37 @@ class Extender<Proto extends object, FunctionType extends Function> {
     }
 }
 
+type RemoveIndex<T> = {
+    [ K in keyof T as
+      string extends K
+        ? never
+        : number extends K
+          ? never
+          : symbol extends K
+            ? never
+            : K
+    ]: T[K];
+};
+
 type ExtensionOf<Proto extends object> = {
-    [P in keyof Proto]: Proto[P] extends BaseFunction ? Extender<Proto, Proto[P]> : never;
+    [P in keyof RemoveIndex<Proto>]: Proto[P] extends BaseFunction
+        ? Extender<Proto, Proto[P]>
+        : never;
 }
 
 export function extend<Proto extends object>(proto: Proto) {
     let ex = {} as ExtensionOf<Proto>;
-    Object.keys(proto).forEach(k => {
+    let count = 0;
+    for (let k in proto) {
+        let key = k as string;
         let f = proto[k];
         if (typeof f === 'function') {
-            ex[k] = new Extender(proto, f);
+            // console.log( k);
+            ex[key] = new Extender(proto, f);
+            count++;
         }
-    });
+    };
+    // console.log("created " + count + " extenders");
     return ex;
 }
 
