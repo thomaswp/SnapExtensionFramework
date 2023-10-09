@@ -97,7 +97,7 @@ export class CallContext<ClassType, FunctionType extends BaseFunction> {
 
 type BaseWithContext<ClassType, FunctionType> = 
     FunctionType extends (...a: infer U) => infer R ? 
-        (info: CallContext<ClassType, FunctionType>, ...a:U) => R: 
+        (this: ClassType, info: CallContext<ClassType, FunctionType>, ...a:U) => R: 
         never;
 
 class Extender<Proto extends object, FunctionType extends Function> {
@@ -113,7 +113,7 @@ class Extender<Proto extends object, FunctionType extends Function> {
         OverrideRegistry.extendObject(this.prototype, this.originalFunction, function (base) {
             let originalArgs = [...arguments].slice(1);
             let info = new CallContext(this, base, originalArgs);
-            return override(info, ...originalArgs);
+            return override.call(this, info, ...originalArgs);
         }, true);
     }
 
@@ -134,10 +134,10 @@ class Extender<Proto extends object, FunctionType extends Function> {
         OverrideRegistry.extendObject(this.prototype, this.originalFunction, function override(base) {
             let originalArgs = [...arguments].slice(1);
             let info = new CallContext(this, base, originalArgs);
-            if (doBefore) doBefore(info, ...originalArgs);
+            if (doBefore) doBefore.call(this, info, ...originalArgs);
             base.apply(this, originalArgs);
-            if (doAfter) doAfter(info, ...originalArgs);
-        }, false);
+            if (doAfter) doAfter.call(this, info, ...originalArgs);
+        }, true);
     }
 }
 
