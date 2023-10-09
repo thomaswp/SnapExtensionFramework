@@ -6,7 +6,6 @@ export const detect = window['detect'];
 export const disableRetinaSupport = window['disableRetinaSupport'];
 export const embedMetadataPNG = window['embedMetadataPNG'];
 export const enableRetinaSupport = window['enableRetinaSupport'];
-export const ExtensionManager = window['ExtensionManager'];
 export const fontHeight = window['fontHeight'];
 export const getDocumentPositionOf = window['getDocumentPositionOf'];
 export const getMinimumFontHeight = window['getMinimumFontHeight'];
