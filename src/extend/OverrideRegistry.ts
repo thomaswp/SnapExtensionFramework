@@ -33,8 +33,9 @@ export class OverrideRegistry {
         function override(base: Function) {
             let args = [...arguments].slice(1);
             if (doBefore) doBefore.apply(this, args);
-            base.apply(this, args);
+            let value = base.apply(this, args);
             if (doAfter) doAfter.apply(this, args);
+            return value;
         }
         OverrideRegistry.extend(clazz, func, override, false);
     }
@@ -139,8 +140,9 @@ class Extender<Proto extends object, FunctionType extends Function> {
             let originalArgs = [...arguments].slice(1);
             let info = new CallContext(this, base, originalArgs);
             if (doBefore) doBefore.call(this, info, ...originalArgs);
-            base.apply(this, originalArgs);
+            let value = base.apply(this, originalArgs);
             if (doAfter) doAfter.call(this, info, ...originalArgs);
+            return value;
         }, false);
     }
 }
