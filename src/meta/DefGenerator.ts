@@ -1,3 +1,6 @@
+import { OverrideRegistry, extend } from "../extend/OverrideRegistry";
+import { BlockMorph } from "../snap/Snap";
+
 /**
  * This class automatically generates typescript definitions
  * from Snap's source code. To run, open Snap in a browser and
@@ -7,6 +10,7 @@
 export class DefGenerator {
 
     classes = new Map<string, ClassDef>;
+    instrumenters = new Map<string, Instrumenter>();
 
     init() {
         for (let key of Object.keys(window)) {
@@ -20,10 +24,41 @@ export class DefGenerator {
         }
         this.classes.forEach(c => c.addParentData(this.classes));
 
-        console.log(this.outputDefinitions());
-        console.log(this);
+        // console.log(this.outputDefinitions());
+        // console.log(this);
+
+        let inst = new Instrumenter(BlockMorph.name, BlockMorph.prototype);
+        this.instrumenters.set(inst.name, inst);
+        
+        this.instrumenters.forEach(i => i.onProgressCallback = () => {
+            this.saveInstrumenters();
+        });
+
+        this.loadInstrumenters();
 
         return this;
+    }
+
+    startLogging() {
+        this.instrumenters.forEach(i => i.startLogging());
+    }
+
+    saveInstrumenters() {
+        let json = {};
+        this.instrumenters.forEach((inst, name) => {
+            json[name] = inst.serialize();
+        });
+        localStorage['instrumenters'] = JSON.stringify(json);
+    }
+
+    loadInstrumenters() {
+        let json = localStorage['instrumenters'];
+        if (!json) return;
+        json = JSON.parse(json);
+        this.instrumenters.forEach((inst, name) => {
+            if (!json[name]) return;
+            inst.deserialize(json[name]);
+        });
     }
 
     getClasses() {
@@ -40,7 +75,7 @@ export class DefGenerator {
 export class SnapType {
     prototype: any;
     [key: string]: any;
-}\n\n` + this.getClasses().map(c => c.toTS()).join('\n\n');
+}\n\n` + this.getClasses().map(c => c.toTS(this.instrumenters.get(c.name))).join('\n\n');
     }
 
     downloadAll() {
@@ -61,6 +96,80 @@ export class SnapType {
         document.body.removeChild(element);
     }
 
+}
+
+type ArgTypes = Set<string>[];
+
+class Instrumenter {
+
+    name: string
+    proto: object;
+    argTypes = new Map<string, ArgTypes>();
+    called = new Set<string>();
+    onProgressCallback: () => void;
+
+    get size() { return this.argTypes.size; }
+
+    constructor(name, proto) {
+        this.name = name;
+        this.proto = proto;
+        for (let key in proto) {
+            let value = proto[key];
+            if (typeof value !== 'function') continue;
+            if (key === 'constructor') continue;
+            this.argTypes.set(key, []);   
+        }
+    }
+
+    startLogging() {
+        let proto = this.proto;
+        for (let key of this.argTypes.keys()) {
+            let myself = this;
+            let fKey = key;
+            // TODO: pass class for use here!!
+            OverrideRegistry.before(BlockMorph, key, function() {
+                let args = [...arguments];
+                myself.updateArgMap(fKey, args);
+            });         
+        }
+    }
+
+    serialize() {
+        return {
+            called: [...this.called],
+            argTypes: [...this.argTypes.entries()].map(([key, value]) => {
+                return [key, value.map(s => [...s])];
+            })
+        };
+    }
+
+    deserialize(json) {
+        this.called = new Set(json.called);
+        this.argTypes = new Map(json.argTypes.map(([key, value]) => {
+            return [key, value.map(a => new Set(a))];
+        }));
+    }
+
+    updateArgMap(key: string, args: any[]) {
+        let types = this.argTypes.get(key);
+        for (let i = 0; i < args.length; i++) {
+            let arg = args[i];
+            if (arg == null) continue;
+            let type = typeof(arg);
+            if (arg instanceof Object && arg.constructor) type = arg.constructor.name;
+            while (types.length <= i) {
+                types.push(new Set<string>());
+            }
+            types[i].add(type);
+        }
+        if (!this.called.has(key)) {
+            this.called.add(key);
+            console.log(this.name, `${this.called.size} / ${this.size}`, key, types);
+            if (this.onProgressCallback) {
+                this.onProgressCallback();
+            }
+        }
+    }
 }
 
 class ClassDef {
@@ -150,7 +259,7 @@ class ClassDef {
         return `export const ${this.name} = window['${this.name}'];`;
     }
 
-    toTS() : string  {
+    toTS(instrumenter: Instrumenter) : string  {
         if (this.functionProxy) {
             return `export function ${this.functionProxy.toTS()}`;
         }
@@ -169,7 +278,7 @@ class ClassDef {
         let mKeys = [...this.methods.keys()];
         mKeys.sort();
         for (let mKey of mKeys) {
-            code += '    ' + this.methods.get(mKey).toTS() + '\n';
+            code += '    ' + this.methods.get(mKey).toTS(instrumenter?.argTypes?.get(mKey)) + '\n';
         }
         code += '}';
         return code;
@@ -216,15 +325,22 @@ class Method {
         return result;
     }
 
-    toTS() : string {
+    toTS(argTypes?: ArgTypes) : string {
         const override = this.checkOverride();
         if (override) return override;
         let code = `${this.name}(`;
         let first = true;
+        let index = 0;
         for (let name of this.paramNames) {
             if (!first) code += ', ';
             first = false;
-            code += `${name}?: any`;
+            let type = 'any';
+            if (argTypes && argTypes[index] && argTypes[index].size > 0) {
+                type = [...argTypes[index]].join(' | ');
+                console.log(this.name, name, type);
+            }
+            code += `${name}?: ${type}`;
+            index++;
         }
         code += ');';
         return code;
