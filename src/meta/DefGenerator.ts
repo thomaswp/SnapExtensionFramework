@@ -22,7 +22,7 @@ export class DefGenerator {
             if (value.name.length == 0) continue;
             this.classes.set(key, new ClassDef(value));
         }
-        this.classes.forEach(c => c.addParentData(this.classes));
+        // this.classes.forEach(c => c.addParentData(this.classes));
 
         // console.log(this.outputDefinitions());
         // console.log(this);
@@ -219,6 +219,7 @@ class ClassDef {
         return this.name.localeCompare(other.name);
     }
 
+    // No longer needed as newer TS version allows for function overloading/shadowing
     addParentData(classes: Map<string, ClassDef>): void {
         if (this.addedParentData) return;
         this.addedParentData = true;
@@ -231,7 +232,6 @@ class ClassDef {
             this.methods.set(methodName, method);
             // If a field overshadows a parent method, it was probably
             // a mistake, so delete it.
-            // TODO: Not sure this is the right call; could ignore inheritance
             this.fields.delete(methodName);
         }
         for (let [fieldName, field] of parent.fields) {
@@ -251,7 +251,16 @@ class ClassDef {
             if (this.fields.has(name)) continue;
             // Give precedence to methods
             if (this.methods.has(name)) continue;
+            if (this.ignoreField(name)) continue;
             this.fields.set(name, new Field(name, null, false));
+        }
+    }
+
+    ignoreField(name: string) : boolean {
+        if (this.name === 'ToggleButtonMorph') {
+            return name === 'query';
+        } else if (this.name === 'PaintCanvasMorph') {
+            return name === 'isShiftPressed';
         }
     }
 
@@ -264,10 +273,7 @@ class ClassDef {
             return `export function ${this.functionProxy.toTS()}`;
         }
 
-        // let code = `export class ${this.name} extends ${this.uber ? this.uber : 'SnapType'}`;
-        // TODO: Because Typescript seems not to allow function shadowing,
-        // need to manually define all parent types and methods (that aren't shadowed) here
-        let code = `export class ${this.name} extends SnapType`;
+        let code = `export class ${this.name} extends ${this.uber ? this.uber : 'SnapType'}`;
         code += ` {\n`;
         let fKeys = [...this.fields.keys()];
         fKeys.sort();

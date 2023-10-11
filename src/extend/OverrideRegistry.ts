@@ -228,3 +228,27 @@ export function extend<Proto extends object>(proto: Proto) {
 
 // }
 
+class Test1 {
+    x: (a: number, b: string) => void;
+    y: (a: number, b: string) => void;
+    declared(a: number, b: string) {
+
+    }
+}
+
+class Test2 extends Test1 {
+    x: (a: number) => void;
+    z: (a: number, b: string) => void;
+    declared(a: number): void {
+        
+    }
+}
+
+function test() {
+    let t1: Test1;
+    let t2: Test2;
+    t1.x(1, "a");
+    t2.x(1);
+    t1.declared(1, "a");
+    t2.declared(1);
+}
