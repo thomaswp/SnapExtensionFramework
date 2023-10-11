@@ -1,5 +1,39 @@
 import { OverrideRegistry, extend } from "../extend/OverrideRegistry";
 import { BlockMorph } from "../snap/Snap";
+import { Snap } from "../snap/SnapUtils";
+
+class TreeNode {
+    name: string;
+    children: TreeNode[] = [];
+    parent: TreeNode = null;
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    static findLCA(a: TreeNode, b: TreeNode) {
+        let aPath = a.rootPath();
+        let bPath = b.rootPath();
+        let i = 0;
+        while (i < aPath.length && i < bPath.length) {
+            if (aPath[i] !== bPath[i]) break;
+            i++;
+        }
+        return aPath[i-1];
+    }
+
+    rootPath() {
+        let path = [] as TreeNode[];
+        path.push(this);
+        let node = this.parent;
+        while (node) {
+            path.push(node);
+            node = node.parent;
+        }
+        return path.reverse();
+    }
+}
+
 
 /**
  * This class automatically generates typescript definitions
@@ -11,6 +45,7 @@ export class DefGenerator {
 
     classes = new Map<string, ClassDef>;
     instrumenters = new Map<string, Instrumenter>();
+    hierarchy: Map<string, TreeNode>;
 
     init() {
         for (let key of Object.keys(window)) {
@@ -27,16 +62,80 @@ export class DefGenerator {
         // console.log(this.outputDefinitions());
         // console.log(this);
 
-        let inst = new Instrumenter(BlockMorph.name, BlockMorph.prototype);
+        let inst = new Instrumenter(this.classes.get(BlockMorph.name), BlockMorph.prototype);
         this.instrumenters.set(inst.name, inst);
         
         this.instrumenters.forEach(i => i.onProgressCallback = () => {
+            // TODO: Should probably queue this to run at most once per frame
+            this.walkObjects();
             this.saveInstrumenters();
         });
 
         this.loadInstrumenters();
+        this.walkObjects();
+        this.hierarchy = this.createHierarchy();
 
         return this;
+    }
+
+    walkObjects(root = Snap.world) {
+        this.inspectObject(root);
+        if (!root.children) return;
+        for (let child of root.children) {
+            this.walkObjects(child);
+        }
+    }
+
+    inspectObject(obj: object) {
+        if (!(obj instanceof Object && obj.constructor)) return;
+        let type = obj.constructor.name;
+        for (let inst of this.instrumenters.values()) {
+            if (obj instanceof inst.class) {
+                inst.addObject(obj);
+            }
+        }
+    }
+
+    createHierarchy() {
+        let hierarchy = new Map<string, TreeNode>();
+        this.classes.forEach(c => {
+            let node = new TreeNode(c.name);
+            hierarchy.set(c.name, node);
+        });
+        hierarchy.set('SnapType', new TreeNode('SnapType'));
+        this.classes.forEach(c => {
+            let node = hierarchy.get(c.name);
+            let parent = c.uber;
+            let parentNode = hierarchy.get(parent);
+            if (parentNode == null) parentNode = hierarchy.get('SnapType');
+            parentNode.children.push(node);
+            node.parent = parentNode;
+        });
+        return hierarchy;
+    }
+
+    
+    typesToTS(types: FieldTypes) {
+        if (types == null || types.size == 0) return 'any';
+        let typesArray = [...types];
+        if (types.size == 1) return typesArray[0];
+        let morphTypes = typesArray.filter(t => t.endsWith('Morph'));
+        if (morphTypes.length > 1) {
+            typesArray = typesArray.filter(t => !morphTypes.includes(t));
+            let lca = morphTypes.map(t => this.hierarchy.get(t)).filter(t => t != null).reduce((a, b) => {
+                return TreeNode.findLCA(a, b);
+            });
+            if (lca != null) {
+                console.log("Collapsed", morphTypes, "to", lca.name);
+                typesArray.push(lca.name);
+            }
+        }
+        typesArray = typesArray.map(t => {
+            if (t == "Map") return "Map<any, any>";
+            if (t == "Array") return "any[]";
+            return t;
+        });
+        return typesArray.join(' | ');
     }
 
     startLogging() {
@@ -75,7 +174,7 @@ export class DefGenerator {
 export class SnapType {
     prototype: any;
     [key: string]: any;
-}\n\n` + this.getClasses().map(c => c.toTS(this.instrumenters.get(c.name))).join('\n\n');
+}\n\n` + this.getClasses().map(c => c.toTS(this, this.instrumenters.get(c.name))).join('\n\n');
     }
 
     downloadAll() {
@@ -98,36 +197,45 @@ export class SnapType {
 
 }
 
-type ArgTypes = Set<string>[];
+type FieldTypes = Set<string>;
+type ArgTypes = FieldTypes[];
 
 class Instrumenter {
 
-    name: string
+    def: ClassDef
+    class: Function;
     proto: object;
+    fieldTypes = new Map<string, FieldTypes>();
     argTypes = new Map<string, ArgTypes>();
     called = new Set<string>();
+    assigned = new Set<string>();
     onProgressCallback: () => void;
 
-    get size() { return this.argTypes.size; }
+    get name() { return this.def.name; }
+    get nFields() { return this.fieldTypes.size; }
+    get nFuncs() { return this.argTypes.size; }
 
-    constructor(name, proto) {
-        this.name = name;
+    constructor(def: ClassDef, proto: object) {
+        this.def = def;
+        this.class = window[this.name];
         this.proto = proto;
-        for (let key in proto) {
-            let value = proto[key];
-            if (typeof value !== 'function') continue;
-            if (key === 'constructor') continue;
-            this.argTypes.set(key, []);   
-        }
+
+        def.methods.forEach(m => {
+            if (m.name === 'constructor') return;
+            this.argTypes.set(m.name, []);
+        });
+
+        def.fields.forEach(f => {
+            this.fieldTypes.set(f.name, new Set<string>());
+        });
     }
 
     startLogging() {
-        let proto = this.proto;
         for (let key of this.argTypes.keys()) {
             let myself = this;
             let fKey = key;
             // TODO: pass class for use here!!
-            OverrideRegistry.before(BlockMorph, key, function() {
+            OverrideRegistry.before(window[this.name], key, function() {
                 let args = [...arguments];
                 myself.updateArgMap(fKey, args);
             });         
@@ -137,6 +245,10 @@ class Instrumenter {
     serialize() {
         return {
             called: [...this.called],
+            assigned: [...this.assigned],
+            fieldTypes: [...this.fieldTypes.entries()].map(([key, value]) => {
+                return [key, [...value]];
+            }),
             argTypes: [...this.argTypes.entries()].map(([key, value]) => {
                 return [key, value.map(s => [...s])];
             })
@@ -145,9 +257,28 @@ class Instrumenter {
 
     deserialize(json) {
         this.called = new Set(json.called);
+        this.assigned = new Set(json.assigned);
+        this.fieldTypes = new Map(json.fieldTypes.map(([key, value]) => {
+            return [key, new Set(value)];
+        }));
         this.argTypes = new Map(json.argTypes.map(([key, value]) => {
             return [key, value.map(a => new Set(a))];
         }));
+    }
+
+    getTypeOf(object: object) {
+        let type = typeof(object) as string;
+        if (object instanceof Object && object.constructor) type = object.constructor.name;
+        return type;
+    }
+
+    addObject(obj: object) {
+        for (let key of this.fieldTypes.keys()) {
+            let value = obj[key];
+            if (value == null) continue;
+            this.assigned.add(key);
+            this.fieldTypes.get(key).add(this.getTypeOf(value));
+        }
     }
 
     updateArgMap(key: string, args: any[]) {
@@ -155,8 +286,7 @@ class Instrumenter {
         for (let i = 0; i < args.length; i++) {
             let arg = args[i];
             if (arg == null) continue;
-            let type = typeof(arg);
-            if (arg instanceof Object && arg.constructor) type = arg.constructor.name;
+            let type = this.getTypeOf(arg);
             while (types.length <= i) {
                 types.push(new Set<string>());
             }
@@ -164,7 +294,8 @@ class Instrumenter {
         }
         if (!this.called.has(key)) {
             this.called.add(key);
-            console.log(this.name, `${this.called.size} / ${this.size}`, key, types);
+            console.log(this.name, `${this.assigned.size} / ${this.nFields} fields; ` +
+                `${this.called.size} / ${this.nFuncs} functions`, key, types);
             if (this.onProgressCallback) {
                 this.onProgressCallback();
             }
@@ -268,9 +399,9 @@ class ClassDef {
         return `export const ${this.name} = window['${this.name}'];`;
     }
 
-    toTS(instrumenter: Instrumenter) : string  {
+    toTS(gen: DefGenerator, instrumenter: Instrumenter) : string  {
         if (this.functionProxy) {
-            return `export function ${this.functionProxy.toTS()}`;
+            return `export function ${this.functionProxy.toTS(gen)}`;
         }
 
         let code = `export class ${this.name} extends ${this.uber ? this.uber : 'SnapType'}`;
@@ -278,13 +409,15 @@ class ClassDef {
         let fKeys = [...this.fields.keys()];
         fKeys.sort();
         for (let fkey of fKeys) {
-            code += '    ' + this.fields.get(fkey).toTS() + '\n';
+            let types = instrumenter?.fieldTypes?.get(fkey);
+            let typesString = gen.typesToTS(types);
+            code += '    ' + this.fields.get(fkey).toTS(typesString) + '\n';
         }
         code += '\n';
         let mKeys = [...this.methods.keys()];
         mKeys.sort();
         for (let mKey of mKeys) {
-            code += '    ' + this.methods.get(mKey).toTS(instrumenter?.argTypes?.get(mKey)) + '\n';
+            code += '    ' + this.methods.get(mKey).toTS(gen, instrumenter?.argTypes?.get(mKey)) + '\n';
         }
         code += '}';
         return code;
@@ -293,20 +426,18 @@ class ClassDef {
 
 class Field {
     name: string;
-    type: string;
     isStatic: boolean;
 
     constructor(name: string, value: any, isStatic: boolean) {
         this.name = name;
         this.isStatic = isStatic;
-        this.type = 'any';
-        if (value !== null && value !== undefined) {
-            this.type = typeof(value);
-        }
+        // if (value !== null && value !== undefined) {
+        //     this.type = typeof(value);
+        // }
     }
 
-    toTS() : string {
-        return `${this.isStatic ? 'static ' : ''}${this.name}: ${this.type};`;
+    toTS(types: string) : string {
+        return `${this.isStatic ? 'static ' : ''}${this.name}: ${types};`;
     }
 }
 
@@ -331,7 +462,7 @@ class Method {
         return result;
     }
 
-    toTS(argTypes?: ArgTypes) : string {
+    toTS(gen: DefGenerator, argTypes?: ArgTypes) : string {
         const override = this.checkOverride();
         if (override) return override;
         let code = `${this.name}(`;
@@ -340,11 +471,8 @@ class Method {
         for (let name of this.paramNames) {
             if (!first) code += ', ';
             first = false;
-            let type = 'any';
-            if (argTypes && argTypes[index] && argTypes[index].size > 0) {
-                type = [...argTypes[index]].join(' | ');
-                console.log(this.name, name, type);
-            }
+            let type = gen.typesToTS(argTypes?.[index]);
+            if (argTypes) console.log(name, argTypes[index], type);
             code += `${name}?: ${type}`;
             index++;
         }
