@@ -62,8 +62,14 @@ export class DefGenerator {
         // console.log(this.outputDefinitions());
         // console.log(this);
 
-        let inst = new Instrumenter(this.classes.get(BlockMorph.name), BlockMorph.prototype);
-        this.instrumenters.set(inst.name, inst);
+        let limit = 5;
+        for (let clazz of this.classes.values()) {
+            if (clazz.isPureFunction) continue;
+            let inst = new Instrumenter(clazz);
+            this.instrumenters.set(inst.name, inst);
+            if (limit-- <= 0) break;
+        }
+        this.instrumenters.set(BlockMorph.name, new Instrumenter(this.classes.get(BlockMorph.name)));
         
         this.instrumenters.forEach(i => i.onProgressCallback = () => {
             // TODO: Should probably queue this to run at most once per frame
@@ -118,6 +124,11 @@ export class DefGenerator {
     typesToTS(types: FieldTypes) {
         if (types == null || types.size == 0) return 'any';
         let typesArray = [...types];
+        typesArray = typesArray.map(t => {
+            if (t == "Map") return "Map<any, any>";
+            if (t == "Array") return "any[]";
+            return t;
+        });
         if (types.size == 1) return typesArray[0];
         let morphTypes = typesArray.filter(t => t.endsWith('Morph'));
         if (morphTypes.length > 1) {
@@ -126,15 +137,10 @@ export class DefGenerator {
                 return TreeNode.findLCA(a, b);
             });
             if (lca != null) {
-                console.log("Collapsed", morphTypes, "to", lca.name);
+                // console.log("Collapsed", morphTypes, "to", lca.name);
                 typesArray.push(lca.name);
             }
         }
-        typesArray = typesArray.map(t => {
-            if (t == "Map") return "Map<any, any>";
-            if (t == "Array") return "any[]";
-            return t;
-        });
         return typesArray.join(' | ');
     }
 
@@ -142,11 +148,18 @@ export class DefGenerator {
         this.instrumenters.forEach(i => i.startLogging());
     }
 
-    saveInstrumenters() {
+    getInstrumentersJSON() {
         let json = {};
-        this.instrumenters.forEach((inst, name) => {
+        [...this.instrumenters.values()]
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .forEach((inst, name) => {
             json[name] = inst.serialize();
         });
+        return json;
+    }
+
+    saveInstrumenters() {
+        let json = this.getInstrumentersJSON();
         localStorage['instrumenters'] = JSON.stringify(json);
     }
 
@@ -180,6 +193,7 @@ export class SnapType {
     downloadAll() {
         this.downloadFile('Snap.js', this.outputExports());
         this.downloadFile('Snap.d.ts', this.outputDefinitions());
+        this.downloadFile('types.json', JSON.stringify(this.getInstrumentersJSON(), null, 2));
     }
 
     downloadFile(filename: string, text: string) {
@@ -200,6 +214,24 @@ export class SnapType {
 type FieldTypes = Set<string>;
 type ArgTypes = FieldTypes[];
 
+function serializeMap(map: Map<string, FieldTypes | ArgTypes>) {
+    return [...map.keys()]
+    .sort((a, b) => a.localeCompare(b))
+    .map(key => {
+        let value = map.get(key);
+        if (value instanceof Set) return [key, serializeSet(value)];
+        return [key, serializeSetArray(value)];
+    });
+}
+
+function serializeSetArray(arr: ArgTypes) {
+    return arr.map(a => serializeSet(a));
+}
+
+function serializeSet(set: FieldTypes) {
+    return [...set].sort((a, b) => a.localeCompare(b));
+}
+
 class Instrumenter {
 
     def: ClassDef
@@ -215,10 +247,10 @@ class Instrumenter {
     get nFields() { return this.fieldTypes.size; }
     get nFuncs() { return this.argTypes.size; }
 
-    constructor(def: ClassDef, proto: object) {
+    constructor(def: ClassDef) {
         this.def = def;
         this.class = window[this.name];
-        this.proto = proto;
+        this.proto = def.baseFunction.prototype;
 
         def.methods.forEach(m => {
             if (m.name === 'constructor') return;
@@ -246,12 +278,8 @@ class Instrumenter {
         return {
             called: [...this.called],
             assigned: [...this.assigned],
-            fieldTypes: [...this.fieldTypes.entries()].map(([key, value]) => {
-                return [key, [...value]];
-            }),
-            argTypes: [...this.argTypes.entries()].map(([key, value]) => {
-                return [key, value.map(s => [...s])];
-            })
+            fieldTypes: serializeMap(this.fieldTypes),
+            argTypes: serializeMap(this.argTypes),
         };
     }
 
@@ -472,7 +500,7 @@ class Method {
             if (!first) code += ', ';
             first = false;
             let type = gen.typesToTS(argTypes?.[index]);
-            if (argTypes) console.log(name, argTypes[index], type);
+            // if (argTypes) console.log(name, argTypes[index], type);
             code += `${name}?: ${type}`;
             index++;
         }
