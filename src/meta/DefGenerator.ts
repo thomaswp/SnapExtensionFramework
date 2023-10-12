@@ -47,6 +47,8 @@ export class DefGenerator {
     instrumenters = new Map<string, Instrumenter>();
     hierarchy: Map<string, TreeNode>;
 
+    walkedThisFrame = false;
+
     init() {
         for (let key of Object.keys(window)) {
             // console.log(key);
@@ -62,7 +64,7 @@ export class DefGenerator {
         // console.log(this.outputDefinitions());
         // console.log(this);
 
-        let limit = 5;
+        let limit = 50;
         for (let clazz of this.classes.values()) {
             if (clazz.isPureFunction) continue;
             let inst = new Instrumenter(clazz);
@@ -72,9 +74,13 @@ export class DefGenerator {
         this.instrumenters.set(BlockMorph.name, new Instrumenter(this.classes.get(BlockMorph.name)));
         
         this.instrumenters.forEach(i => i.onProgressCallback = () => {
-            // TODO: Should probably queue this to run at most once per frame
+            if (this.walkedThisFrame) return;
+            this.walkedThisFrame = true;
             this.walkObjects();
             this.saveInstrumenters();
+            setTimeout(() => {
+                this.walkedThisFrame = false;
+            }, 1);
         });
 
         this.loadInstrumenters();
@@ -121,7 +127,7 @@ export class DefGenerator {
     }
 
     
-    typesToTS(types: FieldTypes) {
+    typesToTS(types: FieldTypes, isField: boolean) {
         if (types == null || types.size == 0) return 'any';
         let typesArray = [...types];
         typesArray = typesArray.map(t => {
@@ -130,6 +136,8 @@ export class DefGenerator {
             return t;
         });
         if (types.size == 1) return typesArray[0];
+        // If this can be a function, it might be defined as such in a parent class, so use any type
+        if (isField && typesArray.includes('Function')) return 'any';
         let morphTypes = typesArray.filter(t => t.endsWith('Morph'));
         if (morphTypes.length > 1) {
             typesArray = typesArray.filter(t => !morphTypes.includes(t));
@@ -438,7 +446,7 @@ class ClassDef {
         fKeys.sort();
         for (let fkey of fKeys) {
             let types = instrumenter?.fieldTypes?.get(fkey);
-            let typesString = gen.typesToTS(types);
+            let typesString = gen.typesToTS(types, true);
             code += '    ' + this.fields.get(fkey).toTS(typesString) + '\n';
         }
         code += '\n';
@@ -499,7 +507,7 @@ class Method {
         for (let name of this.paramNames) {
             if (!first) code += ', ';
             first = false;
-            let type = gen.typesToTS(argTypes?.[index]);
+            let type = gen.typesToTS(argTypes?.[index], false);
             // if (argTypes) console.log(name, argTypes[index], type);
             code += `${name}?: ${type}`;
             index++;

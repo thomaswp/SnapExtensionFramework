@@ -1,9 +1,55 @@
 {
   "0": {
-    "called": [
-      "start",
-      "step"
+    "called": [],
+    "assigned": [
+      "orientation",
+      "alignment",
+      "padding",
+      "respectHiddens"
     ],
+    "fieldTypes": [
+      [
+        "alignment",
+        [
+          "string"
+        ]
+      ],
+      [
+        "orientation",
+        [
+          "string"
+        ]
+      ],
+      [
+        "padding",
+        [
+          "number"
+        ]
+      ],
+      [
+        "respectHiddens",
+        [
+          "boolean"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "render",
+        []
+      ]
+    ]
+  },
+  "1": {
+    "called": [],
     "assigned": [],
     "fieldTypes": [
       [
@@ -54,62 +100,196 @@
       ]
     ]
   },
-  "1": {
-    "called": [
-      "mouseEnterBounds",
-      "mouseLeaveBounds",
-      "rootForGrab",
-      "mouseDownLeft",
-      "fullCopy",
-      "copy",
-      "removeHighlight",
-      "getHighlight",
-      "reactToTemplateCopy",
-      "blockId",
-      "forceNormalColoring",
-      "fixChildrensBlockColor",
-      "situation",
-      "prepareToBeGrabbed",
-      "scriptTarget",
-      "allComments",
-      "fullImage",
-      "render",
-      "cSlots",
-      "hasLocationPin",
-      "justDropped",
-      "abstractBlockSpec",
-      "parseSpec",
-      "toScriptXML",
-      "toBlockXML",
-      "fixBlockColor",
-      "snap",
-      "mouseClickLeft",
-      "addHighlight",
-      "highlight",
-      "highlightImageBlurred",
-      "fixLabelColor",
-      "init",
-      "localizeBlockSpec",
-      "setSpec",
-      "addErrorHighlight",
-      "userMenu",
-      "activeProcess",
-      "isInheritedVariable",
-      "isTransientVariable",
-      "refactorPaletteTemplate",
-      "refactorVariable",
-      "scopeFor",
-      "fullScopeFor",
-      "unwind",
-      "unwindAfter",
-      "isVariableAccessorFor",
-      "toXML",
-      "rebuild",
-      "setCategory",
-      "alternateBlockColor",
-      "hasLabels",
-      "destroy"
+  "2": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "color",
+        []
+      ],
+      [
+        "fps",
+        []
+      ]
     ],
+    "argTypes": [
+      [
+        "init",
+        []
+      ],
+      [
+        "step",
+        []
+      ]
+    ]
+  },
+  "3": {
+    "called": [],
+    "assigned": [
+      "text",
+      "fontSize",
+      "fontName",
+      "fontStyle",
+      "isBold",
+      "isItalic",
+      "isEditable",
+      "enableLinks",
+      "isNumeric",
+      "isPassword",
+      "shadowOffset",
+      "shadowColor",
+      "isShowingBlanks",
+      "blanksColor",
+      "isScrollable",
+      "currentlySelecting",
+      "startMark",
+      "endMark",
+      "markedTextColor",
+      "markedBackgoundColor",
+      "color"
+    ],
+    "fieldTypes": [
+      [
+        "blanksColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "currentlySelecting",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "enableLinks",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "endMark",
+        [
+          "number"
+        ]
+      ],
+      [
+        "fontName",
+        [
+          "string"
+        ]
+      ],
+      [
+        "fontSize",
+        [
+          "number"
+        ]
+      ],
+      [
+        "fontStyle",
+        [
+          "string"
+        ]
+      ],
+      [
+        "isBold",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isEditable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isItalic",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isNumeric",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isPassword",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isScrollable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isShowingBlanks",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "markedBackgoundColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "markedTextColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "shadowColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "shadowOffset",
+        [
+          "Point"
+        ]
+      ],
+      [
+        "startMark",
+        [
+          "number"
+        ]
+      ],
+      [
+        "text",
+        [
+          "string"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "getRenderColor",
+        []
+      ],
+      [
+        "getShadowRenderColor",
+        []
+      ]
+    ]
+  },
+  "4": {
+    "called": [],
     "assigned": [
       "id",
       "selector",
@@ -117,8 +297,7 @@
       "category",
       "isCorpse",
       "color",
-      "cachedInputs",
-      "comment"
+      "cachedInputs"
     ],
     "fieldTypes": [
       [
@@ -147,9 +326,7 @@
       ],
       [
         "comment",
-        [
-          "CommentMorph"
-        ]
+        []
       ],
       [
         "id",
@@ -277,24 +454,11 @@
       ],
       [
         "fixBlockColor",
-        [
-          [
-            "CommandBlockMorph",
-            "JaggedBlockMorph",
-            "PrototypeHatBlockMorph"
-          ],
-          [
-            "boolean"
-          ]
-        ]
+        []
       ],
       [
         "fixChildrensBlockColor",
-        [
-          [
-            "boolean"
-          ]
-        ]
+        []
       ],
       [
         "fixLabelColor",
@@ -318,11 +482,7 @@
       ],
       [
         "fullScopeFor",
-        [
-          [
-            "string"
-          ]
-        ]
+        []
       ],
       [
         "getHighlight",
@@ -354,17 +514,7 @@
       ],
       [
         "highlight",
-        [
-          [
-            "Color"
-          ],
-          [
-            "number"
-          ],
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "highlightImage",
@@ -372,14 +522,7 @@
       ],
       [
         "highlightImageBlurred",
-        [
-          [
-            "Color"
-          ],
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "init",
@@ -391,11 +534,7 @@
       ],
       [
         "isInheritedVariable",
-        [
-          [
-            "boolean"
-          ]
-        ]
+        []
       ],
       [
         "isSending",
@@ -411,27 +550,15 @@
       ],
       [
         "isVariableAccessorFor",
-        [
-          [
-            "string"
-          ]
-        ]
+        []
       ],
       [
         "justDropped",
-        [
-          [
-            "HandMorph"
-          ]
-        ]
+        []
       ],
       [
         "localizeBlockSpec",
-        [
-          [
-            "string"
-          ]
-        ]
+        []
       ],
       [
         "mapCode",
@@ -463,37 +590,19 @@
       ],
       [
         "mouseClickLeft",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "mouseDownLeft",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "mouseEnterBounds",
-        [
-          [
-            "CommandBlockMorph",
-            "ReporterBlockMorph"
-          ]
-        ]
+        []
       ],
       [
         "mouseLeaveBounds",
-        [
-          [
-            "CommandBlockMorph",
-            "ReporterBlockMorph"
-          ]
-        ]
+        []
       ],
       [
         "outline",
@@ -501,11 +610,7 @@
       ],
       [
         "parseSpec",
-        [
-          [
-            "string"
-          ]
-        ]
+        []
       ],
       [
         "pickUp",
@@ -513,11 +618,7 @@
       ],
       [
         "prepareToBeGrabbed",
-        [
-          [
-            "HandMorph"
-          ]
-        ]
+        []
       ],
       [
         "reactToDropOf",
@@ -529,11 +630,7 @@
       ],
       [
         "rebuild",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "refactorInlineTemplate",
@@ -541,22 +638,11 @@
       ],
       [
         "refactorPaletteTemplate",
-        [
-          [
-            "boolean"
-          ]
-        ]
+        []
       ],
       [
         "refactorVariable",
-        [
-          [
-            "string"
-          ],
-          [
-            "string"
-          ]
-        ]
+        []
       ],
       [
         "reify",
@@ -572,11 +658,7 @@
       ],
       [
         "render",
-        [
-          [
-            "CanvasRenderingContext2D"
-          ]
-        ]
+        []
       ],
       [
         "restoreInputs",
@@ -596,11 +678,7 @@
       ],
       [
         "scopeFor",
-        [
-          [
-            "string"
-          ]
-        ]
+        []
       ],
       [
         "scriptPic",
@@ -608,19 +686,11 @@
       ],
       [
         "scriptTarget",
-        [
-          [
-            "boolean"
-          ]
-        ]
+        []
       ],
       [
         "setCategory",
-        [
-          [
-            "string"
-          ]
-        ]
+        []
       ],
       [
         "setSelector",
@@ -628,14 +698,7 @@
       ],
       [
         "setSpec",
-        [
-          [
-            "string"
-          ],
-          [
-            "CustomBlockDefinition"
-          ]
-        ]
+        []
       ],
       [
         "showHelp",
@@ -675,11 +738,7 @@
       ],
       [
         "toBlockXML",
-        [
-          [
-            "SnapSerializer"
-          ]
-        ]
+        []
       ],
       [
         "toggleHighlight",
@@ -695,14 +754,7 @@
       ],
       [
         "toScriptXML",
-        [
-          [
-            "SnapSerializer"
-          ],
-          [
-            "boolean"
-          ]
-        ]
+        []
       ],
       [
         "toString",
@@ -710,11 +762,7 @@
       ],
       [
         "toXML",
-        [
-          [
-            "SnapSerializer"
-          ]
-        ]
+        []
       ],
       [
         "toXMLString",
@@ -734,11 +782,7 @@
       ],
       [
         "unwindAfter",
-        [
-          [
-            "InputSlotMorph"
-          ]
-        ]
+        []
       ],
       [
         "userDestroy",
@@ -758,16 +802,239 @@
       ]
     ]
   },
-  "2": {
-    "called": [
-      "toString",
-      "lighter",
-      "mixed",
-      "darker",
-      "eq",
-      "copy",
-      "hsv"
+  "5": {
+    "called": [],
+    "assigned": [
+      "isProtectedLabel",
+      "isReadOnly",
+      "name",
+      "size",
+      "shadowOffset",
+      "shadowColor",
+      "color"
     ],
+    "fieldTypes": [
+      [
+        "backgroundColor",
+        []
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "isProtectedLabel",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isReadOnly",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "name",
+        [
+          "string"
+        ]
+      ],
+      [
+        "shadowColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "shadowOffset",
+        [
+          "Point"
+        ]
+      ],
+      [
+        "size",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "getRenderColor",
+        []
+      ],
+      [
+        "getShadowRenderColor",
+        []
+      ]
+    ]
+  },
+  "6": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "direction",
+        []
+      ],
+      [
+        "fps",
+        []
+      ],
+      [
+        "isStopped",
+        []
+      ],
+      [
+        "speed",
+        []
+      ],
+      [
+        "type",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "init",
+        []
+      ],
+      [
+        "moveDown",
+        []
+      ],
+      [
+        "moveLeft",
+        []
+      ],
+      [
+        "moveRight",
+        []
+      ],
+      [
+        "moveUp",
+        []
+      ],
+      [
+        "step",
+        []
+      ]
+    ]
+  },
+  "7": {
+    "called": [],
+    "assigned": [
+      "edge",
+      "border",
+      "borderColor"
+    ],
+    "fieldTypes": [
+      [
+        "border",
+        [
+          "number"
+        ]
+      ],
+      [
+        "borderColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "edge",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "colorSetters",
+        []
+      ],
+      [
+        "developersMenu",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "numericalSetters",
+        []
+      ],
+      [
+        "outlinePath",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "setBorderColor",
+        []
+      ],
+      [
+        "setBorderWidth",
+        []
+      ],
+      [
+        "setCornerSize",
+        []
+      ]
+    ]
+  },
+  "8": {
+    "called": [],
+    "assigned": [
+      "orientation",
+      "autoOrient"
+    ],
+    "fieldTypes": [
+      [
+        "autoOrient",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "orientation",
+        [
+          "string"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "autoOrientation",
+        []
+      ],
+      [
+        "developersMenu",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "toggleOrientation",
+        []
+      ]
+    ]
+  },
+  "9": {
+    "called": [],
     "assigned": [],
     "fieldTypes": [
       [
@@ -798,20 +1065,11 @@
       ],
       [
         "darker",
-        [
-          [
-            "number",
-            "string"
-          ]
-        ]
+        []
       ],
       [
         "eq",
-        [
-          [
-            "Color"
-          ]
-        ]
+        []
       ],
       [
         "hsl",
@@ -831,22 +1089,11 @@
       ],
       [
         "lighter",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "mixed",
-        [
-          [
-            "number"
-          ],
-          [
-            "Color"
-          ]
-        ]
+        []
       ],
       [
         "set_hsl",
@@ -870,79 +1117,1627 @@
       ]
     ]
   },
-  "3": {
-    "called": [
-      "stepFrame",
-      "step",
-      "world",
-      "setPosition",
-      "topLeft",
-      "fullBounds",
-      "topMorphAt",
-      "visibleBounds",
-      "isTransparentAt",
-      "rerender",
-      "changed",
-      "childChanged",
-      "drawOn",
-      "position",
-      "render",
-      "getRenderColor",
-      "width",
-      "height",
-      "fullDrawOn",
-      "center",
-      "setCenter",
-      "extent",
-      "top",
-      "rootForGrab",
-      "escalateEvent",
-      "fullCopy",
-      "copyRecordingReferences",
-      "copy",
-      "add",
-      "updateReferences",
-      "setColor",
-      "situation",
-      "addShadow",
-      "shadow",
-      "init",
-      "setExtent",
-      "fixLayout",
-      "shadowImageBlurred",
-      "fullImage",
-      "moveBy",
-      "addBack",
-      "fullChanged",
-      "getImage",
-      "renderCachedTexture",
-      "left",
-      "bottom",
-      "removeShadow",
-      "getShadow",
-      "destroy",
-      "right",
-      "setLeft",
-      "show",
-      "hide",
-      "setTop",
-      "setRight",
-      "setWidth",
-      "setHeight",
-      "topRight",
-      "setBottom",
-      "bottomLeft",
-      "keepWithin",
-      "wantsDropOf",
-      "contextMenu",
-      "userMenu",
-      "fixHolesLayout",
-      "rightCenter",
-      "isPickedUp",
-      "fullBoundsNoShadow",
-      "toggleVisibility",
-      "toString"
+  "10": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "choice",
+        []
+      ],
+      [
+        "isCachingImage",
+        []
+      ],
+      [
+        "target",
+        []
+      ],
+      [
+        "targetSetter",
+        []
+      ]
     ],
+    "argTypes": [
+      [
+        "developersMenu",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseMove",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "setTarget",
+        []
+      ],
+      [
+        "setTargetSetter",
+        []
+      ],
+      [
+        "updateTarget",
+        []
+      ]
+    ]
+  },
+  "11": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "choice",
+        []
+      ],
+      [
+        "color",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "getChoice",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "rootForGrab",
+        []
+      ]
+    ]
+  },
+  "12": {
+    "called": [],
+    "assigned": [
+      "partOfCustomCommand"
+    ],
+    "fieldTypes": [
+      [
+        "exitTag",
+        []
+      ],
+      [
+        "partOfCustomCommand",
+        [
+          "boolean"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "allAttachTargets",
+        []
+      ],
+      [
+        "attachTargets",
+        []
+      ],
+      [
+        "blockSequence",
+        []
+      ],
+      [
+        "bottomAttachPoint",
+        []
+      ],
+      [
+        "bottomBlock",
+        []
+      ],
+      [
+        "closestAttachTarget",
+        []
+      ],
+      [
+        "dentCenter",
+        []
+      ],
+      [
+        "dentLeft",
+        []
+      ],
+      [
+        "drawBottomDentEdge",
+        []
+      ],
+      [
+        "drawBottomRightEdge",
+        []
+      ],
+      [
+        "drawEdges",
+        []
+      ],
+      [
+        "drawFlatBottomDentEdge",
+        []
+      ],
+      [
+        "drawLeftEdge",
+        []
+      ],
+      [
+        "drawRightEdge",
+        []
+      ],
+      [
+        "drawTopDentEdge",
+        []
+      ],
+      [
+        "drawTopLeftEdge",
+        []
+      ],
+      [
+        "extract",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "isStop",
+        []
+      ],
+      [
+        "nextBlock",
+        []
+      ],
+      [
+        "outlinePath",
+        []
+      ],
+      [
+        "prepareToBeGrabbed",
+        []
+      ],
+      [
+        "snap",
+        []
+      ],
+      [
+        "topAttachPoint",
+        []
+      ],
+      [
+        "userDestroy",
+        []
+      ],
+      [
+        "userDestroyJustThis",
+        []
+      ],
+      [
+        "userExtractJustThis",
+        []
+      ],
+      [
+        "wrapAttachPoint",
+        []
+      ]
+    ]
+  },
+  "13": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "keyDownEventUsed",
+        []
+      ],
+      [
+        "originalAlignment",
+        []
+      ],
+      [
+        "originalContents",
+        []
+      ],
+      [
+        "slot",
+        []
+      ],
+      [
+        "target",
+        []
+      ],
+      [
+        "textarea",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "accept",
+        []
+      ],
+      [
+        "cancel",
+        []
+      ],
+      [
+        "destroy",
+        []
+      ],
+      [
+        "gotoPos",
+        []
+      ],
+      [
+        "gotoSlot",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "processInput",
+        []
+      ],
+      [
+        "processKeyDown",
+        []
+      ],
+      [
+        "processKeyUp",
+        []
+      ],
+      [
+        "syncTextareaSelectionWith",
+        []
+      ],
+      [
+        "undo",
+        []
+      ],
+      [
+        "updateSelection",
+        []
+      ],
+      [
+        "updateTextAreaPosition",
+        []
+      ]
+    ]
+  },
+  "14": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "action",
+        []
+      ],
+      [
+        "color",
+        []
+      ],
+      [
+        "fillColor",
+        []
+      ],
+      [
+        "max",
+        []
+      ],
+      [
+        "min",
+        []
+      ],
+      [
+        "target",
+        []
+      ],
+      [
+        "tick",
+        []
+      ],
+      [
+        "value",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "developersMenu",
+        []
+      ],
+      [
+        "getValueOf",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "setExtent",
+        []
+      ],
+      [
+        "setRadius",
+        []
+      ],
+      [
+        "setTarget",
+        []
+      ],
+      [
+        "setTargetSetter",
+        []
+      ],
+      [
+        "setValue",
+        []
+      ],
+      [
+        "updateTarget",
+        []
+      ]
+    ]
+  },
+  "15": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "action",
+        []
+      ],
+      [
+        "body",
+        []
+      ],
+      [
+        "buttons",
+        []
+      ],
+      [
+        "color",
+        []
+      ],
+      [
+        "environment",
+        []
+      ],
+      [
+        "fullShadowSource",
+        []
+      ],
+      [
+        "head",
+        []
+      ],
+      [
+        "is3D",
+        []
+      ],
+      [
+        "isDraggable",
+        []
+      ],
+      [
+        "key",
+        []
+      ],
+      [
+        "label",
+        []
+      ],
+      [
+        "labelString",
+        []
+      ],
+      [
+        "nag",
+        []
+      ],
+      [
+        "noDropShadow",
+        []
+      ],
+      [
+        "target",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "accept",
+        []
+      ],
+      [
+        "addBody",
+        []
+      ],
+      [
+        "addButton",
+        []
+      ],
+      [
+        "addHead",
+        []
+      ],
+      [
+        "askYesNo",
+        []
+      ],
+      [
+        "cancel",
+        []
+      ],
+      [
+        "createButtons",
+        []
+      ],
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "destroy",
+        []
+      ],
+      [
+        "edit",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "getInput",
+        []
+      ],
+      [
+        "inform",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "justDropped",
+        []
+      ],
+      [
+        "normalizeSpaces",
+        []
+      ],
+      [
+        "ok",
+        []
+      ],
+      [
+        "outlinePathBody",
+        []
+      ],
+      [
+        "outlinePathTitle",
+        []
+      ],
+      [
+        "popUp",
+        []
+      ],
+      [
+        "processKeyDown",
+        []
+      ],
+      [
+        "processKeyPress",
+        []
+      ],
+      [
+        "prompt",
+        []
+      ],
+      [
+        "promptCategory",
+        []
+      ],
+      [
+        "promptCode",
+        []
+      ],
+      [
+        "promptCredentials",
+        []
+      ],
+      [
+        "promptRGB",
+        []
+      ],
+      [
+        "promptVector",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "setPicture",
+        []
+      ],
+      [
+        "withKey",
+        []
+      ]
+    ]
+  },
+  "16": {
+    "called": [],
+    "assigned": [
+      "color",
+      "acceptsDrops",
+      "isDraggable",
+      "alpha",
+      "scrollFrame"
+    ],
+    "fieldTypes": [
+      [
+        "acceptsDrops",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "alpha",
+        [
+          "number"
+        ]
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "isDraggable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "scrollFrame",
+        [
+          "SceneAlbumMorph",
+          "ScrollFrameMorph"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "adjustBounds",
+        []
+      ],
+      [
+        "developersMenu",
+        []
+      ],
+      [
+        "fullBounds",
+        []
+      ],
+      [
+        "fullDrawOn",
+        []
+      ],
+      [
+        "fullImage",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "keepAllSubmorphsWithin",
+        []
+      ],
+      [
+        "keepInScrollFrame",
+        []
+      ],
+      [
+        "reactToDropOf",
+        []
+      ],
+      [
+        "reactToGrabOf",
+        []
+      ],
+      [
+        "submorphBounds",
+        []
+      ],
+      [
+        "topMorphAt",
+        []
+      ]
+    ]
+  },
+  "17": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "choice",
+        []
+      ],
+      [
+        "isCachingImage",
+        []
+      ],
+      [
+        "target",
+        []
+      ],
+      [
+        "targetSetter",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "render",
+        []
+      ]
+    ]
+  },
+  "18": {
+    "called": [],
+    "assigned": [
+      "target",
+      "minExtent",
+      "inset",
+      "type",
+      "isHighlighted",
+      "color",
+      "isDraggable"
+    ],
+    "fieldTypes": [
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "inset",
+        [
+          "Point"
+        ]
+      ],
+      [
+        "isDraggable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isHighlighted",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "minExtent",
+        [
+          "Point"
+        ]
+      ],
+      [
+        "target",
+        [
+          "TextMorph"
+        ]
+      ],
+      [
+        "type",
+        [
+          "string"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "attach",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "renderCrosshairsOn",
+        []
+      ],
+      [
+        "renderHandleOn",
+        []
+      ],
+      [
+        "rootForGrab",
+        []
+      ]
+    ]
+  },
+  "19": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "bounds",
+        []
+      ],
+      [
+        "cachedFullBounds",
+        []
+      ],
+      [
+        "cachedFullImage",
+        []
+      ],
+      [
+        "contextMenuEnabled",
+        []
+      ],
+      [
+        "grabOrigin",
+        []
+      ],
+      [
+        "grabPosition",
+        []
+      ],
+      [
+        "morphToGrab",
+        []
+      ],
+      [
+        "mouseButton",
+        []
+      ],
+      [
+        "mouseOverBounds",
+        []
+      ],
+      [
+        "mouseOverList",
+        []
+      ],
+      [
+        "temporaries",
+        []
+      ],
+      [
+        "touchHoldTimeout",
+        []
+      ],
+      [
+        "touchStartPosition",
+        []
+      ],
+      [
+        "world",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "allMorphsAtPointer",
+        []
+      ],
+      [
+        "changed",
+        []
+      ],
+      [
+        "destroyTemporaries",
+        []
+      ],
+      [
+        "drop",
+        []
+      ],
+      [
+        "dropTargetFor",
+        []
+      ],
+      [
+        "fullChanged",
+        []
+      ],
+      [
+        "fullDrawOn",
+        []
+      ],
+      [
+        "grab",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "morphAtPointer",
+        []
+      ],
+      [
+        "moveBy",
+        []
+      ],
+      [
+        "processDoubleClick",
+        []
+      ],
+      [
+        "processDrop",
+        []
+      ],
+      [
+        "processMouseDown",
+        []
+      ],
+      [
+        "processMouseMove",
+        []
+      ],
+      [
+        "processMouseScroll",
+        []
+      ],
+      [
+        "processMouseUp",
+        []
+      ],
+      [
+        "processTouchEnd",
+        []
+      ],
+      [
+        "processTouchMove",
+        []
+      ],
+      [
+        "processTouchStart",
+        []
+      ]
+    ]
+  },
+  "20": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [],
+    "argTypes": [
+      [
+        "blockSequence",
+        []
+      ],
+      [
+        "drawLeftEdge",
+        []
+      ],
+      [
+        "drawRightEdge",
+        []
+      ],
+      [
+        "drawTopDentEdge",
+        []
+      ],
+      [
+        "drawTopLeftEdge",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "outlinePath",
+        []
+      ],
+      [
+        "reify",
+        []
+      ]
+    ]
+  },
+  "21": {
+    "called": [],
+    "assigned": [
+      "isReadOnly",
+      "isNumeric",
+      "oldContentsExtent",
+      "color"
+    ],
+    "fieldTypes": [
+      [
+        "choices",
+        []
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "isNumeric",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isReadOnly",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "oldContentsExtent",
+        [
+          "Point"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "arrow",
+        []
+      ],
+      [
+        "contents",
+        []
+      ],
+      [
+        "drawRectBorder",
+        []
+      ],
+      [
+        "dropDownMenu",
+        []
+      ],
+      [
+        "edit",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "getValue",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "normalizeSpaces",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "setChoice",
+        []
+      ],
+      [
+        "setContents",
+        []
+      ],
+      [
+        "setIsNumeric",
+        []
+      ]
+    ]
+  },
+  "22": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "border",
+        []
+      ],
+      [
+        "borderColor",
+        []
+      ],
+      [
+        "buttonClose",
+        []
+      ],
+      [
+        "buttonEdit",
+        []
+      ],
+      [
+        "buttonInspect",
+        []
+      ],
+      [
+        "buttonSubset",
+        []
+      ],
+      [
+        "color",
+        []
+      ],
+      [
+        "currentProperty",
+        []
+      ],
+      [
+        "detail",
+        []
+      ],
+      [
+        "edge",
+        []
+      ],
+      [
+        "fps",
+        []
+      ],
+      [
+        "hasUserEditedDetails",
+        []
+      ],
+      [
+        "isDraggable",
+        []
+      ],
+      [
+        "label",
+        []
+      ],
+      [
+        "list",
+        []
+      ],
+      [
+        "markOwnProperties",
+        []
+      ],
+      [
+        "resizer",
+        []
+      ],
+      [
+        "showing",
+        []
+      ],
+      [
+        "target",
+        []
+      ],
+      [
+        "work",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "addProperty",
+        []
+      ],
+      [
+        "buildPanes",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "removeProperty",
+        []
+      ],
+      [
+        "renameProperty",
+        []
+      ],
+      [
+        "save",
+        []
+      ],
+      [
+        "setTarget",
+        []
+      ],
+      [
+        "step",
+        []
+      ],
+      [
+        "updateCurrentSelection",
+        []
+      ],
+      [
+        "updateReferences",
+        []
+      ]
+    ]
+  },
+  "23": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "acceptsDrops",
+        []
+      ],
+      [
+        "action",
+        []
+      ],
+      [
+        "active",
+        []
+      ],
+      [
+        "color",
+        []
+      ],
+      [
+        "doubleClickAction",
+        []
+      ],
+      [
+        "elements",
+        []
+      ],
+      [
+        "format",
+        []
+      ],
+      [
+        "labelGetter",
+        []
+      ],
+      [
+        "listContents",
+        []
+      ],
+      [
+        "selected",
+        []
+      ],
+      [
+        "separator",
+        []
+      ],
+      [
+        "verbatim",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "activateIndex",
+        []
+      ],
+      [
+        "activeIndex",
+        []
+      ],
+      [
+        "buildListContents",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "select",
+        []
+      ],
+      [
+        "setExtent",
+        []
+      ]
+    ]
+  },
+  "24": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "action",
+        []
+      ],
+      [
+        "color",
+        []
+      ],
+      [
+        "doubleClickAction",
+        []
+      ],
+      [
+        "environment",
+        []
+      ],
+      [
+        "fontSize",
+        []
+      ],
+      [
+        "fontStyle",
+        []
+      ],
+      [
+        "highlightColor",
+        []
+      ],
+      [
+        "hint",
+        []
+      ],
+      [
+        "label",
+        []
+      ],
+      [
+        "labelBold",
+        []
+      ],
+      [
+        "labelColor",
+        []
+      ],
+      [
+        "labelItalic",
+        []
+      ],
+      [
+        "labelString",
+        []
+      ],
+      [
+        "pressColor",
+        []
+      ],
+      [
+        "schedule",
+        []
+      ],
+      [
+        "shortcut",
+        []
+      ],
+      [
+        "shortcutString",
+        []
+      ],
+      [
+        "target",
+        []
+      ],
+      [
+        "userState",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "createIcon",
+        []
+      ],
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "createLabelPart",
+        []
+      ],
+      [
+        "createLabelString",
+        []
+      ],
+      [
+        "delaySubmenu",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "isListItem",
+        []
+      ],
+      [
+        "isSelectedListItem",
+        []
+      ],
+      [
+        "isShowingSubmenu",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "mouseMove",
+        []
+      ],
+      [
+        "popUpSubmenu",
+        []
+      ]
+    ]
+  },
+  "25": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "border",
+        []
+      ],
+      [
+        "edge",
+        []
+      ],
+      [
+        "environment",
+        []
+      ],
+      [
+        "fontSize",
+        []
+      ],
+      [
+        "fullShadowSource",
+        []
+      ],
+      [
+        "hasFocus",
+        []
+      ],
+      [
+        "isDraggable",
+        []
+      ],
+      [
+        "isListContents",
+        []
+      ],
+      [
+        "items",
+        []
+      ],
+      [
+        "label",
+        []
+      ],
+      [
+        "noDropShadow",
+        []
+      ],
+      [
+        "selection",
+        []
+      ],
+      [
+        "submenu",
+        []
+      ],
+      [
+        "target",
+        []
+      ],
+      [
+        "title",
+        []
+      ],
+      [
+        "world",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "addItem",
+        []
+      ],
+      [
+        "addLine",
+        []
+      ],
+      [
+        "addMenu",
+        []
+      ],
+      [
+        "addPair",
+        []
+      ],
+      [
+        "adjustWidths",
+        []
+      ],
+      [
+        "closeRootMenu",
+        []
+      ],
+      [
+        "closeSubmenu",
+        []
+      ],
+      [
+        "createItems",
+        []
+      ],
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "destroy",
+        []
+      ],
+      [
+        "enterSubmenu",
+        []
+      ],
+      [
+        "getFocus",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "leaveSubmenu",
+        []
+      ],
+      [
+        "maxWidth",
+        []
+      ],
+      [
+        "popup",
+        []
+      ],
+      [
+        "popUpAtHand",
+        []
+      ],
+      [
+        "popUpCenteredAtHand",
+        []
+      ],
+      [
+        "popUpCenteredInWorld",
+        []
+      ],
+      [
+        "processKeyDown",
+        []
+      ],
+      [
+        "processKeyPress",
+        []
+      ],
+      [
+        "processKeyUp",
+        []
+      ],
+      [
+        "scroll",
+        []
+      ],
+      [
+        "select",
+        []
+      ],
+      [
+        "selectDown",
+        []
+      ],
+      [
+        "selectFirst",
+        []
+      ],
+      [
+        "selectUp",
+        []
+      ],
+      [
+        "unselectAllItems",
+        []
+      ]
+    ]
+  },
+  "26": {
+    "called": [],
     "assigned": [
       "isMorph",
       "isCachingImage",
@@ -962,8 +2757,7 @@
       "lastTime",
       "texture",
       "cachedTexture",
-      "cachedImage",
-      "onNextStep"
+      "cachedImage"
     ],
     "fieldTypes": [
       [
@@ -1075,9 +2869,7 @@
       ],
       [
         "onNextStep",
-        [
-          "Function"
-        ]
+        []
       ],
       [
         "shouldRerender",
@@ -1095,80 +2887,15 @@
     "argTypes": [
       [
         "add",
-        [
-          [
-            "AlignmentMorph",
-            "ArgMorph",
-            "ArrowMorph",
-            "BlockLabelMorph",
-            "BlockSymbolMorph",
-            "BooleanSlotMorph",
-            "BoxMorph",
-            "CellMorph",
-            "ColorSlotMorph",
-            "CommandBlockMorph",
-            "CSlotMorph",
-            "CursorMorph",
-            "FrameMorph",
-            "InputFieldMorph",
-            "InputSlotMorph",
-            "InputSlotStringMorph",
-            "JukeboxMorph",
-            "MenuItemMorph",
-            "MenuMorph",
-            "Morph",
-            "MultiArgMorph",
-            "PaletteHandleMorph",
-            "PushButtonMorph",
-            "ReporterBlockMorph",
-            "RingCommandSlotMorph",
-            "RingMorph",
-            "RingReporterSlotMorph",
-            "SceneAlbumMorph",
-            "SceneIconMorph",
-            "ScriptsMorph",
-            "ScrollFrameMorph",
-            "SliderButtonMorph",
-            "SliderMorph",
-            "SpeechBubbleMorph",
-            "SpriteIconMorph",
-            "SpriteMorph",
-            "StageHandleMorph",
-            "StringFieldMorph",
-            "StringMorph",
-            "SymbolMorph",
-            "TabMorph",
-            "TemplateSlotMorph",
-            "TextMorph",
-            "ToggleButtonMorph",
-            "ToggleMorph",
-            "TurtleIconMorph",
-            "VariableDialogMorph",
-            "WardrobeMorph",
-            "WatcherMorph"
-          ]
-        ]
+        []
       ],
       [
         "addBack",
-        [
-          [
-            "BlockHighlightMorph",
-            "FrameMorph",
-            "ShadowMorph"
-          ]
-        ]
+        []
       ],
       [
         "addShadow",
-        [
-          [
-            "Point"
-          ],
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "addToDemoMenu",
@@ -1216,61 +2943,7 @@
       ],
       [
         "childChanged",
-        [
-          [
-            "AlignmentMorph",
-            "ArgMorph",
-            "ArrowMorph",
-            "BlockLabelMorph",
-            "BlockSymbolMorph",
-            "BooleanSlotMorph",
-            "BoxMorph",
-            "CellMorph",
-            "ColorSlotMorph",
-            "CommandBlockMorph",
-            "CSlotMorph",
-            "CursorMorph",
-            "FrameMorph",
-            "IDE_Morph",
-            "InputFieldMorph",
-            "InputSlotMorph",
-            "InputSlotStringMorph",
-            "JukeboxMorph",
-            "MenuItemMorph",
-            "MenuMorph",
-            "Morph",
-            "MultiArgMorph",
-            "PaletteHandleMorph",
-            "PushButtonMorph",
-            "ReporterBlockMorph",
-            "RingCommandSlotMorph",
-            "RingMorph",
-            "RingReporterSlotMorph",
-            "SceneAlbumMorph",
-            "SceneIconMorph",
-            "ScriptsMorph",
-            "ScrollFrameMorph",
-            "ShadowMorph",
-            "SliderButtonMorph",
-            "SliderMorph",
-            "SpriteIconMorph",
-            "SpriteMorph",
-            "StageHandleMorph",
-            "StageMorph",
-            "StringFieldMorph",
-            "StringMorph",
-            "SymbolMorph",
-            "TabMorph",
-            "TemplateSlotMorph",
-            "TextMorph",
-            "ToggleButtonMorph",
-            "ToggleMorph",
-            "TurtleIconMorph",
-            "VariableDialogMorph",
-            "WardrobeMorph",
-            "WatcherMorph"
-          ]
-        ]
+        []
       ],
       [
         "colorSetters",
@@ -1286,11 +2959,7 @@
       ],
       [
         "copyRecordingReferences",
-        [
-          [
-            "Map"
-          ]
-        ]
+        []
       ],
       [
         "corners",
@@ -1306,30 +2975,11 @@
       ],
       [
         "drawOn",
-        [
-          [
-            "CanvasRenderingContext2D"
-          ],
-          [
-            "Rectangle"
-          ]
-        ]
+        []
       ],
       [
         "escalateEvent",
-        [
-          [
-            "string"
-          ],
-          [
-            "CursorMorph",
-            "InputEvent",
-            "InputSlotStringMorph",
-            "KeyboardEvent",
-            "Point",
-            "StringMorph"
-          ]
-        ]
+        []
       ],
       [
         "evaluateString",
@@ -1369,14 +3019,7 @@
       ],
       [
         "fullDrawOn",
-        [
-          [
-            "CanvasRenderingContext2D"
-          ],
-          [
-            "Rectangle"
-          ]
-        ]
+        []
       ],
       [
         "fullImage",
@@ -1424,11 +3067,7 @@
       ],
       [
         "init",
-        [
-          [
-            "boolean"
-          ]
-        ]
+        []
       ],
       [
         "inspect",
@@ -1452,20 +3091,11 @@
       ],
       [
         "isTransparentAt",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "keepWithin",
-        [
-          [
-            "StageMorph",
-            "WorldMorph"
-          ]
-        ]
+        []
       ],
       [
         "left",
@@ -1481,11 +3111,7 @@
       ],
       [
         "moveBy",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "moveCenter",
@@ -1549,19 +3175,11 @@
       ],
       [
         "render",
-        [
-          [
-            "CanvasRenderingContext2D"
-          ]
-        ]
+        []
       ],
       [
         "renderCachedTexture",
-        [
-          [
-            "CanvasRenderingContext2D"
-          ]
-        ]
+        []
       ],
       [
         "renderTexture",
@@ -1597,35 +3215,19 @@
       ],
       [
         "setBottom",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "setCenter",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "setColor",
-        [
-          [
-            "Color"
-          ]
-        ]
+        []
       ],
       [
         "setExtent",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "setFullCenter",
@@ -1633,62 +3235,31 @@
       ],
       [
         "setHeight",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "setLeft",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "setPosition",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "setRight",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "setTop",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "setWidth",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "shadow",
-        [
-          [
-            "Point"
-          ],
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "shadowImage",
@@ -1696,11 +3267,7 @@
       ],
       [
         "shadowImageBlurred",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "show",
@@ -1748,11 +3315,7 @@
       ],
       [
         "topMorphAt",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "topMorphSuchThat",
@@ -1768,11 +3331,7 @@
       ],
       [
         "updateReferences",
-        [
-          [
-            "Map"
-          ]
-        ]
+        []
       ],
       [
         "userMenu",
@@ -1784,12 +3343,7 @@
       ],
       [
         "wantsDropOf",
-        [
-          [
-            "CommandBlockMorph",
-            "ReporterBlockMorph"
-          ]
-        ]
+        []
       ],
       [
         "width",
@@ -1801,19 +3355,72 @@
       ]
     ]
   },
-  "4": {
-    "called": [
-      "root",
-      "allParents",
-      "addChild",
-      "forAllChildren",
-      "allChildren",
-      "parentThatIsA",
-      "init",
-      "addChildFirst",
-      "childThatIsA",
-      "removeChild"
+  "27": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "border",
+        []
+      ],
+      [
+        "borderColor",
+        []
+      ],
+      [
+        "color",
+        []
+      ],
+      [
+        "downStep",
+        []
+      ],
+      [
+        "edge",
+        []
+      ],
+      [
+        "isTouched",
+        []
+      ],
+      [
+        "upStep",
+        []
+      ]
     ],
+    "argTypes": [
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "touch",
+        []
+      ],
+      [
+        "unTouch",
+        []
+      ]
+    ]
+  },
+  "28": {
+    "called": [],
     "assigned": [
       "children",
       "parent"
@@ -1829,22 +3436,16 @@
         "parent",
         [
           "AlignmentMorph",
-          "ArgMorph",
-          "CellMorph",
           "CommandBlockMorph",
-          "CSlotMorph",
+          "CommentMorph",
           "FrameMorph",
           "IDE_Morph",
           "InputFieldMorph",
           "InputSlotMorph",
-          "MenuItemMorph",
-          "MenuMorph",
           "Morph",
           "MultiArgMorph",
           "PushButtonMorph",
           "ReporterBlockMorph",
-          "RingMorph",
-          "RingReporterSlotMorph",
           "SceneAlbumMorph",
           "SceneIconMorph",
           "ScriptsMorph",
@@ -1854,13 +3455,9 @@
           "StageMorph",
           "StringFieldMorph",
           "TabMorph",
-          "TemplateSlotMorph",
+          "TextMorph",
           "ToggleButtonMorph",
           "ToggleMorph",
-          "TurtleIconMorph",
-          "VariableDialogMorph",
-          "WardrobeMorph",
-          "WatcherMorph",
           "WorldMorph"
         ]
       ]
@@ -1868,69 +3465,11 @@
     "argTypes": [
       [
         "addChild",
-        [
-          [
-            "AlignmentMorph",
-            "ArgMorph",
-            "ArrowMorph",
-            "BlockLabelMorph",
-            "BlockSymbolMorph",
-            "BooleanSlotMorph",
-            "BoxMorph",
-            "CellMorph",
-            "ColorSlotMorph",
-            "CommandBlockMorph",
-            "CSlotMorph",
-            "CursorMorph",
-            "FrameMorph",
-            "InputFieldMorph",
-            "InputSlotMorph",
-            "InputSlotStringMorph",
-            "JukeboxMorph",
-            "MenuItemMorph",
-            "MenuMorph",
-            "Morph",
-            "MultiArgMorph",
-            "PaletteHandleMorph",
-            "PushButtonMorph",
-            "ReporterBlockMorph",
-            "RingCommandSlotMorph",
-            "RingMorph",
-            "RingReporterSlotMorph",
-            "SceneAlbumMorph",
-            "SceneIconMorph",
-            "ScriptsMorph",
-            "ScrollFrameMorph",
-            "SliderButtonMorph",
-            "SliderMorph",
-            "SpeechBubbleMorph",
-            "SpriteIconMorph",
-            "SpriteMorph",
-            "StageHandleMorph",
-            "StringFieldMorph",
-            "StringMorph",
-            "SymbolMorph",
-            "TabMorph",
-            "TemplateSlotMorph",
-            "TextMorph",
-            "ToggleButtonMorph",
-            "ToggleMorph",
-            "TurtleIconMorph",
-            "VariableDialogMorph",
-            "WardrobeMorph",
-            "WatcherMorph"
-          ]
-        ]
+        []
       ],
       [
         "addChildFirst",
-        [
-          [
-            "BlockHighlightMorph",
-            "FrameMorph",
-            "ShadowMorph"
-          ]
-        ]
+        []
       ],
       [
         "allChildren",
@@ -1950,11 +3489,7 @@
       ],
       [
         "childThatIsA",
-        [
-          [
-            "Function"
-          ]
-        ]
+        []
       ],
       [
         "depth",
@@ -1962,11 +3497,7 @@
       ],
       [
         "forAllChildren",
-        [
-          [
-            "Function"
-          ]
-        ]
+        []
       ],
       [
         "init",
@@ -1974,14 +3505,7 @@
       ],
       [
         "parentThatIsA",
-        [
-          [
-            "Function"
-          ],
-          [
-            "Function"
-          ]
-        ]
+        []
       ],
       [
         "parentThatIsAnyOf",
@@ -1989,34 +3513,7 @@
       ],
       [
         "removeChild",
-        [
-          [
-            "BlockHighlightMorph",
-            "BlockLabelMorph",
-            "BoxMorph",
-            "CommandBlockMorph",
-            "CursorMorph",
-            "FrameMorph",
-            "InputSlotMorph",
-            "JukeboxMorph",
-            "MenuItemMorph",
-            "MenuMorph",
-            "Morph",
-            "PaletteHandleMorph",
-            "ReporterBlockMorph",
-            "ScriptsMorph",
-            "ScrollFrameMorph",
-            "ShadowMorph",
-            "SpeechBubbleMorph",
-            "SpriteMorph",
-            "StageHandleMorph",
-            "SymbolMorph",
-            "TabMorph",
-            "TextMorph",
-            "VariableDialogMorph",
-            "WardrobeMorph"
-          ]
-        ]
+        []
       ],
       [
         "root",
@@ -2032,30 +3529,223 @@
       ]
     ]
   },
-  "5": {
-    "called": [
-      "subtract",
-      "eq",
-      "add",
-      "le",
-      "lt",
-      "max",
-      "min",
-      "floor",
-      "ceil",
-      "corner",
-      "gt",
-      "divideBy",
-      "copy",
-      "distanceTo",
-      "r",
-      "multiplyBy",
-      "neg",
-      "distanceAngle",
-      "extent",
-      "toString",
-      "scaleBy"
+  "29": {
+    "called": [],
+    "assigned": [
+      "isWarped",
+      "heading",
+      "isDown",
+      "size",
+      "penPoint",
+      "penBounds"
     ],
+    "fieldTypes": [
+      [
+        "heading",
+        [
+          "number"
+        ]
+      ],
+      [
+        "isDown",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isWarped",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "penBounds",
+        [
+          "Rectangle"
+        ]
+      ],
+      [
+        "penPoint",
+        [
+          "string"
+        ]
+      ],
+      [
+        "size",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "changed",
+        []
+      ],
+      [
+        "clear",
+        []
+      ],
+      [
+        "developersMenu",
+        []
+      ],
+      [
+        "down",
+        []
+      ],
+      [
+        "drawLine",
+        []
+      ],
+      [
+        "endWarp",
+        []
+      ],
+      [
+        "forward",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "numericalSetters",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "setHeading",
+        []
+      ],
+      [
+        "setRotation",
+        []
+      ],
+      [
+        "sierpinski",
+        []
+      ],
+      [
+        "startWarp",
+        []
+      ],
+      [
+        "tree",
+        []
+      ],
+      [
+        "turn",
+        []
+      ],
+      [
+        "up",
+        []
+      ],
+      [
+        "warp",
+        []
+      ],
+      [
+        "warpOp",
+        []
+      ],
+      [
+        "warpSierpinski",
+        []
+      ],
+      [
+        "warpTree",
+        []
+      ]
+    ]
+  },
+  "30": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "feedback",
+        []
+      ],
+      [
+        "note",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ]
+    ]
+  },
+  "31": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "soundType",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "createItems",
+        []
+      ],
+      [
+        "destroy",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "processKeyDown",
+        []
+      ],
+      [
+        "select",
+        []
+      ],
+      [
+        "selectDown",
+        []
+      ],
+      [
+        "selectKey",
+        []
+      ],
+      [
+        "selectUp",
+        []
+      ],
+      [
+        "unselectAllItems",
+        []
+      ]
+    ]
+  },
+  "32": {
+    "called": [],
     "assigned": [],
     "fieldTypes": [
       [
@@ -2074,12 +3764,7 @@
       ],
       [
         "add",
-        [
-          [
-            "number",
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "asArray",
@@ -2095,11 +3780,7 @@
       ],
       [
         "corner",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "crossProduct",
@@ -2111,46 +3792,23 @@
       ],
       [
         "distanceAngle",
-        [
-          [
-            "number"
-          ],
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "distanceTo",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "divideBy",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "eq",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "extent",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "flip",
@@ -2170,43 +3828,23 @@
       ],
       [
         "gt",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "le",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "lt",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "max",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "min",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "mirror",
@@ -2214,12 +3852,7 @@
       ],
       [
         "multiplyBy",
-        [
-          [
-            "number",
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "neg",
@@ -2247,20 +3880,11 @@
       ],
       [
         "scaleBy",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "subtract",
-        [
-          [
-            "number",
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "theta",
@@ -2276,39 +3900,157 @@
       ]
     ]
   },
-  "6": {
-    "called": [
-      "topLeft",
-      "extent",
-      "translateBy",
-      "init",
-      "containsPoint",
-      "intersect",
-      "spread",
-      "left",
-      "top",
-      "width",
-      "height",
-      "center",
-      "copy",
-      "right",
-      "bottom",
-      "merge",
-      "setWidth",
-      "setHeight",
-      "isNearTo",
-      "mergeWith",
-      "insetBy",
-      "topRight",
-      "expandBy",
-      "growBy",
-      "eq",
-      "setExtent",
-      "bottomLeft",
-      "toString",
-      "rightCenter",
-      "intersects"
+  "33": {
+    "called": [],
+    "assigned": [
+      "is3D",
+      "target",
+      "action",
+      "labelString",
+      "label",
+      "labelMinExtent",
+      "isDisabled",
+      "hideable",
+      "color",
+      "hint"
     ],
+    "fieldTypes": [
+      [
+        "action",
+        [
+          "Function",
+          "string"
+        ]
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "environment",
+        []
+      ],
+      [
+        "hideable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "hint",
+        [
+          "Function",
+          "string"
+        ]
+      ],
+      [
+        "is3D",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isDisabled",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "label",
+        [
+          "FrameMorph",
+          "StringMorph",
+          "SymbolMorph",
+          "TextMorph"
+        ]
+      ],
+      [
+        "labelMinExtent",
+        [
+          "Point"
+        ]
+      ],
+      [
+        "labelString",
+        [
+          "Array",
+          "string",
+          "SymbolMorph"
+        ]
+      ],
+      [
+        "target",
+        [
+          "IDE_Morph",
+          "ScriptsMorph",
+          "SpriteMorph",
+          "Window"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "disable",
+        []
+      ],
+      [
+        "drawBackground",
+        []
+      ],
+      [
+        "drawEdges",
+        []
+      ],
+      [
+        "drawOutline",
+        []
+      ],
+      [
+        "enable",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "outlinePath",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "updateLabelColors",
+        []
+      ]
+    ]
+  },
+  "34": {
+    "called": [],
     "assigned": [],
     "fieldTypes": [
       [
@@ -2367,11 +4109,7 @@
       ],
       [
         "containsPoint",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "containsRectangle",
@@ -2387,19 +4125,11 @@
       ],
       [
         "eq",
-        [
-          [
-            "Rectangle"
-          ]
-        ]
+        []
       ],
       [
         "expandBy",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "extent",
@@ -2407,12 +4137,7 @@
       ],
       [
         "growBy",
-        [
-          [
-            "number",
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "height",
@@ -2420,49 +4145,23 @@
       ],
       [
         "init",
-        [
-          [
-            "Point"
-          ],
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "insetBy",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "intersect",
-        [
-          [
-            "Rectangle"
-          ]
-        ]
+        []
       ],
       [
         "intersects",
-        [
-          [
-            "Rectangle"
-          ]
-        ]
+        []
       ],
       [
         "isNearTo",
-        [
-          [
-            "Rectangle"
-          ],
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "left",
@@ -2474,19 +4173,11 @@
       ],
       [
         "merge",
-        [
-          [
-            "Rectangle"
-          ]
-        ]
+        []
       ],
       [
         "mergeWith",
-        [
-          [
-            "Rectangle"
-          ]
-        ]
+        []
       ],
       [
         "position",
@@ -2514,19 +4205,11 @@
       ],
       [
         "setExtent",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "setHeight",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "setTo",
@@ -2534,11 +4217,7 @@
       ],
       [
         "setWidth",
-        [
-          [
-            "number"
-          ]
-        ]
+        []
       ],
       [
         "spread",
@@ -2566,14 +4245,2776 @@
       ],
       [
         "translateBy",
-        [
-          [
-            "Point"
-          ]
-        ]
+        []
       ],
       [
         "width",
+        []
+      ]
+    ]
+  },
+  "35": {
+    "called": [],
+    "assigned": [
+      "scrollBarSize",
+      "enableAutoScrolling",
+      "isScrollingByDragging",
+      "hasVelocity",
+      "padding",
+      "growth",
+      "isTextLineWrapping",
+      "contents",
+      "hBar",
+      "vBar",
+      "toolBar"
+    ],
+    "fieldTypes": [
+      [
+        "autoScrollTrigger",
+        []
+      ],
+      [
+        "contents",
+        [
+          "FrameMorph",
+          "ScriptsMorph"
+        ]
+      ],
+      [
+        "enableAutoScrolling",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "growth",
+        [
+          "number",
+          "Point"
+        ]
+      ],
+      [
+        "hasVelocity",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "hBar",
+        [
+          "SliderMorph"
+        ]
+      ],
+      [
+        "isScrollingByDragging",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isTextLineWrapping",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "padding",
+        [
+          "number"
+        ]
+      ],
+      [
+        "scrollBarSize",
+        [
+          "number"
+        ]
+      ],
+      [
+        "toolBar",
+        [
+          "AlignmentMorph"
+        ]
+      ],
+      [
+        "vBar",
+        [
+          "SliderMorph"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "addContents",
+        []
+      ],
+      [
+        "adjustScrollBars",
+        []
+      ],
+      [
+        "adjustToolBar",
+        []
+      ],
+      [
+        "autoScroll",
+        []
+      ],
+      [
+        "developersMenu",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseScroll",
+        []
+      ],
+      [
+        "scrollCursorIntoView",
+        []
+      ],
+      [
+        "scrollX",
+        []
+      ],
+      [
+        "scrollY",
+        []
+      ],
+      [
+        "setContents",
+        []
+      ],
+      [
+        "setExtent",
+        []
+      ],
+      [
+        "startAutoScrolling",
+        []
+      ],
+      [
+        "step",
+        []
+      ],
+      [
+        "toggleTextLineWrapping",
+        []
+      ],
+      [
+        "updateReferences",
+        []
+      ]
+    ]
+  },
+  "36": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "isCachingImage",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "init",
+        []
+      ],
+      [
+        "topMorphAt",
+        []
+      ]
+    ]
+  },
+  "37": {
+    "called": [],
+    "assigned": [
+      "color",
+      "highlightColor",
+      "pressColor",
+      "userState",
+      "is3D",
+      "hasMiddleDip"
+    ],
+    "fieldTypes": [
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "hasMiddleDip",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "highlightColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "is3D",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "pressColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "userState",
+        [
+          "string"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "autoOrientation",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "mouseMove",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "renderEdges",
+        []
+      ]
+    ]
+  },
+  "38": {
+    "called": [],
+    "assigned": [
+      "action",
+      "start",
+      "stop",
+      "value",
+      "size",
+      "button",
+      "alpha",
+      "color"
+    ],
+    "fieldTypes": [
+      [
+        "action",
+        [
+          "Function"
+        ]
+      ],
+      [
+        "alpha",
+        [
+          "number"
+        ]
+      ],
+      [
+        "button",
+        [
+          "SliderButtonMorph"
+        ]
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "offset",
+        []
+      ],
+      [
+        "size",
+        [
+          "number"
+        ]
+      ],
+      [
+        "start",
+        [
+          "number"
+        ]
+      ],
+      [
+        "stop",
+        [
+          "number"
+        ]
+      ],
+      [
+        "target",
+        []
+      ],
+      [
+        "value",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "autoOrientation",
+        []
+      ],
+      [
+        "developersMenu",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "numericalSetters",
+        []
+      ],
+      [
+        "rangeSize",
+        []
+      ],
+      [
+        "ratio",
+        []
+      ],
+      [
+        "setSize",
+        []
+      ],
+      [
+        "setStart",
+        []
+      ],
+      [
+        "setStop",
+        []
+      ],
+      [
+        "setTarget",
+        []
+      ],
+      [
+        "setTargetSetter",
+        []
+      ],
+      [
+        "showValue",
+        []
+      ],
+      [
+        "unitSize",
+        []
+      ],
+      [
+        "updateTarget",
+        []
+      ],
+      [
+        "updateValue",
+        []
+      ],
+      [
+        "userSetStart",
+        []
+      ]
+    ]
+  },
+  "39": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "color",
+        []
+      ],
+      [
+        "contents",
+        []
+      ],
+      [
+        "fullShadowSource",
+        []
+      ],
+      [
+        "hasShadow",
+        []
+      ],
+      [
+        "isClickable",
+        []
+      ],
+      [
+        "isPointingRight",
+        []
+      ],
+      [
+        "isThought",
+        []
+      ],
+      [
+        "noDropShadow",
+        []
+      ],
+      [
+        "padding",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "outlinePath",
+        []
+      ],
+      [
+        "popUp",
+        []
+      ],
+      [
+        "shadowImage",
+        []
+      ],
+      [
+        "shadowImageBlurred",
+        []
+      ]
+    ]
+  },
+  "40": {
+    "called": [],
+    "assigned": [
+      "defaultContents",
+      "minWidth",
+      "fontSize",
+      "fontStyle",
+      "isBold",
+      "isItalic",
+      "isNumeric",
+      "text",
+      "color",
+      "isEditable",
+      "acceptsDrops"
+    ],
+    "fieldTypes": [
+      [
+        "acceptsDrops",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "defaultContents",
+        [
+          "string"
+        ]
+      ],
+      [
+        "fontSize",
+        [
+          "number"
+        ]
+      ],
+      [
+        "fontStyle",
+        [
+          "string"
+        ]
+      ],
+      [
+        "isBold",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isEditable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isItalic",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isNumeric",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "minWidth",
+        [
+          "number"
+        ]
+      ],
+      [
+        "text",
+        [
+          "StringMorph"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "createText",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "string",
+        []
+      ]
+    ]
+  },
+  "41": {
+    "called": [],
+    "assigned": [
+      "text",
+      "fontSize",
+      "fontName",
+      "fontStyle",
+      "isBold",
+      "isItalic",
+      "isEditable",
+      "enableLinks",
+      "isNumeric",
+      "isPassword",
+      "shadowOffset",
+      "shadowColor",
+      "isShowingBlanks",
+      "blanksColor",
+      "isScrollable",
+      "currentlySelecting",
+      "startMark",
+      "endMark",
+      "markedTextColor",
+      "markedBackgoundColor",
+      "color"
+    ],
+    "fieldTypes": [
+      [
+        "blanksColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "currentlySelecting",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "enableLinks",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "endMark",
+        [
+          "number"
+        ]
+      ],
+      [
+        "fontName",
+        [
+          "string"
+        ]
+      ],
+      [
+        "fontSize",
+        [
+          "number"
+        ]
+      ],
+      [
+        "fontStyle",
+        [
+          "string"
+        ]
+      ],
+      [
+        "isBold",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isEditable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isItalic",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isNumeric",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isPassword",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isScrollable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isShowingBlanks",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "markedBackgoundColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "markedTextColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "shadowColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "shadowOffset",
+        [
+          "Point"
+        ]
+      ],
+      [
+        "startMark",
+        [
+          "number"
+        ]
+      ],
+      [
+        "text",
+        [
+          "string"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "clearSelection",
+        []
+      ],
+      [
+        "deleteSelection",
+        []
+      ],
+      [
+        "developersMenu",
+        []
+      ],
+      [
+        "disableSelecting",
+        []
+      ],
+      [
+        "downFrom",
+        []
+      ],
+      [
+        "edit",
+        []
+      ],
+      [
+        "enableSelecting",
+        []
+      ],
+      [
+        "endOfLine",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "font",
+        []
+      ],
+      [
+        "getShadowRenderColor",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDoubleClick",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "nextWordFrom",
+        []
+      ],
+      [
+        "numericalSetters",
+        []
+      ],
+      [
+        "password",
+        []
+      ],
+      [
+        "previousWordFrom",
+        []
+      ],
+      [
+        "rawHeight",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "renderWithBlanks",
+        []
+      ],
+      [
+        "selectAll",
+        []
+      ],
+      [
+        "selectBetweenWordsAt",
+        []
+      ],
+      [
+        "selection",
+        []
+      ],
+      [
+        "selectionStartSlot",
+        []
+      ],
+      [
+        "selectWordAt",
+        []
+      ],
+      [
+        "setFontSize",
+        []
+      ],
+      [
+        "setSansSerif",
+        []
+      ],
+      [
+        "setSerif",
+        []
+      ],
+      [
+        "setText",
+        []
+      ],
+      [
+        "shiftClick",
+        []
+      ],
+      [
+        "slotAt",
+        []
+      ],
+      [
+        "slotPosition",
+        []
+      ],
+      [
+        "startOfLine",
+        []
+      ],
+      [
+        "toggleIsDraggable",
+        []
+      ],
+      [
+        "toggleIsPassword",
+        []
+      ],
+      [
+        "toggleItalic",
+        []
+      ],
+      [
+        "toggleShowBlanks",
+        []
+      ],
+      [
+        "toggleWeight",
+        []
+      ],
+      [
+        "toString",
+        []
+      ],
+      [
+        "upFrom",
+        []
+      ]
+    ]
+  },
+  "42": {
+    "called": [],
+    "assigned": [
+      "isProtectedLabel",
+      "isReadOnly",
+      "name",
+      "size",
+      "shadowOffset",
+      "shadowColor",
+      "color"
+    ],
+    "fieldTypes": [
+      [
+        "backgroundColor",
+        []
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "isProtectedLabel",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isReadOnly",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "name",
+        [
+          "string"
+        ]
+      ],
+      [
+        "shadowColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "shadowOffset",
+        [
+          "Point"
+        ]
+      ],
+      [
+        "size",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "getShadowRenderColor",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "renderShape",
+        []
+      ],
+      [
+        "renderSymbolArrowDown",
+        []
+      ],
+      [
+        "renderSymbolArrowDownOutline",
+        []
+      ],
+      [
+        "renderSymbolArrowDownThin",
+        []
+      ],
+      [
+        "renderSymbolArrowLeft",
+        []
+      ],
+      [
+        "renderSymbolArrowLeftOutline",
+        []
+      ],
+      [
+        "renderSymbolArrowLeftRightThin",
+        []
+      ],
+      [
+        "renderSymbolArrowLeftThin",
+        []
+      ],
+      [
+        "renderSymbolArrowRight",
+        []
+      ],
+      [
+        "renderSymbolArrowRightOutline",
+        []
+      ],
+      [
+        "renderSymbolArrowRightThin",
+        []
+      ],
+      [
+        "renderSymbolArrowUp",
+        []
+      ],
+      [
+        "renderSymbolArrowUpDownThin",
+        []
+      ],
+      [
+        "renderSymbolArrowUpOutline",
+        []
+      ],
+      [
+        "renderSymbolArrowUpThin",
+        []
+      ],
+      [
+        "renderSymbolBrush",
+        []
+      ],
+      [
+        "renderSymbolCamera",
+        []
+      ],
+      [
+        "renderSymbolCheckedBox",
+        []
+      ],
+      [
+        "renderSymbolCircle",
+        []
+      ],
+      [
+        "renderSymbolCircleSolid",
+        []
+      ],
+      [
+        "renderSymbolClosedBrushPath",
+        []
+      ],
+      [
+        "renderSymbolCloud",
+        []
+      ],
+      [
+        "renderSymbolCloudGradient",
+        []
+      ],
+      [
+        "renderSymbolCloudOutline",
+        []
+      ],
+      [
+        "renderSymbolCross",
+        []
+      ],
+      [
+        "renderSymbolCrosshairs",
+        []
+      ],
+      [
+        "renderSymbolEraser",
+        []
+      ],
+      [
+        "renderSymbolFile",
+        []
+      ],
+      [
+        "renderSymbolFlag",
+        []
+      ],
+      [
+        "renderSymbolFlash",
+        []
+      ],
+      [
+        "renderSymbolFlipHorizontal",
+        []
+      ],
+      [
+        "renderSymbolFlipVertical",
+        []
+      ],
+      [
+        "renderSymbolFootprints",
+        []
+      ],
+      [
+        "renderSymbolFullScreen",
+        []
+      ],
+      [
+        "renderSymbolGearBig",
+        []
+      ],
+      [
+        "renderSymbolGearPartial",
+        []
+      ],
+      [
+        "renderSymbolGears",
+        []
+      ],
+      [
+        "renderSymbolGlobe",
+        []
+      ],
+      [
+        "renderSymbolGlobeBig",
+        []
+      ],
+      [
+        "renderSymbolGrow",
+        []
+      ],
+      [
+        "renderSymbolKeyboard",
+        []
+      ],
+      [
+        "renderSymbolKeyboardFilled",
+        []
+      ],
+      [
+        "renderSymbolLine",
+        []
+      ],
+      [
+        "renderSymbolList",
+        []
+      ],
+      [
+        "renderSymbolLocation",
+        []
+      ],
+      [
+        "renderSymbolLoop",
+        []
+      ],
+      [
+        "renderSymbolMagnifierOutline",
+        []
+      ],
+      [
+        "renderSymbolMagnifyingGlass",
+        []
+      ],
+      [
+        "renderSymbolNormalScreen",
+        []
+      ],
+      [
+        "renderSymbolNormalStage",
+        []
+      ],
+      [
+        "renderSymbolNotes",
+        []
+      ],
+      [
+        "renderSymbolOctagon",
+        []
+      ],
+      [
+        "renderSymbolOctagonOutline",
+        []
+      ],
+      [
+        "renderSymbolPaintbucket",
+        []
+      ],
+      [
+        "renderSymbolPause",
+        []
+      ],
+      [
+        "renderSymbolPipette",
+        []
+      ],
+      [
+        "renderSymbolPointRight",
+        []
+      ],
+      [
+        "renderSymbolPoster",
+        []
+      ],
+      [
+        "renderSymbolRectangle",
+        []
+      ],
+      [
+        "renderSymbolRectangleSolid",
+        []
+      ],
+      [
+        "renderSymbolRobot",
+        []
+      ],
+      [
+        "renderSymbolSelection",
+        []
+      ],
+      [
+        "renderSymbolShrink",
+        []
+      ],
+      [
+        "renderSymbolSmallStage",
+        []
+      ],
+      [
+        "renderSymbolSpeechBubble",
+        []
+      ],
+      [
+        "renderSymbolSpeechBubbleOutline",
+        []
+      ],
+      [
+        "renderSymbolStepForward",
+        []
+      ],
+      [
+        "renderSymbolStop",
+        []
+      ],
+      [
+        "renderSymbolStorage",
+        []
+      ],
+      [
+        "renderSymbolTick",
+        []
+      ],
+      [
+        "renderSymbolTrash",
+        []
+      ],
+      [
+        "renderSymbolTrashFull",
+        []
+      ],
+      [
+        "renderSymbolTurnAround",
+        []
+      ],
+      [
+        "renderSymbolTurnBack",
+        []
+      ],
+      [
+        "renderSymbolTurnForward",
+        []
+      ],
+      [
+        "renderSymbolTurnLeft",
+        []
+      ],
+      [
+        "renderSymbolTurnRight",
+        []
+      ],
+      [
+        "renderSymbolTurtle",
+        []
+      ],
+      [
+        "renderSymbolTurtleOutline",
+        []
+      ],
+      [
+        "renderSymbolVerticalEllipsis",
+        []
+      ],
+      [
+        "setExtent",
+        []
+      ],
+      [
+        "setLabelColor",
+        []
+      ],
+      [
+        "symbolWidth",
+        []
+      ],
+      [
+        "toString",
+        []
+      ]
+    ]
+  },
+  "43": {
+    "called": [],
+    "assigned": [
+      "cachedClr",
+      "cachedClrBright",
+      "cachedClrDark",
+      "isStatic",
+      "defaults",
+      "cachedInputs"
+    ],
+    "fieldTypes": [
+      [
+        "cachedClr",
+        [
+          "string"
+        ]
+      ],
+      [
+        "cachedClrBright",
+        [
+          "string"
+        ]
+      ],
+      [
+        "cachedClrDark",
+        [
+          "string"
+        ]
+      ],
+      [
+        "cachedInputs",
+        [
+          "Array"
+        ]
+      ],
+      [
+        "cachedNormalColor",
+        []
+      ],
+      [
+        "defaults",
+        [
+          "Array"
+        ]
+      ],
+      [
+        "isStatic",
+        [
+          "boolean"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "allEmptySlots",
+        []
+      ],
+      [
+        "allInputs",
+        []
+      ],
+      [
+        "bright",
+        []
+      ],
+      [
+        "dark",
+        []
+      ],
+      [
+        "debugCachedInputs",
+        []
+      ],
+      [
+        "doWithAlpha",
+        []
+      ],
+      [
+        "elementsAtLOC",
+        []
+      ],
+      [
+        "evaluate",
+        []
+      ],
+      [
+        "exportPictureWithResult",
+        []
+      ],
+      [
+        "fixBlockColor",
+        []
+      ],
+      [
+        "fixHighlight",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "flash",
+        []
+      ],
+      [
+        "getVarNamesDict",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "inputs",
+        []
+      ],
+      [
+        "isEmptySlot",
+        []
+      ],
+      [
+        "isLocked",
+        []
+      ],
+      [
+        "isObjInputFragment",
+        []
+      ],
+      [
+        "isVertical",
+        []
+      ],
+      [
+        "labelPart",
+        []
+      ],
+      [
+        "mappedCode",
+        []
+      ],
+      [
+        "methodIconExtent",
+        []
+      ],
+      [
+        "parts",
+        []
+      ],
+      [
+        "reactToGrabOf",
+        []
+      ],
+      [
+        "replaceInput",
+        []
+      ],
+      [
+        "revertToDefaultInput",
+        []
+      ],
+      [
+        "revertToEmptyInput",
+        []
+      ],
+      [
+        "selectForEdit",
+        []
+      ],
+      [
+        "setColor",
+        []
+      ],
+      [
+        "setLabelColor",
+        []
+      ],
+      [
+        "setScale",
+        []
+      ],
+      [
+        "showBubble",
+        []
+      ],
+      [
+        "tagExitBlocks",
+        []
+      ],
+      [
+        "topBlock",
+        []
+      ],
+      [
+        "unflash",
+        []
+      ]
+    ]
+  },
+  "44": {
+    "called": [],
+    "assigned": [
+      "state",
+      "hasPreview",
+      "isPicture",
+      "hasNeutralBackground",
+      "color",
+      "highlightColor",
+      "pressColor"
+    ],
+    "fieldTypes": [
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "hasNeutralBackground",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "hasPreview",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "highlightColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "isPicture",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "minWidth",
+        []
+      ],
+      [
+        "pressColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "state",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "trueStateLabel",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "drawBackground",
+        []
+      ],
+      [
+        "drawEdges",
+        []
+      ],
+      [
+        "drawOutline",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "query",
+        []
+      ],
+      [
+        "refresh",
+        []
+      ]
+    ]
+  },
+  "45": {
+    "called": [],
+    "assigned": [
+      "text",
+      "words",
+      "lines",
+      "lineSlots",
+      "fontSize",
+      "fontName",
+      "fontStyle",
+      "isBold",
+      "isItalic",
+      "alignment",
+      "shadowOffset",
+      "maxWidth",
+      "maxLineWidth",
+      "isEditable",
+      "enableLinks",
+      "isScrollable",
+      "currentlySelecting",
+      "startMark",
+      "endMark",
+      "markedTextColor",
+      "markedBackgoundColor",
+      "color"
+    ],
+    "fieldTypes": [
+      [
+        "alignment",
+        [
+          "string"
+        ]
+      ],
+      [
+        "backgroundColor",
+        []
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "currentlySelecting",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "enableLinks",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "endMark",
+        [
+          "number"
+        ]
+      ],
+      [
+        "fontName",
+        [
+          "string"
+        ]
+      ],
+      [
+        "fontSize",
+        [
+          "number"
+        ]
+      ],
+      [
+        "fontStyle",
+        [
+          "string"
+        ]
+      ],
+      [
+        "isBold",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isEditable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isItalic",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isScrollable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "lines",
+        [
+          "Array"
+        ]
+      ],
+      [
+        "lineSlots",
+        [
+          "Array"
+        ]
+      ],
+      [
+        "markedBackgoundColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "markedTextColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "maxLineWidth",
+        [
+          "number"
+        ]
+      ],
+      [
+        "maxWidth",
+        [
+          "number"
+        ]
+      ],
+      [
+        "receiver",
+        []
+      ],
+      [
+        "shadowColor",
+        []
+      ],
+      [
+        "shadowOffset",
+        [
+          "Point"
+        ]
+      ],
+      [
+        "startMark",
+        [
+          "number"
+        ]
+      ],
+      [
+        "text",
+        [
+          "string"
+        ]
+      ],
+      [
+        "words",
+        [
+          "Array"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "clearSelection",
+        []
+      ],
+      [
+        "columnRow",
+        []
+      ],
+      [
+        "deleteSelection",
+        []
+      ],
+      [
+        "developersMenu",
+        []
+      ],
+      [
+        "disableSelecting",
+        []
+      ],
+      [
+        "doIt",
+        []
+      ],
+      [
+        "downFrom",
+        []
+      ],
+      [
+        "edit",
+        []
+      ],
+      [
+        "enableSelecting",
+        []
+      ],
+      [
+        "endOfLine",
+        []
+      ],
+      [
+        "evaluationMenu",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "font",
+        []
+      ],
+      [
+        "getShadowRenderColor",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "inspectIt",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDoubleClick",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "nextWordFrom",
+        []
+      ],
+      [
+        "numericalSetters",
+        []
+      ],
+      [
+        "parse",
+        []
+      ],
+      [
+        "previousWordFrom",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "selectAll",
+        []
+      ],
+      [
+        "selectAllAndEdit",
+        []
+      ],
+      [
+        "selectBetweenWordsAt",
+        []
+      ],
+      [
+        "selection",
+        []
+      ],
+      [
+        "selectionStartSlot",
+        []
+      ],
+      [
+        "selectWordAt",
+        []
+      ],
+      [
+        "setAlignmentToCenter",
+        []
+      ],
+      [
+        "setAlignmentToLeft",
+        []
+      ],
+      [
+        "setAlignmentToRight",
+        []
+      ],
+      [
+        "setExtent",
+        []
+      ],
+      [
+        "setFontSize",
+        []
+      ],
+      [
+        "setReceiver",
+        []
+      ],
+      [
+        "setSansSerif",
+        []
+      ],
+      [
+        "setSerif",
+        []
+      ],
+      [
+        "setText",
+        []
+      ],
+      [
+        "shiftClick",
+        []
+      ],
+      [
+        "showIt",
+        []
+      ],
+      [
+        "slotAt",
+        []
+      ],
+      [
+        "slotPosition",
+        []
+      ],
+      [
+        "startOfLine",
+        []
+      ],
+      [
+        "toggleIsDraggable",
+        []
+      ],
+      [
+        "toggleItalic",
+        []
+      ],
+      [
+        "toggleWeight",
+        []
+      ],
+      [
+        "toString",
+        []
+      ],
+      [
+        "upFrom",
+        []
+      ]
+    ]
+  },
+  "46": {
+    "called": [],
+    "assigned": [
+      "state",
+      "hasPreview",
+      "isPicture",
+      "hasNeutralBackground",
+      "trueStateLabel",
+      "color",
+      "highlightColor",
+      "pressColor",
+      "minWidth"
+    ],
+    "fieldTypes": [
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "hasNeutralBackground",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "hasPreview",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "highlightColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "isPicture",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "minWidth",
+        [
+          "number"
+        ]
+      ],
+      [
+        "pressColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "state",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "trueStateLabel",
+        [
+          "SymbolMorph"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "drawEdges",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "getPressRenderColor",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "previewPath",
+        []
+      ],
+      [
+        "refresh",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "trigger",
+        []
+      ],
+      [
+        "updateLabelColors",
+        []
+      ]
+    ]
+  },
+  "47": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "action",
+        []
+      ],
+      [
+        "builder",
+        []
+      ],
+      [
+        "captionString",
+        []
+      ],
+      [
+        "color",
+        []
+      ],
+      [
+        "element",
+        []
+      ],
+      [
+        "environment",
+        []
+      ],
+      [
+        "hint",
+        []
+      ],
+      [
+        "labelAlignment",
+        []
+      ],
+      [
+        "query",
+        []
+      ],
+      [
+        "state",
+        []
+      ],
+      [
+        "target",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "refresh",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "setColor",
+        []
+      ],
+      [
+        "trigger",
+        []
+      ]
+    ]
+  },
+  "48": {
+    "called": [],
+    "assigned": [
+      "padding",
+      "corner",
+      "state",
+      "query",
+      "tick",
+      "captionString",
+      "labelAlignment"
+    ],
+    "fieldTypes": [
+      [
+        "builder",
+        []
+      ],
+      [
+        "captionString",
+        [
+          "string"
+        ]
+      ],
+      [
+        "corner",
+        [
+          "number"
+        ]
+      ],
+      [
+        "element",
+        []
+      ],
+      [
+        "labelAlignment",
+        [
+          "string"
+        ]
+      ],
+      [
+        "padding",
+        [
+          "number"
+        ]
+      ],
+      [
+        "query",
+        [
+          "Function"
+        ]
+      ],
+      [
+        "state",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "tick",
+        [
+          "StringMorph"
+        ]
+      ],
+      [
+        "toggleElement",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "refresh",
+        []
+      ],
+      [
+        "trigger",
+        []
+      ]
+    ]
+  },
+  "49": {
+    "called": [],
+    "assigned": [
+      "target",
+      "action",
+      "labelString",
+      "label",
+      "fontSize",
+      "fontStyle",
+      "highlightColor",
+      "pressColor",
+      "labelColor",
+      "labelBold",
+      "labelItalic",
+      "userState",
+      "color",
+      "hint"
+    ],
+    "fieldTypes": [
+      [
+        "action",
+        [
+          "Function",
+          "string"
+        ]
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "doubleClickAction",
+        []
+      ],
+      [
+        "environment",
+        []
+      ],
+      [
+        "fontSize",
+        [
+          "number"
+        ]
+      ],
+      [
+        "fontStyle",
+        [
+          "string"
+        ]
+      ],
+      [
+        "highlightColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "hint",
+        [
+          "Function",
+          "string"
+        ]
+      ],
+      [
+        "label",
+        [
+          "FrameMorph",
+          "StringMorph",
+          "SymbolMorph",
+          "TextMorph"
+        ]
+      ],
+      [
+        "labelBold",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "labelColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "labelItalic",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "labelString",
+        [
+          "Array",
+          "string",
+          "SymbolMorph"
+        ]
+      ],
+      [
+        "pressColor",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "schedule",
+        []
+      ],
+      [
+        "target",
+        [
+          "IDE_Morph",
+          "ScriptsMorph",
+          "SpriteMorph",
+          "Window"
+        ]
+      ],
+      [
+        "userState",
+        [
+          "string"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "bubbleHelp",
+        []
+      ],
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDoubleClick",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "popUpbubbleHelp",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "rootForGrab",
+        []
+      ],
+      [
+        "trigger",
+        []
+      ],
+      [
+        "triggerDoubleClick",
+        []
+      ]
+    ]
+  },
+  "50": {
+    "called": [],
+    "assigned": [
+      "color",
+      "alpha",
+      "bounds",
+      "isVisible",
+      "isDraggable",
+      "worldCanvas",
+      "stamp",
+      "useFillPage",
+      "isDevMode",
+      "broken",
+      "animations",
+      "hand",
+      "keyboardHandler",
+      "keyboardFocus"
+    ],
+    "fieldTypes": [
+      [
+        "activeHandle",
+        []
+      ],
+      [
+        "activeMenu",
+        []
+      ],
+      [
+        "alpha",
+        [
+          "number"
+        ]
+      ],
+      [
+        "animations",
+        [
+          "Array"
+        ]
+      ],
+      [
+        "bounds",
+        [
+          "Rectangle"
+        ]
+      ],
+      [
+        "broken",
+        [
+          "Array"
+        ]
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "currentKey",
+        []
+      ],
+      [
+        "cursor",
+        []
+      ],
+      [
+        "hand",
+        [
+          "HandMorph"
+        ]
+      ],
+      [
+        "isDevMode",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isDraggable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isVisible",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "keyboardFocus",
+        [
+          "StageMorph"
+        ]
+      ],
+      [
+        "keyboardHandler",
+        [
+          "HTMLTextAreaElement"
+        ]
+      ],
+      [
+        "lastEditedText",
+        []
+      ],
+      [
+        "stamp",
+        [
+          "number"
+        ]
+      ],
+      [
+        "useFillPage",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "worldCanvas",
+        [
+          "HTMLCanvasElement"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "about",
+        []
+      ],
+      [
+        "beginBulkDrop",
+        []
+      ],
+      [
+        "condenseDamages",
+        []
+      ],
+      [
+        "contextMenu",
+        []
+      ],
+      [
+        "doOneCycle",
+        []
+      ],
+      [
+        "droppedAudio",
+        []
+      ],
+      [
+        "droppedImage",
+        []
+      ],
+      [
+        "droppedSVG",
+        []
+      ],
+      [
+        "droppedText",
+        []
+      ],
+      [
+        "edit",
+        []
+      ],
+      [
+        "endBulkDrop",
+        []
+      ],
+      [
+        "fillPage",
+        []
+      ],
+      [
+        "fullDrawOn",
+        []
+      ],
+      [
+        "getGlobalPixelColor",
+        []
+      ],
+      [
+        "hideAll",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "initEventListeners",
+        []
+      ],
+      [
+        "initKeyboardHandler",
+        []
+      ],
+      [
+        "initRetina",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseClickRight",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseDownRight",
+        []
+      ],
+      [
+        "nextTab",
+        []
+      ],
+      [
+        "previousTab",
+        []
+      ],
+      [
+        "resetKeyboardHandler",
+        []
+      ],
+      [
+        "showAllHiddens",
+        []
+      ],
+      [
+        "slide",
+        []
+      ],
+      [
+        "stepAnimations",
+        []
+      ],
+      [
+        "stopEditing",
+        []
+      ],
+      [
+        "toggleBlurredShadows",
+        []
+      ],
+      [
+        "toggleDevMode",
+        []
+      ],
+      [
+        "toggleHolesDisplay",
+        []
+      ],
+      [
+        "togglePreferences",
+        []
+      ],
+      [
+        "updateBroken",
+        []
+      ],
+      [
+        "userCreateMorph",
+        []
+      ],
+      [
+        "wantsDropOf",
         []
       ]
     ]
