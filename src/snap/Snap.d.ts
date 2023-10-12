@@ -78,8 +78,8 @@ export class AlignmentMorph extends Morph {
 
     constructor(orientation?: any, padding?: any);
     fixLayout();
-    init(orientation?: any, padding?: any);
-    render(ctx?: any);
+    init(orientation?: string, padding?: number);
+    render(ctx?: CanvasRenderingContext2D);
 }
 
 export class Animation extends SnapType {
@@ -117,10 +117,10 @@ export class ArgLabelMorph extends ArgMorph {
 }
 
 export class ArgMorph extends SyntaxElementMorph {
-    alpha: any;
-    color: any;
-    icon: any;
-    type: any;
+    alpha: number;
+    color: Color;
+    icon: BlockSymbolMorph;
+    type: string;
 
     argId();
     constructor(type?: any);
@@ -128,11 +128,11 @@ export class ArgMorph extends SyntaxElementMorph {
     evaluate();
     fixLayout();
     getSpec();
-    init(type?: any);
+    init(type?: string);
     isEmptySlot();
     justDropped();
     reactToSliderEdit();
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     slotMenu();
     toXML();
     unwind();
@@ -140,22 +140,22 @@ export class ArgMorph extends SyntaxElementMorph {
 }
 
 export class ArrowMorph extends Morph {
-    color: any;
-    direction: any;
-    isBlockLabel: any;
-    padding: any;
-    size: any;
+    color: Color;
+    direction: string;
+    isBlockLabel: boolean;
+    padding: number;
+    size: number;
 
     constructor(direction?: any, size?: any, padding?: any, color?: any, isBlockLabel?: any);
     getRenderColor();
-    init(direction?: any, size?: any, padding?: any, color?: any, isLbl?: any);
-    render(ctx?: any);
-    setSize(size?: any);
+    init(direction?: string, size?: number, padding?: number, color?: Color, isLbl?: boolean);
+    render(ctx?: CanvasRenderingContext2D);
+    setSize(size?: number);
 }
 
 export class BlinkerMorph extends Morph {
-    color: any;
-    fps: any;
+    color: Color;
+    fps: number;
 
     constructor(rate?: any);
     init(rate?: any);
@@ -248,8 +248,8 @@ export class BlockExportDialogMorph extends DialogBoxMorph {
 }
 
 export class BlockHighlightMorph extends Morph {
-    isCachingImage: any;
-    threadCount: any;
+    isCachingImage: boolean;
+    threadCount: number;
 
     constructor();
     init();
@@ -374,7 +374,7 @@ export class BlockMorph extends SyntaxElementMorph {
     cachedInputs: any[];
     category: string;
     color: Color;
-    comment: any;
+    comment: CommentMorph;
     id: number;
     instantiationSpec: any;
     isCorpse: boolean;
@@ -406,8 +406,8 @@ export class BlockMorph extends SyntaxElementMorph {
     equalTo(other?: any);
     exportResultPic();
     exportScript();
-    fixBlockColor(nearestBlock?: any, isForced?: any);
-    fixChildrensBlockColor(isForced?: any);
+    fixBlockColor(nearestBlock?: CommandBlockMorph, isForced?: boolean);
+    fixChildrensBlockColor(isForced?: boolean);
     fixLabelColor();
     focus();
     forceNormalColoring();
@@ -421,9 +421,9 @@ export class BlockMorph extends SyntaxElementMorph {
     hasBlockVars();
     hasLabels();
     hasLocationPin();
-    highlight(color?: any, blur?: any, border?: any);
+    highlight(color?: Color, blur?: number, border?: number);
     highlightImage(color?: any, border?: any);
-    highlightImageBlurred(color?: any, blur?: any);
+    highlightImageBlurred(color?: Color, blur?: number);
     init();
     isChangeableTo(type?: any);
     isInheritedVariable(shadowedOnly?: any);
@@ -432,7 +432,7 @@ export class BlockMorph extends SyntaxElementMorph {
     isUnattached();
     isVariableAccessorFor(varName?: any);
     justDropped();
-    localizeBlockSpec(spec?: any);
+    localizeBlockSpec(spec?: string);
     mapCode(aString?: any, key?: any);
     mapHeader(aString?: any, key?: any);
     mapToCode();
@@ -441,13 +441,13 @@ export class BlockMorph extends SyntaxElementMorph {
     markEmptySlots();
     messageUsers();
     mouseClickLeft();
-    mouseDownLeft(pos?: any);
-    mouseEnterBounds(dragged?: any);
-    mouseLeaveBounds(dragged?: any);
+    mouseDownLeft(pos?: Point);
+    mouseEnterBounds(dragged?: BlockMorph);
+    mouseLeaveBounds(dragged?: BlockMorph);
     outline(color?: any, border?: any);
-    parseSpec(spec?: any);
+    parseSpec(spec?: string);
     pickUp(wrrld?: any);
-    prepareToBeGrabbed(hand?: any);
+    prepareToBeGrabbed(hand?: HandMorph);
     reactToDropOf(droppedMorph?: any);
     reactToTemplateCopy();
     rebuild(contrast?: any);
@@ -457,17 +457,17 @@ export class BlockMorph extends SyntaxElementMorph {
     reify(inputNames?: any, comment?: any);
     relabel(alternativeSelectors?: any);
     removeHighlight();
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     restoreInputs(oldInputs?: any, offset?: any);
     rewind(scriptOnly?: any);
     ringify();
     rootForGrab();
     scopeFor(varName?: any, afterThis?: any);
     scriptPic();
-    scriptTarget(noError?: any);
-    setCategory(aString?: any);
+    scriptTarget(noError?: boolean);
+    setCategory(aString?: string);
     setSelector(aSelector?: any, inputOffset?: any);
-    setSpec(spec?: any, definition?: any);
+    setSpec(spec?: string, definition?: CustomBlockDefinition);
     showHelp();
     showMessageUsers();
     situation();
@@ -477,10 +477,10 @@ export class BlockMorph extends SyntaxElementMorph {
     stackWidth();
     syntaxTree(parameterNames?: any);
     thumbnail(scale?: any, clipWidth?: any);
-    toBlockXML(serializer?: any);
-    toScriptXML(serializer?: any, savePosition?: any);
+    toBlockXML(serializer?: SnapSerializer);
+    toScriptXML(serializer?: SnapSerializer, savePosition?: boolean);
     toString();
-    toXML(serializer?: any, savePosition?: any);
+    toXML(serializer?: SnapSerializer, savePosition?: any);
     toXMLString(receiver?: any);
     toggleHighlight();
     toggleSnapSound();
@@ -547,15 +547,15 @@ export class BlockVisibilityDialogMorph extends DialogBoxMorph {
 }
 
 export class BooleanSlotMorph extends ArgMorph {
-    alpha: any;
-    isUnevaluated: any;
-    progress: any;
-    value: any;
+    alpha: number;
+    isUnevaluated: boolean;
+    progress: number;
+    value: boolean;
 
     constructor(initialValue?: any);
-    drawDiamond(ctx?: any, progress?: any);
-    drawKnob(ctx?: any, progress?: any);
-    drawLabel(ctx?: any);
+    drawDiamond(ctx?: CanvasRenderingContext2D, progress?: number);
+    drawKnob(ctx?: CanvasRenderingContext2D, progress?: number);
+    drawLabel(ctx?: CanvasRenderingContext2D);
     evaluate();
     fixLayout();
     getSpec();
@@ -569,8 +569,8 @@ export class BooleanSlotMorph extends ArgMorph {
     mouseEnter();
     mouseLeave();
     nextValue();
-    render(ctx?: any);
-    setContents(boolOrNull?: any);
+    render(ctx?: CanvasRenderingContext2D);
+    setContents(boolOrNull?: boolean);
     slotMenu();
     textLabelExtent();
     toXML();
@@ -601,10 +601,10 @@ export class BoxMorph extends Morph {
     colorSetters();
     constructor(edge?: any, border?: any, borderColor?: any);
     developersMenu();
-    init(edge?: any, border?: any, borderColor?: any);
+    init(edge?: number, border?: number, borderColor?: Color);
     numericalSetters();
-    outlinePath(ctx?: any, corner?: any, inset?: any);
-    render(ctx?: any);
+    outlinePath(ctx?: CanvasRenderingContext2D, corner?: number, inset?: number);
+    render(ctx?: CanvasRenderingContext2D);
     setBorderColor(color?: any);
     setBorderWidth(size?: any);
     setCornerSize(size?: any);
@@ -630,27 +630,27 @@ export class CamSnapshotDialogMorph extends DialogBoxMorph {
 }
 
 export class CellMorph extends BoxMorph {
-    color: any;
-    contents: any;
+    color: Color;
+    contents: number;
     idx: any;
-    isBig: any;
-    isEditable: any;
+    isBig: boolean;
+    isEditable: boolean;
     parentCell: any;
     version: any;
 
     big();
     constructor(contents?: any, color?: any, idx?: any, parentCell?: any);
     createContents();
-    drawShadow(context?: any, radius?: any, inset?: any);
-    fixLayout(justMe?: any);
-    init(contents?: any, color?: any, idx?: any, parentCell?: any);
+    drawShadow(context?: CanvasRenderingContext2D, radius?: number, inset?: number);
+    fixLayout(justMe?: boolean);
+    init(contents?: string, color?: Color, idx?: any, parentCell?: any);
     isCircular(list?: any);
     layoutChanged();
     mouseClickLeft(pos?: any);
     mouseDoubleClick(pos?: any);
     normal();
     reactToEdit(textMorph?: any);
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     update();
 }
 
@@ -661,8 +661,8 @@ export class CircleBoxMorph extends Morph {
     autoOrientation();
     constructor(orientation?: any);
     developersMenu();
-    init(orientation?: any);
-    render(ctx?: any);
+    init(orientation?: string);
+    render(ctx?: CanvasRenderingContext2D);
     toggleOrientation();
 }
 
@@ -737,14 +737,14 @@ export class Color extends SnapType {
     constructor(r?: any, g?: any, b?: any, a?: any);
     copy();
     dansDarker();
-    darker(percent?: any);
-    eq(aColor?: any, observeAlpha?: any);
+    darker(percent?: number | string);
+    eq(aColor?: Color, observeAlpha?: any);
     hsl();
     hsv();
     inverted();
     isCloseTo(aColor?: any, observeAlpha?: any, tolerance?: any);
-    lighter(percent?: any);
-    mixed(proportion?: any, otherColor?: any);
+    lighter(percent?: number);
+    mixed(proportion?: number, otherColor?: Color);
     set_hsl(h?: any, s?: any, l?: any);
     set_hsv(h?: any, s?: any, v?: any);
     solid();
@@ -753,17 +753,17 @@ export class Color extends SnapType {
 }
 
 export class ColorPaletteMorph extends Morph {
-    choice: any;
-    isCachingImage: any;
+    choice: Color;
+    isCachingImage: boolean;
     target: any;
-    targetSetter: any;
+    targetSetter: string;
 
     constructor(target?: any, sizePoint?: any);
     developersMenu();
-    init(target?: any, size?: any);
+    init(target?: any, size?: Point);
     mouseDownLeft(pos?: any);
     mouseMove(pos?: any);
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     setTarget();
     setTargetSetter();
     updateTarget();
@@ -781,48 +781,48 @@ export class ColorPickerMorph extends Morph {
 }
 
 export class ColorSlotMorph extends ArgMorph {
-    alpha: any;
+    alpha: number;
 
     constructor(clr?: any);
-    drawRectBorder(ctx?: any);
+    drawRectBorder(ctx?: CanvasRenderingContext2D);
     evaluate();
     fixLayout();
     getSpec();
     getUserColor();
     init(clr?: any);
     mouseClickLeft();
-    render(ctx?: any);
-    toXML(serializer?: any);
+    render(ctx?: CanvasRenderingContext2D);
+    toXML(serializer?: SnapSerializer);
 }
 
 export class CommandBlockMorph extends BlockMorph {
     exitTag: any;
     partOfCustomCommand: boolean;
 
-    allAttachTargets(newParent?: any);
+    allAttachTargets(newParent?: ScriptsMorph);
     attachTargets();
     blockSequence();
     bottomAttachPoint();
     bottomBlock();
-    closestAttachTarget(newParent?: any);
+    closestAttachTarget(newParent?: ScriptsMorph);
     constructor();
     dentCenter();
     dentLeft();
-    drawBottomDentEdge(ctx?: any, x?: any, y?: any);
-    drawBottomRightEdge(ctx?: any);
-    drawEdges(ctx?: any);
+    drawBottomDentEdge(ctx?: CanvasRenderingContext2D, x?: number, y?: number);
+    drawBottomRightEdge(ctx?: CanvasRenderingContext2D);
+    drawEdges(ctx?: CanvasRenderingContext2D);
     drawFlatBottomDentEdge(ctx?: any);
-    drawLeftEdge(ctx?: any);
-    drawRightEdge(ctx?: any);
-    drawTopDentEdge(ctx?: any, x?: any, y?: any);
-    drawTopLeftEdge(ctx?: any);
+    drawLeftEdge(ctx?: CanvasRenderingContext2D);
+    drawRightEdge(ctx?: CanvasRenderingContext2D);
+    drawTopDentEdge(ctx?: CanvasRenderingContext2D, x?: number, y?: number);
+    drawTopLeftEdge(ctx?: CanvasRenderingContext2D);
     extract();
     init();
     isStop();
     nextBlock(block?: any);
-    outlinePath(ctx?: any, inset?: any);
-    prepareToBeGrabbed(handMorph?: any);
-    snap(hand?: any);
+    outlinePath(ctx?: CanvasRenderingContext2D, inset?: number);
+    prepareToBeGrabbed(handMorph?: HandMorph);
+    snap(hand?: HandMorph);
     topAttachPoint();
     userDestroy();
     userDestroyJustThis();
@@ -831,14 +831,14 @@ export class CommandBlockMorph extends BlockMorph {
 }
 
 export class CommandSlotMorph extends ArgMorph {
-    color: any;
+    color: Color;
 
     attach();
     attachTargets();
     constructor();
     dentCenter();
     dentLeft();
-    drawEdges(ctx?: any);
+    drawEdges(ctx?: CanvasRenderingContext2D);
     drawFlat(ctx?: any);
     evaluate();
     fixLayout();
@@ -854,17 +854,17 @@ export class CommandSlotMorph extends ArgMorph {
 }
 
 export class CommentMorph extends BoxMorph {
-    anchor: any;
-    arrow: any;
-    block: any;
-    color: any;
-    contents: any;
-    handle: any;
-    isCollapsed: any;
-    isDraggable: any;
+    anchor: Morph;
+    arrow: ArrowMorph;
+    block: CommandBlockMorph;
+    color: Color;
+    contents: TextMorph;
+    handle: HandleMorph;
+    isCollapsed: boolean;
+    isDraggable: boolean;
     stickyOffset: any;
     title: any;
-    titleBar: any;
+    titleBar: BoxMorph;
 
     align(topBlock?: any, ignoreLayer?: any);
     comeToFront();
@@ -889,7 +889,7 @@ export class CommentMorph extends BoxMorph {
     stopFollowing();
     text();
     textWidth();
-    toXML(serializer?: any);
+    toXML(serializer?: SnapSerializer);
     toggleExpand();
     userDestroy();
     userMenu();
@@ -918,7 +918,7 @@ export class Context extends SnapType {
     variables: any;
     version: any;
 
-    addInput(input?: any);
+    addInput(input?: List | number);
     changed();
     components();
     constructor(parentContext?: any, expression?: any, outerContext?: any, receiver?: any);
@@ -1035,9 +1035,9 @@ export class Crosshair extends VectorShape {
 }
 
 export class CSlotMorph extends CommandSlotMorph {
-    color: any;
-    isLambda: any;
-    isLoop: any;
+    color: Color;
+    isLambda: boolean;
+    isLoop: boolean;
 
     constructor();
     drawBottomEdge(ctx?: any);
@@ -1059,24 +1059,24 @@ export class CSlotMorph extends CommandSlotMorph {
 }
 
 export class CursorMorph extends BlinkerMorph {
-    keyDownEventUsed: any;
-    originalAlignment: any;
-    originalContents: any;
-    slot: any;
-    target: any;
-    textarea: any;
+    keyDownEventUsed: boolean;
+    originalAlignment: string;
+    originalContents: string;
+    slot: number;
+    target: Morph;
+    textarea: HTMLTextAreaElement;
 
     accept();
     cancel();
     constructor(aStringOrTextMorph?: any, aTextarea?: any);
     destroy();
-    gotoPos(aPoint?: any);
-    gotoSlot(slot?: any);
-    init(aStringOrTextMorph?: any, aTextarea?: any);
-    processInput(event?: any);
-    processKeyDown(event?: any);
-    processKeyUp(event?: any);
-    syncTextareaSelectionWith(targetMorph?: any);
+    gotoPos(aPoint?: Point);
+    gotoSlot(slot?: number);
+    init(aStringOrTextMorph?: Morph, aTextarea?: HTMLTextAreaElement);
+    processInput(event?: InputEvent);
+    processKeyDown(event?: KeyboardEvent);
+    processKeyUp(event?: KeyboardEvent);
+    syncTextareaSelectionWith(targetMorph?: Morph);
     undo();
     updateSelection(shift?: any);
     updateTextAreaPosition();
@@ -1258,25 +1258,25 @@ export class DialMorph extends Morph {
 }
 
 export class DialogBoxMorph extends Morph {
-    action: any;
-    body: any;
-    buttons: any;
-    color: any;
-    environment: any;
-    fullShadowSource: any;
+    action: Function;
+    body: InputFieldMorph;
+    buttons: AlignmentMorph;
+    color: Color;
+    environment: SpriteMorph;
+    fullShadowSource: boolean;
     head: any;
-    is3D: any;
-    isDraggable: any;
-    key: any;
-    label: any;
-    labelString: any;
-    nag: any;
-    noDropShadow: any;
+    is3D: boolean;
+    isDraggable: boolean;
+    key: string;
+    label: StringMorph;
+    labelString: string;
+    nag: boolean;
+    noDropShadow: boolean;
     target: any;
 
     accept();
-    addBody(aMorph?: any);
-    addButton(action?: any, label?: any);
+    addBody(aMorph?: InputFieldMorph);
+    addButton(action?: string, label?: string);
     addHead(aMorph?: any);
     askYesNo(title?: any, textString?: any, world?: any, pic?: any);
     cancel();
@@ -1288,22 +1288,22 @@ export class DialogBoxMorph extends Morph {
     fixLayout();
     getInput();
     inform(title?: any, textString?: any, world?: any, pic?: any);
-    init(target?: any, action?: any, environment?: any);
+    init(target?: any, action?: Function, environment?: SpriteMorph);
     justDropped(hand?: any);
-    normalizeSpaces(string?: any);
+    normalizeSpaces(string?: string);
     ok();
-    outlinePathBody(ctx?: any, radius?: any);
-    outlinePathTitle(ctx?: any, radius?: any);
-    popUp(world?: any);
+    outlinePathBody(ctx?: CanvasRenderingContext2D, radius?: number);
+    outlinePathTitle(ctx?: CanvasRenderingContext2D, radius?: number);
+    popUp(world?: WorldMorph);
     processKeyDown(event?: any);
     processKeyPress();
-    prompt(title?: any, defaultString?: any, world?: any, pic?: any, choices?: any, isReadOnly?: any, isNumeric?: any, sliderMin?: any, sliderMax?: any, sliderAction?: any, decimals?: any);
+    prompt(title?: string, defaultString?: any, world?: WorldMorph, pic?: any, choices?: any, isReadOnly?: any, isNumeric?: any, sliderMin?: any, sliderMax?: any, sliderAction?: any, decimals?: any);
     promptCategory(title?: any, name?: any, color?: any, world?: any, pic?: any, msg?: any);
     promptCode(title?: any, defaultString?: any, world?: any, pic?: any, instructions?: any);
     promptCredentials(title?: any, purpose?: any, tosURL?: any, tosLabel?: any, prvURL?: any, prvLabel?: any, checkBoxLabel?: any, world?: any, pic?: any, msg?: any);
     promptRGB(title?: any, color?: any, world?: any, pic?: any, msg?: any);
     promptVector(title?: any, point?: any, deflt?: any, xLabel?: any, yLabel?: any, world?: any, pic?: any, msg?: any);
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     setPicture(aMorphOrCanvas?: any);
     withKey(key?: any);
 }
@@ -1319,26 +1319,26 @@ export class FrameMorph extends Morph {
     constructor(aScrollFrame?: any);
     developersMenu();
     fullBounds();
-    fullDrawOn(ctx?: any, aRect?: any);
+    fullDrawOn(ctx?: CanvasRenderingContext2D, aRect?: Rectangle);
     fullImage();
-    init(aScrollFrame?: any);
+    init(aScrollFrame?: ScrollFrameMorph);
     keepAllSubmorphsWithin();
     keepInScrollFrame();
     reactToDropOf();
     reactToGrabOf();
     submorphBounds();
-    topMorphAt(point?: any);
+    topMorphAt(point?: Point);
 }
 
 export class FunctionSlotMorph extends ArgMorph {
-    color: any;
-    isPredicate: any;
+    color: Color;
+    isPredicate: boolean;
 
     constructor(isPredicate?: any);
     drawDiamond(ctx?: any);
     drawRounded(ctx?: any);
     getSpec();
-    init(isPredicate?: any);
+    init(isPredicate?: boolean);
     render(ctx?: any);
     toXML(serializer?: any);
 }
@@ -1365,7 +1365,7 @@ export class HandleMorph extends Morph {
     attach();
     constructor(target?: any, minX?: any, minY?: any, insetX?: any, insetY?: any, type?: any);
     fixLayout();
-    init(target?: any, minX?: any, minY?: any, insetX?: any, insetY?: any, type?: any);
+    init(target?: TextMorph, minX?: number, minY?: number, insetX?: number, insetY?: number, type?: any);
     mouseDownLeft(pos?: any);
     mouseEnter();
     mouseLeave();
@@ -1396,17 +1396,17 @@ export class HandMorph extends Morph {
     constructor(aWorld?: any);
     destroyTemporaries();
     drop();
-    dropTargetFor(aMorph?: any);
+    dropTargetFor(aMorph?: Morph);
     fullChanged();
-    fullDrawOn(ctx?: any, rect?: any);
-    grab(aMorph?: any);
+    fullDrawOn(ctx?: CanvasRenderingContext2D, rect?: Rectangle);
+    grab(aMorph?: Morph);
     init(aWorld?: any);
     morphAtPointer();
-    moveBy(delta?: any);
+    moveBy(delta?: Point);
     processDoubleClick();
     processDrop(event?: any);
-    processMouseDown(event?: any);
-    processMouseMove(event?: any);
+    processMouseDown(event?: MouseEvent);
+    processMouseMove(event?: MouseEvent);
     processMouseScroll(event?: any);
     processMouseUp();
     processTouchEnd(event?: any);
@@ -1428,53 +1428,53 @@ export class HatBlockMorph extends CommandBlockMorph {
 }
 
 export class IDE_Morph extends Morph {
-    bulkDropInProgress: any;
+    bulkDropInProgress: boolean;
     cachedSceneFlag: any;
-    categories: any;
-    cloud: any;
+    categories: Morph;
+    cloud: Cloud;
     cloudMsg: any;
-    color: any;
-    config: any;
-    controlBar: any;
-    corral: any;
-    corralBar: any;
-    currentCategory: any;
-    currentSprite: any;
-    currentTab: any;
+    color: Color;
+    config: Object;
+    controlBar: Morph;
+    corral: Morph;
+    corralBar: Morph;
+    currentCategory: string;
+    currentSprite: Morph;
+    currentTab: string;
     embedOverlay: any;
     embedPlayButton: any;
     filePicker: any;
-    globalVariables: any;
-    hasChangedMedia: any;
-    isAddingNextScene: any;
-    isAddingScenes: any;
-    isAnimating: any;
-    isAppMode: any;
-    isAutoFill: any;
-    isEmbedMode: any;
-    isImportingLocalFile: any;
-    isSmallStage: any;
-    loadNewProject: any;
-    logo: any;
-    palette: any;
-    paletteHandle: any;
-    paletteWidth: any;
-    projectGUID: any;
-    savingPreferences: any;
-    scene: any;
-    scenes: any;
-    serializer: any;
+    globalVariables: VariableFrame;
+    hasChangedMedia: boolean;
+    isAddingNextScene: boolean;
+    isAddingScenes: boolean;
+    isAnimating: boolean;
+    isAppMode: boolean;
+    isAutoFill: boolean;
+    isEmbedMode: boolean;
+    isImportingLocalFile: boolean;
+    isSmallStage: boolean;
+    loadNewProject: boolean;
+    logo: Morph;
+    palette: ScrollFrameMorph;
+    paletteHandle: PaletteHandleMorph;
+    paletteWidth: number;
+    projectGUID: string;
+    savingPreferences: boolean;
+    scene: Scene;
+    scenes: List;
+    serializer: SnapSerializer;
     shield: any;
     source: any;
-    spriteBar: any;
-    spriteEditor: any;
-    sprites: any;
-    stage: any;
-    stageHandle: any;
-    stageRatio: any;
+    spriteBar: Morph;
+    spriteEditor: ScrollFrameMorph;
+    sprites: List;
+    stage: StageMorph;
+    stageHandle: StageHandleMorph;
+    stageRatio: number;
     userLanguage: any;
-    version: any;
-    wasSingleStepping: any;
+    version: number;
+    wasSingleStepping: boolean;
 
     aboutSnap();
     addMessageListener(message?: any, callback?: any);
@@ -1507,7 +1507,7 @@ export class IDE_Morph extends Morph {
     createCategories();
     createCloudAccount();
     createControlBar();
-    createCorral(keepSceneAlbum?: any);
+    createCorral(keepSceneAlbum?: boolean);
     createCorralBar();
     createLogo();
     createNewCategory();
@@ -1529,7 +1529,7 @@ export class IDE_Morph extends Morph {
     droppedImage(aCanvas?: any, name?: any, embeddedData?: any, src?: any);
     droppedSVG(anImage?: any, name?: any);
     droppedText(aString?: any, name?: any, fileType?: any);
-    duplicateSprite(sprite?: any);
+    duplicateSprite(sprite?: SpriteMorph);
     editNotes();
     endBulkDrop();
     exportGlobalBlocks();
@@ -1540,11 +1540,11 @@ export class IDE_Morph extends Morph {
     exportProjectSummary(useDropShadows?: any);
     exportScriptsPicture();
     exportSprite(sprite?: any);
-    fixLayout(situation?: any);
+    fixLayout(situation?: string);
     flashSpriteScripts(fromLOC?: any, toLOC?: any, name?: any);
     flatDesign();
-    flushBlocksCache(category?: any);
-    flushPaletteCache(category?: any);
+    flushBlocksCache(category?: string);
+    flushPaletteCache(category?: string);
     generatePuzzle();
     getCurrentScene();
     getMediaList(dirname?: any, callback?: any);
@@ -1580,11 +1580,11 @@ export class IDE_Morph extends Morph {
     microphoneMenu();
     newCamSprite();
     newList(array?: any);
-    newName(name?: any, elements?: any);
+    newName(name?: string, elements?: any[]);
     newProject();
     newSceneName(name?: any, ignoredScene?: any);
     newSoundName(name?: any);
-    newSpriteName(name?: any, ignoredSprite?: any);
+    newSpriteName(name?: string, ignoredSprite?: any);
     openBlocksString(str?: any, name?: any, silently?: any);
     openCloudDataString(str?: any);
     openDataString(str?: any, name?: any, type?: any);
@@ -1614,15 +1614,15 @@ export class IDE_Morph extends Morph {
     reactToWorldResize(rect?: any);
     recordNewSound();
     recordSavedChanges();
-    recordUnsavedChanges(spriteName?: any, details?: any);
+    recordUnsavedChanges(spriteName?: string, details?: any[]);
     reflectLanguage(lang?: any, callback?: any, noSave?: any);
     refreshIDE();
-    refreshPalette(shouldIgnorePosition?: any);
+    refreshPalette(shouldIgnorePosition?: boolean);
     removeBlock(aBlock?: any, justThis?: any);
     removeSetting(key?: any);
-    removeSprite(sprite?: any, enableUndelete?: any);
+    removeSprite(sprite?: SpriteMorph, enableUndelete?: any);
     removeUnusedBlocks();
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     resendVerification();
     resetCloudPassword();
     resourceURL();
@@ -1639,7 +1639,7 @@ export class IDE_Morph extends Morph {
     scenesMenu();
     scriptsTexture();
     scrollPaletteToCategory(category?: any);
-    selectSprite(sprite?: any, noEmptyRefresh?: any);
+    selectSprite(sprite?: SpriteMorph, noEmptyRefresh?: any);
     setBlockTransparency(num?: any, save?: any);
     setBlocksScale(num?: any);
     setCloudURL();
@@ -1656,7 +1656,7 @@ export class IDE_Morph extends Morph {
     setUnifiedPalette(bool?: any);
     setVar(name?: any, value?: any);
     settingsMenu();
-    showMessage(message?: any, secs?: any);
+    showMessage(message?: string, secs?: any);
     snapMenu();
     spriteNamed(name?: any);
     startFastTracking();
@@ -1690,7 +1690,7 @@ export class IDE_Morph extends Morph {
     undeleteSprites(pos?: any);
     unflashSpriteScripts(name?: any);
     unsavedChanges();
-    updateChanges(spriteName?: any, details?: any);
+    updateChanges(spriteName?: string, details?: any[]);
     urlParameters();
     userFadeBlocks();
     userMenu();
@@ -1712,15 +1712,15 @@ export class InputFieldMorph extends Morph {
     arrow();
     constructor(text?: any, isNumeric?: any, choiceDict?: any, isReadOnly?: any);
     contents();
-    drawRectBorder(ctx?: any);
+    drawRectBorder(ctx?: CanvasRenderingContext2D);
     dropDownMenu();
     edit();
     fixLayout();
     getValue();
-    init(text?: any, isNumeric?: any, choiceDict?: any, isReadOnly?: any);
+    init(text?: string, isNumeric?: boolean, choiceDict?: any, isReadOnly?: boolean);
     mouseClickLeft(pos?: any);
-    normalizeSpaces(string?: any);
-    render(ctx?: any);
+    normalizeSpaces(string?: string);
+    render(ctx?: CanvasRenderingContext2D);
     setChoice(aStringOrFloat?: any);
     setContents(aStringOrFloat?: any);
     setIsNumeric(bool?: any);
@@ -1764,15 +1764,15 @@ export class InputSlotDialogMorph extends DialogBoxMorph {
 }
 
 export class InputSlotMorph extends ArgMorph {
-    choices: any;
-    color: any;
-    constant: any;
-    isAlphanumeric: any;
-    isNumeric: any;
-    isReadOnly: any;
-    isUnevaluated: any;
-    minWidth: any;
-    oldContentsExtent: any;
+    choices: Object | string;
+    color: Color;
+    constant: any[];
+    isAlphanumeric: boolean;
+    isNumeric: boolean;
+    isReadOnly: boolean;
+    isUnevaluated: boolean;
+    minWidth: number;
+    oldContentsExtent: Point;
     onSetContents: any;
     selectedBlock: any;
     symbol: any;
@@ -1787,28 +1787,28 @@ export class InputSlotMorph extends ArgMorph {
     costumesMenu(searching?: any);
     directionDialMenu(searching?: any);
     distancesMenu(searching?: any);
-    drawRectBorder(ctx?: any);
-    drawRoundBorder(ctx?: any);
+    drawRectBorder(ctx?: CanvasRenderingContext2D);
+    drawRoundBorder(ctx?: CanvasRenderingContext2D);
     dropDownMenu(enableKeyboard?: any);
     evaluate();
     eventsMenu(searching?: any);
     fixLayout();
     flash(aColor?: any);
-    freshTextEdit(aStringOrTextMorph?: any);
+    freshTextEdit(aStringOrTextMorph?: InputSlotStringMorph);
     getSpec();
     gettablesMenu();
-    init(text?: any, isNumeric?: any, choiceDict?: any, isReadOnly?: any);
+    init(text?: any, isNumeric?: any, choiceDict?: Object | string, isReadOnly?: any);
     isEmptySlot();
     keysMenu();
     locationMenu(searching?: any);
     mapNumberToCode();
     mapStringToCode();
     mappedCode();
-    menuFromDict(choices?: any, noEmptyOption?: any, enableKeyboard?: any);
+    menuFromDict(choices?: Object | string, noEmptyOption?: boolean, enableKeyboard?: any);
     messagesMenu(searching?: any);
     messagesReceivedMenu(searching?: any);
-    mouseClickLeft(pos?: any);
-    mouseDownLeft(pos?: any);
+    mouseClickLeft(pos?: Point);
+    mouseDownLeft(pos?: Point);
     objectsMenu(searching?: any, includeMyself?: any);
     objectsMenuWithSelf(searching?: any);
     pianoKeyboardMenu(searching?: any);
@@ -1816,43 +1816,43 @@ export class InputSlotMorph extends ArgMorph {
     reactToEdit();
     reactToKeystroke();
     receiversMenu(searching?: any);
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     scenesMenu(searching?: any);
     setChoices(dict?: any, readonly?: any);
-    setContents(data?: any);
+    setContents(data?: any[] | number | string);
     shadowedVariablesMenu(searching?: any);
     slotMenu();
     soundsMenu(searching?: any);
-    toXML(serializer?: any);
+    toXML(serializer?: SnapSerializer);
     typesMenu();
     unflash();
-    updateEventUpvar(data?: any);
+    updateEventUpvar(data?: any[]);
     userEditMenu(searching?: any);
-    userSetContents(aStringOrFloat?: any);
+    userSetContents(aStringOrFloat?: any[]);
 }
 
 export class InputSlotStringMorph extends StringMorph {
-    blanksColor: any;
-    color: any;
-    currentlySelecting: any;
-    enableLinks: any;
-    endMark: any;
-    fontName: any;
-    fontSize: any;
-    fontStyle: any;
-    isBold: any;
-    isEditable: any;
-    isItalic: any;
-    isNumeric: any;
-    isPassword: any;
-    isScrollable: any;
-    isShowingBlanks: any;
-    markedBackgoundColor: any;
-    markedTextColor: any;
-    shadowColor: any;
-    shadowOffset: any;
-    startMark: any;
-    text: any;
+    blanksColor: Color;
+    color: Color;
+    currentlySelecting: boolean;
+    enableLinks: boolean;
+    endMark: number;
+    fontName: string;
+    fontSize: number;
+    fontStyle: string;
+    isBold: boolean;
+    isEditable: boolean;
+    isItalic: boolean;
+    isNumeric: boolean;
+    isPassword: boolean;
+    isScrollable: boolean;
+    isShowingBlanks: boolean;
+    markedBackgoundColor: Color;
+    markedTextColor: Color;
+    shadowColor: Color;
+    shadowOffset: Point;
+    startMark: number;
+    text: string;
 
     constructor(text?: any, fontSize?: any, fontStyle?: any, bold?: any, italic?: any, isNumeric?: any, shadowOffset?: any, shadowColor?: any, color?: any, fontName?: any);
     getRenderColor();
@@ -2155,37 +2155,37 @@ export class Localizer extends SnapType {
 
 export class MenuItemMorph extends TriggerMorph {
     action: any;
-    color: any;
+    color: Color;
     doubleClickAction: any;
-    environment: any;
-    fontSize: any;
-    fontStyle: any;
-    highlightColor: any;
+    environment: InputSlotMorph;
+    fontSize: number;
+    fontStyle: string;
+    highlightColor: Color;
     hint: any;
-    label: any;
-    labelBold: any;
-    labelColor: any;
-    labelItalic: any;
-    labelString: any;
-    pressColor: any;
-    schedule: any;
-    shortcut: any;
-    shortcutString: any;
+    label: TextMorph;
+    labelBold: boolean;
+    labelColor: Color;
+    labelItalic: boolean;
+    labelString: string;
+    pressColor: Color;
+    schedule: Animation;
+    shortcut: TextMorph;
+    shortcutString: string;
     target: any;
-    userState: any;
+    userState: string;
 
     constructor(target?: any, action?: any, labelString?: any, fontSize?: any, fontStyle?: any, environment?: any, hint?: any, color?: any, bold?: any, italic?: any, doubleClickAction?: any, shortcut?: any);
     createIcon(source?: any);
     createLabel();
-    createLabelPart(source?: any);
-    createLabelString(string?: any);
+    createLabelPart(source?: string);
+    createLabelString(string?: string);
     delaySubmenu();
     fixLayout();
     isListItem();
     isSelectedListItem();
     isShowingSubmenu();
     mouseClickLeft();
-    mouseDownLeft(pos?: any);
+    mouseDownLeft(pos?: Point);
     mouseEnter();
     mouseLeave();
     mouseMove();
@@ -2193,27 +2193,27 @@ export class MenuItemMorph extends TriggerMorph {
 }
 
 export class MenuMorph extends BoxMorph {
-    border: any;
-    edge: any;
-    environment: any;
-    fontSize: any;
-    fullShadowSource: any;
-    hasFocus: any;
-    isDraggable: any;
-    isListContents: any;
-    items: any;
+    border: number;
+    edge: number;
+    environment: InputSlotMorph;
+    fontSize: number;
+    fullShadowSource: boolean;
+    hasFocus: boolean;
+    isDraggable: boolean;
+    isListContents: boolean;
+    items: any[];
     label: any;
-    noDropShadow: any;
+    noDropShadow: boolean;
     selection: any;
     submenu: any;
     target: any;
     title: any;
-    world: any;
+    world: WorldMorph;
 
-    addItem(labelString?: any, action?: any, hint?: any, color?: any, bold?: any, italic?: any, doubleClickAction?: any, shortcut?: any, verbatim?: any);
+    addItem(labelString?: any[] | string, action?: Function | string | Morph, hint?: string, color?: any, bold?: any, italic?: any, doubleClickAction?: any, shortcut?: string, verbatim?: boolean);
     addLine(width?: any);
-    addMenu(label?: any, aMenu?: any, indicator?: any, verbatim?: any);
-    addPair(label?: any, action?: any, shortcut?: any, hint?: any, verbatim?: any);
+    addMenu(label?: string, aMenu?: MenuMorph, indicator?: any, verbatim?: boolean);
+    addPair(label?: string, action?: MenuMorph, shortcut?: string, hint?: any, verbatim?: boolean);
     adjustWidths();
     closeRootMenu();
     closeSubmenu();
@@ -2223,13 +2223,13 @@ export class MenuMorph extends BoxMorph {
     destroy();
     enterSubmenu();
     getFocus();
-    init(target?: any, title?: any, environment?: any, fontSize?: any);
+    init(target?: Function | Morph, title?: string, environment?: Morph, fontSize?: number);
     leaveSubmenu();
     maxWidth();
-    popUpAtHand(world?: any);
+    popUpAtHand(world?: WorldMorph);
     popUpCenteredAtHand(world?: any);
-    popUpCenteredInWorld(world?: any);
-    popup(world?: any, pos?: any);
+    popUpCenteredInWorld(world?: WorldMorph);
+    popup(world?: WorldMorph, pos?: Point);
     processKeyDown(event?: any);
     processKeyPress(event?: any);
     processKeyUp(event?: any);
@@ -2282,7 +2282,7 @@ export class Morph extends Node {
     alpha: number;
     bounds: Rectangle;
     cachedImage: HTMLCanvasElement;
-    cachedTexture: HTMLImageElement | HTMLCanvasElement;
+    cachedTexture: HTMLCanvasElement | HTMLImageElement;
     color: Color;
     customContextMenu: any;
     fps: number;
@@ -2296,13 +2296,13 @@ export class Morph extends Node {
     isVisible: boolean;
     lastTime: number;
     noDropShadow: boolean;
-    onNextStep: any;
+    onNextStep: Function;
     shouldRerender: boolean;
     texture: string;
 
-    add(aMorph?: any);
-    addBack(aMorph?: any);
-    addShadow(off?: any, a?: any, color?: any);
+    add(aMorph?: Morph);
+    addBack(aMorph?: Morph);
+    addShadow(off?: Point, a?: number, color?: any);
     addToDemoMenu(aMorphOrMenuArray?: any);
     allEntryFields();
     attach();
@@ -2319,12 +2319,12 @@ export class Morph extends Node {
     constructor();
     contextMenu();
     copy();
-    copyRecordingReferences(map?: any);
+    copyRecordingReferences(map?: Map<any, any>);
     corners();
     destroy();
     developersMenu();
-    drawOn(ctx?: any, rect?: any);
-    escalateEvent(functionName?: any, arg?: any);
+    drawOn(ctx?: CanvasRenderingContext2D, rect?: Rectangle);
+    escalateEvent(functionName?: string, arg?: InputEvent | KeyboardEvent | Point | Morph);
     evaluateString(code?: any);
     extent();
     fadeTo(endAlpha?: any, msecs?: any, easing?: any, onComplete?: any);
@@ -2334,13 +2334,13 @@ export class Morph extends Node {
     fullBoundsNoShadow();
     fullChanged();
     fullCopy();
-    fullDrawOn(aContext?: any, aRect?: any);
+    fullDrawOn(aContext?: CanvasRenderingContext2D, aRect?: Rectangle);
     fullImage();
     getImage();
     getPixelColor(aPoint?: any);
     getRenderColor();
     getShadow();
-    glideTo(endPoint?: any, msecs?: any, easing?: any, onComplete?: any);
+    glideTo(endPoint?: Point, msecs?: any, easing?: any, onComplete?: Function);
     height();
     hide();
     hierarchyMenu();
@@ -2352,12 +2352,12 @@ export class Morph extends Node {
     isCorrectingOutsideDrag();
     isPickedUp();
     isTouching(otherMorph?: any);
-    isTransparentAt(aPoint?: any);
-    keepWithin(aMorph?: any);
+    isTransparentAt(aPoint?: Point);
+    keepWithin(aMorph?: FrameMorph);
     left();
     leftCenter();
     move();
-    moveBy(delta?: any);
+    moveBy(delta?: Point);
     moveCenter();
     nextEntryField(current?: any);
     nextSteps(arrayOfFunctions?: any);
@@ -2373,8 +2373,8 @@ export class Morph extends Node {
     previousEntryField(current?: any);
     prompt(msg?: any, callback?: any, environment?: any, defaultContents?: any, width?: any, floorNum?: any, ceilingNum?: any, isRounded?: any, action?: any);
     removeShadow();
-    render(aContext?: any);
-    renderCachedTexture(ctx?: any);
+    render(aContext?: CanvasRenderingContext2D);
+    renderCachedTexture(ctx?: CanvasRenderingContext2D);
     renderTexture(url?: any, ctx?: any);
     rerender();
     resize();
@@ -2383,23 +2383,23 @@ export class Morph extends Node {
     rootForGrab();
     scrollIntoView();
     setAlphaScaled(alpha?: any);
-    setBottom(y?: any);
-    setCenter(aPoint?: any);
-    setColor(aColor?: any);
-    setExtent(aPoint?: any);
+    setBottom(y?: number);
+    setCenter(aPoint?: Point);
+    setColor(aColor?: Color);
+    setExtent(aPoint?: Point);
     setFullCenter(aPoint?: any);
-    setHeight(height?: any);
-    setLeft(x?: any);
-    setPosition(aPoint?: any);
-    setRight(x?: any);
-    setTop(y?: any);
-    setWidth(width?: any);
-    shadow(off?: any, a?: any, color?: any);
+    setHeight(height?: number);
+    setLeft(x?: number);
+    setPosition(aPoint?: Point);
+    setRight(x?: number);
+    setTop(y?: number);
+    setWidth(width?: number);
+    shadow(off?: Point, a?: number, color?: any);
     shadowImage(off?: any, color?: any);
-    shadowImageBlurred(off?: any, color?: any);
+    shadowImageBlurred(off?: Point, color?: any);
     show();
     situation();
-    slideBackTo(situation?: any, msecs?: any, onBeforeDrop?: any, onComplete?: any);
+    slideBackTo(situation?: Object, msecs?: any, onBeforeDrop?: any, onComplete?: any);
     step();
     stepFrame();
     tab(editField?: any);
@@ -2409,13 +2409,13 @@ export class Morph extends Node {
     top();
     topCenter();
     topLeft();
-    topMorphAt(point?: any);
+    topMorphAt(point?: Point);
     topMorphSuchThat(predicate?: any);
     topRight();
-    updateReferences(map?: any);
+    updateReferences(map?: Map<any, any>);
     userMenu();
     visibleBounds();
-    wantsDropOf(aMorph?: any);
+    wantsDropOf(aMorph?: BlockMorph);
     width();
     world();
 }
@@ -2440,20 +2440,20 @@ export class MouseSensorMorph extends BoxMorph {
 }
 
 export class MultiArgMorph extends ArgMorph {
-    alpha: any;
-    canBeEmpty: any;
-    collapse: any;
+    alpha: number;
+    canBeEmpty: boolean;
+    collapse: string;
     defaultValue: any;
-    elementSpec: any;
-    groupInputs: any;
-    infix: any;
+    elementSpec: string;
+    groupInputs: number;
+    infix: string;
     labelColor: any;
-    labelText: any;
+    labelText: string;
     maxInputs: any;
-    minInputs: any;
-    shadowColor: any;
-    shadowOffset: any;
-    slotSpec: any;
+    minInputs: number;
+    shadowColor: Color;
+    shadowOffset: Point;
+    slotSpec: string;
 
     addInfix();
     addInput(contents?: any);
@@ -2463,7 +2463,7 @@ export class MultiArgMorph extends ArgMorph {
     collapseAll();
     collapseLabel();
     constructor(slotSpec?: any, labelTxt?: any, min?: any, eSpec?: any, arrowColor?: any, labelColor?: any, shadowColor?: any, shadowOffset?: any, isTransparent?: any, infix?: any, collapse?: any, defaults?: any, group?: any);
-    defaultValueFor(index?: any);
+    defaultValueFor(index?: number);
     deleteSlot(anInput?: any);
     evaluate();
     fixArrowsLayout();
@@ -2471,8 +2471,8 @@ export class MultiArgMorph extends ArgMorph {
     fixLayout();
     getSpec();
     hide();
-    init(slotSpec?: any, labelTxt?: any, min?: any, eSpec?: any, arrowColor?: any, labelColor?: any, shadowColor?: any, shadowOffset?: any, isTransparent?: any, infix?: any, collapse?: any, defaults?: any, group?: any);
-    initGroup(aBlockSpec?: any);
+    init(slotSpec?: any[] | string, labelTxt?: any[] | string, min?: number, eSpec?: string, arrowColor?: any, labelColor?: any, shadowColor?: any, shadowOffset?: any, isTransparent?: any, infix?: string, collapse?: string, defaults?: any[], group?: string);
+    initGroup(aBlockSpec?: string);
     insertNewInputBefore(anInput?: any, contents?: any);
     is3ArgRingInHOF();
     isEmptySlot();
@@ -2484,17 +2484,17 @@ export class MultiArgMorph extends ArgMorph {
     mapCodeList(key?: any);
     mapToCode(key?: any, label?: any);
     mappedCode(definitions?: any);
-    mouseClickLeft(pos?: any);
+    mouseClickLeft(pos?: Point);
     refresh();
     removeInput();
-    removePostfix(idx?: any);
-    setContents(anArray?: any);
+    removePostfix(idx?: number);
+    setContents(anArray?: any[]);
     setInfix(separator?: any);
     setIrreplaceable(irreplaceable?: any);
-    setLabelColor(textColor?: any, shadowColor?: any, shadowOffset?: any);
+    setLabelColor(textColor?: Color, shadowColor?: Color, shadowOffset?: Point);
     show();
-    slotSpecFor(index?: any);
-    toXML(serializer?: any);
+    slotSpecFor(index?: number);
+    toXML(serializer?: SnapSerializer);
     unwind();
     unwindAfter(element?: any);
     userMenu();
@@ -2504,8 +2504,8 @@ export class Node extends SnapType {
     children: any[];
     parent: Morph;
 
-    addChild(aNode?: any);
-    addChildFirst(aNode?: any);
+    addChild(aNode?: Morph);
+    addChildFirst(aNode?: Morph);
     allChildren();
     allLeafs();
     allParents();
@@ -2513,11 +2513,11 @@ export class Node extends SnapType {
     childThatIsA(...args: any[]);
     constructor(parent?: any, childrenArray?: any);
     depth();
-    forAllChildren(aFunction?: any);
+    forAllChildren(aFunction?: Function);
     init(parent?: any, childrenArray?: any);
     parentThatIsA(...args: any[]);
     parentThatIsAnyOf(constructors?: any);
-    removeChild(aNode?: any);
+    removeChild(aNode?: Morph);
     root();
     siblings();
     toString();
@@ -2648,7 +2648,7 @@ export class PenMorph extends Morph {
     forward(steps?: any);
     init();
     numericalSetters();
-    render(ctx?: any, facing?: any);
+    render(ctx?: CanvasRenderingContext2D, facing?: number);
     setHeading(degrees?: any);
     setRotation();
     sierpinski(length?: any, min?: any);
@@ -2693,38 +2693,38 @@ export class Point extends SnapType {
     y: any;
 
     abs();
-    add(other?: any);
+    add(other?: number | Point);
     asArray();
     ceil();
     constructor(x?: any, y?: any);
     copy();
-    corner(cornerPoint?: any);
+    corner(cornerPoint?: Point);
     crossProduct(aPoint?: any);
     degrees();
-    distanceAngle(dist?: any, angle?: any);
-    distanceTo(aPoint?: any);
-    divideBy(other?: any);
-    eq(aPoint?: any);
-    extent(aPoint?: any);
+    distanceAngle(dist?: number, angle?: number);
+    distanceTo(aPoint?: Point);
+    divideBy(other?: number);
+    eq(aPoint?: Point);
+    extent(aPoint?: Point);
     flip(direction?: any, center?: any);
     floor();
-    floorDivideBy(other?: any);
+    floorDivideBy(other?: number);
     ge(aPoint?: any);
-    gt(aPoint?: any);
-    le(aPoint?: any);
-    lt(aPoint?: any);
-    max(aPoint?: any);
-    min(aPoint?: any);
+    gt(aPoint?: Point);
+    le(aPoint?: Point);
+    lt(aPoint?: Point);
+    max(aPoint?: Point);
+    min(aPoint?: Point);
     mirror();
-    multiplyBy(other?: any);
+    multiplyBy(other?: number | Point);
     neg();
     r();
     rectangle(aPoint?: any);
     rotate(direction?: any, center?: any);
     rotateBy(angle?: any, centerPoint?: any);
     round();
-    scaleBy(scalePoint?: any);
-    subtract(other?: any);
+    scaleBy(scalePoint?: number);
+    subtract(other?: number | Point);
     theta();
     toString();
     translateBy(deltaPoint?: any);
@@ -2763,7 +2763,7 @@ export class Process extends SnapType {
     alert(data?: any);
     assemble(blocks?: any);
     assertAlive(thing?: any);
-    assertType(thing?: any, typeString?: any);
+    assertType(thing?: List, typeString?: string);
     audioBufferToWav(buffer?: any, opt?: any);
     blitOn(name?: any, mask?: any, thisObj?: any, stage?: any);
     blockReceiver();
@@ -2861,13 +2861,13 @@ export class Process extends SnapType {
     errorObsolete();
     evaluate(context?: any, args?: any);
     evaluateArgLabel(argLabel?: any);
-    evaluateBlock(block?: any, argCount?: any);
+    evaluateBlock(block?: ReporterBlockMorph, argCount?: number);
     evaluateContext();
     evaluateCustomBlock();
     evaluateInput(input?: any);
-    evaluateMultiSlot(multiSlot?: any, argCount?: any);
+    evaluateMultiSlot(multiSlot?: MultiArgMorph, argCount?: number);
     evaluateNextInput(element?: any);
-    evaluateNextInputSet(element?: any);
+    evaluateNextInputSet(element?: ReporterBlockMorph);
     evaluateSequence(arr?: any);
     expectReport();
     flashContext();
@@ -2902,9 +2902,9 @@ export class Process extends SnapType {
     pauseStep();
     playSound(name?: any);
     popContext();
-    pushContext(expression?: any, outerContext?: any);
+    pushContext(expression?: MultiArgMorph | string, outerContext?: Context);
     rawParseCSV(text?: any, delim?: any);
-    reify(topBlock?: any, parameterNames?: any, isCustomBlock?: any);
+    reify(topBlock?: CommandBlockMorph, parameterNames?: List, isCustomBlock?: any);
     reifyPredicate(topBlock?: any, parameterNames?: any);
     reifyReporter(topBlock?: any, parameterNames?: any);
     reifyScript(topBlock?: any, parameterNames?: any);
@@ -2988,7 +2988,7 @@ export class Process extends SnapType {
     reportLessThanOrEquals(a?: any, b?: any);
     reportLetter(idx?: any, string?: any);
     reportLinkedNumbers(start?: any, end?: any);
-    reportListAggregation(list?: any, selector?: any);
+    reportListAggregation(list?: List, selector?: string);
     reportListAttribute(choice?: any, list?: any);
     reportListCombination(choice?: any, lists?: any);
     reportListContainsItem(list?: any, element?: any);
@@ -3040,7 +3040,7 @@ export class Process extends SnapType {
     reportTimer();
     reportTouchingObject(name?: any);
     reportTranspose(list?: any);
-    reportTypeOf(thing?: any);
+    reportTypeOf(thing?: List);
     reportURL(url?: any);
     reportUnicode(string?: any);
     reportUnicodeAsLetter(num?: any);
@@ -3057,12 +3057,12 @@ export class Process extends SnapType {
     reportVariadicNotEquals(items?: any);
     reportVariadicOr(block?: any);
     reportVariadicProduct(numbers?: any);
-    reportVariadicSum(numbers?: any);
+    reportVariadicSum(numbers?: List);
     reportVideo(attribute?: any, name?: any);
     reportYieldCount();
     resetErrorHandling();
     resume();
-    returnValueToParentContext(value?: any);
+    returnValueToParentContext(value?: List | number);
     runContinuation(aContext?: any, args?: any);
     runStep(deadline?: any);
     setBackgroundColorDimension(name?: any, num?: any);
@@ -3097,7 +3097,7 @@ export class Project extends SnapType {
     addDefaultScene();
     constructor(scenes?: any, current?: any, guid?: any);
     initialize();
-    toXML(serializer?: any);
+    toXML(serializer?: SnapSerializer);
 }
 
 export class ProjectDialogMorph extends DialogBoxMorph {
@@ -3200,32 +3200,32 @@ export class PrototypeHatBlockMorph extends HatBlockMorph {
 }
 
 export class PushButtonMorph extends TriggerMorph {
-    action: string | Function;
+    action: any;
     color: Color;
     environment: any;
     hideable: boolean;
-    hint: string | Function;
+    hint: any;
     is3D: boolean;
     isDisabled: boolean;
     label: Morph;
     labelMinExtent: Point;
-    labelString: any[] | SymbolMorph | string;
+    labelString: any[] | string | SymbolMorph;
     target: Window | Morph;
 
     constructor(target?: any, action?: any, labelString?: any, environment?: any, hint?: any);
     createLabel();
     disable();
-    drawBackground(ctx?: any, color?: any);
-    drawEdges(ctx?: any, color?: any, topColor?: any, bottomColor?: any);
-    drawOutline(ctx?: any);
+    drawBackground(ctx?: CanvasRenderingContext2D, color?: Color);
+    drawEdges(ctx?: CanvasRenderingContext2D, color?: Color, topColor?: Color, bottomColor?: Color);
+    drawOutline(ctx?: CanvasRenderingContext2D);
     enable();
     fixLayout();
-    init(target?: any, action?: any, labelString?: any, environment?: any, hint?: any);
+    init(target?: Window | Morph, action?: Function | string, labelString?: any[] | string | SymbolMorph, environment?: any, hint?: Function | string);
     mouseClickLeft();
     mouseDownLeft();
     mouseLeave();
-    outlinePath(ctx?: any, corner?: any, inset?: any);
-    render(ctx?: any);
+    outlinePath(ctx?: CanvasRenderingContext2D, corner?: number, inset?: number);
+    render(ctx?: CanvasRenderingContext2D);
     updateLabelColors();
 }
 
@@ -3260,67 +3260,67 @@ export class Rectangle extends SnapType {
     boundingBox();
     center();
     constructor(left?: any, top?: any, right?: any, bottom?: any);
-    containsPoint(aPoint?: any);
+    containsPoint(aPoint?: Point);
     containsRectangle(aRect?: any);
     copy();
     corners();
-    eq(aRect?: any);
-    expandBy(delta?: any);
+    eq(aRect?: Rectangle);
+    expandBy(delta?: number);
     extent();
-    growBy(delta?: any);
+    growBy(delta?: number | Point);
     height();
-    init(originPoint?: any, cornerPoint?: any);
-    insetBy(delta?: any);
-    intersect(aRect?: any);
-    intersects(aRect?: any);
-    isNearTo(aRect?: any, threshold?: any);
+    init(originPoint?: Point, cornerPoint?: Point);
+    insetBy(delta?: number);
+    intersect(aRect?: Rectangle);
+    intersects(aRect?: Rectangle);
+    isNearTo(aRect?: Rectangle, threshold?: number);
     left();
     leftCenter();
-    merge(aRect?: any);
-    mergeWith(aRect?: any);
+    merge(aRect?: Rectangle);
+    mergeWith(aRect?: Rectangle);
     position();
     regionsAround(aRect?: any);
     right();
     rightCenter();
     round();
     scaleBy(scale?: any);
-    setExtent(aPoint?: any);
-    setHeight(height?: any);
+    setExtent(aPoint?: Point);
+    setHeight(height?: number);
     setTo(left?: any, top?: any, right?: any, bottom?: any);
-    setWidth(width?: any);
+    setWidth(width?: number);
     spread();
     toString();
     top();
     topCenter();
     topLeft();
     topRight();
-    translateBy(delta?: any);
+    translateBy(delta?: Point);
     width();
 }
 
 export class ReporterBlockMorph extends BlockMorph {
-    cachedSlotSpec: any;
+    cachedSlotSpec: string;
     isLocalVarTemplate: any;
-    isPredicate: any;
+    isPredicate: boolean;
 
     blockSequence();
     constructor(isPredicate?: any);
     determineSlotSpec();
-    drawEdges(ctx?: any);
-    drawEdgesDiamond(ctx?: any);
-    drawEdgesOval(ctx?: any);
+    drawEdges(ctx?: CanvasRenderingContext2D);
+    drawEdgesDiamond(ctx?: CanvasRenderingContext2D);
+    drawEdgesOval(ctx?: CanvasRenderingContext2D);
     getSlotSpec();
-    init(isPredicate?: any);
+    init(isPredicate?: boolean);
     isLocked();
     isUnevaluated();
-    mouseClickLeft(pos?: any);
-    outlinePath(ctx?: any, inset?: any);
-    outlinePathDiamond(ctx?: any, inset?: any);
-    outlinePathOval(ctx?: any, inset?: any);
-    prepareToBeGrabbed(handMorph?: any);
-    snap(hand?: any);
-    toScriptXML(serializer?: any, savePosition?: any);
-    toXML(serializer?: any);
+    mouseClickLeft(pos?: Point);
+    outlinePath(ctx?: CanvasRenderingContext2D, inset?: number);
+    outlinePathDiamond(ctx?: CanvasRenderingContext2D, inset?: number);
+    outlinePathOval(ctx?: CanvasRenderingContext2D, inset?: number);
+    prepareToBeGrabbed(handMorph?: HandMorph);
+    snap(hand?: HandMorph);
+    toScriptXML(serializer?: SnapSerializer, savePosition?: boolean);
+    toXML(serializer?: SnapSerializer);
     userDestroy();
 }
 
@@ -3332,25 +3332,25 @@ export class ReporterSlotMorph extends FunctionSlotMorph {
     evaluate();
     fixLayout();
     getSpec();
-    init(isPredicate?: any);
+    init(isPredicate?: boolean);
     isEmptySlot();
     nestedBlock();
 }
 
 export class RingCommandSlotMorph extends CommandSlotMorph {
-    color: any;
-    contrast: any;
+    color: Color;
+    contrast: number;
 
     constructor();
     getSpec();
     init();
-    outlinePath(ctx?: any, offset?: any);
-    render(ctx?: any);
+    outlinePath(ctx?: CanvasRenderingContext2D, offset?: Point);
+    render(ctx?: CanvasRenderingContext2D);
 }
 
 export class RingMorph extends ReporterBlockMorph {
-    category: any;
-    contrast: any;
+    category: string;
+    contrast: number;
 
     constructor();
     contents();
@@ -3360,7 +3360,7 @@ export class RingMorph extends ReporterBlockMorph {
     init();
     inputNames();
     isEmptySlot();
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     rootForGrab();
     unwind();
     unwindAfter(elem?: any);
@@ -3369,22 +3369,22 @@ export class RingMorph extends ReporterBlockMorph {
 }
 
 export class RingReporterSlotMorph extends ReporterSlotMorph {
-    contrast: any;
+    contrast: number;
 
     attachTargets();
     constructor(isPredicate?: any);
     dentCenter();
     dentLeft();
-    drawEdgesDiamond(ctx?: any);
-    drawEdgesOval(ctx?: any);
+    drawEdgesDiamond(ctx?: CanvasRenderingContext2D);
+    drawEdgesOval(ctx?: CanvasRenderingContext2D);
     fixLayout();
     getSpec();
-    init(isPredicate?: any);
+    init(isPredicate?: boolean);
     nestedBlock(block?: any);
-    outlinePath(ctx?: any, offset?: any);
-    outlinePathDiamond(ctx?: any, offset?: any);
-    outlinePathOval(ctx?: any, offset?: any);
-    render(ctx?: any);
+    outlinePath(ctx?: CanvasRenderingContext2D, offset?: Point);
+    outlinePathDiamond(ctx?: CanvasRenderingContext2D, offset?: Point);
+    outlinePathOval(ctx?: CanvasRenderingContext2D, offset?: Point);
+    render(ctx?: CanvasRenderingContext2D);
     replaceInput(source?: any, target?: any, noVanish?: any);
     slotAttachPoint();
 }
@@ -3425,7 +3425,7 @@ export class Scene extends SnapType {
     constructor(aStageMorph?: any);
     initialize();
     stop(forGood?: any);
-    toXML(serializer?: any);
+    toXML(serializer?: SnapSerializer);
     updateTrash();
 }
 
@@ -3510,24 +3510,24 @@ export class ScriptFocusMorph extends BoxMorph {
 }
 
 export class ScriptsMorph extends FrameMorph {
-    dropRecord: any;
-    feedbackMorph: any;
+    dropRecord: Object;
+    feedbackMorph: BoxMorph;
     focus: any;
-    isAnimating: any;
-    lastDropTarget: any;
-    lastDroppedBlock: any;
+    isAnimating: boolean;
+    lastDropTarget: Object | ReporterBlockMorph;
+    lastDroppedBlock: Morph;
     lastNextBlock: any;
     lastPreservedBlocks: any;
-    lastReplacedInput: any;
+    lastReplacedInput: InputSlotMorph;
     lastWrapParent: any;
-    rejectsHats: any;
+    rejectsHats: boolean;
 
     addComment();
     addToolbar();
     cleanUp(silently?: any);
     clearDropInfo();
     closestBlock(comment?: any, hand?: any);
-    closestInput(reporter?: any, hand?: any);
+    closestInput(reporter?: ReporterBlockMorph, hand?: HandMorph);
     constructor();
     droppedImage(aCanvas?: any, name?: any, embeddedData?: any);
     edit(pos?: any);
@@ -3538,34 +3538,34 @@ export class ScriptsMorph extends FrameMorph {
     fullCopy();
     getRenderColor();
     init();
-    mouseClickLeft(pos?: any);
-    reactToDropOf(droppedMorph?: any, hand?: any);
-    recordDrop(lastGrabOrigin?: any);
+    mouseClickLeft(pos?: Point);
+    reactToDropOf(droppedMorph?: BlockMorph, hand?: HandMorph);
+    recordDrop(lastGrabOrigin?: Object);
     recoverLastDrop(forRedrop?: any);
     redrop();
-    render(aContext?: any);
-    renderCachedTexture(ctx?: any);
+    render(aContext?: CanvasRenderingContext2D);
+    renderCachedTexture(ctx?: CanvasRenderingContext2D);
     scriptTarget();
     scriptsPicture();
     scriptsXML();
     selectForEdit();
     showCSlotWrapFeedback(srcBlock?: any, trgBlock?: any);
-    showCommandDropFeedback(block?: any);
+    showCommandDropFeedback(block?: CommandBlockMorph);
     showCommentDropFeedback(comment?: any, hand?: any);
-    showReporterDropFeedback(block?: any, hand?: any);
+    showReporterDropFeedback(block?: ReporterBlockMorph, hand?: HandMorph);
     sortedElements();
     step();
-    toXML(serializer?: any);
+    toXML(serializer?: SnapSerializer);
     toggleKeyboardEntry();
     undrop();
     unflash();
     updateToolbar();
     userMenu();
-    wantsDropOf(aMorph?: any);
+    wantsDropOf(aMorph?: BlockMorph);
 }
 
 export class ScrollFrameMorph extends FrameMorph {
-    autoScrollTrigger: any;
+    autoScrollTrigger: number;
     contents: FrameMorph;
     enableAutoScrolling: boolean;
     growth: number | Point;
@@ -3578,20 +3578,20 @@ export class ScrollFrameMorph extends FrameMorph {
     toolBar: AlignmentMorph;
     vBar: SliderMorph;
 
-    addContents(aMorph?: any);
+    addContents(aMorph?: Morph);
     adjustScrollBars();
     adjustToolBar();
-    autoScroll(pos?: any);
+    autoScroll(pos?: Point);
     constructor(scroller?: any, size?: any, sliderColor?: any);
     developersMenu();
-    init(scroller?: any, size?: any, sliderColor?: any);
-    mouseDownLeft(pos?: any);
+    init(scroller?: ScriptsMorph, size?: any, sliderColor?: Color);
+    mouseDownLeft(pos?: Point);
     mouseScroll(y?: any, x?: any);
     scrollCursorIntoView(morph?: any);
-    scrollX(steps?: any);
-    scrollY(steps?: any);
+    scrollX(steps?: number);
+    scrollY(steps?: number);
     setContents(aMorph?: any);
-    setExtent(aPoint?: any);
+    setExtent(aPoint?: Point);
     startAutoScrolling();
     step();
     toggleTextLineWrapping();
@@ -3599,7 +3599,7 @@ export class ScrollFrameMorph extends FrameMorph {
 }
 
 export class ShadowMorph extends Morph {
-    isCachingImage: any;
+    isCachingImage: boolean;
 
     constructor();
     init();
@@ -3622,8 +3622,8 @@ export class SliderButtonMorph extends CircleBoxMorph {
     mouseEnter();
     mouseLeave();
     mouseMove();
-    render(ctx?: any);
-    renderEdges(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
+    renderEdges(ctx?: CanvasRenderingContext2D);
 }
 
 export class SliderMorph extends CircleBoxMorph {
@@ -3642,7 +3642,7 @@ export class SliderMorph extends CircleBoxMorph {
     constructor(start?: any, stop?: any, value?: any, size?: any, orientation?: any, color?: any);
     developersMenu();
     fixLayout();
-    init(start?: any, stop?: any, value?: any, size?: any, orientation?: any, color?: any);
+    init(start?: number, stop?: number, value?: number, size?: number, orientation?: string, color?: Color);
     mouseDownLeft(pos?: any);
     numericalSetters();
     rangeSize();
@@ -3785,11 +3785,11 @@ export class SpeechBubbleMorph extends BoxMorph {
 
     constructor(contents?: any, color?: any, edge?: any, border?: any, borderColor?: any, padding?: any, isThought?: any, noShadow?: any);
     fixLayout();
-    init(contents?: any, color?: any, edge?: any, border?: any, borderColor?: any, padding?: any, isThought?: any, noShadow?: any);
-    outlinePath(ctx?: any, radius?: any, inset?: any);
-    popUp(world?: any, pos?: any, isClickable?: any);
+    init(contents?: TextMorph, color?: any, edge?: number, border?: number, borderColor?: any, padding?: any, isThought?: any, noShadow?: any);
+    outlinePath(ctx?: CanvasRenderingContext2D, radius?: number, inset?: number);
+    popUp(world?: WorldMorph, pos?: Point, isClickable?: boolean);
     shadowImage(off?: any, color?: any);
-    shadowImageBlurred(off?: any, color?: any);
+    shadowImageBlurred(off?: Point, color?: any);
 }
 
 export class SpriteBubbleMorph extends SpeechBubbleMorph {
@@ -3866,93 +3866,93 @@ export class SpriteIconMorph extends ToggleButtonMorph {
 
 export class SpriteMorph extends PenMorph {
     anchor: any;
-    cachedColorDimensions: any;
-    cachedPropagation: any;
-    categoriesCache: any;
-    cloneOriginName: any;
+    cachedColorDimensions: any[];
+    cachedPropagation: boolean;
+    categoriesCache: Object;
+    cloneOriginName: string;
     costume: any;
-    costumes: any;
-    customBlocks: any;
+    costumes: List;
+    customBlocks: any[];
     exemplar: any;
-    frameNumber: any;
+    frameNumber: number;
     freqPlayer: any;
     gainNode: any;
-    graphicsValues: any;
-    heading: any;
-    idx: any;
-    imageData: any;
-    imageExtent: any;
-    imageOffset: any;
-    inheritedAttributes: any;
-    inheritedMethodsCache: any;
-    instances: any;
+    graphicsValues: Object;
+    heading: number;
+    idx: number;
+    imageData: Object;
+    imageExtent: Point;
+    imageOffset: Point;
+    inheritedAttributes: any[];
+    inheritedMethodsCache: any[];
+    instances: any[];
     instrument: any;
-    isCorpse: any;
-    isDown: any;
-    isDraggable: any;
-    isFreeForm: any;
-    isTemporary: any;
+    isCorpse: boolean;
+    isDown: boolean;
+    isDraggable: boolean;
+    isFreeForm: boolean;
+    isTemporary: boolean;
     layers: any;
-    motionAmount: any;
-    motionDirection: any;
-    name: any;
-    nestingScale: any;
-    normalExtent: any;
-    paletteCache: any;
-    pan: any;
+    motionAmount: number;
+    motionDirection: number;
+    name: string;
+    nestingScale: number;
+    normalExtent: Point;
+    paletteCache: Object;
+    pan: number;
     pannerNode: any;
-    parts: any;
-    primitivesCache: any;
-    rotatesWithAnchor: any;
-    rotationOffset: any;
-    rotationStyle: any;
-    scale: any;
-    scripts: any;
+    parts: any[];
+    primitivesCache: Object;
+    rotatesWithAnchor: boolean;
+    rotationOffset: Point;
+    rotationStyle: number;
+    scale: number;
+    scripts: ScriptsMorph;
     solution: any;
-    sounds: any;
-    variables: any;
-    version: any;
-    volume: any;
+    sounds: List;
+    variables: VariableFrame;
+    version: number;
+    volume: number;
 
     addAllInvocationsOf(aSpec?: any, anArray?: any);
     addCostume(costume?: any);
     addHighlight(oldHighlight?: any);
     addSound(audio?: any, name?: any);
     addSpecimen(another?: any);
-    addVariable(name?: any, isGlobal?: any);
+    addVariable(name?: string, isGlobal?: boolean);
     allAnchors();
-    allBlockInstances(definition?: any);
+    allBlockInstances(definition?: CustomBlockDefinition);
     allBlocks(valuesOnly?: any);
     allCategories();
     allDependentInvocationsOf(aSpec?: any);
-    allEditorBlockInstances(definition?: any, spec?: any);
+    allEditorBlockInstances(definition?: CustomBlockDefinition, spec?: any);
     allExemplars();
     allGenericHatBlocks();
-    allGlobalVariableNames(sorted?: any, all?: any);
-    allHatBlocksFor(message?: any);
-    allHatBlocksForInteraction(interaction?: any);
+    allGlobalVariableNames(sorted?: boolean, all?: boolean);
+    allHatBlocksFor(message?: string);
+    allHatBlocksForInteraction(interaction?: string);
     allHatBlocksForKey(key?: any);
-    allHatBlocksForUserEdit(spriteName?: any);
+    allHatBlocksForUserEdit(spriteName?: string);
     allIndependentInvocationsOf(aSpec?: any);
     allInvocationsOf(aSpec?: any);
-    allLocalBlockInstances(definition?: any);
-    allLocalVariableNames(sorted?: any, all?: any);
+    allLocalBlockInstances(definition?: CustomBlockDefinition);
+    allLocalVariableNames(sorted?: boolean, all?: boolean);
     allMessageNames();
     allPaletteBlocks();
     allParts();
     allScripts();
     allSendersOf(message?: any, receiverName?: any, known?: any);
     allSpecimens();
-    anchorsMenu(targets?: any);
+    anchorsMenu(targets?: any[]);
     angleToXY(x?: any, y?: any);
-    appearIn(ide?: any);
-    applyGraphicsEffects(canvas?: any);
+    appearIn(ide?: IDE_Morph);
+    applyGraphicsEffects(canvas?: HTMLCanvasElement);
     attachPart(aSprite?: any);
     attachTo(aSprite?: any);
     audioContext();
     blitOn(target?: any, mask?: any);
-    blockColorFor(category?: any);
-    blockForSelector(selector?: any, setDefaults?: any);
+    blockColorFor(category?: string);
+    blockForSelector(selector?: string, setDefaults?: boolean);
     blockTemplates();
     blocksMatching(searchString?: any, strictly?: any, types?: any, varNames?: any);
     booleanMorph(bool?: any);
@@ -3977,7 +3977,7 @@ export class SpriteMorph extends PenMorph {
     constructor(globals?: any);
     corpsify();
     createClone(immediately?: any);
-    customBlockTemplatesForCategory(category?: any, includeHidden?: any);
+    customBlockTemplatesForCategory(category?: string, includeHidden?: any);
     customPaletteButton(descriptor?: any);
     deletableVariableNames();
     deleteAllBlockInstances(definition?: any);
@@ -4006,16 +4006,16 @@ export class SpriteMorph extends PenMorph {
     emptyCategories();
     exportSprite();
     faceToXY(x?: any, y?: any);
-    findVariableWatcher(varName?: any, isGlobal?: any);
+    findVariableWatcher(varName?: string, isGlobal?: boolean);
     fixLayout();
     flash();
     flashScope(varName?: any, isGlobal?: any);
     floodFill();
     forward(steps?: any);
-    freshPalette(category?: any);
+    freshPalette(category?: string);
     fullCopy(forClone?: any);
-    fullDrawOn(aContext?: any, aRect?: any);
-    fullThumbnail(extentPoint?: any, recycleMe?: any);
+    fullDrawOn(aContext?: CanvasRenderingContext2D, aRect?: Rectangle);
+    fullThumbnail(extentPoint?: Point, recycleMe?: any);
     getColorDimension(idx?: any);
     getCostumeIdx();
     getEffect(effect?: any);
@@ -4033,7 +4033,7 @@ export class SpriteMorph extends PenMorph {
     getPenAttribute(attrib?: any);
     getPenDown();
     getPosition();
-    getPrimitiveTemplates(category?: any);
+    getPrimitiveTemplates(category?: string);
     getScale();
     getTempo();
     getTimer();
@@ -4054,7 +4054,7 @@ export class SpriteMorph extends PenMorph {
     inheritedBlocks(valuesOnly?: any);
     inheritedMethods();
     inheritedVariableNames(shadowedOnly?: any);
-    inheritsAttribute(aName?: any);
+    inheritsAttribute(aName?: string);
     init(globals?: any);
     initBlockMigrations();
     initBlocks();
@@ -4062,10 +4062,10 @@ export class SpriteMorph extends PenMorph {
     instantiate();
     isCorrectingOutsideDrag();
     isDisablingBlock(aBlock?: any);
-    isHidingBlock(aBlock?: any);
+    isHidingBlock(aBlock?: BlockMorph);
     justDropped();
     makeBlock();
-    makeBlockButton(category?: any);
+    makeBlockButton(category?: string);
     makeVariableButton();
     mouseClickLeft();
     mouseDoubleClick();
@@ -4074,7 +4074,7 @@ export class SpriteMorph extends PenMorph {
     mouseEnterDragging();
     mouseLeave();
     mouseScroll(y?: any);
-    moveBy(delta?: any, justMe?: any);
+    moveBy(delta?: Point, justMe?: any);
     moveRotationCenter();
     neighbors(aStage?: any);
     nestingBounds();
@@ -4085,8 +4085,8 @@ export class SpriteMorph extends PenMorph {
     normalizePoint(snapPoint?: any);
     overlappingPixels(otherSprite?: any);
     ownBlocks();
-    palette(category?: any);
-    paletteBlockInstance(definition?: any);
+    palette(category?: string);
+    paletteBlockInstance(definition?: CustomBlockDefinition);
     pauseGenericHatBlocks();
     penSize();
     perimeter(aStage?: any);
@@ -4094,11 +4094,11 @@ export class SpriteMorph extends PenMorph {
     perpetuateAndEdit();
     playFreq(hz?: any);
     positionTalkBubble();
-    prepareToBeGrabbed(hand?: any);
+    prepareToBeGrabbed(hand?: HandMorph);
     projectionSnap();
     prune();
     reactToDropOf(morph?: any, hand?: any);
-    receiveUserInteraction(interaction?: any, rightAway?: any, threadSafe?: any);
+    receiveUserInteraction(interaction?: string, rightAway?: any, threadSafe?: any);
     recordLayers();
     recordUserEdit();
     refreshInheritedAttribute(aName?: any);
@@ -4108,7 +4108,7 @@ export class SpriteMorph extends PenMorph {
     removeHighlight();
     removeSpecimen(another?: any);
     renameVariable(oldName?: any, newName?: any, isGlobal?: any, everywhere?: any);
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     replaceDoubleDefinitionsFor(definition?: any);
     reportColorIsTouchingColor(thisColor?: any, thatColor?: any);
     reportCostumes();
@@ -4135,7 +4135,7 @@ export class SpriteMorph extends PenMorph {
     setPan(num?: any, noShadow?: any);
     setPenDown(bool?: any, noShadow?: any);
     setPivot(worldCoordinate?: any);
-    setPosition(aPoint?: any, justMe?: any);
+    setPosition(aPoint?: Point, justMe?: any);
     setRotationCenter(absoluteCoordinate?: any);
     setRotationX(absoluteX?: any);
     setRotationY(absoluteY?: any);
@@ -4148,13 +4148,13 @@ export class SpriteMorph extends PenMorph {
     shadowAllAttributes();
     shadowAllMethods();
     shadowAllVars();
-    shadowAttribute(aName?: any);
+    shadowAttribute(aName?: string);
     shadowVar(name?: any, value?: any);
     shadowedAttributes();
     show();
     showOnStage();
-    showingVariableWatcher(varName?: any, isGlobal?: any);
-    showingWatcher(selector?: any);
+    showingVariableWatcher(varName?: string, isGlobal?: boolean);
+    showingWatcher(selector?: string);
     silentGotoXY(x?: any, y?: any, justMe?: any);
     snapPoint(aPoint?: any);
     specimens();
@@ -4162,13 +4162,13 @@ export class SpriteMorph extends PenMorph {
     stopTalking();
     synchScriptsFrom(xml?: any);
     talkBubble();
-    thumbnail(extentPoint?: any, recycleMe?: any, noCorpse?: any);
-    toXML(serializer?: any);
+    thumbnail(extentPoint?: Point, recycleMe?: HTMLCanvasElement, noCorpse?: any);
+    toXML(serializer?: SnapSerializer);
     toXMLString();
     toggleHighlight();
     toggleInheritanceForAttribute(aName?: any);
     toggleInheritedVariable(vName?: any);
-    toggleVariableWatcher(varName?: any, isGlobal?: any);
+    toggleVariableWatcher(varName?: string, isGlobal?: boolean);
     toggleWatcher(selector?: any, label?: any, color?: any);
     turn(degrees?: any);
     turnLeft(degrees?: any);
@@ -4177,10 +4177,10 @@ export class SpriteMorph extends PenMorph {
     updatePropagationCache();
     userMenu();
     usesBlockInstance(definition?: any, forRemoval?: any, skipGlobals?: any, skipBlocks?: any);
-    variableBlock(varName?: any, isLocalTemplate?: any);
+    variableBlock(varName?: string, isLocalTemplate?: any);
     visibleScopeFor(varName?: any, isGlobal?: any);
     wantsDropOf(morph?: any);
-    watcherFor(stage?: any, selector?: any);
+    watcherFor(stage?: StageMorph, selector?: string);
     wearCostume(costume?: any, noShadow?: any);
     worldPoint(aSnapPoint?: any);
     write(text?: any, size?: any);
@@ -4212,58 +4212,58 @@ export class StageHandleMorph extends Morph {
 }
 
 export class StageMorph extends FrameMorph {
-    acceptsDrops: any;
-    activeSounds: any;
-    cachedColorDimensions: any;
+    acceptsDrops: boolean;
+    activeSounds: any[];
+    cachedColorDimensions: any[];
     cachedPenTrailsMorph: any;
-    categoriesCache: any;
-    cloneCount: any;
-    continuousProjection: any;
+    categoriesCache: Object;
+    cloneCount: number;
+    continuousProjection: boolean;
     costume: any;
-    costumes: any;
-    customBlocks: any;
-    dimensions: any;
-    enableCustomHatBlocks: any;
+    costumes: List;
+    customBlocks: any[];
+    dimensions: Point;
+    enableCustomHatBlocks: boolean;
     freqPlayer: any;
     gainNode: any;
     getProjectionImage: any;
-    globalBlocks: any;
-    graphicsValues: any;
+    globalBlocks: any[];
+    graphicsValues: Object;
     instrument: any;
-    isCachingImage: any;
-    isFastTracked: any;
-    isThreadSafe: any;
-    keysPressed: any;
-    lastAnswer: any;
-    lastMessage: any;
-    lastWatcherUpdate: any;
-    messageCallbacks: any;
-    microphone: any;
-    mirrorVideo: any;
-    name: any;
-    paletteCache: any;
-    pan: any;
+    isCachingImage: boolean;
+    isFastTracked: boolean;
+    isThreadSafe: boolean;
+    keysPressed: Object;
+    lastAnswer: string;
+    lastMessage: string;
+    lastWatcherUpdate: number;
+    messageCallbacks: Object;
+    microphone: Microphone;
+    mirrorVideo: boolean;
+    name: string;
+    paletteCache: Object;
+    pan: number;
     pannerNode: any;
-    primitivesCache: any;
+    primitivesCache: Object;
     projectionCanvas: any;
     projectionSource: any;
-    projectionTransparency: any;
+    projectionTransparency: number;
     remixID: any;
-    scale: any;
-    scripts: any;
-    sounds: any;
+    scale: number;
+    scripts: ScriptsMorph;
+    sounds: List;
     stopProjectionSource: any;
-    tempo: any;
-    threads: any;
-    timerStart: any;
-    trailsCanvas: any;
-    trailsLog: any;
-    variables: any;
-    version: any;
+    tempo: number;
+    threads: ThreadManager;
+    timerStart: number;
+    trailsCanvas: HTMLCanvasElement;
+    trailsLog: any[];
+    variables: VariableFrame;
+    version: number;
     videoMotion: any;
-    volume: any;
-    watcherUpdateFrequency: any;
-    worldMap: any;
+    volume: number;
+    watcherUpdateFrequency: number;
+    worldMap: WorldMap;
 
     addCostume(costume?: any);
     addSound(audio?: any, name?: any);
@@ -4278,10 +4278,10 @@ export class StageMorph extends FrameMorph {
     allEditorBlockInstances(definition?: any, spec?: any);
     allGenericHatBlocks();
     allGlobalVariableNames(sorted?: any, all?: any);
-    allHatBlocksFor(message?: any);
-    allHatBlocksForInteraction(interaction?: any);
+    allHatBlocksFor(message?: string);
+    allHatBlocksForInteraction(interaction?: string);
     allHatBlocksForKey(key?: any);
-    allHatBlocksForUserEdit(spriteName?: any);
+    allHatBlocksForUserEdit(spriteName?: string);
     allIndependentInvocationsOf(aSpec?: any);
     allInvocationsOf(aSpec?: any);
     allLocalBlockInstances(definition?: any);
@@ -4326,17 +4326,17 @@ export class StageMorph extends FrameMorph {
     doWearNextCostume();
     doWearPreviousCostume();
     doubleDefinitionsFor(definition?: any);
-    drawOn(ctx?: any, rect?: any);
+    drawOn(ctx?: CanvasRenderingContext2D, rect?: Rectangle);
     edit();
     editScripts();
     emptyCategories();
     exportTrailsLogAsSVG();
-    fancyThumbnail(extentPoint?: any, excludedSprite?: any, nonRetina?: any, recycleMe?: any, noWatchers?: any);
+    fancyThumbnail(extentPoint?: Point, excludedSprite?: any, nonRetina?: boolean, recycleMe?: any, noWatchers?: any);
     findVariableWatcher(varName?: any, isGlobal?: any);
     fireChangeOfSceneEvent(message?: any, data?: any);
     fireGreenFlagEvent();
     fireKeyEvent(key?: any);
-    fireUserEditEvent(spriteName?: any, details?: any, timestamp?: any);
+    fireUserEditEvent(spriteName?: string, details?: any[], timestamp?: number);
     flashScope(varName?: any, isGlobal?: any);
     freshPalette(category?: any);
     fullImage();
@@ -4396,16 +4396,16 @@ export class StageMorph extends FrameMorph {
     perimeter(aStage?: any);
     playFreq(hz?: any);
     processKeyDown(event?: any);
-    processKeyEvent(event?: any, action?: any);
+    processKeyEvent(event?: KeyboardEvent, action?: Function);
     processKeyPress(event?: any);
-    processKeyUp(event?: any);
+    processKeyUp(event?: KeyboardEvent);
     projectionLayer();
     projectionSnap(target?: any);
-    reactToDropOf(morph?: any, hand?: any);
-    receiveUserInteraction(interaction?: any, rightAway?: any, threadSafe?: any);
+    reactToDropOf(morph?: SpriteMorph, hand?: HandMorph);
+    receiveUserInteraction(interaction?: string, rightAway?: any, threadSafe?: any);
     recordUserEdit();
     removeAllClones();
-    removePressedKey(key?: any);
+    removePressedKey(key?: string);
     renameVariable(oldName?: any, newName?: any, isGlobal?: any, everywhere?: any);
     render(ctx?: any);
     replaceDoubleDefinitionsFor(definition?: any);
@@ -4429,7 +4429,7 @@ export class StageMorph extends FrameMorph {
     setEffect(effect?: any, value?: any);
     setName(string?: any);
     setPan(num?: any, noShadow?: any);
-    setScale(number?: any);
+    setScale(number?: number);
     setTempo(bpm?: any);
     setVolume(num?: any, noShadow?: any);
     shadowAttribute();
@@ -4447,9 +4447,9 @@ export class StageMorph extends FrameMorph {
     stopProjection();
     stopVideo();
     synchScriptsFrom(xml?: any);
-    thumbnail(extentPoint?: any, recycleMe?: any, noWatchers?: any);
+    thumbnail(extentPoint?: Point, recycleMe?: any, noWatchers?: any);
     toSpriteXML(serializer?: any);
-    toXML(serializer?: any);
+    toXML(serializer?: SnapSerializer);
     toXMLString();
     toggleVariableWatcher(varName?: any, isGlobal?: any);
     toggleWatcher(selector?: any, label?: any, color?: any);
@@ -4460,9 +4460,9 @@ export class StageMorph extends FrameMorph {
     usesBlockInstance(definition?: any, forRemoval?: any, skipGlobals?: any, skipBlocks?: any);
     variableBlock(varName?: any, isLocalTemplate?: any);
     visibleScopeFor(varName?: any, isGlobal?: any);
-    wantsDropOf(aMorph?: any);
+    wantsDropOf(aMorph?: SpriteMorph);
     watcherFor(stage?: any, selector?: any);
-    watchers(leftPos?: any);
+    watchers(leftPos?: number);
     wearCostume(costume?: any, noShadow?: any);
     worldPoint(aSnapPoint?: any);
     xCenter();
@@ -4553,7 +4553,7 @@ export class StringFieldMorph extends FrameMorph {
 
     constructor(defaultContents?: any, minWidth?: any, fontSize?: any, fontStyle?: any, bold?: any, italic?: any, isNumeric?: any);
     createText();
-    init(defaultContents?: any, minWidth?: any, fontSize?: any, fontStyle?: any, bold?: any, italic?: any, isNumeric?: any);
+    init(defaultContents?: string, minWidth?: number, fontSize?: number, fontStyle?: string, bold?: boolean, italic?: boolean, isNumeric?: boolean);
     mouseClickLeft(pos?: any);
     string();
 }
@@ -4590,20 +4590,20 @@ export class StringMorph extends Morph {
     edit();
     enableSelecting();
     endOfLine();
-    fixLayout(justMe?: any);
+    fixLayout(justMe?: boolean);
     font();
     getShadowRenderColor();
-    init(text?: any, fontSize?: any, fontStyle?: any, bold?: any, italic?: any, isNumeric?: any, shadowOffset?: any, shadowColor?: any, color?: any, fontName?: any);
-    mouseClickLeft(pos?: any);
-    mouseDoubleClick(pos?: any);
-    mouseDownLeft(pos?: any);
+    init(text?: string, fontSize?: number, fontStyle?: string, bold?: boolean, italic?: boolean, isNumeric?: boolean, shadowOffset?: Point, shadowColor?: Color, color?: Color, fontName?: string);
+    mouseClickLeft(pos?: Point);
+    mouseDoubleClick(pos?: Point);
+    mouseDownLeft(pos?: Point);
     nextWordFrom(aSlot?: any);
     numericalSetters();
     password(letter?: any, length?: any);
     previousWordFrom(aSlot?: any);
     rawHeight();
-    render(ctx?: any);
-    renderWithBlanks(ctx?: any, startX?: any, y?: any);
+    render(ctx?: CanvasRenderingContext2D);
+    renderWithBlanks(ctx?: CanvasRenderingContext2D, startX?: number, y?: number);
     selectAll();
     selectBetweenWordsAt(slot?: any);
     selectWordAt(slot?: any);
@@ -4614,8 +4614,8 @@ export class StringMorph extends Morph {
     setSerif();
     setText(size?: any);
     shiftClick(pos?: any);
-    slotAt(aPoint?: any);
-    slotPosition(slot?: any);
+    slotAt(aPoint?: Point);
+    slotPosition(slot?: number);
     startOfLine();
     toString();
     toggleIsDraggable();
@@ -4656,63 +4656,63 @@ export class SymbolMorph extends Morph {
     constructor(name?: any, size?: any, color?: any, shadowOffset?: any, shadowColor?: any, bg?: any);
     fixLayout();
     getShadowRenderColor();
-    init(name?: any, size?: any, color?: any, shadowOffset?: any, shadowColor?: any, bg?: any);
-    render(ctx?: any);
-    renderShape(ctx?: any, aColor?: any);
+    init(name?: string, size?: number, color?: any, shadowOffset?: any, shadowColor?: any, bg?: any);
+    render(ctx?: CanvasRenderingContext2D);
+    renderShape(ctx?: CanvasRenderingContext2D, aColor?: Color);
     renderSymbolArrowDown(ctx?: any, color?: any);
     renderSymbolArrowDownOutline(ctx?: any, color?: any);
     renderSymbolArrowDownThin(ctx?: any, color?: any);
     renderSymbolArrowLeft(ctx?: any, color?: any);
     renderSymbolArrowLeftOutline(ctx?: any, color?: any);
-    renderSymbolArrowLeftRightThin(ctx?: any, color?: any);
+    renderSymbolArrowLeftRightThin(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolArrowLeftThin(ctx?: any, color?: any);
     renderSymbolArrowRight(ctx?: any, color?: any);
     renderSymbolArrowRightOutline(ctx?: any, color?: any);
-    renderSymbolArrowRightThin(ctx?: any, color?: any);
+    renderSymbolArrowRightThin(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolArrowUp(ctx?: any, color?: any);
-    renderSymbolArrowUpDownThin(ctx?: any, color?: any);
+    renderSymbolArrowUpDownThin(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolArrowUpOutline(ctx?: any, color?: any);
-    renderSymbolArrowUpThin(ctx?: any, color?: any);
-    renderSymbolBrush(ctx?: any, color?: any);
-    renderSymbolCamera(ctx?: any, color?: any);
+    renderSymbolArrowUpThin(ctx?: CanvasRenderingContext2D, color?: Color);
+    renderSymbolBrush(ctx?: CanvasRenderingContext2D, color?: Color);
+    renderSymbolCamera(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolCheckedBox(ctx?: any, color?: any);
     renderSymbolCircle(ctx?: any, color?: any);
     renderSymbolCircleSolid(ctx?: any, color?: any);
     renderSymbolClosedBrushPath(ctx?: any, color?: any);
     renderSymbolCloud(ctx?: any, color?: any);
     renderSymbolCloudGradient(ctx?: any, color?: any);
-    renderSymbolCloudOutline(ctx?: any, color?: any);
-    renderSymbolCross(ctx?: any, color?: any);
+    renderSymbolCloudOutline(ctx?: CanvasRenderingContext2D, color?: Color);
+    renderSymbolCross(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolCrosshairs(ctx?: any, color?: any);
     renderSymbolEraser(ctx?: any, color?: any);
-    renderSymbolFile(ctx?: any, color?: any);
-    renderSymbolFlag(ctx?: any, color?: any);
+    renderSymbolFile(ctx?: CanvasRenderingContext2D, color?: Color);
+    renderSymbolFlag(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolFlash(ctx?: any, color?: any);
     renderSymbolFlipHorizontal(ctx?: any, color?: any);
     renderSymbolFlipVertical(ctx?: any, color?: any);
-    renderSymbolFootprints(ctx?: any, color?: any);
-    renderSymbolFullScreen(ctx?: any, color?: any);
+    renderSymbolFootprints(ctx?: CanvasRenderingContext2D, color?: Color);
+    renderSymbolFullScreen(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolGearBig(ctx?: any, color?: any);
     renderSymbolGearPartial(ctx?: any, color?: any);
-    renderSymbolGears(ctx?: any, color?: any);
+    renderSymbolGears(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolGlobe(ctx?: any, color?: any, detailed?: any);
     renderSymbolGlobeBig(ctx?: any, color?: any);
     renderSymbolGrow(ctx?: any, color?: any);
-    renderSymbolKeyboard(ctx?: any, color?: any);
+    renderSymbolKeyboard(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolKeyboardFilled(ctx?: any, color?: any);
     renderSymbolLine(ctx?: any, color?: any);
-    renderSymbolList(ctx?: any, color?: any);
+    renderSymbolList(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolLocation(ctx?: any, color?: any);
     renderSymbolLoop(ctx?: any, aColor?: any);
-    renderSymbolMagnifierOutline(ctx?: any, color?: any);
+    renderSymbolMagnifierOutline(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolMagnifyingGlass(ctx?: any, color?: any);
     renderSymbolNormalScreen(ctx?: any, color?: any);
     renderSymbolNormalStage(ctx?: any, color?: any);
     renderSymbolNotes(ctx?: any, color?: any);
-    renderSymbolOctagon(ctx?: any, color?: any);
+    renderSymbolOctagon(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolOctagonOutline(ctx?: any, color?: any);
     renderSymbolPaintbucket(ctx?: any, color?: any);
-    renderSymbolPause(ctx?: any, color?: any);
+    renderSymbolPause(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolPipette(ctx?: any, color?: any);
     renderSymbolPointRight(ctx?: any, color?: any);
     renderSymbolPoster(ctx?: any, color?: any);
@@ -4721,25 +4721,25 @@ export class SymbolMorph extends Morph {
     renderSymbolRobot(ctx?: any, color?: any);
     renderSymbolSelection(ctx?: any, color?: any);
     renderSymbolShrink(ctx?: any, color?: any);
-    renderSymbolSmallStage(ctx?: any, color?: any);
+    renderSymbolSmallStage(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolSpeechBubble(ctx?: any, color?: any);
     renderSymbolSpeechBubbleOutline(ctx?: any, color?: any);
     renderSymbolStepForward(ctx?: any, color?: any);
     renderSymbolStop(ctx?: any, color?: any);
     renderSymbolStorage(ctx?: any, color?: any);
     renderSymbolTick(ctx?: any, color?: any);
-    renderSymbolTrash(ctx?: any, color?: any);
+    renderSymbolTrash(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolTrashFull(ctx?: any, color?: any);
-    renderSymbolTurnAround(ctx?: any, color?: any);
-    renderSymbolTurnBack(ctx?: any, aColor?: any);
+    renderSymbolTurnAround(ctx?: CanvasRenderingContext2D, color?: Color);
+    renderSymbolTurnBack(ctx?: CanvasRenderingContext2D, aColor?: Color);
     renderSymbolTurnForward(ctx?: any, aColor?: any);
-    renderSymbolTurnLeft(ctx?: any, color?: any);
-    renderSymbolTurnRight(ctx?: any, color?: any);
-    renderSymbolTurtle(ctx?: any, color?: any);
+    renderSymbolTurnLeft(ctx?: CanvasRenderingContext2D, color?: Color);
+    renderSymbolTurnRight(ctx?: CanvasRenderingContext2D, color?: Color);
+    renderSymbolTurtle(ctx?: CanvasRenderingContext2D, color?: Color);
     renderSymbolTurtleOutline(ctx?: any, color?: any);
-    renderSymbolVerticalEllipsis(ctx?: any, color?: any);
+    renderSymbolVerticalEllipsis(ctx?: CanvasRenderingContext2D, color?: Color);
     setExtent(aPoint?: any);
-    setLabelColor(textColor?: any, shadowColor?: any, shadowOffset?: any);
+    setLabelColor(textColor?: Color, shadowColor?: Color, shadowOffset?: Point);
     symbolWidth();
     toString();
 }
@@ -4759,11 +4759,11 @@ export class SyntaxElementMorph extends Morph {
     constructor();
     dark();
     debugCachedInputs();
-    doWithAlpha(alpha?: any, callback?: any);
+    doWithAlpha(alpha?: number, callback?: Function);
     elementsAtLOC(definitions?: any);
     evaluate();
     exportPictureWithResult(aBubble?: any);
-    fixBlockColor(nearestBlock?: any, isForced?: any);
+    fixBlockColor(nearestBlock?: BlockMorph, isForced?: boolean);
     fixHighlight();
     fixLayout();
     flash(aColor?: any);
@@ -4774,19 +4774,19 @@ export class SyntaxElementMorph extends Morph {
     isLocked();
     isObjInputFragment();
     isVertical();
-    labelPart(spec?: any);
+    labelPart(spec?: string);
     mappedCode(definitions?: any);
     methodIconExtent();
     parts();
     reactToGrabOf(grabbedMorph?: any);
-    replaceInput(oldArg?: any, newArg?: any);
+    replaceInput(oldArg?: InputSlotMorph, newArg?: ReporterBlockMorph);
     revertToDefaultInput(arg?: any, noValues?: any);
     revertToEmptyInput(arg?: any);
     selectForEdit();
-    setColor(aColor?: any);
-    setLabelColor(textColor?: any, shadowColor?: any, shadowOffset?: any);
+    setColor(aColor?: Color);
+    setLabelColor(textColor?: Color, shadowColor?: Color, shadowOffset?: Point);
     setScale(num?: any);
-    showBubble(value?: any, exportPic?: any, target?: any);
+    showBubble(value?: number, exportPic?: any, target?: SpriteMorph);
     tagExitBlocks(stopTag?: any, isCommand?: any);
     topBlock();
     unflash();
@@ -4943,8 +4943,8 @@ export class TabMorph extends ToggleButtonMorph {
     trueStateLabel: any;
 
     constructor(colors?: any, target?: any, action?: any, labelString?: any, query?: any, environment?: any, hint?: any);
-    drawBackground(context?: any, color?: any);
-    drawEdges(context?: any, color?: any, topColor?: any, bottomColor?: any);
+    drawBackground(context?: CanvasRenderingContext2D, color?: Color);
+    drawEdges(context?: CanvasRenderingContext2D, color?: Color, topColor?: Color, bottomColor?: Color);
     drawOutline();
     fixLayout();
     query();
@@ -4952,29 +4952,29 @@ export class TabMorph extends ToggleButtonMorph {
 }
 
 export class TemplateSlotMorph extends ArgMorph {
-    isDraggable: any;
-    isStatic: any;
-    labelString: any;
+    isDraggable: boolean;
+    isStatic: boolean;
+    labelString: string;
 
     cSlots();
     constructor(name?: any);
     contents();
-    drawEdges(ctx?: any);
+    drawEdges(ctx?: CanvasRenderingContext2D);
     evaluate();
     fixLayout();
     flash(aColor?: any);
     flashScope();
     getSpec();
     hasLocationPin();
-    init(name?: any);
+    init(name?: string);
     mouseEnter();
     mouseLeave();
-    outlinePath(ctx?: any, inset?: any);
+    outlinePath(ctx?: CanvasRenderingContext2D, inset?: number);
     reactToDropOf(droppedMorph?: any);
-    render(ctx?: any);
-    setContents(aString?: any);
+    render(ctx?: CanvasRenderingContext2D);
+    setContents(aString?: any[] | string);
     template();
-    toXML(serializer?: any);
+    toXML(serializer?: SnapSerializer);
     unflash();
     unflashScope();
     wantsDropOf(aMorph?: any);
@@ -5008,7 +5008,7 @@ export class TextMorph extends Morph {
     words: any[];
 
     clearSelection();
-    columnRow(slot?: any);
+    columnRow(slot?: number);
     constructor(text?: any, fontSize?: any, fontStyle?: any, bold?: any, italic?: any, alignment?: any, width?: any, fontName?: any, shadowOffset?: any, shadowColor?: any);
     deleteSelection();
     developersMenu();
@@ -5022,16 +5022,16 @@ export class TextMorph extends Morph {
     fixLayout();
     font();
     getShadowRenderColor();
-    init(text?: any, fontSize?: any, fontStyle?: any, bold?: any, italic?: any, alignment?: any, width?: any, fontName?: any, shadowOffset?: any, shadowColor?: any);
+    init(text?: string, fontSize?: number, fontStyle?: string, bold?: boolean, italic?: boolean, alignment?: string, width?: any, fontName?: any, shadowOffset?: any, shadowColor?: any);
     inspectIt();
-    mouseClickLeft(pos?: any);
+    mouseClickLeft(pos?: Point);
     mouseDoubleClick(pos?: any);
-    mouseDownLeft(pos?: any);
+    mouseDownLeft(pos?: Point);
     nextWordFrom(aSlot?: any);
     numericalSetters();
     parse();
     previousWordFrom(aSlot?: any);
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     selectAll();
     selectAllAndEdit();
     selectBetweenWordsAt(slot?: any);
@@ -5042,15 +5042,15 @@ export class TextMorph extends Morph {
     setAlignmentToLeft();
     setAlignmentToRight();
     setExtent(aPoint?: any);
-    setFontSize(size?: any);
+    setFontSize(size?: number);
     setReceiver(obj?: any);
     setSansSerif();
     setSerif();
     setText(size?: any);
     shiftClick(pos?: any);
     showIt();
-    slotAt(aPoint?: any);
-    slotPosition(slot?: any);
+    slotAt(aPoint?: Point);
+    slotPosition(slot?: number);
     startOfLine(slot?: any);
     toString();
     toggleIsDraggable();
@@ -5080,22 +5080,22 @@ export class ThreadManager extends SnapType {
     processes: any;
     wantsToPause: any;
 
-    clickFrameFor(block?: any);
+    clickFrameFor(block?: ReporterBlockMorph);
     constructor();
     doWhen(block?: any, receiver?: any, stopIt?: any);
-    findProcess(block?: any, receiver?: any);
+    findProcess(block?: BlockMorph, receiver?: SpriteMorph);
     isPaused();
     pauseAll(stage?: any);
-    processesForBlock(block?: any, only?: any);
+    processesForBlock(block?: ReporterBlockMorph, only?: any);
     removeTerminatedProcesses();
     resumeAll(stage?: any);
-    startProcess(block?: any, receiver?: any, isThreadSafe?: any, exportResult?: any, callback?: any, isClicked?: any, rightAway?: any, atomic?: any, variables?: any);
+    startProcess(block?: ReporterBlockMorph, receiver?: SpriteMorph, isThreadSafe?: any, exportResult?: any, callback?: any, isClicked?: boolean, rightAway?: any, atomic?: any, variables?: any);
     step();
     stopAll(excpt?: any);
     stopAllForBlock(aTopBlock?: any);
-    stopAllForReceiver(rcvr?: any, excpt?: any);
+    stopAllForReceiver(rcvr?: SpriteMorph, excpt?: any);
     stopProcess(block?: any, receiver?: any);
-    toggleProcess(block?: any, receiver?: any);
+    toggleProcess(block?: ReporterBlockMorph, receiver?: SpriteMorph);
     toggleSingleStepping();
 }
 
@@ -5112,17 +5112,17 @@ export class ToggleButtonMorph extends PushButtonMorph {
 
     constructor(colors?: any, target?: any, action?: any, labelString?: any, query?: any, environment?: any, hint?: any, minWidth?: any, hasPreview?: any, isPicture?: any);
     createLabel();
-    drawEdges(ctx?: any, color?: any, topColor?: any, bottomColor?: any);
+    drawEdges(ctx?: CanvasRenderingContext2D, color?: Color, topColor?: Color, bottomColor?: Color);
     fixLayout();
     getPressRenderColor();
-    init(colors?: any, target?: any, action?: any, labelString?: any, query?: any, environment?: any, hint?: any, minWidth?: any, hasPreview?: any, isPicture?: any);
+    init(colors?: any[], target?: Morph, action?: Function | string, labelString?: any[] | string | SymbolMorph, query?: Function, environment?: any, hint?: Function | string, minWidth?: any, hasPreview?: any, isPicture?: any);
     mouseClickLeft();
     mouseDownLeft();
     mouseEnter();
     mouseLeave();
-    previewPath(ctx?: any, radius?: any, inset?: any);
+    previewPath(ctx?: CanvasRenderingContext2D, radius?: number, inset?: number);
     refresh();
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     trigger();
     updateLabelColors();
 }
@@ -5169,7 +5169,7 @@ export class ToggleMorph extends PushButtonMorph {
     constructor(style?: any, target?: any, action?: any, labelString?: any, query?: any, environment?: any, hint?: any, element?: any, builder?: any);
     createLabel();
     fixLayout();
-    init(style?: any, target?: any, action?: any, labelString?: any, query?: any, environment?: any, hint?: any, element?: any, builder?: any);
+    init(style?: string, target?: VariableDialogMorph | Window, action?: Function, labelString?: string, query?: Function, environment?: any, hint?: any, element?: any, builder?: any);
     mouseClickLeft();
     mouseDownLeft();
     mouseLeave();
@@ -5178,36 +5178,36 @@ export class ToggleMorph extends PushButtonMorph {
 }
 
 export class TriggerMorph extends Morph {
-    action: string | Function;
+    action: any;
     color: Color;
     doubleClickAction: any;
-    environment: any;
+    environment: InputSlotMorph;
     fontSize: number;
     fontStyle: string;
     highlightColor: Color;
-    hint: string | Function;
+    hint: any;
     label: Morph;
     labelBold: boolean;
     labelColor: Color;
     labelItalic: boolean;
-    labelString: any[] | SymbolMorph | string;
+    labelString: any[] | string | SymbolMorph;
     pressColor: Color;
-    schedule: any;
-    target: Window | Morph;
+    schedule: Animation;
+    target: any;
     userState: string;
 
-    bubbleHelp(contents?: any);
+    bubbleHelp(contents?: string);
     constructor(target?: any, action?: any, labelString?: any, fontSize?: any, fontStyle?: any, environment?: any, hint?: any, labelColor?: any, labelBold?: any, labelItalic?: any, doubleClickAction?: any);
     createLabel();
     fixLayout();
-    init(target?: any, action?: any, labelString?: any, fontSize?: any, fontStyle?: any, environment?: any, hint?: any, labelColor?: any, labelBold?: any, labelItalic?: any, doubleClickAction?: any);
+    init(target?: Function | Morph, action?: Function | MenuMorph | string, labelString?: string, fontSize?: number, fontStyle?: string, environment?: InputSlotMorph, hint?: string, labelColor?: any, labelBold?: boolean, labelItalic?: boolean, doubleClickAction?: any);
     mouseClickLeft();
     mouseDoubleClick();
     mouseDownLeft();
     mouseEnter();
     mouseLeave();
     popUpbubbleHelp(contents?: any);
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     rootForGrab();
     trigger();
     triggerDoubleClick();
@@ -5259,9 +5259,9 @@ export class VariableFrame extends SnapType {
     parentFrame: any;
     vars: any;
 
-    addVar(name?: any, value?: any);
-    allNames(upTo?: any, includeHidden?: any);
-    allNamesDict(upTo?: any, includeHidden?: any);
+    addVar(name?: string, value?: any);
+    allNames(upTo?: VariableFrame, includeHidden?: boolean);
+    allNamesDict(upTo?: VariableFrame, includeHidden?: boolean);
     changeVar(name?: any, delta?: any, sender?: any);
     constructor(parentFrame?: any, owner?: any);
     copy();
@@ -5269,14 +5269,14 @@ export class VariableFrame extends SnapType {
     find(name?: any);
     fork(names?: any);
     fullCopy();
-    getVar(name?: any);
+    getVar(name?: string);
     merge(otherFrame?: any);
-    names(includeHidden?: any);
+    names(includeHidden?: boolean);
     root();
     setVar(name?: any, value?: any, sender?: any);
-    silentFind(name?: any);
+    silentFind(name?: string);
     toString();
-    toXML(serializer?: any);
+    toXML(serializer?: SnapSerializer);
     variableError(varName?: any);
 }
 
@@ -5505,31 +5505,31 @@ export class WardrobeMorph extends ScrollFrameMorph {
 }
 
 export class WatcherMorph extends BoxMorph {
-    cellMorph: any;
-    color: any;
-    currentValue: any;
-    getter: any;
-    isDraggable: any;
-    isGhosted: any;
-    labelMorph: any;
-    labelText: any;
-    objName: any;
-    readoutColor: any;
-    sliderMorph: any;
-    style: any;
-    target: any;
-    version: any;
+    cellMorph: CellMorph;
+    color: Color;
+    currentValue: number;
+    getter: string;
+    isDraggable: boolean;
+    isGhosted: boolean;
+    labelMorph: StringMorph;
+    labelText: string;
+    objName: string;
+    readoutColor: Color;
+    sliderMorph: SliderMorph;
+    style: string;
+    target: VariableFrame;
+    version: number;
 
     constructor(label?: any, color?: any, target?: any, getter?: any, isHidden?: any);
     fixLayout();
     importData(raw?: any);
-    init(label?: any, color?: any, target?: any, getter?: any, isHidden?: any);
+    init(label?: string, color?: Color, target?: VariableFrame, getter?: string, isHidden?: any);
     isGlobal(selector?: any);
     isTemporary();
     mouseDoubleClick(pos?: any);
     object();
     parseTxt();
-    render(ctx?: any);
+    render(ctx?: CanvasRenderingContext2D);
     rootForGrab();
     setSliderMax(num?: any, noUpdate?: any);
     setSliderMin(num?: any, noUpdate?: any);
@@ -5537,7 +5537,7 @@ export class WatcherMorph extends BoxMorph {
     styleLarge();
     styleNormal();
     styleSlider();
-    toXML(serializer?: any);
+    toXML(serializer?: SnapSerializer);
     update();
     updateLabel();
     userMenu();
@@ -5582,21 +5582,21 @@ export class WorldMap extends SnapType {
 
 export class WorldMorph extends FrameMorph {
     activeHandle: any;
-    activeMenu: any;
+    activeMenu: MenuMorph;
     alpha: number;
     animations: any[];
     bounds: Rectangle;
     broken: any[];
     color: Color;
-    currentKey: any;
-    cursor: any;
+    currentKey: number;
+    cursor: CursorMorph;
     hand: HandMorph;
     isDevMode: boolean;
     isDraggable: boolean;
     isVisible: boolean;
-    keyboardFocus: StageMorph;
+    keyboardFocus: Morph;
     keyboardHandler: HTMLTextAreaElement;
-    lastEditedText: any;
+    lastEditedText: Morph;
     stamp: number;
     useFillPage: boolean;
     worldCanvas: HTMLCanvasElement;
@@ -5611,11 +5611,11 @@ export class WorldMorph extends FrameMorph {
     droppedImage();
     droppedSVG();
     droppedText();
-    edit(aStringOrTextMorph?: any);
+    edit(aStringOrTextMorph?: Morph);
     endBulkDrop();
     fillPage();
-    fullDrawOn(aContext?: any, aRect?: any);
-    getGlobalPixelColor(point?: any);
+    fullDrawOn(aContext?: CanvasRenderingContext2D, aRect?: Rectangle);
+    getGlobalPixelColor(point?: Point);
     hideAll();
     init(aCanvas?: any, fillPage?: any);
     initEventListeners();
@@ -5627,7 +5627,7 @@ export class WorldMorph extends FrameMorph {
     mouseDownRight();
     nextTab(editField?: any);
     previousTab(editField?: any);
-    resetKeyboardHandler(keepValue?: any);
+    resetKeyboardHandler(keepValue?: boolean);
     showAllHiddens();
     slide(aStringOrTextMorph?: any);
     stepAnimations();

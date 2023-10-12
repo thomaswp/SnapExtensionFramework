@@ -64,7 +64,7 @@ export class DefGenerator {
         // console.log(this.outputDefinitions());
         // console.log(this);
 
-        let limit = 50;
+        let limit = 100;
         for (let clazz of this.classes.values()) {
             if (clazz.isPureFunction) continue;
             let inst = new Instrumenter(clazz);
@@ -160,8 +160,8 @@ export class DefGenerator {
         let json = {};
         [...this.instrumenters.values()]
         .sort((a, b) => a.name.localeCompare(b.name))
-        .forEach((inst, name) => {
-            json[name] = inst.serialize();
+        .forEach((inst) => {
+            json[inst.name] = inst.serialize();
         });
         return json;
     }
