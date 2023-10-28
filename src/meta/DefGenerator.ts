@@ -64,12 +64,12 @@ export class DefGenerator {
         // console.log(this.outputDefinitions());
         // console.log(this);
 
-        let limit = 100;
+        // let limit = 100;
         for (let clazz of this.classes.values()) {
             if (clazz.isPureFunction) continue;
             let inst = new Instrumenter(clazz);
             this.instrumenters.set(inst.name, inst);
-            if (limit-- <= 0) break;
+            // if (limit-- <= 0) break;
         }
         this.instrumenters.set(BlockMorph.name, new Instrumenter(this.classes.get(BlockMorph.name)));
         
@@ -133,6 +133,7 @@ export class DefGenerator {
         typesArray = typesArray.map(t => {
             if (t == "Map") return "Map<any, any>";
             if (t == "Array") return "any[]";
+            if (t == "MouseScrollEvent") return "WheelEvent";
             return t;
         });
         if (types.size == 1) return typesArray[0];
@@ -435,6 +436,18 @@ class ClassDef {
         return `export const ${this.name} = window['${this.name}'];`;
     }
 
+    doesParentHaveMethod(name: string, gen: DefGenerator): boolean {
+        let parent = gen.hierarchy.get(this.name)?.parent;
+        while (parent) {
+            if (gen.classes.get(parent.name)?.methods.has(name)) {
+                console.log(this.name, "has field", name, "which overshadows parent method", parent.name + '.' + name);
+                return true;
+            }
+            parent = parent.parent;
+        }
+        return false;
+    }
+
     toTS(gen: DefGenerator, instrumenter: Instrumenter) : string  {
         if (this.functionProxy) {
             return `export function ${this.functionProxy.toTS(gen)}`;
@@ -445,6 +458,10 @@ class ClassDef {
         let fKeys = [...this.fields.keys()];
         fKeys.sort();
         for (let fkey of fKeys) {
+            if (this.doesParentHaveMethod(fkey, gen)) {
+                // If the parent has a method with the same name as a field, ignore it
+                continue;
+            }
             let types = instrumenter?.fieldTypes?.get(fkey);
             let typesString = gen.typesToTS(types, true);
             code += '    ' + this.fields.get(fkey).toTS(typesString) + '\n';
@@ -508,12 +525,18 @@ class Method {
             if (!first) code += ', ';
             first = false;
             let type = gen.typesToTS(argTypes?.[index], false);
+            if (this.shouldIgnoreType(name)) type = 'any';
             // if (argTypes) console.log(name, argTypes[index], type);
             code += `${name}?: ${type}`;
             index++;
         }
         code += ');';
         return code;
+    }
+
+    shouldIgnoreType(name: string) {
+        // Init gets shaddowed consistently, so ignore types
+        return this.name === 'init';
     }
 
     checkOverride() {

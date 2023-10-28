@@ -247,6 +247,11 @@
           ],
           [
             "boolean"
+          ],
+          [],
+          [],
+          [
+            "boolean"
           ]
         ]
       ],
@@ -411,6 +416,450 @@
       ]
     ]
   },
+  "BlockDialogMorph": {
+    "called": [
+      "init",
+      "fixLayout",
+      "createCategoryButtons",
+      "addCategoryButton",
+      "fixCategoriesLayout",
+      "createTypeButtons",
+      "addBlockTypeButton",
+      "createScopeButtons",
+      "addScopeButton",
+      "prompt",
+      "accept",
+      "getInput",
+      "setType",
+      "setScope",
+      "ok"
+    ],
+    "assigned": [
+      "blockType",
+      "categories",
+      "category",
+      "isGlobal",
+      "key",
+      "scopes",
+      "types"
+    ],
+    "fieldTypes": [
+      [
+        "blockType",
+        [
+          "string"
+        ]
+      ],
+      [
+        "categories",
+        [
+          "BoxMorph"
+        ]
+      ],
+      [
+        "category",
+        [
+          "string"
+        ]
+      ],
+      [
+        "isGlobal",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "key",
+        [
+          "string"
+        ]
+      ],
+      [
+        "scopes",
+        [
+          "AlignmentMorph"
+        ]
+      ],
+      [
+        "types",
+        [
+          "AlignmentMorph"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "accept",
+        [
+          [
+            "CursorMorph"
+          ]
+        ]
+      ],
+      [
+        "addBlockTypeButton",
+        [
+          [
+            "Function"
+          ],
+          [
+            "CommandBlockMorph",
+            "ReporterBlockMorph"
+          ],
+          [
+            "Function"
+          ]
+        ]
+      ],
+      [
+        "addCategoryButton",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "addCustomCategoryButton",
+        []
+      ],
+      [
+        "addScopeButton",
+        [
+          [
+            "Function"
+          ],
+          [
+            "string"
+          ],
+          [
+            "Function"
+          ]
+        ]
+      ],
+      [
+        "addTypeButton",
+        []
+      ],
+      [
+        "cancel",
+        []
+      ],
+      [
+        "createCategoryButtons",
+        []
+      ],
+      [
+        "createScopeButtons",
+        []
+      ],
+      [
+        "createTypeButtons",
+        []
+      ],
+      [
+        "fixCategoriesLayout",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "getInput",
+        []
+      ],
+      [
+        "init",
+        [
+          [],
+          [
+            "Function"
+          ],
+          [
+            "ScriptsMorph",
+            "SpriteMorph"
+          ]
+        ]
+      ],
+      [
+        "ok",
+        []
+      ],
+      [
+        "openForChange",
+        []
+      ],
+      [
+        "prompt",
+        [
+          [
+            "string"
+          ],
+          [],
+          [
+            "WorldMorph"
+          ]
+        ]
+      ],
+      [
+        "setScope",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "setType",
+        [
+          [
+            "string"
+          ]
+        ]
+      ]
+    ]
+  },
+  "BlockEditorMorph": {
+    "called": [
+      "init",
+      "getDefinitionJSON",
+      "fixLayout",
+      "popUp",
+      "setInitialDimensions",
+      "ok",
+      "accept",
+      "updateDefinition",
+      "prototypeSpec",
+      "prototypeSlots",
+      "variableNames",
+      "context",
+      "refreshAllBlockInstances",
+      "close",
+      "deduplicateBlockIDs"
+    ],
+    "assigned": [
+      "definition",
+      "handle",
+      "key",
+      "labelString",
+      "translations"
+    ],
+    "fieldTypes": [
+      [
+        "definition",
+        [
+          "CustomBlockDefinition"
+        ]
+      ],
+      [
+        "handle",
+        [
+          "HandleMorph"
+        ]
+      ],
+      [
+        "key",
+        [
+          "string"
+        ]
+      ],
+      [
+        "labelString",
+        [
+          "string"
+        ]
+      ],
+      [
+        "translations",
+        [
+          "string"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "accept",
+        []
+      ],
+      [
+        "cancel",
+        []
+      ],
+      [
+        "close",
+        []
+      ],
+      [
+        "consolidateDoubles",
+        []
+      ],
+      [
+        "context",
+        [
+          [
+            "PrototypeHatBlockMorph"
+          ]
+        ]
+      ],
+      [
+        "deduplicateBlockIDs",
+        []
+      ],
+      [
+        "editTranslations",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "getDefinitionJSON",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "CustomBlockDefinition"
+          ],
+          [
+            "SpriteMorph",
+            "StageMorph"
+          ]
+        ]
+      ],
+      [
+        "isHelper",
+        []
+      ],
+      [
+        "justDropped",
+        []
+      ],
+      [
+        "ok",
+        []
+      ],
+      [
+        "popUp",
+        []
+      ],
+      [
+        "prototypeSlots",
+        []
+      ],
+      [
+        "prototypeSpec",
+        []
+      ],
+      [
+        "refreshAllBlockInstances",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "setInitialDimensions",
+        []
+      ],
+      [
+        "updateDefinition",
+        []
+      ],
+      [
+        "variableNames",
+        []
+      ]
+    ]
+  },
+  "BlockExportDialogMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "blocks",
+        []
+      ],
+      [
+        "globalData",
+        []
+      ],
+      [
+        "globalVarNames",
+        []
+      ],
+      [
+        "handle",
+        []
+      ],
+      [
+        "labelString",
+        []
+      ],
+      [
+        "localData",
+        []
+      ],
+      [
+        "localVarNames",
+        []
+      ],
+      [
+        "serializer",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "buildContents",
+        []
+      ],
+      [
+        "collectDataDependencies",
+        []
+      ],
+      [
+        "collectDependencies",
+        []
+      ],
+      [
+        "dependencies",
+        []
+      ],
+      [
+        "exportBlocks",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "popUp",
+        []
+      ],
+      [
+        "selectAll",
+        []
+      ],
+      [
+        "selectNone",
+        []
+      ],
+      [
+        "userMenu",
+        []
+      ]
+    ]
+  },
   "BlockHighlightMorph": {
     "called": [
       "init"
@@ -444,6 +893,289 @@
       ],
       [
         "updateReadout",
+        []
+      ]
+    ]
+  },
+  "BlockImportDialogMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "blocks",
+        []
+      ],
+      [
+        "handle",
+        []
+      ],
+      [
+        "labelString",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "buildContents",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "importBlocks",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "popUp",
+        []
+      ],
+      [
+        "selectAll",
+        []
+      ],
+      [
+        "selectNone",
+        []
+      ],
+      [
+        "userMenu",
+        []
+      ]
+    ]
+  },
+  "BlockInputFragmentMorph": {
+    "called": [
+      "init"
+    ],
+    "assigned": [
+      "fragment"
+    ],
+    "fieldTypes": [
+      [
+        "fragment",
+        [
+          "BlockLabelFragment"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "init",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "updateBlockLabel",
+        []
+      ]
+    ]
+  },
+  "BlockLabelFragment": {
+    "called": [
+      "copy",
+      "singleInputType",
+      "isMultipleInput",
+      "isSingleInput",
+      "isUpvar",
+      "setSingleInputType",
+      "defSpecFragment",
+      "setToUpvar",
+      "setToMultipleInput",
+      "setToSingleInput",
+      "defTemplateSpecFragment"
+    ],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "defaultValue",
+        []
+      ],
+      [
+        "isDeleted",
+        []
+      ],
+      [
+        "isIrreplaceable",
+        []
+      ],
+      [
+        "isReadOnly",
+        []
+      ],
+      [
+        "labelString",
+        []
+      ],
+      [
+        "options",
+        []
+      ],
+      [
+        "separator",
+        []
+      ],
+      [
+        "type",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "blockSpecFragment",
+        []
+      ],
+      [
+        "copy",
+        []
+      ],
+      [
+        "defSpecFragment",
+        []
+      ],
+      [
+        "defTemplateSpecFragment",
+        []
+      ],
+      [
+        "hasExtensionMenu",
+        []
+      ],
+      [
+        "hasOptions",
+        []
+      ],
+      [
+        "hasSpecialMenu",
+        []
+      ],
+      [
+        "isMultipleInput",
+        []
+      ],
+      [
+        "isSingleInput",
+        []
+      ],
+      [
+        "isUpvar",
+        []
+      ],
+      [
+        "setSingleInputType",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "setToMultipleInput",
+        []
+      ],
+      [
+        "setToSingleInput",
+        []
+      ],
+      [
+        "setToUpvar",
+        []
+      ],
+      [
+        "singleInputType",
+        []
+      ]
+    ]
+  },
+  "BlockLabelFragmentMorph": {
+    "called": [
+      "init",
+      "fixLayout",
+      "render"
+    ],
+    "assigned": [
+      "fragment",
+      "shape",
+      "spec"
+    ],
+    "fieldTypes": [
+      [
+        "fragment",
+        [
+          "BlockLabelFragment"
+        ]
+      ],
+      [
+        "shape",
+        [
+          "BlockLabelMorph"
+        ]
+      ],
+      [
+        "sO",
+        []
+      ],
+      [
+        "spec",
+        [
+          "string"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "string"
+          ],
+          [
+            "BlockLabelMorph"
+          ]
+        ]
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "render",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ],
+      [
+        "updateBlockLabel",
+        []
+      ],
+      [
+        "userMenu",
         []
       ]
     ]
@@ -615,6 +1347,77 @@
       ]
     ]
   },
+  "BlockLabelPlaceHolderMorph": {
+    "called": [
+      "init",
+      "fixLayout",
+      "render",
+      "mouseEnter",
+      "mouseClickLeft",
+      "mouseLeave",
+      "updateBlockLabel"
+    ],
+    "assigned": [
+      "fragment",
+      "isHighlighted"
+    ],
+    "fieldTypes": [
+      [
+        "fragment",
+        [
+          "BlockLabelFragment"
+        ]
+      ],
+      [
+        "isHighlighted",
+        [
+          "boolean"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        [
+          [
+            "Point"
+          ]
+        ]
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "render",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ],
+      [
+        "updateBlockLabel",
+        [
+          [
+            "BlockLabelFragment"
+          ]
+        ]
+      ]
+    ]
+  },
   "BlockMorph": {
     "called": [
       "toXML",
@@ -657,7 +1460,12 @@
       "mouseClickLeft",
       "addHighlight",
       "highlight",
-      "highlightImageBlurred"
+      "highlightImageBlurred",
+      "wantsDropOf",
+      "destroy",
+      "userDestroy",
+      "rebuild",
+      "drawMethodIcon"
     ],
     "assigned": [
       "id",
@@ -667,7 +1475,8 @@
       "isCorpse",
       "color",
       "cachedInputs",
-      "comment"
+      "comment",
+      "instantiationSpec"
     ],
     "fieldTypes": [
       [
@@ -708,7 +1517,9 @@
       ],
       [
         "instantiationSpec",
-        []
+        [
+          "string"
+        ]
       ],
       [
         "isCorpse",
@@ -806,7 +1617,11 @@
       ],
       [
         "drawMethodIcon",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ],
       [
         "elementsAtLOC",
@@ -828,7 +1643,10 @@
         "fixBlockColor",
         [
           [
-            "CommandBlockMorph"
+            "CommandBlockMorph",
+            "CustomCommandBlockMorph",
+            "JaggedBlockMorph",
+            "PrototypeHatBlockMorph"
           ],
           [
             "boolean"
@@ -1026,6 +1844,8 @@
         [
           [
             "CommandBlockMorph",
+            "CustomCommandBlockMorph",
+            "HatBlockMorph",
             "ReporterBlockMorph"
           ]
         ]
@@ -1064,7 +1884,11 @@
       ],
       [
         "rebuild",
-        []
+        [
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "refactorInlineTemplate",
@@ -1266,6 +2090,71 @@
       ],
       [
         "wantsDropOf",
+        [
+          [
+            "CommandBlockMorph",
+            "SpriteMorph"
+          ]
+        ]
+      ]
+    ]
+  },
+  "BlockRemovalDialogMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "blocks",
+        []
+      ],
+      [
+        "handle",
+        []
+      ],
+      [
+        "labelString",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "buildContents",
+        []
+      ],
+      [
+        "collectDependencies",
+        []
+      ],
+      [
+        "dependencies",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "popUp",
+        []
+      ],
+      [
+        "removeBlocks",
+        []
+      ],
+      [
+        "selectAll",
+        []
+      ],
+      [
+        "selectNone",
+        []
+      ],
+      [
+        "userMenu",
         []
       ]
     ]
@@ -1339,6 +2228,66 @@
       ],
       [
         "getShadowRenderColor",
+        []
+      ]
+    ]
+  },
+  "BlockVisibilityDialogMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "blocks",
+        []
+      ],
+      [
+        "handle",
+        []
+      ],
+      [
+        "labelString",
+        []
+      ],
+      [
+        "selection",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "buildContents",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "hideBlocks",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "popUp",
+        []
+      ],
+      [
+        "selectAll",
+        []
+      ],
+      [
+        "selectNone",
+        []
+      ],
+      [
+        "selectUnused",
+        []
+      ],
+      [
+        "userMenu",
         []
       ]
     ]
@@ -1432,7 +2381,11 @@
       ],
       [
         "init",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "isBinary",
@@ -1560,7 +2513,9 @@
     "called": [
       "init",
       "render",
-      "outlinePath"
+      "outlinePath",
+      "setBorderWidth",
+      "setBorderColor"
     ],
     "assigned": [
       "edge",
@@ -1638,14 +2593,86 @@
       ],
       [
         "setBorderColor",
-        []
+        [
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "setBorderWidth",
-        []
+        [
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "setCornerSize",
+        []
+      ]
+    ]
+  },
+  "CamSnapshotDialogMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "accept",
+        []
+      ],
+      [
+        "ide",
+        []
+      ],
+      [
+        "labelString",
+        []
+      ],
+      [
+        "oncancel",
+        []
+      ],
+      [
+        "padding",
+        []
+      ],
+      [
+        "sprite",
+        []
+      ],
+      [
+        "videoElement",
+        []
+      ],
+      [
+        "videoView",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "buildContents",
+        []
+      ],
+      [
+        "close",
+        []
+      ],
+      [
+        "destroy",
+        []
+      ],
+      [
+        "disable",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "ok",
         []
       ]
     ]
@@ -1838,6 +2865,242 @@
       ]
     ]
   },
+  "Cloud": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "apiBasePath",
+        []
+      ],
+      [
+        "disabled",
+        []
+      ],
+      [
+        "url",
+        []
+      ],
+      [
+        "username",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "addEditorToCollection",
+        []
+      ],
+      [
+        "addProjectToCollection",
+        []
+      ],
+      [
+        "changePassword",
+        []
+      ],
+      [
+        "checkCredentials",
+        []
+      ],
+      [
+        "deleteCollection",
+        []
+      ],
+      [
+        "deleteProject",
+        []
+      ],
+      [
+        "determineCloudDomain",
+        []
+      ],
+      [
+        "disable",
+        []
+      ],
+      [
+        "encodeDict",
+        []
+      ],
+      [
+        "genericError",
+        []
+      ],
+      [
+        "getCollectionMetadata",
+        []
+      ],
+      [
+        "getCollectionProjects",
+        []
+      ],
+      [
+        "getCollections",
+        []
+      ],
+      [
+        "getCollectionsContainingProject",
+        []
+      ],
+      [
+        "getCurrentUser",
+        []
+      ],
+      [
+        "getProject",
+        []
+      ],
+      [
+        "getProjectList",
+        []
+      ],
+      [
+        "getProjectMetadata",
+        []
+      ],
+      [
+        "getProjectVersionMetadata",
+        []
+      ],
+      [
+        "getPublicProject",
+        []
+      ],
+      [
+        "getPublishedProjectList",
+        []
+      ],
+      [
+        "getRemixes",
+        []
+      ],
+      [
+        "getThumbnail",
+        []
+      ],
+      [
+        "getUser",
+        []
+      ],
+      [
+        "getUserCollections",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "initSession",
+        []
+      ],
+      [
+        "login",
+        []
+      ],
+      [
+        "logout",
+        []
+      ],
+      [
+        "newCollection",
+        []
+      ],
+      [
+        "parseDict",
+        []
+      ],
+      [
+        "publishCollection",
+        []
+      ],
+      [
+        "publishProject",
+        []
+      ],
+      [
+        "removeEditorFromCollection",
+        []
+      ],
+      [
+        "removeProjectFromCollection",
+        []
+      ],
+      [
+        "request",
+        []
+      ],
+      [
+        "resendVerification",
+        []
+      ],
+      [
+        "resetPassword",
+        []
+      ],
+      [
+        "saveProject",
+        []
+      ],
+      [
+        "setCollectionThumbnail",
+        []
+      ],
+      [
+        "shareCollection",
+        []
+      ],
+      [
+        "shareProject",
+        []
+      ],
+      [
+        "showProjectPath",
+        []
+      ],
+      [
+        "signup",
+        []
+      ],
+      [
+        "unpublishCollection",
+        []
+      ],
+      [
+        "unpublishProject",
+        []
+      ],
+      [
+        "unshareCollection",
+        []
+      ],
+      [
+        "unshareProject",
+        []
+      ],
+      [
+        "updateCollectionDescription",
+        []
+      ],
+      [
+        "updateCollectionName",
+        []
+      ],
+      [
+        "updateNotes",
+        []
+      ],
+      [
+        "updateProjectName",
+        []
+      ],
+      [
+        "withCredentialsRequest",
+        []
+      ]
+    ]
+  },
   "Color": {
     "called": [
       "toString",
@@ -1846,7 +3109,9 @@
       "darker",
       "eq",
       "copy",
-      "hsv"
+      "hsv",
+      "set_hsv",
+      "solid"
     ],
     "assigned": [],
     "fieldTypes": [
@@ -1890,6 +3155,9 @@
         [
           [
             "Color"
+          ],
+          [
+            "boolean"
           ]
         ]
       ],
@@ -1934,7 +3202,17 @@
       ],
       [
         "set_hsv",
-        []
+        [
+          [
+            "number"
+          ],
+          [
+            "number"
+          ],
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "solid",
@@ -2159,7 +3437,8 @@
       "bottomAttachPoint",
       "allAttachTargets",
       "attachTargets",
-      "snap"
+      "snap",
+      "blockSequence"
     ],
     "assigned": [
       "partOfCustomCommand"
@@ -2303,7 +3582,11 @@
       ],
       [
         "nextBlock",
-        []
+        [
+          [
+            "CommandBlockMorph"
+          ]
+        ]
       ],
       [
         "outlinePath",
@@ -2457,7 +3740,11 @@
       "reactToEdit",
       "toXML",
       "textWidth",
-      "text"
+      "text",
+      "prepareToBeGrabbed",
+      "justDropped",
+      "snap",
+      "toggleExpand"
     ],
     "assigned": [
       "block",
@@ -2565,7 +3852,11 @@
       ],
       [
         "justDropped",
-        []
+        [
+          [
+            "HandMorph"
+          ]
+        ]
       ],
       [
         "layoutChanged",
@@ -2577,7 +3868,11 @@
       ],
       [
         "prepareToBeGrabbed",
-        []
+        [
+          [
+            "HandMorph"
+          ]
+        ]
       ],
       [
         "reactToEdit",
@@ -2605,7 +3900,11 @@
       ],
       [
         "snap",
-        []
+        [
+          [
+            "HandMorph"
+          ]
+        ]
       ],
       [
         "stackHeight",
@@ -2746,6 +4045,7 @@
         "addInput",
         [
           [
+            "Array",
             "List",
             "number"
           ]
@@ -2838,7 +4138,21 @@
     ]
   },
   "Costume": {
-    "called": [],
+    "called": [
+      "shrinkToFit",
+      "width",
+      "height",
+      "center",
+      "extent",
+      "edit",
+      "canvasBoundingBox",
+      "shrinkWrap",
+      "boundingBox",
+      "bounds",
+      "thumbnail",
+      "toString",
+      "toXML"
+    ],
     "assigned": [],
     "fieldTypes": [
       [
@@ -2877,7 +4191,11 @@
       ],
       [
         "canvasBoundingBox",
-        []
+        [
+          [
+            "HTMLCanvasElement"
+          ]
+        ]
       ],
       [
         "center",
@@ -2889,7 +4207,21 @@
       ],
       [
         "edit",
-        []
+        [
+          [
+            "WorldMorph"
+          ],
+          [
+            "IDE_Morph"
+          ],
+          [
+            "boolean"
+          ],
+          [],
+          [
+            "Function"
+          ]
+        ]
       ],
       [
         "editRotationPointOnly",
@@ -2929,7 +4261,11 @@
       ],
       [
         "shrinkToFit",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "shrinkWrap",
@@ -2941,7 +4277,11 @@
       ],
       [
         "thumbnail",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "toString",
@@ -2949,7 +4289,14 @@
       ],
       [
         "toXML",
-        []
+        [
+          [
+            "SnapSerializer"
+          ],
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "width",
@@ -3005,13 +4352,205 @@
       ]
     ]
   },
+  "CostumeIconMorph": {
+    "called": [
+      "init",
+      "createLabel",
+      "fixLayout",
+      "createThumbnail",
+      "render",
+      "step"
+    ],
+    "assigned": [
+      "object",
+      "version",
+      "thumbnail",
+      "isDraggable",
+      "padding",
+      "corner",
+      "fps"
+    ],
+    "fieldTypes": [
+      [
+        "corner",
+        [
+          "number"
+        ]
+      ],
+      [
+        "fps",
+        [
+          "number"
+        ]
+      ],
+      [
+        "isDraggable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "object",
+        [
+          "Costume"
+        ]
+      ],
+      [
+        "padding",
+        [
+          "number"
+        ]
+      ],
+      [
+        "thumbnail",
+        [
+          "Morph"
+        ]
+      ],
+      [
+        "version",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "createThumbnail",
+        []
+      ],
+      [
+        "disinherit",
+        []
+      ],
+      [
+        "duplicateCostume",
+        []
+      ],
+      [
+        "editCostume",
+        []
+      ],
+      [
+        "editRotationPointOnly",
+        []
+      ],
+      [
+        "exportCostume",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "importEmbeddedData",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "Costume"
+          ]
+        ]
+      ],
+      [
+        "prepareToBeGrabbed",
+        []
+      ],
+      [
+        "query",
+        []
+      ],
+      [
+        "removeCostume",
+        []
+      ],
+      [
+        "renameCostume",
+        []
+      ],
+      [
+        "render",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ],
+      [
+        "step",
+        []
+      ],
+      [
+        "typeOfStringData",
+        []
+      ],
+      [
+        "userMenu",
+        []
+      ]
+    ]
+  },
+  "Crosshair": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "center",
+        []
+      ],
+      [
+        "image",
+        []
+      ],
+      [
+        "isCrosshair",
+        []
+      ],
+      [
+        "paper",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "drawOn",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "moveBy",
+        []
+      ],
+      [
+        "update",
+        []
+      ]
+    ]
+  },
   "CSlotMorph": {
     "called": [
       "init",
       "fixLayout",
       "fixLoopLayout",
       "fixHolesLayout",
-      "loop"
+      "loop",
+      "outlinePath",
+      "render",
+      "drawTopRightEdge",
+      "drawTopEdge",
+      "drawTopLeftEdge",
+      "drawBottomEdge",
+      "drawRightEdge"
     ],
     "assigned": [
       "isLambda",
@@ -3041,23 +4580,49 @@
     "argTypes": [
       [
         "drawBottomEdge",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ],
       [
         "drawRightEdge",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ],
       [
         "drawTopEdge",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "number"
+          ],
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "drawTopLeftEdge",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ],
       [
         "drawTopRightEdge",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ],
       [
         "elementsAtLOC",
@@ -3097,11 +4662,25 @@
       ],
       [
         "outlinePath",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "number"
+          ],
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "render",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ]
     ]
   },
@@ -3116,7 +4695,9 @@
       "processInput",
       "processKeyUp",
       "destroy",
-      "accept"
+      "accept",
+      "cancel",
+      "undo"
     ],
     "assigned": [
       "keyDownEventUsed",
@@ -3256,6 +4837,769 @@
       ]
     ]
   },
+  "CustomBlockDefinition": {
+    "called": [
+      "templateInstance",
+      "blockInstance",
+      "localizedSpec",
+      "blockSpec",
+      "parseSpec",
+      "abstractBlockSpec",
+      "translationsAsText",
+      "prototypeInstance",
+      "toXML",
+      "updateTranslations",
+      "typeOf",
+      "isIrreplaceableInputIdx",
+      "inputNames",
+      "isIrreplaceableInput",
+      "separatorOfInputIdx",
+      "separatorOfInput",
+      "menuSearchWords",
+      "dropDownMenuOf"
+    ],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "body",
+        []
+      ],
+      [
+        "cachedIsRecursive",
+        []
+      ],
+      [
+        "cachedTranslation",
+        []
+      ],
+      [
+        "category",
+        []
+      ],
+      [
+        "codeHeader",
+        []
+      ],
+      [
+        "codeMapping",
+        []
+      ],
+      [
+        "comment",
+        []
+      ],
+      [
+        "declarations",
+        []
+      ],
+      [
+        "editorDimensions",
+        []
+      ],
+      [
+        "guid",
+        []
+      ],
+      [
+        "isGlobal",
+        []
+      ],
+      [
+        "isHelper",
+        []
+      ],
+      [
+        "receiver",
+        []
+      ],
+      [
+        "scripts",
+        []
+      ],
+      [
+        "spec",
+        []
+      ],
+      [
+        "storedSemanticSpec",
+        []
+      ],
+      [
+        "translations",
+        []
+      ],
+      [
+        "type",
+        []
+      ],
+      [
+        "variableNames",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "abstractBlockSpec",
+        []
+      ],
+      [
+        "addInputs",
+        []
+      ],
+      [
+        "blockInstance",
+        []
+      ],
+      [
+        "blockSpec",
+        []
+      ],
+      [
+        "collectDependencies",
+        []
+      ],
+      [
+        "copyAndBindTo",
+        []
+      ],
+      [
+        "dataDependencies",
+        []
+      ],
+      [
+        "decodeChoices",
+        []
+      ],
+      [
+        "defaultValueOf",
+        []
+      ],
+      [
+        "defaultValueOfInputIdx",
+        []
+      ],
+      [
+        "dropDownMenuOf",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "dropDownMenuOfInputIdx",
+        []
+      ],
+      [
+        "encodeChoices",
+        []
+      ],
+      [
+        "gensym",
+        []
+      ],
+      [
+        "helpSpec",
+        []
+      ],
+      [
+        "inputNames",
+        []
+      ],
+      [
+        "inputOptionsOf",
+        []
+      ],
+      [
+        "inputOptionsOfIdx",
+        []
+      ],
+      [
+        "isDirectlyRecursive",
+        []
+      ],
+      [
+        "isIrreplaceableInput",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "isIrreplaceableInputIdx",
+        [
+          [
+            "number"
+          ]
+        ]
+      ],
+      [
+        "isReadOnlyInput",
+        []
+      ],
+      [
+        "isReadOnlyInputIdx",
+        []
+      ],
+      [
+        "isSending",
+        []
+      ],
+      [
+        "localizedSpec",
+        []
+      ],
+      [
+        "menuSearchWords",
+        []
+      ],
+      [
+        "parseChoices",
+        []
+      ],
+      [
+        "parseSpec",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "prototypeInstance",
+        []
+      ],
+      [
+        "purgeCorpses",
+        []
+      ],
+      [
+        "removeInputs",
+        []
+      ],
+      [
+        "scriptsModel",
+        []
+      ],
+      [
+        "scriptsPicture",
+        []
+      ],
+      [
+        "separatorOfInput",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "separatorOfInputIdx",
+        [
+          [
+            "number"
+          ]
+        ]
+      ],
+      [
+        "setBlockDefinition",
+        []
+      ],
+      [
+        "setBlockLabel",
+        []
+      ],
+      [
+        "sortedElements",
+        []
+      ],
+      [
+        "templateInstance",
+        []
+      ],
+      [
+        "toXML",
+        [
+          [
+            "SnapSerializer"
+          ]
+        ]
+      ],
+      [
+        "translationsAsText",
+        []
+      ],
+      [
+        "typeOf",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "updateTranslations",
+        [
+          [
+            "string"
+          ]
+        ]
+      ]
+    ]
+  },
+  "CustomCommandBlockMorph": {
+    "called": [
+      "init",
+      "initializeVariables",
+      "refresh",
+      "parseSpec",
+      "labelPart",
+      "restoreInputs",
+      "refreshDefaults",
+      "placeHolder",
+      "refreshPrototypeSlotTypes",
+      "refreshPrototype",
+      "specFromFragments",
+      "declarationsFromFragments",
+      "reactToTemplateCopy",
+      "toBlockXML",
+      "attachTargets"
+    ],
+    "assigned": [
+      "category",
+      "definition",
+      "isGlobal",
+      "isPrototype",
+      "isTemplate",
+      "selector",
+      "semanticSpec",
+      "variables"
+    ],
+    "fieldTypes": [
+      [
+        "category",
+        [
+          "string"
+        ]
+      ],
+      [
+        "definition",
+        [
+          "CustomBlockDefinition"
+        ]
+      ],
+      [
+        "isGlobal",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isPrototype",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isTemplate",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "selector",
+        [
+          "string"
+        ]
+      ],
+      [
+        "semanticSpec",
+        [
+          "string"
+        ]
+      ],
+      [
+        "storedTranslations",
+        []
+      ],
+      [
+        "variables",
+        [
+          "VariableFrame"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "alternatives",
+        []
+      ],
+      [
+        "attachTargets",
+        []
+      ],
+      [
+        "blockSpecFromFragments",
+        []
+      ],
+      [
+        "declarationsFromFragments",
+        []
+      ],
+      [
+        "deleteBlockDefinition",
+        []
+      ],
+      [
+        "duplicateBlockDefinition",
+        []
+      ],
+      [
+        "edit",
+        []
+      ],
+      [
+        "exportBlockDefinition",
+        []
+      ],
+      [
+        "getDefinitionJSON",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "CustomBlockDefinition"
+          ],
+          [
+            "boolean"
+          ]
+        ]
+      ],
+      [
+        "initializeVariables",
+        [
+          [
+            "Object"
+          ]
+        ]
+      ],
+      [
+        "inputFragmentNames",
+        []
+      ],
+      [
+        "isInUse",
+        []
+      ],
+      [
+        "labelPart",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "parseSpec",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "placeHolder",
+        []
+      ],
+      [
+        "reactToTemplateCopy",
+        []
+      ],
+      [
+        "refresh",
+        [
+          [],
+          [
+            "boolean"
+          ]
+        ]
+      ],
+      [
+        "refreshDefaults",
+        [
+          [
+            "CustomBlockDefinition"
+          ]
+        ]
+      ],
+      [
+        "refreshPrototype",
+        []
+      ],
+      [
+        "refreshPrototypeSlotTypes",
+        []
+      ],
+      [
+        "relabel",
+        []
+      ],
+      [
+        "restoreInputs",
+        [
+          [
+            "Array"
+          ]
+        ]
+      ],
+      [
+        "specFromFragments",
+        []
+      ],
+      [
+        "toBlockXML",
+        [
+          [
+            "SnapSerializer"
+          ]
+        ]
+      ],
+      [
+        "upvarFragmentName",
+        []
+      ],
+      [
+        "upvarFragmentNames",
+        []
+      ],
+      [
+        "userMenu",
+        []
+      ]
+    ]
+  },
+  "CustomReporterBlockMorph": {
+    "called": [
+      "init",
+      "initializeVariables",
+      "refresh",
+      "placeHolder",
+      "parseSpec",
+      "labelPart",
+      "restoreInputs",
+      "refreshPrototypeSlotTypes",
+      "specFromFragments",
+      "declarationsFromFragments",
+      "refreshDefaults"
+    ],
+    "assigned": [
+      "category",
+      "definition",
+      "isGlobal",
+      "isPrototype",
+      "isTemplate",
+      "selector",
+      "semanticSpec",
+      "variables"
+    ],
+    "fieldTypes": [
+      [
+        "category",
+        [
+          "string"
+        ]
+      ],
+      [
+        "definition",
+        [
+          "CustomBlockDefinition"
+        ]
+      ],
+      [
+        "isGlobal",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isPrototype",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isTemplate",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "selector",
+        [
+          "string"
+        ]
+      ],
+      [
+        "semanticSpec",
+        [
+          "string"
+        ]
+      ],
+      [
+        "storedTranslations",
+        []
+      ],
+      [
+        "variables",
+        [
+          "VariableFrame"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "alternatives",
+        []
+      ],
+      [
+        "blockSpecFromFragments",
+        []
+      ],
+      [
+        "declarationsFromFragments",
+        []
+      ],
+      [
+        "deleteBlockDefinition",
+        []
+      ],
+      [
+        "duplicateBlockDefinition",
+        []
+      ],
+      [
+        "edit",
+        []
+      ],
+      [
+        "exportBlockDefinition",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "CustomBlockDefinition"
+          ],
+          [
+            "boolean"
+          ],
+          [
+            "boolean"
+          ]
+        ]
+      ],
+      [
+        "initializeVariables",
+        []
+      ],
+      [
+        "inputFragmentNames",
+        []
+      ],
+      [
+        "isInUse",
+        []
+      ],
+      [
+        "labelPart",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "parseSpec",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "placeHolder",
+        []
+      ],
+      [
+        "reactToTemplateCopy",
+        []
+      ],
+      [
+        "refresh",
+        []
+      ],
+      [
+        "refreshDefaults",
+        [
+          [
+            "CustomBlockDefinition"
+          ]
+        ]
+      ],
+      [
+        "refreshPrototype",
+        []
+      ],
+      [
+        "refreshPrototypeSlotTypes",
+        []
+      ],
+      [
+        "relabel",
+        []
+      ],
+      [
+        "restoreInputs",
+        [
+          [
+            "Array"
+          ]
+        ]
+      ],
+      [
+        "specFromFragments",
+        []
+      ],
+      [
+        "toBlockXML",
+        []
+      ],
+      [
+        "upvarFragmentName",
+        []
+      ],
+      [
+        "upvarFragmentNames",
+        []
+      ],
+      [
+        "userMenu",
+        []
+      ]
+    ]
+  },
   "DialMorph": {
     "called": [],
     "assigned": [],
@@ -3355,7 +5699,11 @@
       "edit",
       "accept",
       "normalizeSpaces",
-      "destroy"
+      "destroy",
+      "fixLayout",
+      "cancel",
+      "ok",
+      "getInput"
     ],
     "assigned": [
       "is3D",
@@ -3370,7 +5718,8 @@
       "isDraggable",
       "noDropShadow",
       "fullShadowSource",
-      "color"
+      "color",
+      "target"
     ],
     "fieldTypes": [
       [
@@ -3382,7 +5731,9 @@
       [
         "body",
         [
-          "InputFieldMorph"
+          "AlignmentMorph",
+          "InputFieldMorph",
+          "ScrollFrameMorph"
         ]
       ],
       [
@@ -3400,7 +5751,9 @@
       [
         "environment",
         [
-          "SpriteMorph"
+          "ScriptsMorph",
+          "SpriteMorph",
+          "StageMorph"
         ]
       ],
       [
@@ -3457,7 +5810,10 @@
       ],
       [
         "target",
-        []
+        [
+          "SpriteMorph",
+          "StageMorph"
+        ]
       ]
     ],
     "argTypes": [
@@ -3473,7 +5829,9 @@
         "addBody",
         [
           [
-            "InputFieldMorph"
+            "AlignmentMorph",
+            "InputFieldMorph",
+            "ScrollFrameMorph"
           ]
         ]
       ],
@@ -3531,12 +5889,17 @@
       [
         "init",
         [
-          [],
+          [
+            "SpriteMorph",
+            "StageMorph"
+          ],
           [
             "Function"
           ],
           [
-            "SpriteMorph"
+            "ScriptsMorph",
+            "SpriteMorph",
+            "StageMorph"
           ]
         ]
       ],
@@ -3690,8 +6053,10 @@
       [
         "scrollFrame",
         [
+          "JukeboxMorph",
           "SceneAlbumMorph",
-          "ScrollFrameMorph"
+          "ScrollFrameMorph",
+          "WardrobeMorph"
         ]
       ]
     ],
@@ -3727,7 +6092,10 @@
         "init",
         [
           [
-            "ScrollFrameMorph"
+            "JukeboxMorph",
+            "SceneAlbumMorph",
+            "ScrollFrameMorph",
+            "WardrobeMorph"
           ]
         ]
       ],
@@ -3748,8 +6116,10 @@
         [
           [
             "CommandBlockMorph",
+            "CustomCommandBlockMorph",
             "ReporterBlockMorph",
-            "SpriteMorph"
+            "SpriteMorph",
+            "WatcherMorph"
           ]
         ]
       ],
@@ -3854,7 +6224,9 @@
   "HandleMorph": {
     "called": [
       "init",
-      "fixLayout"
+      "fixLayout",
+      "render",
+      "renderHandleOn"
     ],
     "assigned": [
       "target",
@@ -3899,6 +6271,7 @@
       [
         "target",
         [
+          "BlockEditorMorph",
           "TextMorph"
         ]
       ],
@@ -3922,6 +6295,7 @@
         "init",
         [
           [
+            "BlockEditorMorph",
             "TextMorph"
           ],
           [
@@ -3952,7 +6326,11 @@
       ],
       [
         "render",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ],
       [
         "renderCrosshairsOn",
@@ -3960,7 +6338,17 @@
       ],
       [
         "renderHandleOn",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "rootForGrab",
@@ -3981,7 +6369,8 @@
       "grab",
       "drop",
       "dropTargetFor",
-      "processDoubleClick"
+      "processDoubleClick",
+      "processMouseScroll"
     ],
     "assigned": [],
     "fieldTypes": [
@@ -4064,8 +6453,12 @@
         [
           [
             "CommandBlockMorph",
+            "CommentMorph",
+            "CustomCommandBlockMorph",
+            "HatBlockMorph",
             "ReporterBlockMorph",
-            "SpriteMorph"
+            "SpriteMorph",
+            "WatcherMorph"
           ]
         ]
       ],
@@ -4089,8 +6482,12 @@
         [
           [
             "CommandBlockMorph",
+            "CommentMorph",
+            "CustomCommandBlockMorph",
+            "HatBlockMorph",
             "ReporterBlockMorph",
-            "SpriteMorph"
+            "SpriteMorph",
+            "WatcherMorph"
           ]
         ]
       ],
@@ -4140,7 +6537,11 @@
       ],
       [
         "processMouseScroll",
-        []
+        [
+          [
+            "MouseScrollEvent"
+          ]
+        ]
       ],
       [
         "processMouseUp",
@@ -4166,7 +6567,12 @@
   },
   "HatBlockMorph": {
     "called": [
-      "init"
+      "init",
+      "outlinePath",
+      "drawTopDentEdge",
+      "drawLeftEdge",
+      "drawRightEdge",
+      "drawTopLeftEdge"
     ],
     "assigned": [],
     "fieldTypes": [],
@@ -4177,19 +6583,41 @@
       ],
       [
         "drawLeftEdge",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ],
       [
         "drawRightEdge",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ],
       [
         "drawTopDentEdge",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "number"
+          ],
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "drawTopLeftEdge",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ],
       [
         "init",
@@ -4197,7 +6625,14 @@
       ],
       [
         "outlinePath",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "reify",
@@ -4234,7 +6669,23 @@
       "createPaletteHandle",
       "refreshPalette",
       "flushBlocksCache",
-      "flushPaletteCache"
+      "flushPaletteCache",
+      "addNewSprite",
+      "instantiateSprite",
+      "toggleAppMode",
+      "setExtent",
+      "toggleStageSize",
+      "toggleSingleStepping",
+      "recordNewSound",
+      "projectMenu",
+      "availableBackup",
+      "createNewScene",
+      "newProject",
+      "openProject",
+      "newSceneName",
+      "switchToScene",
+      "setUnifiedPalette",
+      "createCategories"
     ],
     "assigned": [
       "projectGUID",
@@ -4502,7 +6953,9 @@
       [
         "spriteEditor",
         [
-          "ScrollFrameMorph"
+          "JukeboxMorph",
+          "ScrollFrameMorph",
+          "WardrobeMorph"
         ]
       ],
       [
@@ -4593,7 +7046,11 @@
       ],
       [
         "availableBackup",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "backup",
@@ -4697,7 +7154,11 @@
       ],
       [
         "createPalette",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "createPaletteHandle",
@@ -4929,7 +7390,11 @@
       ],
       [
         "instantiateSprite",
-        []
+        [
+          [
+            "SpriteMorph"
+          ]
+        ]
       ],
       [
         "isIE",
@@ -4996,7 +7461,14 @@
       ],
       [
         "newSceneName",
-        []
+        [
+          [
+            "string"
+          ],
+          [
+            "Scene"
+          ]
+        ]
       ],
       [
         "newSoundName",
@@ -5007,6 +7479,9 @@
         [
           [
             "string"
+          ],
+          [
+            "SpriteMorph"
           ]
         ]
       ],
@@ -5032,7 +7507,11 @@
       ],
       [
         "openProject",
-        []
+        [
+          [
+            "Project"
+          ]
+        ]
       ],
       [
         "openProjectName",
@@ -5249,7 +7728,11 @@
         "selectSprite",
         [
           [
-            "SpriteMorph"
+            "SpriteMorph",
+            "StageMorph"
+          ],
+          [
+            "boolean"
           ]
         ]
       ],
@@ -5275,7 +7758,11 @@
       ],
       [
         "setExtent",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "setFlatDesign",
@@ -5311,7 +7798,11 @@
       ],
       [
         "setUnifiedPalette",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "setVar",
@@ -5359,7 +7850,19 @@
       ],
       [
         "switchToScene",
-        []
+        [
+          [
+            "Scene"
+          ],
+          [
+            "boolean"
+          ],
+          [],
+          [],
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "switchToUserMode",
@@ -5367,7 +7870,11 @@
       ],
       [
         "toggleAppMode",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "toggleBlurredShadows",
@@ -5516,7 +8023,9 @@
       "drawRectBorder",
       "edit",
       "getValue",
-      "normalizeSpaces"
+      "normalizeSpaces",
+      "setContents",
+      "setIsNumeric"
     ],
     "assigned": [
       "isReadOnly",
@@ -5628,10 +8137,252 @@
       ],
       [
         "setContents",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "setIsNumeric",
+        [
+          [
+            "boolean"
+          ]
+        ]
+      ]
+    ]
+  },
+  "InputSlotDialogMorph": {
+    "called": [
+      "init",
+      "fixLayout",
+      "createSlotTypeButtons",
+      "addSlotTypeButton",
+      "addSlotArityButton",
+      "fixSlotsLayout",
+      "addSlotsMenu",
+      "createTypeButtons",
+      "addBlockTypeButton",
+      "open",
+      "setSlotType",
+      "getInput",
+      "setSlotArity"
+    ],
+    "assigned": [
+      "category",
+      "fragment",
+      "isExpanded",
+      "noDelete",
+      "slots",
+      "textfield",
+      "types"
+    ],
+    "fieldTypes": [
+      [
+        "category",
+        [
+          "string"
+        ]
+      ],
+      [
+        "fragment",
+        [
+          "BlockLabelFragment"
+        ]
+      ],
+      [
+        "isExpanded",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "noDelete",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "slots",
+        [
+          "BoxMorph"
+        ]
+      ],
+      [
+        "textfield",
+        [
+          "InputFieldMorph"
+        ]
+      ],
+      [
+        "types",
+        [
+          "AlignmentMorph"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "addBlockTypeButton",
+        [
+          [
+            "Function"
+          ],
+          [
+            "JaggedBlockMorph"
+          ],
+          [
+            "Function"
+          ]
+        ]
+      ],
+      [
+        "addSlotArityButton",
+        [
+          [
+            "Function"
+          ],
+          [
+            "string"
+          ],
+          [
+            "Function"
+          ]
+        ]
+      ],
+      [
+        "addSlotsMenu",
+        []
+      ],
+      [
+        "addSlotTypeButton",
+        [
+          [
+            "string"
+          ],
+          [
+            "Array",
+            "string"
+          ]
+        ]
+      ],
+      [
+        "addTypeButton",
+        []
+      ],
+      [
+        "createSlotTypeButtons",
+        []
+      ],
+      [
+        "createTypeButtons",
+        []
+      ],
+      [
+        "deleteFragment",
+        []
+      ],
+      [
+        "editSeparator",
+        []
+      ],
+      [
+        "editSlotOptions",
+        []
+      ],
+      [
+        "extensionOptionsMenu",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "fixSlotsLayout",
+        []
+      ],
+      [
+        "getInput",
+        []
+      ],
+      [
+        "hide",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "BlockLabelFragment"
+          ],
+          [],
+          [
+            "Function"
+          ],
+          [],
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "open",
+        [
+          [
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "WorldMorph"
+          ],
+          [],
+          [
+            "boolean"
+          ]
+        ]
+      ],
+      [
+        "setSlotArity",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "setSlotOptions",
+        []
+      ],
+      [
+        "setSlotType",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "setType",
+        []
+      ],
+      [
+        "show",
+        []
+      ],
+      [
+        "specialOptionsMenu",
+        []
+      ],
+      [
+        "specialSlotsMenu",
+        []
+      ],
+      [
+        "symbolMenu",
         []
       ]
     ]
@@ -5655,7 +8406,29 @@
       "mouseClickLeft",
       "dropDownMenu",
       "menuFromDict",
-      "userSetContents"
+      "userSetContents",
+      "evaluate",
+      "distancesMenu",
+      "reactToKeystroke",
+      "costumesMenu",
+      "soundsMenu",
+      "pianoKeyboardMenu",
+      "objectsMenu",
+      "keysMenu",
+      "messagesReceivedMenu",
+      "messagesMenu",
+      "clonablesMenu",
+      "userEditMenu",
+      "scenesMenu",
+      "collidablesMenu",
+      "locationMenu",
+      "attributesMenu",
+      "objectsMenuWithSelf",
+      "gettablesMenu",
+      "audioMenu",
+      "typesMenu",
+      "shadowedVariablesMenu",
+      "primitivesMenu"
     ],
     "assigned": [
       "isUnevaluated",
@@ -5666,7 +8439,8 @@
       "isReadOnly",
       "minWidth",
       "constant",
-      "color"
+      "color",
+      "onSetContents"
     ],
     "fieldTypes": [
       [
@@ -5726,7 +8500,9 @@
       ],
       [
         "onSetContents",
-        []
+        [
+          "string"
+        ]
       ],
       [
         "selectedBlock",
@@ -5744,19 +8520,35 @@
       ],
       [
         "attributesMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "audioMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "clonablesMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "collidablesMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "contents",
@@ -5764,7 +8556,11 @@
       ],
       [
         "costumesMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "directionDialMenu",
@@ -5772,7 +8568,11 @@
       ],
       [
         "distancesMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "drawRectBorder",
@@ -5824,7 +8624,11 @@
       ],
       [
         "gettablesMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "init",
@@ -5843,11 +8647,19 @@
       ],
       [
         "keysMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "locationMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "mapNumberToCode",
@@ -5875,11 +8687,19 @@
       ],
       [
         "messagesMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "messagesReceivedMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "mouseClickLeft",
@@ -5899,19 +8719,35 @@
       ],
       [
         "objectsMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "objectsMenuWithSelf",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "pianoKeyboardMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "primitivesMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "reactToEdit",
@@ -5923,7 +8759,11 @@
       ],
       [
         "reactToKeystroke",
-        []
+        [
+          [
+            "KeyboardEvent"
+          ]
+        ]
       ],
       [
         "receiversMenu",
@@ -5939,7 +8779,11 @@
       ],
       [
         "scenesMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "setChoices",
@@ -5957,7 +8801,11 @@
       ],
       [
         "shadowedVariablesMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "slotMenu",
@@ -5965,7 +8813,11 @@
       ],
       [
         "soundsMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "toXML",
@@ -5977,7 +8829,11 @@
       ],
       [
         "typesMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "unflash",
@@ -5993,13 +8849,18 @@
       ],
       [
         "userEditMenu",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "userSetContents",
         [
           [
-            "Array"
+            "Array",
+            "string"
           ],
           [
             "MenuItemMorph"
@@ -6423,6 +9284,49 @@
       ]
     ]
   },
+  "JaggedBlockMorph": {
+    "called": [
+      "init",
+      "outlinePath",
+      "drawEdges"
+    ],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "minWidth",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "drawEdges",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ],
+      [
+        "init",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "outlinePath",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "number"
+          ]
+        ]
+      ]
+    ]
+  },
   "JSCompiler": {
     "called": [],
     "assigned": [],
@@ -6507,6 +9411,83 @@
       ],
       [
         "toString",
+        []
+      ]
+    ]
+  },
+  "JukeboxMorph": {
+    "called": [
+      "init",
+      "updateList",
+      "updateSelection",
+      "step"
+    ],
+    "assigned": [
+      "acceptsDrops",
+      "soundsVersion",
+      "sprite",
+      "spriteVersion"
+    ],
+    "fieldTypes": [
+      [
+        "acceptsDrops",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "soundsVersion",
+        [
+          "number"
+        ]
+      ],
+      [
+        "sprite",
+        [
+          "SpriteMorph"
+        ]
+      ],
+      [
+        "spriteVersion",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "init",
+        [
+          [
+            "SpriteMorph"
+          ],
+          [
+            "Color"
+          ]
+        ]
+      ],
+      [
+        "reactToDropOf",
+        []
+      ],
+      [
+        "removeSound",
+        []
+      ],
+      [
+        "step",
+        []
+      ],
+      [
+        "updateList",
+        []
+      ],
+      [
+        "updateSelection",
+        []
+      ],
+      [
+        "wantsDropOf",
         []
       ]
     ]
@@ -6643,6 +9624,319 @@
       ]
     ]
   },
+  "List": {
+    "called": [
+      "at",
+      "asArray",
+      "becomeArray",
+      "itemsArray",
+      "toXML",
+      "hasOnlyAtomicData",
+      "asCSV",
+      "add",
+      "length",
+      "changed",
+      "remove"
+    ],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "contents",
+        []
+      ],
+      [
+        "first",
+        []
+      ],
+      [
+        "isLinked",
+        []
+      ],
+      [
+        "lastChanged",
+        []
+      ],
+      [
+        "rest",
+        []
+      ],
+      [
+        "type",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "add",
+        [
+          [
+            "Costume",
+            "Scene",
+            "SpriteMorph"
+          ]
+        ]
+      ],
+      [
+        "asArray",
+        []
+      ],
+      [
+        "asChunksOf",
+        []
+      ],
+      [
+        "asCSV",
+        []
+      ],
+      [
+        "asJSON",
+        []
+      ],
+      [
+        "asText",
+        []
+      ],
+      [
+        "asTXT",
+        []
+      ],
+      [
+        "at",
+        [
+          [
+            "number"
+          ]
+        ]
+      ],
+      [
+        "becomeArray",
+        []
+      ],
+      [
+        "becomeLinked",
+        []
+      ],
+      [
+        "bind",
+        []
+      ],
+      [
+        "blockify",
+        []
+      ],
+      [
+        "canBeCSV",
+        []
+      ],
+      [
+        "canBeJSON",
+        []
+      ],
+      [
+        "canBeTXT",
+        []
+      ],
+      [
+        "cdr",
+        []
+      ],
+      [
+        "changed",
+        []
+      ],
+      [
+        "clear",
+        []
+      ],
+      [
+        "colName",
+        []
+      ],
+      [
+        "cols",
+        []
+      ],
+      [
+        "columnNames",
+        []
+      ],
+      [
+        "columns",
+        []
+      ],
+      [
+        "cons",
+        []
+      ],
+      [
+        "contains",
+        []
+      ],
+      [
+        "crossproduct",
+        []
+      ],
+      [
+        "deepMap",
+        []
+      ],
+      [
+        "distribution",
+        []
+      ],
+      [
+        "equalTo",
+        []
+      ],
+      [
+        "flatten",
+        []
+      ],
+      [
+        "folded",
+        []
+      ],
+      [
+        "forget",
+        []
+      ],
+      [
+        "get",
+        []
+      ],
+      [
+        "getDimension",
+        []
+      ],
+      [
+        "hasOnlyAtomicData",
+        []
+      ],
+      [
+        "indexOf",
+        []
+      ],
+      [
+        "isEmpty",
+        []
+      ],
+      [
+        "isTable",
+        []
+      ],
+      [
+        "items",
+        []
+      ],
+      [
+        "itemsArray",
+        []
+      ],
+      [
+        "length",
+        []
+      ],
+      [
+        "lookup",
+        []
+      ],
+      [
+        "map",
+        []
+      ],
+      [
+        "put",
+        []
+      ],
+      [
+        "query",
+        []
+      ],
+      [
+        "range",
+        []
+      ],
+      [
+        "rangify",
+        []
+      ],
+      [
+        "rank",
+        []
+      ],
+      [
+        "ravel",
+        []
+      ],
+      [
+        "remove",
+        [
+          [
+            "number"
+          ]
+        ]
+      ],
+      [
+        "reshape",
+        []
+      ],
+      [
+        "reversed",
+        []
+      ],
+      [
+        "rowName",
+        []
+      ],
+      [
+        "rows",
+        []
+      ],
+      [
+        "shape",
+        []
+      ],
+      [
+        "size",
+        []
+      ],
+      [
+        "slice",
+        []
+      ],
+      [
+        "strideTranspose",
+        []
+      ],
+      [
+        "toString",
+        []
+      ],
+      [
+        "toXML",
+        [
+          [
+            "SnapSerializer"
+          ],
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "transpose",
+        []
+      ],
+      [
+        "version",
+        []
+      ],
+      [
+        "width",
+        []
+      ]
+    ]
+  },
   "ListMorph": {
     "called": [],
     "assigned": [],
@@ -6723,6 +10017,171 @@
       ]
     ]
   },
+  "ListWatcherMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "arrow",
+        []
+      ],
+      [
+        "color",
+        []
+      ],
+      [
+        "frame",
+        []
+      ],
+      [
+        "handle",
+        []
+      ],
+      [
+        "isDraggable",
+        []
+      ],
+      [
+        "label",
+        []
+      ],
+      [
+        "lastCell",
+        []
+      ],
+      [
+        "lastUpdated",
+        []
+      ],
+      [
+        "list",
+        []
+      ],
+      [
+        "parentCell",
+        []
+      ],
+      [
+        "plusButton",
+        []
+      ],
+      [
+        "range",
+        []
+      ],
+      [
+        "start",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "arrangeCells",
+        []
+      ],
+      [
+        "expand",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "mouseDoubleClick",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "setStartIndex",
+        []
+      ],
+      [
+        "show",
+        []
+      ],
+      [
+        "showTableView",
+        []
+      ],
+      [
+        "startIndexMenu",
+        []
+      ],
+      [
+        "update",
+        []
+      ],
+      [
+        "updateLength",
+        []
+      ],
+      [
+        "userMenu",
+        []
+      ]
+    ]
+  },
+  "Localizer": {
+    "called": [
+      "translate",
+      "contextualize"
+    ],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "dict",
+        []
+      ],
+      [
+        "language",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "contextualize",
+        [
+          [
+            "Array",
+            "string"
+          ]
+        ]
+      ],
+      [
+        "credits",
+        []
+      ],
+      [
+        "languageName",
+        []
+      ],
+      [
+        "languages",
+        []
+      ],
+      [
+        "translate",
+        [
+          [
+            "Array",
+            "string"
+          ]
+        ]
+      ],
+      [
+        "unload",
+        []
+      ]
+    ]
+  },
   "MenuItemMorph": {
     "called": [
       "createLabel",
@@ -6736,7 +10195,8 @@
       "mouseClickLeft",
       "mouseLeave",
       "delaySubmenu",
-      "popUpSubmenu"
+      "popUpSubmenu",
+      "createIcon"
     ],
     "assigned": [
       "target",
@@ -6755,7 +10215,8 @@
       "shortcutString",
       "shortcut",
       "environment",
-      "schedule"
+      "schedule",
+      "hint"
     ],
     "fieldTypes": [
       [
@@ -6802,7 +10263,9 @@
       ],
       [
         "hint",
-        []
+        [
+          "string"
+        ]
       ],
       [
         "label",
@@ -6862,6 +10325,7 @@
         "target",
         [
           "Function",
+          "SpriteIconMorph",
           "SpriteMorph"
         ]
       ],
@@ -6875,7 +10339,11 @@
     "argTypes": [
       [
         "createIcon",
-        []
+        [
+          [
+            "SymbolMorph"
+          ]
+        ]
       ],
       [
         "createLabel",
@@ -6885,6 +10353,7 @@
         "createLabelPart",
         [
           [
+            "Array",
             "string"
           ]
         ]
@@ -7060,6 +10529,7 @@
         "target",
         [
           "Function",
+          "SpriteIconMorph",
           "SpriteMorph"
         ]
       ],
@@ -7126,15 +10596,19 @@
         "addPair",
         [
           [
+            "Array",
             "string"
           ],
           [
-            "MenuMorph"
+            "MenuMorph",
+            "string"
           ],
           [
             "string"
           ],
-          [],
+          [
+            "string"
+          ],
           [
             "boolean"
           ]
@@ -7178,6 +10652,10 @@
           [
             "CommandBlockMorph",
             "Function",
+            "IDE_Morph",
+            "MultiArgMorph",
+            "ReporterBlockMorph",
+            "ScriptsMorph",
             "SpriteIconMorph",
             "SpriteMorph"
           ],
@@ -7476,7 +10954,13 @@
       "toggleVisibility",
       "fullBoundsNoShadow",
       "isPickedUp",
-      "rightCenter"
+      "rightCenter",
+      "perish",
+      "fadeTo",
+      "getPixelColor",
+      "leftCenter",
+      "scrollIntoView",
+      "pickUp"
     ],
     "assigned": [
       "isMorph",
@@ -7635,7 +11119,12 @@
             "AlignmentMorph",
             "ArgMorph",
             "ArrowMorph",
+            "BlockDialogMorph",
+            "BlockEditorMorph",
+            "BlockInputFragmentMorph",
+            "BlockLabelFragmentMorph",
             "BlockLabelMorph",
+            "BlockLabelPlaceHolderMorph",
             "BlockSymbolMorph",
             "BooleanSlotMorph",
             "BoxMorph",
@@ -7644,42 +11133,59 @@
             "ColorSlotMorph",
             "CommandBlockMorph",
             "CommentMorph",
+            "CostumeIconMorph",
             "CSlotMorph",
             "CursorMorph",
+            "CustomCommandBlockMorph",
             "CustomReporterBlockMorph",
             "FrameMorph",
             "HandleMorph",
+            "HatBlockMorph",
             "InputFieldMorph",
+            "InputSlotDialogMorph",
             "InputSlotMorph",
             "InputSlotStringMorph",
+            "InputSlotTextMorph",
+            "JukeboxMorph",
             "MenuItemMorph",
             "MenuMorph",
             "Morph",
             "MultiArgMorph",
+            "PaintCanvasMorph",
+            "PaintColorPickerMorph",
+            "PaintEditorMorph",
             "PaletteHandleMorph",
+            "PrototypeHatBlockMorph",
             "PushButtonMorph",
             "ReporterBlockMorph",
             "RingCommandSlotMorph",
             "RingMorph",
             "RingReporterSlotMorph",
             "SceneAlbumMorph",
+            "SceneIconMorph",
             "ScriptsMorph",
             "ScrollFrameMorph",
             "SliderButtonMorph",
             "SliderMorph",
+            "SoundRecorderDialogMorph",
             "SpeechBubbleMorph",
             "SpriteIconMorph",
             "SpriteMorph",
             "StageHandleMorph",
+            "StageMorph",
             "StringFieldMorph",
             "StringMorph",
             "SymbolMorph",
             "TabMorph",
             "TemplateSlotMorph",
             "TextMorph",
+            "TextSlotMorph",
             "ToggleButtonMorph",
+            "ToggleElementMorph",
             "ToggleMorph",
+            "TurtleIconMorph",
             "VariableDialogMorph",
+            "WardrobeMorph",
             "WatcherMorph"
           ]
         ]
@@ -7690,6 +11196,7 @@
           [
             "BlockHighlightMorph",
             "CommentMorph",
+            "FrameMorph",
             "Morph",
             "ShadowMorph"
           ]
@@ -7757,7 +11264,12 @@
             "AlignmentMorph",
             "ArgMorph",
             "ArrowMorph",
+            "BlockDialogMorph",
+            "BlockEditorMorph",
+            "BlockInputFragmentMorph",
+            "BlockLabelFragmentMorph",
             "BlockLabelMorph",
+            "BlockLabelPlaceHolderMorph",
             "BlockSymbolMorph",
             "BooleanSlotMorph",
             "BoxMorph",
@@ -7766,20 +11278,30 @@
             "ColorSlotMorph",
             "CommandBlockMorph",
             "CommentMorph",
+            "CostumeIconMorph",
             "CSlotMorph",
             "CursorMorph",
+            "CustomCommandBlockMorph",
             "CustomReporterBlockMorph",
             "FrameMorph",
             "HandleMorph",
+            "HatBlockMorph",
             "IDE_Morph",
             "InputFieldMorph",
+            "InputSlotDialogMorph",
             "InputSlotMorph",
             "InputSlotStringMorph",
+            "InputSlotTextMorph",
+            "JukeboxMorph",
             "MenuItemMorph",
             "MenuMorph",
             "Morph",
             "MultiArgMorph",
+            "PaintCanvasMorph",
+            "PaintColorPickerMorph",
+            "PaintEditorMorph",
             "PaletteHandleMorph",
+            "PrototypeHatBlockMorph",
             "PushButtonMorph",
             "ReporterBlockMorph",
             "RingCommandSlotMorph",
@@ -7792,6 +11314,7 @@
             "ShadowMorph",
             "SliderButtonMorph",
             "SliderMorph",
+            "SoundRecorderDialogMorph",
             "SpriteIconMorph",
             "SpriteMorph",
             "StageHandleMorph",
@@ -7802,9 +11325,13 @@
             "TabMorph",
             "TemplateSlotMorph",
             "TextMorph",
+            "TextSlotMorph",
             "ToggleButtonMorph",
+            "ToggleElementMorph",
             "ToggleMorph",
+            "TurtleIconMorph",
             "VariableDialogMorph",
+            "WardrobeMorph",
             "WatcherMorph"
           ]
         ]
@@ -7879,7 +11406,18 @@
       ],
       [
         "fadeTo",
-        []
+        [
+          [
+            "number"
+          ],
+          [
+            "number"
+          ],
+          [],
+          [
+            "Function"
+          ]
+        ]
       ],
       [
         "fixHolesLayout",
@@ -7926,7 +11464,11 @@
       ],
       [
         "getPixelColor",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "getRenderColor",
@@ -8032,6 +11574,9 @@
         [
           [
             "Point"
+          ],
+          [
+            "boolean"
           ]
         ]
       ],
@@ -8069,7 +11614,11 @@
       ],
       [
         "perish",
-        []
+        [
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "pickColor",
@@ -8077,7 +11626,11 @@
       ],
       [
         "pickUp",
-        []
+        [
+          [
+            "WorldMorph"
+          ]
+        ]
       ],
       [
         "position",
@@ -8200,6 +11753,9 @@
         [
           [
             "Point"
+          ],
+          [
+            "boolean"
           ]
         ]
       ],
@@ -8339,7 +11895,8 @@
         [
           [
             "CommandBlockMorph",
-            "ReporterBlockMorph"
+            "ReporterBlockMorph",
+            "SpriteMorph"
           ]
         ]
       ],
@@ -8442,7 +11999,11 @@
       "toXML",
       "isEmptySlot",
       "mouseClickLeft",
-      "removePostfix"
+      "removePostfix",
+      "userMenu",
+      "setIrreplaceable",
+      "setInfix",
+      "collapseAll"
     ],
     "assigned": [
       "slotSpec",
@@ -8455,7 +12016,9 @@
       "canBeEmpty",
       "alpha",
       "shadowColor",
-      "shadowOffset"
+      "shadowOffset",
+      "maxInputs",
+      "defaultValue"
     ],
     "fieldTypes": [
       [
@@ -8478,7 +12041,9 @@
       ],
       [
         "defaultValue",
-        []
+        [
+          "Array"
+        ]
       ],
       [
         "elementSpec",
@@ -8505,12 +12070,15 @@
       [
         "labelText",
         [
+          "Array",
           "string"
         ]
       ],
       [
         "maxInputs",
-        []
+        [
+          "number"
+        ]
       ],
       [
         "minInputs",
@@ -8533,6 +12101,7 @@
       [
         "slotSpec",
         [
+          "Array",
           "string"
         ]
       ]
@@ -8728,7 +12297,11 @@
       ],
       [
         "setIrreplaceable",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "setLabelColor",
@@ -8789,7 +12362,8 @@
       "addChild",
       "addChildFirst",
       "forAllChildren",
-      "allChildren"
+      "allChildren",
+      "siblings"
     ],
     "assigned": [
       "children",
@@ -8807,19 +12381,31 @@
         [
           "AlignmentMorph",
           "ArgMorph",
+          "BlockDialogMorph",
+          "BlockEditorMorph",
+          "BlockInputFragmentMorph",
+          "BlockLabelFragmentMorph",
+          "BoxMorph",
           "CellMorph",
           "CommandBlockMorph",
           "CommentMorph",
+          "CostumeIconMorph",
           "CSlotMorph",
+          "CustomCommandBlockMorph",
           "CustomReporterBlockMorph",
           "FrameMorph",
+          "HatBlockMorph",
           "IDE_Morph",
           "InputFieldMorph",
+          "InputSlotDialogMorph",
           "InputSlotMorph",
+          "JukeboxMorph",
           "MenuItemMorph",
           "MenuMorph",
           "Morph",
           "MultiArgMorph",
+          "PaintEditorMorph",
+          "PrototypeHatBlockMorph",
           "PushButtonMorph",
           "ReporterBlockMorph",
           "RingMorph",
@@ -8829,6 +12415,7 @@
           "ScriptsMorph",
           "ScrollFrameMorph",
           "SliderMorph",
+          "SoundRecorderDialogMorph",
           "SpriteIconMorph",
           "StageMorph",
           "StringFieldMorph",
@@ -8837,7 +12424,9 @@
           "TextMorph",
           "ToggleButtonMorph",
           "ToggleMorph",
+          "TurtleIconMorph",
           "VariableDialogMorph",
+          "WardrobeMorph",
           "WatcherMorph",
           "WorldMorph"
         ]
@@ -8851,7 +12440,12 @@
             "AlignmentMorph",
             "ArgMorph",
             "ArrowMorph",
+            "BlockDialogMorph",
+            "BlockEditorMorph",
+            "BlockInputFragmentMorph",
+            "BlockLabelFragmentMorph",
             "BlockLabelMorph",
+            "BlockLabelPlaceHolderMorph",
             "BlockSymbolMorph",
             "BooleanSlotMorph",
             "BoxMorph",
@@ -8860,42 +12454,59 @@
             "ColorSlotMorph",
             "CommandBlockMorph",
             "CommentMorph",
+            "CostumeIconMorph",
             "CSlotMorph",
             "CursorMorph",
+            "CustomCommandBlockMorph",
             "CustomReporterBlockMorph",
             "FrameMorph",
             "HandleMorph",
+            "HatBlockMorph",
             "InputFieldMorph",
+            "InputSlotDialogMorph",
             "InputSlotMorph",
             "InputSlotStringMorph",
+            "InputSlotTextMorph",
+            "JukeboxMorph",
             "MenuItemMorph",
             "MenuMorph",
             "Morph",
             "MultiArgMorph",
+            "PaintCanvasMorph",
+            "PaintColorPickerMorph",
+            "PaintEditorMorph",
             "PaletteHandleMorph",
+            "PrototypeHatBlockMorph",
             "PushButtonMorph",
             "ReporterBlockMorph",
             "RingCommandSlotMorph",
             "RingMorph",
             "RingReporterSlotMorph",
             "SceneAlbumMorph",
+            "SceneIconMorph",
             "ScriptsMorph",
             "ScrollFrameMorph",
             "SliderButtonMorph",
             "SliderMorph",
+            "SoundRecorderDialogMorph",
             "SpeechBubbleMorph",
             "SpriteIconMorph",
             "SpriteMorph",
             "StageHandleMorph",
+            "StageMorph",
             "StringFieldMorph",
             "StringMorph",
             "SymbolMorph",
             "TabMorph",
             "TemplateSlotMorph",
             "TextMorph",
+            "TextSlotMorph",
             "ToggleButtonMorph",
+            "ToggleElementMorph",
             "ToggleMorph",
+            "TurtleIconMorph",
             "VariableDialogMorph",
+            "WardrobeMorph",
             "WatcherMorph"
           ]
         ]
@@ -8906,6 +12517,7 @@
           [
             "BlockHighlightMorph",
             "CommentMorph",
+            "FrameMorph",
             "Morph",
             "ShadowMorph"
           ]
@@ -8970,33 +12582,53 @@
         "removeChild",
         [
           [
+            "AlignmentMorph",
+            "ArgMorph",
+            "BlockDialogMorph",
+            "BlockEditorMorph",
             "BlockHighlightMorph",
+            "BlockLabelFragmentMorph",
             "BlockLabelMorph",
+            "BlockLabelPlaceHolderMorph",
+            "BooleanSlotMorph",
             "BoxMorph",
             "ColorPaletteMorph",
             "CommandBlockMorph",
             "CommentMorph",
+            "CSlotMorph",
             "CursorMorph",
+            "CustomCommandBlockMorph",
             "FrameMorph",
             "HandleMorph",
+            "HatBlockMorph",
+            "InputSlotDialogMorph",
             "InputSlotMorph",
+            "JukeboxMorph",
             "MenuItemMorph",
             "MenuMorph",
             "Morph",
+            "PaintEditorMorph",
             "PaletteHandleMorph",
             "ReporterBlockMorph",
+            "RingMorph",
             "SceneAlbumMorph",
             "ScriptsMorph",
             "ScrollFrameMorph",
             "ShadowMorph",
+            "SoundRecorderDialogMorph",
             "SpeechBubbleMorph",
             "SpriteMorph",
             "StageHandleMorph",
+            "StageMorph",
+            "StringMorph",
             "SymbolMorph",
             "TabMorph",
             "TemplateSlotMorph",
             "TextMorph",
-            "VariableDialogMorph"
+            "ToggleMorph",
+            "VariableDialogMorph",
+            "WardrobeMorph",
+            "WatcherMorph"
           ]
         ]
       ],
@@ -9066,10 +12698,571 @@
       ]
     ]
   },
+  "PaintCanvasMorph": {
+    "called": [
+      "init",
+      "buildContents",
+      "drawNew",
+      "merge",
+      "drawFrame",
+      "drawRectBorder",
+      "rerender",
+      "drawcrosshair",
+      "centermerge",
+      "mouseDownLeft",
+      "cacheUndo",
+      "mouseMove",
+      "mouseClickLeft",
+      "toolChanged",
+      "updateAutomaticCenter",
+      "calculateCanvasCenter",
+      "scale"
+    ],
+    "assigned": [
+      "rotationCenter",
+      "dragRect",
+      "currentTool",
+      "mask",
+      "paper",
+      "erasermask",
+      "background",
+      "settings",
+      "brushBuffer",
+      "undoBuffer",
+      "automaticCrosshairs",
+      "isCachingImage",
+      "previousDragPoint"
+    ],
+    "fieldTypes": [
+      [
+        "automaticCrosshairs",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "background",
+        [
+          "HTMLCanvasElement"
+        ]
+      ],
+      [
+        "brushBuffer",
+        [
+          "Array"
+        ]
+      ],
+      [
+        "currentTool",
+        [
+          "string"
+        ]
+      ],
+      [
+        "dragRect",
+        [
+          "Rectangle"
+        ]
+      ],
+      [
+        "erasermask",
+        [
+          "HTMLCanvasElement"
+        ]
+      ],
+      [
+        "isCachingImage",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "mask",
+        [
+          "HTMLCanvasElement"
+        ]
+      ],
+      [
+        "paper",
+        [
+          "HTMLCanvasElement"
+        ]
+      ],
+      [
+        "previousDragPoint",
+        [
+          "Point"
+        ]
+      ],
+      [
+        "rotationCenter",
+        [
+          "Point"
+        ]
+      ],
+      [
+        "settings",
+        [
+          "Object"
+        ]
+      ],
+      [
+        "undoBuffer",
+        [
+          "Array"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "buildContents",
+        []
+      ],
+      [
+        "cacheUndo",
+        []
+      ],
+      [
+        "calculateCanvasCenter",
+        [
+          [
+            "HTMLCanvasElement"
+          ]
+        ]
+      ],
+      [
+        "centermerge",
+        [
+          [
+            "HTMLCanvasElement"
+          ],
+          [
+            "HTMLCanvasElement"
+          ]
+        ]
+      ],
+      [
+        "clearCanvas",
+        []
+      ],
+      [
+        "drawcrosshair",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ],
+      [
+        "drawFrame",
+        []
+      ],
+      [
+        "drawNew",
+        []
+      ],
+      [
+        "drawRectBorder",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ],
+      [
+        "floodfill",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "Function"
+          ]
+        ]
+      ],
+      [
+        "merge",
+        [
+          [
+            "HTMLCanvasElement"
+          ],
+          [
+            "HTMLCanvasElement"
+          ]
+        ]
+      ],
+      [
+        "mouseClickLeft",
+        [
+          [
+            "Point"
+          ]
+        ]
+      ],
+      [
+        "mouseDownLeft",
+        [
+          [
+            "Point"
+          ]
+        ]
+      ],
+      [
+        "mouseLeaveDragging",
+        []
+      ],
+      [
+        "mouseMove",
+        [
+          [
+            "Point"
+          ],
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "rerender",
+        []
+      ],
+      [
+        "scale",
+        [
+          [
+            "number"
+          ],
+          [
+            "number"
+          ]
+        ]
+      ],
+      [
+        "toolChanged",
+        [
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "undo",
+        []
+      ],
+      [
+        "updateAutomaticCenter",
+        []
+      ]
+    ]
+  },
+  "PaintColorPickerMorph": {
+    "called": [
+      "init",
+      "render",
+      "mouseDownLeft",
+      "mouseMove"
+    ],
+    "assigned": [
+      "isCachingImage",
+      "action"
+    ],
+    "fieldTypes": [
+      [
+        "action",
+        [
+          "Function"
+        ]
+      ],
+      [
+        "isCachingImage",
+        [
+          "boolean"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "init",
+        [
+          [
+            "Point"
+          ],
+          [
+            "Function"
+          ]
+        ]
+      ],
+      [
+        "mouseDownLeft",
+        [
+          [
+            "Point"
+          ]
+        ]
+      ],
+      [
+        "mouseMove",
+        [
+          [
+            "Point"
+          ],
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "render",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ]
+    ]
+  },
+  "PaintEditorMorph": {
+    "called": [
+      "init",
+      "fixLayout",
+      "openIn",
+      "buildContents",
+      "buildEdits",
+      "pushButton",
+      "buildToolbox",
+      "toolButton",
+      "buildScaleBox",
+      "populatePropertiesMenu",
+      "refreshToolButtons",
+      "ok"
+    ],
+    "assigned": [
+      "ide",
+      "paper",
+      "oncancel",
+      "labelString"
+    ],
+    "fieldTypes": [
+      [
+        "ide",
+        [
+          "IDE_Morph"
+        ]
+      ],
+      [
+        "labelString",
+        [
+          "string"
+        ]
+      ],
+      [
+        "oncancel",
+        [
+          "Function"
+        ]
+      ],
+      [
+        "paper",
+        [
+          "PaintCanvasMorph"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "buildContents",
+        []
+      ],
+      [
+        "buildEdits",
+        []
+      ],
+      [
+        "buildScaleBox",
+        []
+      ],
+      [
+        "buildToolbox",
+        []
+      ],
+      [
+        "cancel",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "getUserColor",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "ok",
+        []
+      ],
+      [
+        "openIn",
+        [
+          [
+            "WorldMorph"
+          ],
+          [
+            "HTMLCanvasElement"
+          ],
+          [],
+          [
+            "Function"
+          ],
+          [
+            "IDE_Morph"
+          ]
+        ]
+      ],
+      [
+        "populatePropertiesMenu",
+        []
+      ],
+      [
+        "pushButton",
+        [
+          [
+            "string",
+            "SymbolMorph"
+          ],
+          [
+            "Function"
+          ],
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "refreshToolButtons",
+        []
+      ],
+      [
+        "switchToVector",
+        []
+      ],
+      [
+        "toolButton",
+        [
+          [
+            "string"
+          ],
+          [
+            "string"
+          ]
+        ]
+      ]
+    ]
+  },
+  "PaletteHandleMorph": {
+    "called": [
+      "fixLayout",
+      "render",
+      "renderOn",
+      "init",
+      "mouseEnter",
+      "mouseLeave"
+    ],
+    "assigned": [
+      "target",
+      "userState",
+      "color",
+      "isDraggable"
+    ],
+    "fieldTypes": [
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "isDraggable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "target",
+        [
+          "Morph"
+        ]
+      ],
+      [
+        "userState",
+        [
+          "string"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "Morph"
+          ]
+        ]
+      ],
+      [
+        "mouseDoubleClick",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "render",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ],
+      [
+        "renderOn",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ],
+          [
+            "Color"
+          ]
+        ]
+      ]
+    ]
+  },
   "PenMorph": {
     "called": [
       "render",
-      "changed"
+      "changed",
+      "init"
     ],
     "assigned": [
       "isWarped",
@@ -9313,7 +13506,11 @@
       "multiplyBy",
       "scaleBy",
       "extent",
-      "floorDivideBy"
+      "floorDivideBy",
+      "rotateBy",
+      "theta",
+      "translateBy",
+      "toString"
     ],
     "assigned": [],
     "fieldTypes": [
@@ -9502,7 +13699,14 @@
       ],
       [
         "rotateBy",
-        []
+        [
+          [
+            "number"
+          ],
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "round",
@@ -9535,7 +13739,11 @@
       ],
       [
         "translateBy",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ]
     ]
   },
@@ -9558,7 +13766,9 @@
       "reportTypeOf",
       "reportListAggregation",
       "unflash",
-      "reportGetVar"
+      "reportGetVar",
+      "evaluateSequence",
+      "reportBasicRandom"
     ],
     "assigned": [],
     "fieldTypes": [
@@ -10087,6 +14297,7 @@
         "evaluateBlock",
         [
           [
+            "CommandBlockMorph",
             "ReporterBlockMorph"
           ],
           [
@@ -10125,13 +14336,18 @@
         "evaluateNextInputSet",
         [
           [
+            "CommandBlockMorph",
             "ReporterBlockMorph"
           ]
         ]
       ],
       [
         "evaluateSequence",
-        []
+        [
+          [
+            "Array"
+          ]
+        ]
       ],
       [
         "expectReport",
@@ -10289,6 +14505,9 @@
           ],
           [
             "List"
+          ],
+          [
+            "boolean"
           ]
         ]
       ],
@@ -10426,7 +14645,14 @@
       ],
       [
         "reportBasicRandom",
-        []
+        [
+          [
+            "number"
+          ],
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "reportBasicRelationTo",
@@ -11024,7 +15250,8 @@
   },
   "Project": {
     "called": [
-      "toXML"
+      "toXML",
+      "addDefaultScene"
     ],
     "assigned": [],
     "fieldTypes": [
@@ -11380,6 +15607,98 @@
       ]
     ]
   },
+  "PrototypeHatBlockMorph": {
+    "called": [
+      "init",
+      "fixBlockColor",
+      "variableNames"
+    ],
+    "assigned": [
+      "blockCategory",
+      "category",
+      "color",
+      "definition",
+      "isHelper",
+      "type"
+    ],
+    "fieldTypes": [
+      [
+        "blockCategory",
+        [
+          "string"
+        ]
+      ],
+      [
+        "category",
+        [
+          "string"
+        ]
+      ],
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "definition",
+        [
+          "CustomBlockDefinition"
+        ]
+      ],
+      [
+        "isHelper",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "type",
+        [
+          "string"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "enableBlockVars",
+        []
+      ],
+      [
+        "exportBlockDefinition",
+        []
+      ],
+      [
+        "fixBlockColor",
+        [
+          [],
+          [
+            "boolean"
+          ]
+        ]
+      ],
+      [
+        "init",
+        [
+          [
+            "CustomBlockDefinition"
+          ]
+        ]
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "userMenu",
+        []
+      ],
+      [
+        "variableNames",
+        []
+      ]
+    ]
+  },
   "PushButtonMorph": {
     "called": [
       "render",
@@ -11394,7 +15713,8 @@
       "createLabel",
       "fixLayout",
       "updateLabelColors",
-      "enable"
+      "enable",
+      "disable"
     ],
     "assigned": [
       "is3D",
@@ -11477,11 +15797,18 @@
       [
         "target",
         [
+          "BlockDialogMorph",
+          "BlockEditorMorph",
+          "BoxMorph",
           "IDE_Morph",
+          "InputSlotDialogMorph",
+          "PaintEditorMorph",
           "ScriptsMorph",
+          "SoundRecorderDialogMorph",
           "SpriteMorph",
           "StageMorph",
           "VariableDialogMorph",
+          "WardrobeMorph",
           "Window"
         ]
       ]
@@ -11543,10 +15870,18 @@
         "init",
         [
           [
+            "BlockDialogMorph",
+            "BlockEditorMorph",
+            "BoxMorph",
             "IDE_Morph",
+            "InputSlotDialogMorph",
+            "PaintEditorMorph",
             "ScriptsMorph",
+            "SoundRecorderDialogMorph",
             "SpriteMorph",
+            "StageMorph",
             "VariableDialogMorph",
+            "WardrobeMorph",
             "Window"
           ],
           [
@@ -11613,6 +15948,54 @@
       ]
     ]
   },
+  "ReadStream": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "contents",
+        []
+      ],
+      [
+        "index",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "atEnd",
+        []
+      ],
+      [
+        "next",
+        []
+      ],
+      [
+        "peek",
+        []
+      ],
+      [
+        "peekUpTo",
+        []
+      ],
+      [
+        "skip",
+        []
+      ],
+      [
+        "skipSpace",
+        []
+      ],
+      [
+        "upTo",
+        []
+      ],
+      [
+        "word",
+        []
+      ]
+    ]
+  },
   "Rectangle": {
     "called": [
       "topLeft",
@@ -11644,7 +16027,10 @@
       "bottomRight",
       "insetBy",
       "intersects",
-      "rightCenter"
+      "rightCenter",
+      "corners",
+      "leftCenter",
+      "toString"
     ],
     "assigned": [],
     "fieldTypes": [
@@ -11932,7 +16318,8 @@
       "blockSequence",
       "isLocked",
       "getSlotSpec",
-      "determineSlotSpec"
+      "determineSlotSpec",
+      "userDestroy"
     ],
     "assigned": [
       "isPredicate",
@@ -12238,7 +16625,14 @@
       ],
       [
         "fixBlockColor",
-        []
+        [
+          [
+            "JaggedBlockMorph"
+          ],
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "init",
@@ -12406,7 +16800,10 @@
   },
   "Scene": {
     "called": [
-      "toXML"
+      "toXML",
+      "addDefaultSprite",
+      "captureGlobalSettings",
+      "applyGlobalSettings"
     ],
     "assigned": [],
     "fieldTypes": [
@@ -12554,6 +16951,206 @@
       ],
       [
         "updateTrash",
+        []
+      ]
+    ]
+  },
+  "SceneAlbumMorph": {
+    "called": [
+      "step",
+      "init",
+      "updateList",
+      "updateSelection"
+    ],
+    "assigned": [
+      "ide",
+      "scene",
+      "version"
+    ],
+    "fieldTypes": [
+      [
+        "ide",
+        [
+          "IDE_Morph"
+        ]
+      ],
+      [
+        "scene",
+        [
+          "Scene"
+        ]
+      ],
+      [
+        "version",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "init",
+        [
+          [
+            "IDE_Morph"
+          ],
+          [
+            "Color"
+          ]
+        ]
+      ],
+      [
+        "reactToDropOf",
+        []
+      ],
+      [
+        "removeSceneAt",
+        []
+      ],
+      [
+        "step",
+        []
+      ],
+      [
+        "updateList",
+        []
+      ],
+      [
+        "updateSelection",
+        []
+      ],
+      [
+        "wantsDropOf",
+        []
+      ]
+    ]
+  },
+  "SceneIconMorph": {
+    "called": [
+      "step",
+      "createThumbnail",
+      "createLabel",
+      "fixLayout",
+      "init",
+      "render",
+      "rootForGrab"
+    ],
+    "assigned": [
+      "object",
+      "version",
+      "thumbnail",
+      "isDraggable",
+      "padding",
+      "corner",
+      "fps"
+    ],
+    "fieldTypes": [
+      [
+        "corner",
+        [
+          "number"
+        ]
+      ],
+      [
+        "fps",
+        [
+          "number"
+        ]
+      ],
+      [
+        "isDraggable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "object",
+        [
+          "Scene"
+        ]
+      ],
+      [
+        "padding",
+        [
+          "number"
+        ]
+      ],
+      [
+        "thumbnail",
+        [
+          "Morph"
+        ]
+      ],
+      [
+        "version",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "createThumbnail",
+        []
+      ],
+      [
+        "exportScene",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "Scene"
+          ]
+        ]
+      ],
+      [
+        "isProjectScene",
+        []
+      ],
+      [
+        "prepareToBeGrabbed",
+        []
+      ],
+      [
+        "query",
+        []
+      ],
+      [
+        "removeScene",
+        []
+      ],
+      [
+        "renameScene",
+        []
+      ],
+      [
+        "render",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ],
+      [
+        "rootForGrab",
+        []
+      ],
+      [
+        "step",
+        []
+      ],
+      [
+        "userMenu",
         []
       ]
     ]
@@ -12723,7 +17320,12 @@
       "showReporterDropFeedback",
       "closestInput",
       "selectForEdit",
-      "mouseClickLeft"
+      "mouseClickLeft",
+      "userMenu",
+      "cleanUp",
+      "addComment",
+      "showCommentDropFeedback",
+      "closestBlock"
     ],
     "assigned": [
       "feedbackMorph",
@@ -12762,6 +17364,8 @@
         [
           "CommandBlockMorph",
           "CommentMorph",
+          "CustomCommandBlockMorph",
+          "HatBlockMorph",
           "ReporterBlockMorph"
         ]
       ],
@@ -12816,7 +17420,14 @@
       ],
       [
         "closestBlock",
-        []
+        [
+          [
+            "CommentMorph"
+          ],
+          [
+            "HandMorph"
+          ]
+        ]
       ],
       [
         "closestInput",
@@ -12878,6 +17489,9 @@
         [
           [
             "CommandBlockMorph",
+            "CommentMorph",
+            "CustomCommandBlockMorph",
+            "HatBlockMorph",
             "ReporterBlockMorph"
           ],
           [
@@ -12937,13 +17551,22 @@
         "showCommandDropFeedback",
         [
           [
-            "CommandBlockMorph"
+            "CommandBlockMorph",
+            "CustomCommandBlockMorph",
+            "HatBlockMorph"
           ]
         ]
       ],
       [
         "showCommentDropFeedback",
-        []
+        [
+          [
+            "CommentMorph"
+          ],
+          [
+            "HandMorph"
+          ]
+        ]
       ],
       [
         "showCSlotWrapFeedback",
@@ -13001,7 +17624,11 @@
         [
           [
             "CommandBlockMorph",
-            "ReporterBlockMorph"
+            "CommentMorph",
+            "CustomCommandBlockMorph",
+            "HatBlockMorph",
+            "ReporterBlockMorph",
+            "SpriteMorph"
           ]
         ]
       ]
@@ -13019,7 +17646,8 @@
       "scrollY",
       "startAutoScrolling",
       "autoScroll",
-      "mouseDownLeft"
+      "mouseDownLeft",
+      "mouseScroll"
     ],
     "assigned": [
       "scrollBarSize",
@@ -13117,11 +17745,18 @@
         [
           [
             "CommandBlockMorph",
+            "CostumeIconMorph",
+            "CustomCommandBlockMorph",
             "CustomReporterBlockMorph",
+            "HatBlockMorph",
+            "InputFieldMorph",
             "PushButtonMorph",
             "ReporterBlockMorph",
             "RingMorph",
-            "ToggleMorph"
+            "SceneIconMorph",
+            "TextMorph",
+            "ToggleMorph",
+            "TurtleIconMorph"
           ]
         ]
       ],
@@ -13167,7 +17802,14 @@
       ],
       [
         "mouseScroll",
-        []
+        [
+          [
+            "number"
+          ],
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "scrollCursorIntoView",
@@ -13257,7 +17899,10 @@
       "autoOrientation",
       "renderEdges",
       "mouseEnter",
-      "mouseLeave"
+      "mouseLeave",
+      "mouseDownLeft",
+      "mouseMove",
+      "mouseClickLeft"
     ],
     "assigned": [
       "color",
@@ -13316,11 +17961,19 @@
       ],
       [
         "mouseClickLeft",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "mouseDownLeft",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "mouseEnter",
@@ -13332,7 +17985,14 @@
       ],
       [
         "mouseMove",
-        []
+        [
+          [
+            "Point"
+          ],
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "render",
@@ -13359,7 +18019,10 @@
       "rangeSize",
       "unitSize",
       "init",
-      "autoOrientation"
+      "autoOrientation",
+      "mouseDownLeft",
+      "updateValue",
+      "updateTarget"
     ],
     "assigned": [
       "action",
@@ -13369,7 +18032,8 @@
       "size",
       "button",
       "alpha",
-      "color"
+      "color",
+      "offset"
     ],
     "fieldTypes": [
       [
@@ -13398,7 +18062,9 @@
       ],
       [
         "offset",
-        []
+        [
+          "Point"
+        ]
       ],
       [
         "size",
@@ -13467,7 +18133,11 @@
       ],
       [
         "mouseDownLeft",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "numericalSetters",
@@ -13523,6 +18193,196 @@
       ]
     ]
   },
+  "SnapEventManager": {
+    "called": [
+      "log"
+    ],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "eventListeners",
+        []
+      ],
+      [
+        "globalListeners",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "addEventListener",
+        []
+      ],
+      [
+        "addGlobalListener",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "log",
+        [
+          [
+            "string"
+          ],
+          [
+            "BlockLabelFragment",
+            "boolean",
+            "Object",
+            "string"
+          ]
+        ]
+      ]
+    ]
+  },
+  "SnapSerializer": {
+    "called": [
+      "paletteToXML"
+    ],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "mediaDict",
+        []
+      ],
+      [
+        "objects",
+        []
+      ],
+      [
+        "scene",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "init",
+        []
+      ],
+      [
+        "load",
+        []
+      ],
+      [
+        "loadBlock",
+        []
+      ],
+      [
+        "loadBlocks",
+        []
+      ],
+      [
+        "loadBlocksModel",
+        []
+      ],
+      [
+        "loadColor",
+        []
+      ],
+      [
+        "loadComment",
+        []
+      ],
+      [
+        "loadCostumes",
+        []
+      ],
+      [
+        "loadCustomBlocks",
+        []
+      ],
+      [
+        "loadInheritanceInfo",
+        []
+      ],
+      [
+        "loadInput",
+        []
+      ],
+      [
+        "loadMedia",
+        []
+      ],
+      [
+        "loadMediaModel",
+        []
+      ],
+      [
+        "loadNestingInfo",
+        []
+      ],
+      [
+        "loadObject",
+        []
+      ],
+      [
+        "loadPalette",
+        []
+      ],
+      [
+        "loadProjectModel",
+        []
+      ],
+      [
+        "loadScene",
+        []
+      ],
+      [
+        "loadScript",
+        []
+      ],
+      [
+        "loadScriptModel",
+        []
+      ],
+      [
+        "loadScripts",
+        []
+      ],
+      [
+        "loadScriptsArray",
+        []
+      ],
+      [
+        "loadSounds",
+        []
+      ],
+      [
+        "loadSpritesModel",
+        []
+      ],
+      [
+        "loadValue",
+        []
+      ],
+      [
+        "loadVariables",
+        []
+      ],
+      [
+        "obsoleteBlock",
+        []
+      ],
+      [
+        "paletteToXML",
+        [
+          [
+            "Map"
+          ]
+        ]
+      ],
+      [
+        "populateCustomBlocks",
+        []
+      ],
+      [
+        "setBlockId",
+        []
+      ]
+    ]
+  },
   "Sound": {
     "called": [],
     "assigned": [],
@@ -13567,6 +18427,215 @@
       ],
       [
         "toXML",
+        []
+      ]
+    ]
+  },
+  "SoundIconMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "corner",
+        []
+      ],
+      [
+        "fps",
+        []
+      ],
+      [
+        "isDraggable",
+        []
+      ],
+      [
+        "object",
+        []
+      ],
+      [
+        "padding",
+        []
+      ],
+      [
+        "thumbnail",
+        []
+      ],
+      [
+        "version",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "audioHasEnded",
+        []
+      ],
+      [
+        "createInfo",
+        []
+      ],
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "createThumbnail",
+        []
+      ],
+      [
+        "disinherit",
+        []
+      ],
+      [
+        "exportSound",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "prepareToBeGrabbed",
+        []
+      ],
+      [
+        "query",
+        []
+      ],
+      [
+        "removeSound",
+        []
+      ],
+      [
+        "renameSound",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "toggleAudioPlaying",
+        []
+      ],
+      [
+        "userMenu",
+        []
+      ]
+    ]
+  },
+  "SoundRecorderDialogMorph": {
+    "called": [
+      "init",
+      "buildContents",
+      "buildProgressBar",
+      "record",
+      "stop",
+      "play",
+      "destroy"
+    ],
+    "assigned": [
+      "accept",
+      "audioElement",
+      "labelString",
+      "padding",
+      "playButton",
+      "progressBar",
+      "recordButton",
+      "stopButton"
+    ],
+    "fieldTypes": [
+      [
+        "accept",
+        [
+          "Function"
+        ]
+      ],
+      [
+        "audioElement",
+        [
+          "HTMLAudioElement"
+        ]
+      ],
+      [
+        "labelString",
+        [
+          "string"
+        ]
+      ],
+      [
+        "mediaRecorder",
+        []
+      ],
+      [
+        "padding",
+        [
+          "number"
+        ]
+      ],
+      [
+        "playButton",
+        [
+          "PushButtonMorph"
+        ]
+      ],
+      [
+        "progressBar",
+        [
+          "BoxMorph"
+        ]
+      ],
+      [
+        "recordButton",
+        [
+          "PushButtonMorph"
+        ]
+      ],
+      [
+        "stopButton",
+        [
+          "PushButtonMorph"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "buildContents",
+        []
+      ],
+      [
+        "buildProgressBar",
+        []
+      ],
+      [
+        "destroy",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "Function"
+          ]
+        ]
+      ],
+      [
+        "ok",
+        []
+      ],
+      [
+        "play",
+        []
+      ],
+      [
+        "record",
+        []
+      ],
+      [
+        "stop",
         []
       ]
     ]
@@ -13627,6 +18696,7 @@
         "init",
         [
           [
+            "string",
             "TextMorph"
           ],
           [],
@@ -13764,6 +18834,222 @@
       ]
     ]
   },
+  "SpriteIconMorph": {
+    "called": [
+      "step",
+      "createThumbnail",
+      "createRotationButton",
+      "createLabel",
+      "fixLayout",
+      "render",
+      "init",
+      "getRenderColor",
+      "userMenu",
+      "instantiateSprite",
+      "removeSprite",
+      "chooseExemplar"
+    ],
+    "assigned": [
+      "object",
+      "version",
+      "thumbnail",
+      "isFlashing",
+      "isDraggable",
+      "padding",
+      "corner",
+      "fps"
+    ],
+    "fieldTypes": [
+      [
+        "corner",
+        [
+          "number"
+        ]
+      ],
+      [
+        "fps",
+        [
+          "number"
+        ]
+      ],
+      [
+        "isDraggable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "isFlashing",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "object",
+        [
+          "SpriteMorph",
+          "StageMorph"
+        ]
+      ],
+      [
+        "padding",
+        [
+          "number"
+        ]
+      ],
+      [
+        "previousColor",
+        []
+      ],
+      [
+        "previousOutline",
+        []
+      ],
+      [
+        "previousState",
+        []
+      ],
+      [
+        "rotationButton",
+        []
+      ],
+      [
+        "thumbnail",
+        [
+          "Morph"
+        ]
+      ],
+      [
+        "version",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "chooseExemplar",
+        []
+      ],
+      [
+        "copyCostume",
+        []
+      ],
+      [
+        "copySound",
+        []
+      ],
+      [
+        "copyStack",
+        []
+      ],
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "createRotationButton",
+        []
+      ],
+      [
+        "createThumbnail",
+        []
+      ],
+      [
+        "duplicateSprite",
+        []
+      ],
+      [
+        "exportSprite",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "flash",
+        []
+      ],
+      [
+        "flashOff",
+        []
+      ],
+      [
+        "flashOn",
+        []
+      ],
+      [
+        "getRenderColor",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "SpriteMorph",
+            "StageMorph"
+          ]
+        ]
+      ],
+      [
+        "instantiateSprite",
+        []
+      ],
+      [
+        "justDropped",
+        []
+      ],
+      [
+        "mouseDoubleClick",
+        []
+      ],
+      [
+        "prepareToBeGrabbed",
+        []
+      ],
+      [
+        "query",
+        []
+      ],
+      [
+        "reactToDropOf",
+        []
+      ],
+      [
+        "releaseSprite",
+        []
+      ],
+      [
+        "removeSprite",
+        []
+      ],
+      [
+        "render",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ],
+      [
+        "showSpriteOnStage",
+        []
+      ],
+      [
+        "step",
+        []
+      ],
+      [
+        "userMenu",
+        []
+      ],
+      [
+        "wantsDropOf",
+        []
+      ]
+    ]
+  },
   "SpriteMorph": {
     "called": [
       "allHatBlocksFor",
@@ -13840,7 +19126,49 @@
       "findVariableWatcher",
       "deleteVariableButton",
       "showingVariableWatcher",
-      "variableBlock"
+      "variableBlock",
+      "forward",
+      "init",
+      "fixLayout",
+      "setCenter",
+      "setColorDimension",
+      "silentGotoXY",
+      "gotoXY",
+      "setXPosition",
+      "setYPosition",
+      "addSpecimen",
+      "inheritedBlocks",
+      "ownBlocks",
+      "allExemplars",
+      "inheritedMethods",
+      "shadowAllAttributes",
+      "shadowAllMethods",
+      "shadowAllVars",
+      "removeSpecimen",
+      "newCostumeName",
+      "wearCostume",
+      "specimens",
+      "addCostume",
+      "changeEffect",
+      "getGhostEffect",
+      "setEffect",
+      "show",
+      "setVisibility",
+      "hide",
+      "toggleWatcher",
+      "getScale",
+      "setName",
+      "mouseEnterDragging",
+      "wantsDropOf",
+      "makeBlock",
+      "doubleDefinitionsFor",
+      "searchBlocks",
+      "blocksMatching",
+      "reporterize",
+      "isDisablingBlock",
+      "hasGenericHatBlocks",
+      "chooseExemplar",
+      "setExemplar"
     ],
     "assigned": [
       "name",
@@ -13881,7 +19209,9 @@
       "isFreeForm",
       "isDraggable",
       "isDown",
-      "heading"
+      "heading",
+      "exemplar",
+      "costume"
     ],
     "fieldTypes": [
       [
@@ -13914,7 +19244,9 @@
       ],
       [
         "costume",
-        []
+        [
+          "Costume"
+        ]
       ],
       [
         "costumes",
@@ -13930,7 +19262,9 @@
       ],
       [
         "exemplar",
-        []
+        [
+          "SpriteMorph"
+        ]
       ],
       [
         "frameNumber",
@@ -14162,7 +19496,11 @@
       ],
       [
         "addCostume",
-        []
+        [
+          [
+            "Costume"
+          ]
+        ]
       ],
       [
         "addHighlight",
@@ -14174,7 +19512,11 @@
       ],
       [
         "addSpecimen",
-        []
+        [
+          [
+            "SpriteMorph"
+          ]
+        ]
       ],
       [
         "addVariable",
@@ -14382,7 +19724,14 @@
       ],
       [
         "blocksMatching",
-        []
+        [
+          [
+            "string"
+          ],
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "blockTemplates",
@@ -14422,7 +19771,14 @@
       ],
       [
         "changeEffect",
-        []
+        [
+          [
+            "Array"
+          ],
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "changePan",
@@ -14554,7 +19910,11 @@
       ],
       [
         "doubleDefinitionsFor",
-        []
+        [
+          [
+            "CustomBlockDefinition"
+          ]
+        ]
       ],
       [
         "doWearNextCostume",
@@ -14625,7 +19985,11 @@
       ],
       [
         "forward",
-        []
+        [
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "freshPalette",
@@ -14637,7 +20001,11 @@
       ],
       [
         "fullCopy",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "fullDrawOn",
@@ -14768,7 +20136,20 @@
       ],
       [
         "gotoXY",
-        []
+        [
+          [
+            "number"
+          ],
+          [
+            "number"
+          ],
+          [
+            "boolean"
+          ],
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "graphicsChanged",
@@ -14804,7 +20185,11 @@
       ],
       [
         "inheritedBlocks",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "inheritedMethods",
@@ -14824,7 +20209,11 @@
       ],
       [
         "init",
-        []
+        [
+          [
+            "VariableFrame"
+          ]
+        ]
       ],
       [
         "initBlockMigrations",
@@ -14848,7 +20237,13 @@
       ],
       [
         "isDisablingBlock",
-        []
+        [
+          [
+            "CommandBlockMorph",
+            "HatBlockMorph",
+            "ReporterBlockMorph"
+          ]
+        ]
       ],
       [
         "isHidingBlock",
@@ -14922,6 +20317,9 @@
         [
           [
             "Point"
+          ],
+          [
+            "boolean"
           ]
         ]
       ],
@@ -14943,7 +20341,11 @@
       ],
       [
         "newCostumeName",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "newPrimitivesSince",
@@ -15058,6 +20460,7 @@
           ],
           [
             "Array",
+            "number",
             "string"
           ]
         ]
@@ -15084,7 +20487,11 @@
       ],
       [
         "removeSpecimen",
-        []
+        [
+          [
+            "SpriteMorph"
+          ]
+        ]
       ],
       [
         "renameVariable",
@@ -15112,7 +20519,11 @@
       ],
       [
         "reporterize",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "reportPenTrailsAsCostume",
@@ -15160,7 +20571,14 @@
       ],
       [
         "setCenter",
-        []
+        [
+          [
+            "Point"
+          ],
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "setColor",
@@ -15168,7 +20586,14 @@
       ],
       [
         "setColorDimension",
-        []
+        [
+          [
+            "number"
+          ],
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "setColorRGBA",
@@ -15176,7 +20601,14 @@
       ],
       [
         "setEffect",
-        []
+        [
+          [
+            "Array"
+          ],
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "setExemplar",
@@ -15188,7 +20620,11 @@
       ],
       [
         "setName",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "setPan",
@@ -15207,6 +20643,9 @@
         [
           [
             "Point"
+          ],
+          [
+            "boolean"
           ]
         ]
       ],
@@ -15232,7 +20671,11 @@
       ],
       [
         "setVisibility",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "setVolume",
@@ -15240,11 +20683,19 @@
       ],
       [
         "setXPosition",
-        []
+        [
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "setYPosition",
-        []
+        [
+          [
+            "number"
+          ]
+        ]
       ],
       [
         "shadowAllAttributes",
@@ -15303,7 +20754,17 @@
       ],
       [
         "silentGotoXY",
-        []
+        [
+          [
+            "number"
+          ],
+          [
+            "number"
+          ],
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "snapPoint",
@@ -15365,7 +20826,17 @@
       ],
       [
         "toggleWatcher",
-        []
+        [
+          [
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "toXML",
@@ -15436,7 +20907,14 @@
       ],
       [
         "wearCostume",
-        []
+        [
+          [
+            "Costume"
+          ],
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "worldPoint",
@@ -15480,6 +20958,95 @@
       ]
     ]
   },
+  "StageHandleMorph": {
+    "called": [
+      "fixLayout",
+      "render",
+      "renderOn",
+      "init"
+    ],
+    "assigned": [
+      "target",
+      "userState",
+      "color",
+      "isDraggable"
+    ],
+    "fieldTypes": [
+      [
+        "color",
+        [
+          "Color"
+        ]
+      ],
+      [
+        "isDraggable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "target",
+        [
+          "StageMorph"
+        ]
+      ],
+      [
+        "userState",
+        [
+          "string"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "StageMorph"
+          ]
+        ]
+      ],
+      [
+        "mouseDoubleClick",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "render",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ],
+      [
+        "renderOn",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
+      ]
+    ]
+  },
   "StageMorph": {
     "called": [
       "step",
@@ -15508,7 +21075,42 @@
       "allHatBlocksForUserEdit",
       "processKeyUp",
       "processKeyEvent",
-      "removePressedKey"
+      "removePressedKey",
+      "mouseDownLeft",
+      "moveBy",
+      "render",
+      "mouseClickLeft",
+      "allLocalBlockInstances",
+      "allEditorBlockInstances",
+      "paletteBlockInstance",
+      "allBlockInstancesInData",
+      "allContextsUsing",
+      "globalVariables",
+      "init",
+      "setColor",
+      "pauseGenericHatBlocks",
+      "hasGenericHatBlocks",
+      "emptyCategories",
+      "getPrimitiveTemplates",
+      "blockTemplates",
+      "customBlockTemplatesForCategory",
+      "isHidingBlock",
+      "showingWatcher",
+      "watcherFor",
+      "makeVariableButton",
+      "allGlobalVariableNames",
+      "allLocalVariableNames",
+      "palette",
+      "freshPalette",
+      "makeBlockButton",
+      "recordUserEdit",
+      "scriptsOnlyXML",
+      "doubleDefinitionsFor",
+      "allDependentInvocationsOf",
+      "allContextsInvoking",
+      "getMethod",
+      "allBlocks",
+      "ownBlocks"
     ],
     "assigned": [
       "name",
@@ -15861,7 +21463,11 @@
       ],
       [
         "allBlockInstancesInData",
-        []
+        [
+          [
+            "CustomBlockDefinition"
+          ]
+        ]
       ],
       [
         "allBlockInvocationsInData",
@@ -15873,19 +21479,41 @@
       ],
       [
         "allContextsInvoking",
-        []
+        [
+          [
+            "string"
+          ],
+          [
+            "StageMorph"
+          ]
+        ]
       ],
       [
         "allContextsUsing",
-        []
+        [
+          [
+            "CustomBlockDefinition"
+          ]
+        ]
       ],
       [
         "allDependentInvocationsOf",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "allEditorBlockInstances",
-        []
+        [
+          [
+            "CustomBlockDefinition"
+          ],
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "allGenericHatBlocks",
@@ -15893,7 +21521,14 @@
       ],
       [
         "allGlobalVariableNames",
-        []
+        [
+          [
+            "boolean"
+          ],
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "allHatBlocksFor",
@@ -15933,11 +21568,22 @@
       ],
       [
         "allLocalBlockInstances",
-        []
+        [
+          [
+            "CustomBlockDefinition"
+          ]
+        ]
       ],
       [
         "allLocalVariableNames",
-        []
+        [
+          [
+            "boolean"
+          ],
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "allMessageNames",
@@ -15981,7 +21627,11 @@
       ],
       [
         "blockTemplates",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "categoryText",
@@ -16037,7 +21687,11 @@
       ],
       [
         "customBlockTemplatesForCategory",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "customPaletteButton",
@@ -16085,7 +21739,11 @@
       ],
       [
         "doubleDefinitionsFor",
-        []
+        [
+          [
+            "CustomBlockDefinition"
+          ]
+        ]
       ],
       [
         "doWearNextCostume",
@@ -16131,6 +21789,9 @@
           [],
           [
             "boolean"
+          ],
+          [
+            "HTMLCanvasElement"
           ]
         ]
       ],
@@ -16170,7 +21831,11 @@
       ],
       [
         "freshPalette",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "fullImage",
@@ -16210,7 +21875,11 @@
       ],
       [
         "getMethod",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "getPan",
@@ -16230,7 +21899,11 @@
       ],
       [
         "getPrimitiveTemplates",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "getTempo",
@@ -16294,7 +21967,11 @@
       ],
       [
         "init",
-        []
+        [
+          [
+            "VariableFrame"
+          ]
+        ]
       ],
       [
         "inspectKeyEvent",
@@ -16306,7 +21983,15 @@
       ],
       [
         "isHidingBlock",
-        []
+        [
+          [
+            "CommandBlockMorph",
+            "CustomCommandBlockMorph",
+            "CustomReporterBlockMorph",
+            "HatBlockMorph",
+            "RingMorph"
+          ]
+        ]
       ],
       [
         "makeBlock",
@@ -16314,7 +21999,11 @@
       ],
       [
         "makeBlockButton",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "makeVariableButton",
@@ -16322,11 +22011,19 @@
       ],
       [
         "mouseClickLeft",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "mouseDownLeft",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "mouseEnter",
@@ -16342,7 +22039,11 @@
       ],
       [
         "moveBy",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "neighbors",
@@ -16370,11 +22071,19 @@
       ],
       [
         "palette",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "paletteBlockInstance",
-        []
+        [
+          [
+            "CustomBlockDefinition"
+          ]
+        ]
       ],
       [
         "pauseAllActiveSounds",
@@ -16439,7 +22148,8 @@
         "reactToDropOf",
         [
           [
-            "SpriteMorph"
+            "SpriteMorph",
+            "WatcherMorph"
           ],
           [
             "HandMorph"
@@ -16456,7 +22166,23 @@
       ],
       [
         "recordUserEdit",
-        []
+        [
+          [
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "removeAllClones",
@@ -16476,7 +22202,11 @@
       ],
       [
         "render",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ],
       [
         "replaceDoubleDefinitionsFor",
@@ -16540,7 +22270,11 @@
       ],
       [
         "setColor",
-        []
+        [
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "setColorDimension",
@@ -16596,7 +22330,11 @@
       ],
       [
         "showingWatcher",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "snapPoint",
@@ -16643,6 +22381,9 @@
         [
           [
             "Point"
+          ],
+          [
+            "HTMLCanvasElement"
           ]
         ]
       ],
@@ -16702,13 +22443,21 @@
         "wantsDropOf",
         [
           [
-            "SpriteMorph"
+            "SpriteMorph",
+            "WatcherMorph"
           ]
         ]
       ],
       [
         "watcherFor",
-        []
+        [
+          [
+            "StageMorph"
+          ],
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "watchers",
@@ -16980,7 +22729,8 @@
     "called": [
       "init",
       "createText",
-      "string"
+      "string",
+      "mouseClickLeft"
     ],
     "assigned": [
       "defaultContents",
@@ -17096,7 +22846,11 @@
       ],
       [
         "mouseClickLeft",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "string",
@@ -17605,7 +23359,26 @@
       "renderSymbolKeyboard",
       "renderSymbolTurnBack",
       "renderSymbolVerticalEllipsis",
-      "renderSymbolList"
+      "renderSymbolList",
+      "renderSymbolRectangle",
+      "renderSymbolCircle",
+      "renderSymbolEraser",
+      "renderSymbolCrosshairs",
+      "renderSymbolLine",
+      "renderSymbolRectangleSolid",
+      "renderSymbolCircleSolid",
+      "renderSymbolPaintbucket",
+      "renderSymbolPipette",
+      "renderSymbolGrow",
+      "renderSymbolShrink",
+      "renderSymbolFlipHorizontal",
+      "renderSymbolFlipVertical",
+      "renderSymbolNormalScreen",
+      "renderSymbolNormalStage",
+      "renderSymbolPointRight",
+      "renderSymbolLoop",
+      "renderSymbolGearPartial",
+      "toString"
     ],
     "assigned": [
       "isProtectedLabel",
@@ -17685,6 +23458,15 @@
           ],
           [
             "number"
+          ],
+          [
+            "Color"
+          ],
+          [
+            "Point"
+          ],
+          [
+            "Color"
           ]
         ]
       ],
@@ -17819,11 +23601,25 @@
       ],
       [
         "renderSymbolCircle",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolCircleSolid",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolClosedBrushPath",
@@ -17861,11 +23657,25 @@
       ],
       [
         "renderSymbolCrosshairs",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolEraser",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolFile",
@@ -17895,11 +23705,25 @@
       ],
       [
         "renderSymbolFlipHorizontal",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolFlipVertical",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolFootprints",
@@ -17929,7 +23753,14 @@
       ],
       [
         "renderSymbolGearPartial",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolGears",
@@ -17952,7 +23783,14 @@
       ],
       [
         "renderSymbolGrow",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolKeyboard",
@@ -17971,7 +23809,14 @@
       ],
       [
         "renderSymbolLine",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolList",
@@ -17990,7 +23835,14 @@
       ],
       [
         "renderSymbolLoop",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolMagnifierOutline",
@@ -18009,11 +23861,25 @@
       ],
       [
         "renderSymbolNormalScreen",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolNormalStage",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolNotes",
@@ -18036,7 +23902,14 @@
       ],
       [
         "renderSymbolPaintbucket",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolPause",
@@ -18051,11 +23924,25 @@
       ],
       [
         "renderSymbolPipette",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolPointRight",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolPoster",
@@ -18063,11 +23950,25 @@
       ],
       [
         "renderSymbolRectangle",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolRectangleSolid",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolRobot",
@@ -18079,7 +23980,14 @@
       ],
       [
         "renderSymbolShrink",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ],
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "renderSymbolSmallStage",
@@ -18257,7 +24165,10 @@
       "showBubble",
       "replaceInput",
       "getVarNamesDict",
-      "isEmptySlot"
+      "isEmptySlot",
+      "revertToDefaultInput",
+      "revertToEmptyInput",
+      "reactToGrabOf"
     ],
     "assigned": [
       "cachedClr",
@@ -18358,7 +24269,10 @@
         [
           [
             "CommandBlockMorph",
-            "ReporterBlockMorph"
+            "CustomCommandBlockMorph",
+            "JaggedBlockMorph",
+            "ReporterBlockMorph",
+            "RingMorph"
           ],
           [
             "boolean"
@@ -18379,7 +24293,11 @@
       ],
       [
         "getVarNamesDict",
-        []
+        [
+          [
+            "boolean"
+          ]
+        ]
       ],
       [
         "init",
@@ -18427,26 +24345,40 @@
       ],
       [
         "reactToGrabOf",
-        []
-      ],
-      [
-        "replaceInput",
         [
-          [
-            "InputSlotMorph"
-          ],
           [
             "ReporterBlockMorph"
           ]
         ]
       ],
       [
+        "replaceInput",
+        [
+          [
+            "InputSlotMorph",
+            "ReporterBlockMorph"
+          ],
+          [
+            "InputSlotMorph",
+            "ReporterBlockMorph"
+          ]
+        ]
+      ],
+      [
         "revertToDefaultInput",
-        []
+        [
+          [
+            "ReporterBlockMorph"
+          ]
+        ]
       ],
       [
         "revertToEmptyInput",
-        []
+        [
+          [
+            "ReporterBlockMorph"
+          ]
+        ]
       ],
       [
         "selectForEdit",
@@ -18503,6 +24435,502 @@
       ],
       [
         "unflash",
+        []
+      ]
+    ]
+  },
+  "Table": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "colCount",
+        []
+      ],
+      [
+        "colNames",
+        []
+      ],
+      [
+        "contents",
+        []
+      ],
+      [
+        "lastChanged",
+        []
+      ],
+      [
+        "rowCount",
+        []
+      ],
+      [
+        "rowNames",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "addCol",
+        []
+      ],
+      [
+        "addRow",
+        []
+      ],
+      [
+        "changed",
+        []
+      ],
+      [
+        "col",
+        []
+      ],
+      [
+        "colName",
+        []
+      ],
+      [
+        "cols",
+        []
+      ],
+      [
+        "columnNames",
+        []
+      ],
+      [
+        "demo",
+        []
+      ],
+      [
+        "fillWithTestData",
+        []
+      ],
+      [
+        "get",
+        []
+      ],
+      [
+        "row",
+        []
+      ],
+      [
+        "rowName",
+        []
+      ],
+      [
+        "rows",
+        []
+      ],
+      [
+        "set",
+        []
+      ],
+      [
+        "setColName",
+        []
+      ],
+      [
+        "setColNames",
+        []
+      ],
+      [
+        "setCols",
+        []
+      ],
+      [
+        "setRowName",
+        []
+      ],
+      [
+        "setRowNames",
+        []
+      ],
+      [
+        "setRows",
+        []
+      ],
+      [
+        "toList",
+        []
+      ]
+    ]
+  },
+  "TableCellMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "data",
+        []
+      ],
+      [
+        "isLabel",
+        []
+      ],
+      [
+        "labelString",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "dataRepresentation",
+        []
+      ],
+      [
+        "getData",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "isOvershooting",
+        []
+      ],
+      [
+        "listSymbol",
+        []
+      ],
+      [
+        "mouseDoubleClick",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "raggedBoxPath",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "selectContextForEdit",
+        []
+      ],
+      [
+        "selectCostumeForEdit",
+        []
+      ],
+      [
+        "selectForEdit",
+        []
+      ],
+      [
+        "selectSoundForEdit",
+        []
+      ],
+      [
+        "setData",
+        []
+      ],
+      [
+        "shouldBeList",
+        []
+      ]
+    ]
+  },
+  "TableDialogMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "data",
+        []
+      ],
+      [
+        "handle",
+        []
+      ],
+      [
+        "labelString",
+        []
+      ],
+      [
+        "tableView",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "buildContents",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "popUp",
+        []
+      ],
+      [
+        "setInitialDimensions",
+        []
+      ]
+    ]
+  },
+  "TableFrameMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "bounds",
+        []
+      ],
+      [
+        "color",
+        []
+      ],
+      [
+        "handle",
+        []
+      ],
+      [
+        "tableMorph",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "expand",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        []
+      ]
+    ]
+  },
+  "TableMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "colLabelHeight",
+        []
+      ],
+      [
+        "columns",
+        []
+      ],
+      [
+        "colWidths",
+        []
+      ],
+      [
+        "dragAnchor",
+        []
+      ],
+      [
+        "globalColWidth",
+        []
+      ],
+      [
+        "hBar",
+        []
+      ],
+      [
+        "maxStartCol",
+        []
+      ],
+      [
+        "maxStartRow",
+        []
+      ],
+      [
+        "padding",
+        []
+      ],
+      [
+        "resizeAnchor",
+        []
+      ],
+      [
+        "resizeCol",
+        []
+      ],
+      [
+        "resizeRow",
+        []
+      ],
+      [
+        "rowHeight",
+        []
+      ],
+      [
+        "rowLabelWidth",
+        []
+      ],
+      [
+        "rows",
+        []
+      ],
+      [
+        "scrollBarSize",
+        []
+      ],
+      [
+        "startCol",
+        []
+      ],
+      [
+        "startRow",
+        []
+      ],
+      [
+        "table",
+        []
+      ],
+      [
+        "tableVersion",
+        []
+      ],
+      [
+        "textHeight",
+        []
+      ],
+      [
+        "vBar",
+        []
+      ],
+      [
+        "wantsUpdate",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "buildCells",
+        []
+      ],
+      [
+        "columnAt",
+        []
+      ],
+      [
+        "columnsLayout",
+        []
+      ],
+      [
+        "colWidth",
+        []
+      ],
+      [
+        "drawData",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "globalExtent",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "initScrollBars",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDoubleClick",
+        []
+      ],
+      [
+        "mouseDownLeft",
+        []
+      ],
+      [
+        "mouseLeaveDragging",
+        []
+      ],
+      [
+        "mouseScroll",
+        []
+      ],
+      [
+        "openInDialog",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "resetColumns",
+        []
+      ],
+      [
+        "resizeCells",
+        []
+      ],
+      [
+        "rowLabelsWidth",
+        []
+      ],
+      [
+        "scroll",
+        []
+      ],
+      [
+        "shiftCells",
+        []
+      ],
+      [
+        "show",
+        []
+      ],
+      [
+        "showData",
+        []
+      ],
+      [
+        "showListView",
+        []
+      ],
+      [
+        "step",
+        []
+      ],
+      [
+        "update",
+        []
+      ],
+      [
+        "updateScrollBars",
+        []
+      ],
+      [
+        "userMenu",
+        []
+      ],
+      [
+        "visibleRows",
         []
       ]
     ]
@@ -19218,7 +25646,11 @@
     ]
   },
   "TextSlotMorph": {
-    "called": [],
+    "called": [
+      "init",
+      "contents",
+      "layoutChanged"
+    ],
     "assigned": [],
     "fieldTypes": [
       [
@@ -19283,7 +25715,9 @@
       "toggleProcess",
       "clickFrameFor",
       "startProcess",
-      "processesForBlock"
+      "processesForBlock",
+      "toggleSingleStepping",
+      "stopAllForBlock"
     ],
     "assigned": [],
     "fieldTypes": [
@@ -19301,6 +25735,7 @@
         "clickFrameFor",
         [
           [
+            "CommandBlockMorph",
             "ReporterBlockMorph"
           ]
         ]
@@ -19333,7 +25768,11 @@
         "processesForBlock",
         [
           [
+            "CommandBlockMorph",
             "ReporterBlockMorph"
+          ],
+          [
+            "boolean"
           ]
         ]
       ],
@@ -19349,6 +25788,7 @@
         "startProcess",
         [
           [
+            "CommandBlockMorph",
             "ReporterBlockMorph"
           ],
           [
@@ -19372,7 +25812,11 @@
       ],
       [
         "stopAllForBlock",
-        []
+        [
+          [
+            "CommandBlockMorph"
+          ]
+        ]
       ],
       [
         "stopAllForReceiver",
@@ -19390,6 +25834,7 @@
         "toggleProcess",
         [
           [
+            "CommandBlockMorph",
             "ReporterBlockMorph"
           ],
           [
@@ -19524,7 +25969,9 @@
             "Array"
           ],
           [
+            "BlockDialogMorph",
             "IDE_Morph",
+            "PaintEditorMorph",
             "ScriptsMorph"
           ],
           [
@@ -19543,6 +25990,12 @@
           [
             "Function",
             "string"
+          ],
+          [
+            "number"
+          ],
+          [
+            "boolean"
           ]
         ]
       ],
@@ -19607,16 +26060,41 @@
     ]
   },
   "ToggleElementMorph": {
-    "called": [],
-    "assigned": [],
+    "called": [
+      "init",
+      "createLabel",
+      "refresh",
+      "fixLayout",
+      "setColor",
+      "render",
+      "mouseEnter",
+      "mouseLeave",
+      "mouseDownLeft",
+      "mouseClickLeft",
+      "trigger"
+    ],
+    "assigned": [
+      "action",
+      "builder",
+      "color",
+      "element",
+      "labelAlignment",
+      "query",
+      "state",
+      "target"
+    ],
     "fieldTypes": [
       [
         "action",
-        []
+        [
+          "Function"
+        ]
       ],
       [
         "builder",
-        []
+        [
+          "string"
+        ]
       ],
       [
         "captionString",
@@ -19624,11 +26102,17 @@
       ],
       [
         "color",
-        []
+        [
+          "Color"
+        ]
       ],
       [
         "element",
-        []
+        [
+          "CommandBlockMorph",
+          "JaggedBlockMorph",
+          "ReporterBlockMorph"
+        ]
       ],
       [
         "environment",
@@ -19640,19 +26124,28 @@
       ],
       [
         "labelAlignment",
-        []
+        [
+          "string"
+        ]
       ],
       [
         "query",
-        []
+        [
+          "Function"
+        ]
       ],
       [
         "state",
-        []
+        [
+          "boolean"
+        ]
       ],
       [
         "target",
-        []
+        [
+          "BlockDialogMorph",
+          "InputSlotDialogMorph"
+        ]
       ]
     ],
     "argTypes": [
@@ -19666,15 +26159,44 @@
       ],
       [
         "init",
-        []
+        [
+          [
+            "BlockDialogMorph",
+            "InputSlotDialogMorph"
+          ],
+          [
+            "Function"
+          ],
+          [
+            "CommandBlockMorph",
+            "JaggedBlockMorph",
+            "ReporterBlockMorph"
+          ],
+          [
+            "Function"
+          ],
+          [],
+          [],
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "mouseClickLeft",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "mouseDownLeft",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "mouseEnter",
@@ -19690,11 +26212,19 @@
       ],
       [
         "render",
-        []
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
       ],
       [
         "setColor",
-        []
+        [
+          [
+            "Color"
+          ]
+        ]
       ],
       [
         "trigger",
@@ -19707,7 +26237,11 @@
       "init",
       "createLabel",
       "fixLayout",
-      "refresh"
+      "refresh",
+      "mouseDownLeft",
+      "mouseClickLeft",
+      "trigger",
+      "mouseLeave"
     ],
     "assigned": [
       "padding",
@@ -19716,12 +26250,17 @@
       "query",
       "tick",
       "captionString",
-      "labelAlignment"
+      "labelAlignment",
+      "builder",
+      "element",
+      "toggleElement"
     ],
     "fieldTypes": [
       [
         "builder",
-        []
+        [
+          "string"
+        ]
       ],
       [
         "captionString",
@@ -19737,7 +26276,9 @@
       ],
       [
         "element",
-        []
+        [
+          "HTMLCanvasElement"
+        ]
       ],
       [
         "labelAlignment",
@@ -19771,7 +26312,9 @@
       ],
       [
         "toggleElement",
-        []
+        [
+          "Morph"
+        ]
       ]
     ],
     "argTypes": [
@@ -19790,6 +26333,9 @@
             "string"
           ],
           [
+            "BlockDialogMorph",
+            "InputSlotDialogMorph",
+            "PaintEditorMorph",
             "VariableDialogMorph",
             "Window"
           ],
@@ -19801,16 +26347,32 @@
           ],
           [
             "Function"
+          ],
+          [],
+          [],
+          [
+            "HTMLCanvasElement"
+          ],
+          [
+            "string"
           ]
         ]
       ],
       [
         "mouseClickLeft",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "mouseDownLeft",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "mouseLeave",
@@ -19836,7 +26398,10 @@
       "mouseLeave",
       "bubbleHelp",
       "init",
-      "render"
+      "render",
+      "popUpbubbleHelp",
+      "mouseDoubleClick",
+      "triggerDoubleClick"
     ],
     "assigned": [
       "target",
@@ -19956,12 +26521,20 @@
       [
         "target",
         [
+          "BlockDialogMorph",
+          "BlockEditorMorph",
+          "BoxMorph",
           "Function",
           "IDE_Morph",
+          "InputSlotDialogMorph",
+          "PaintEditorMorph",
           "ScriptsMorph",
+          "SoundRecorderDialogMorph",
+          "SpriteIconMorph",
           "SpriteMorph",
           "StageMorph",
           "VariableDialogMorph",
+          "WardrobeMorph",
           "Window"
         ]
       ],
@@ -19995,6 +26568,9 @@
           [
             "CommandBlockMorph",
             "Function",
+            "IDE_Morph",
+            "ReporterBlockMorph",
+            "ScriptsMorph",
             "SpriteIconMorph",
             "SpriteMorph"
           ],
@@ -20004,6 +26580,7 @@
             "string"
           ],
           [
+            "Array",
             "string"
           ],
           [
@@ -20033,7 +26610,11 @@
       ],
       [
         "mouseDoubleClick",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "mouseDownLeft",
@@ -20049,7 +26630,11 @@
       ],
       [
         "popUpbubbleHelp",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "render",
@@ -20069,6 +26654,99 @@
       ],
       [
         "triggerDoubleClick",
+        []
+      ]
+    ]
+  },
+  "TurtleIconMorph": {
+    "called": [
+      "init",
+      "createLabel",
+      "fixLayout",
+      "createThumbnail",
+      "render"
+    ],
+    "assigned": [
+      "object",
+      "version",
+      "thumbnail",
+      "isDraggable",
+      "padding",
+      "corner"
+    ],
+    "fieldTypes": [
+      [
+        "corner",
+        [
+          "number"
+        ]
+      ],
+      [
+        "isDraggable",
+        [
+          "boolean"
+        ]
+      ],
+      [
+        "object",
+        [
+          "SpriteMorph"
+        ]
+      ],
+      [
+        "padding",
+        [
+          "number"
+        ]
+      ],
+      [
+        "thumbnail",
+        [
+          "SymbolMorph"
+        ]
+      ],
+      [
+        "version",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "createLabel",
+        []
+      ],
+      [
+        "createThumbnail",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "init",
+        [
+          [
+            "SpriteMorph"
+          ]
+        ]
+      ],
+      [
+        "query",
+        []
+      ],
+      [
+        "render",
+        [
+          [
+            "CanvasRenderingContext2D"
+          ]
+        ]
+      ],
+      [
+        "userMenu",
         []
       ]
     ]
@@ -20097,6 +26775,46 @@
       ],
       [
         "toString",
+        []
+      ]
+    ]
+  },
+  "VariableDialogMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "isGlobal",
+        []
+      ],
+      [
+        "types",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "addTypeButton",
+        []
+      ],
+      [
+        "createTypeButtons",
+        []
+      ],
+      [
+        "fixLayout",
+        []
+      ],
+      [
+        "getInput",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "setType",
         []
       ]
     ]
@@ -20236,6 +26954,805 @@
       ]
     ]
   },
+  "VectorEllipse": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "destination",
+        []
+      ],
+      [
+        "origin",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "asSVG",
+        []
+      ],
+      [
+        "bounds",
+        []
+      ],
+      [
+        "containsPoint",
+        []
+      ],
+      [
+        "copy",
+        []
+      ],
+      [
+        "drawOn",
+        []
+      ],
+      [
+        "hRadius",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "toString",
+        []
+      ],
+      [
+        "vRadius",
+        []
+      ]
+    ]
+  },
+  "VectorLine": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "destination",
+        []
+      ],
+      [
+        "origin",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "asSVG",
+        []
+      ],
+      [
+        "constraintPoint",
+        []
+      ],
+      [
+        "containsPoint",
+        []
+      ],
+      [
+        "copy",
+        []
+      ],
+      [
+        "drawOn",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "setColor",
+        []
+      ],
+      [
+        "toString",
+        []
+      ]
+    ]
+  },
+  "VectorPaintCanvasMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "currentTool",
+        []
+      ],
+      [
+        "isCachingImage",
+        []
+      ],
+      [
+        "pointBuffer",
+        []
+      ],
+      [
+        "settings",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "beginEllipse",
+        []
+      ],
+      [
+        "beginLine",
+        []
+      ],
+      [
+        "beginPolygon",
+        []
+      ],
+      [
+        "beginRectangle",
+        []
+      ],
+      [
+        "beginSelection",
+        []
+      ],
+      [
+        "beginShape",
+        []
+      ],
+      [
+        "calculateCanvasCenter",
+        []
+      ],
+      [
+        "clearCanvas",
+        []
+      ],
+      [
+        "drawNew",
+        []
+      ],
+      [
+        "floodfill",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "isShiftPressed",
+        []
+      ],
+      [
+        "mouseClickLeft",
+        []
+      ],
+      [
+        "mouseDoubleClick",
+        []
+      ],
+      [
+        "mouseEnter",
+        []
+      ],
+      [
+        "mouseLeave",
+        []
+      ],
+      [
+        "mouseMove",
+        []
+      ],
+      [
+        "pasteAt",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "selectAtPoint",
+        []
+      ],
+      [
+        "selectInside",
+        []
+      ],
+      [
+        "selectShapes",
+        []
+      ],
+      [
+        "shapeAt",
+        []
+      ],
+      [
+        "step",
+        []
+      ],
+      [
+        "toolChanged",
+        []
+      ],
+      [
+        "updateAutomaticCenter",
+        []
+      ],
+      [
+        "updateSelection",
+        []
+      ]
+    ]
+  },
+  "VectorPaintEditorMorph": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "clipboard",
+        []
+      ],
+      [
+        "currentShape",
+        []
+      ],
+      [
+        "history",
+        []
+      ],
+      [
+        "labelString",
+        []
+      ],
+      [
+        "lastDragPosition",
+        []
+      ],
+      [
+        "moving",
+        []
+      ],
+      [
+        "originalSelection",
+        []
+      ],
+      [
+        "paper",
+        []
+      ],
+      [
+        "resizing",
+        []
+      ],
+      [
+        "selecting",
+        []
+      ],
+      [
+        "selection",
+        []
+      ],
+      [
+        "shapes",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "buildContents",
+        []
+      ],
+      [
+        "buildEdits",
+        []
+      ],
+      [
+        "buildScaleBox",
+        []
+      ],
+      [
+        "buildToolbox",
+        []
+      ],
+      [
+        "changeSelectionLayer",
+        []
+      ],
+      [
+        "checksum",
+        []
+      ],
+      [
+        "clearSelection",
+        []
+      ],
+      [
+        "convertToBitmap",
+        []
+      ],
+      [
+        "dragSelection",
+        []
+      ],
+      [
+        "getBounds",
+        []
+      ],
+      [
+        "getSVG",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "moveSelectionBy",
+        []
+      ],
+      [
+        "ok",
+        []
+      ],
+      [
+        "openIn",
+        []
+      ],
+      [
+        "populatePropertiesMenu",
+        []
+      ],
+      [
+        "renderColorSelection",
+        []
+      ],
+      [
+        "resizeSelectionBy",
+        []
+      ],
+      [
+        "selectColor",
+        []
+      ],
+      [
+        "silentMoveBy",
+        []
+      ],
+      [
+        "sortSelection",
+        []
+      ],
+      [
+        "undo",
+        []
+      ],
+      [
+        "updateHistory",
+        []
+      ]
+    ]
+  },
+  "VectorPolygon": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "isClosed",
+        []
+      ],
+      [
+        "isFreeHand",
+        []
+      ],
+      [
+        "isPolygon",
+        []
+      ],
+      [
+        "points",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "asSVG",
+        []
+      ],
+      [
+        "bounds",
+        []
+      ],
+      [
+        "close",
+        []
+      ],
+      [
+        "containsPoint",
+        []
+      ],
+      [
+        "copy",
+        []
+      ],
+      [
+        "drawOn",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "moveBy",
+        []
+      ],
+      [
+        "resizeBy",
+        []
+      ],
+      [
+        "setColor",
+        []
+      ],
+      [
+        "toString",
+        []
+      ],
+      [
+        "update",
+        []
+      ]
+    ]
+  },
+  "VectorRectangle": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "destination",
+        []
+      ],
+      [
+        "origin",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "asSVG",
+        []
+      ],
+      [
+        "copy",
+        []
+      ],
+      [
+        "drawOn",
+        []
+      ],
+      [
+        "height",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "toString",
+        []
+      ],
+      [
+        "width",
+        []
+      ],
+      [
+        "x",
+        []
+      ],
+      [
+        "y",
+        []
+      ]
+    ]
+  },
+  "VectorSelection": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "isSelection",
+        []
+      ],
+      [
+        "threshold",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "cornerAt",
+        []
+      ],
+      [
+        "cornerOppositeTo",
+        []
+      ],
+      [
+        "corners",
+        []
+      ],
+      [
+        "drawOn",
+        []
+      ],
+      [
+        "init",
+        []
+      ]
+    ]
+  },
+  "VectorShape": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "borderColor",
+        []
+      ],
+      [
+        "borderWidth",
+        []
+      ],
+      [
+        "destination",
+        []
+      ],
+      [
+        "fillColor",
+        []
+      ],
+      [
+        "image",
+        []
+      ],
+      [
+        "isCrosshair",
+        []
+      ],
+      [
+        "isPolygon",
+        []
+      ],
+      [
+        "isSelection",
+        []
+      ],
+      [
+        "origin",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "asSVG",
+        []
+      ],
+      [
+        "bounds",
+        []
+      ],
+      [
+        "constraintPoint",
+        []
+      ],
+      [
+        "containsPoint",
+        []
+      ],
+      [
+        "copy",
+        []
+      ],
+      [
+        "drawOn",
+        []
+      ],
+      [
+        "imageURL",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "moveBy",
+        []
+      ],
+      [
+        "resizeBy",
+        []
+      ],
+      [
+        "setBorderWidth",
+        []
+      ],
+      [
+        "setColor",
+        []
+      ],
+      [
+        "toString",
+        []
+      ],
+      [
+        "update",
+        []
+      ]
+    ]
+  },
+  "VideoMotion": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "amountScale",
+        []
+      ],
+      [
+        "curr",
+        []
+      ],
+      [
+        "frameNumber",
+        []
+      ],
+      [
+        "height",
+        []
+      ],
+      [
+        "imageBuffer",
+        []
+      ],
+      [
+        "lastAnalyzedFrame",
+        []
+      ],
+      [
+        "motionAmount",
+        []
+      ],
+      [
+        "motionDirection",
+        []
+      ],
+      [
+        "prev",
+        []
+      ],
+      [
+        "threshold",
+        []
+      ],
+      [
+        "toDegree",
+        []
+      ],
+      [
+        "width",
+        []
+      ],
+      [
+        "winSize",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "addFrame",
+        []
+      ],
+      [
+        "getLocalMotion",
+        []
+      ],
+      [
+        "getMotionVector",
+        []
+      ],
+      [
+        "getStageMotion",
+        []
+      ],
+      [
+        "reset",
+        []
+      ]
+    ]
+  },
+  "WardrobeMorph": {
+    "called": [
+      "init",
+      "updateList",
+      "updateSelection",
+      "step",
+      "paintNew"
+    ],
+    "assigned": [
+      "sprite",
+      "costumesVersion",
+      "spriteVersion"
+    ],
+    "fieldTypes": [
+      [
+        "costumesVersion",
+        [
+          "number"
+        ]
+      ],
+      [
+        "sprite",
+        [
+          "SpriteMorph"
+        ]
+      ],
+      [
+        "spriteVersion",
+        [
+          "number"
+        ]
+      ]
+    ],
+    "argTypes": [
+      [
+        "init",
+        [
+          [
+            "SpriteMorph"
+          ],
+          [
+            "Color"
+          ]
+        ]
+      ],
+      [
+        "newFromCam",
+        []
+      ],
+      [
+        "paintNew",
+        []
+      ],
+      [
+        "reactToDropOf",
+        []
+      ],
+      [
+        "removeCostumeAt",
+        []
+      ],
+      [
+        "step",
+        []
+      ],
+      [
+        "updateList",
+        []
+      ],
+      [
+        "updateSelection",
+        []
+      ],
+      [
+        "wantsDropOf",
+        []
+      ]
+    ]
+  },
   "WatcherMorph": {
     "called": [
       "init",
@@ -20245,7 +27762,9 @@
       "object",
       "render",
       "toXML",
-      "isTemporary"
+      "isTemporary",
+      "isGlobal",
+      "rootForGrab"
     ],
     "assigned": [
       "labelText",
@@ -20339,6 +27858,7 @@
       [
         "target",
         [
+          "SpriteMorph",
           "VariableFrame"
         ]
       ],
@@ -20368,6 +27888,7 @@
             "Color"
           ],
           [
+            "SpriteMorph",
             "VariableFrame"
           ],
           [
@@ -20377,7 +27898,11 @@
       ],
       [
         "isGlobal",
-        []
+        [
+          [
+            "string"
+          ]
+        ]
       ],
       [
         "isTemporary",
@@ -20461,6 +27986,146 @@
       ]
     ]
   },
+  "WorldMap": {
+    "called": [
+      "tileXfromLon",
+      "tileYfromLat",
+      "initializeCredits"
+    ],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "api",
+        []
+      ],
+      [
+        "canvas",
+        []
+      ],
+      [
+        "creditsBG",
+        []
+      ],
+      [
+        "creditsTxt",
+        []
+      ],
+      [
+        "extent",
+        []
+      ],
+      [
+        "lat",
+        []
+      ],
+      [
+        "loading",
+        []
+      ],
+      [
+        "lon",
+        []
+      ],
+      [
+        "position",
+        []
+      ],
+      [
+        "tileServers",
+        []
+      ],
+      [
+        "tileSize",
+        []
+      ],
+      [
+        "zoom",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "addCredits",
+        []
+      ],
+      [
+        "distanceInKm",
+        []
+      ],
+      [
+        "initializeCredits",
+        []
+      ],
+      [
+        "latFromSnapY",
+        []
+      ],
+      [
+        "latFromTileY",
+        []
+      ],
+      [
+        "lonFromSnapX",
+        []
+      ],
+      [
+        "lonFromTileX",
+        []
+      ],
+      [
+        "panBy",
+        []
+      ],
+      [
+        "refresh",
+        []
+      ],
+      [
+        "render",
+        []
+      ],
+      [
+        "setHost",
+        []
+      ],
+      [
+        "setView",
+        []
+      ],
+      [
+        "setZoom",
+        []
+      ],
+      [
+        "snapXfromLon",
+        []
+      ],
+      [
+        "snapYfromLat",
+        []
+      ],
+      [
+        "tileXfromLon",
+        [
+          [
+            "number"
+          ]
+        ]
+      ],
+      [
+        "tileYfromLat",
+        [
+          [
+            "number"
+          ]
+        ]
+      ],
+      [
+        "wrapTile",
+        []
+      ]
+    ]
+  },
   "WorldMorph": {
     "called": [
       "doOneCycle",
@@ -20474,7 +28139,9 @@
       "mouseClickRight",
       "getGlobalPixelColor",
       "edit",
-      "mouseClickLeft"
+      "mouseClickLeft",
+      "mouseDownLeft",
+      "wantsDropOf"
     ],
     "assigned": [
       "color",
@@ -20577,6 +28244,8 @@
         "keyboardFocus",
         [
           "CursorMorph",
+          "PaintEditorMorph",
+          "SoundRecorderDialogMorph",
           "StageMorph"
         ]
       ],
@@ -20725,7 +28394,11 @@
       ],
       [
         "mouseDownLeft",
-        []
+        [
+          [
+            "Point"
+          ]
+        ]
       ],
       [
         "mouseDownRight",
@@ -20793,6 +28466,325 @@
       ],
       [
         "wantsDropOf",
+        [
+          [
+            "SpriteMorph"
+          ]
+        ]
+      ]
+    ]
+  },
+  "XML_Element": {
+    "called": [],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "attributes",
+        []
+      ],
+      [
+        "contents",
+        []
+      ],
+      [
+        "tag",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "childNamed",
+        []
+      ],
+      [
+        "childrenNamed",
+        []
+      ],
+      [
+        "escape",
+        []
+      ],
+      [
+        "init",
+        []
+      ],
+      [
+        "parentNamed",
+        []
+      ],
+      [
+        "parseStream",
+        []
+      ],
+      [
+        "parseString",
+        []
+      ],
+      [
+        "require",
+        []
+      ],
+      [
+        "toString",
+        []
+      ],
+      [
+        "unescape",
+        []
+      ]
+    ]
+  },
+  "XML_Serializer": {
+    "called": [
+      "serialize",
+      "flush",
+      "flushMedia",
+      "store",
+      "add",
+      "format",
+      "escape"
+    ],
+    "assigned": [],
+    "fieldTypes": [
+      [
+        "contents",
+        []
+      ],
+      [
+        "isCollectingMedia",
+        []
+      ],
+      [
+        "isExportingBlocksLibrary",
+        []
+      ],
+      [
+        "media",
+        []
+      ],
+      [
+        "root",
+        []
+      ]
+    ],
+    "argTypes": [
+      [
+        "add",
+        [
+          [
+            "Array",
+            "CommandBlockMorph",
+            "Costume",
+            "CustomBlockDefinition",
+            "InputSlotMorph",
+            "List",
+            "MultiArgMorph",
+            "Project",
+            "ReporterBlockMorph",
+            "Scene",
+            "ScriptsMorph",
+            "SpriteMorph",
+            "StageMorph",
+            "VariableFrame",
+            "WatcherMorph"
+          ]
+        ]
+      ],
+      [
+        "addMedia",
+        []
+      ],
+      [
+        "at",
+        []
+      ],
+      [
+        "escape",
+        [
+          [
+            "Array",
+            "boolean",
+            "number",
+            "string"
+          ],
+          [
+            "boolean"
+          ]
+        ]
+      ],
+      [
+        "flush",
+        []
+      ],
+      [
+        "flushMedia",
+        []
+      ],
+      [
+        "format",
+        [
+          [
+            "string"
+          ],
+          [
+            "Array",
+            "number",
+            "string"
+          ],
+          [
+            "number",
+            "string"
+          ],
+          [
+            "number",
+            "string"
+          ],
+          [
+            "boolean",
+            "number",
+            "string"
+          ],
+          [
+            "number",
+            "string"
+          ],
+          [
+            "number",
+            "string"
+          ],
+          [
+            "number",
+            "string"
+          ],
+          [
+            "number",
+            "string"
+          ],
+          [
+            "number",
+            "string"
+          ],
+          [
+            "boolean",
+            "string"
+          ],
+          [
+            "boolean",
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "number",
+            "string"
+          ],
+          [
+            "number",
+            "string"
+          ],
+          [
+            "number",
+            "string"
+          ],
+          [
+            "boolean",
+            "number"
+          ],
+          [
+            "boolean",
+            "number"
+          ],
+          [
+            "boolean",
+            "string"
+          ],
+          [
+            "boolean",
+            "string"
+          ],
+          [
+            "boolean",
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "string"
+          ],
+          [
+            "number",
+            "string"
+          ],
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "load",
+        []
+      ],
+      [
+        "mediaXML",
+        []
+      ],
+      [
+        "parse",
+        []
+      ],
+      [
+        "serialize",
+        [
+          [
+            "Project",
+            "ScriptsMorph"
+          ]
+        ]
+      ],
+      [
+        "store",
+        [
+          [
+            "Array",
+            "CommandBlockMorph",
+            "Costume",
+            "CustomBlockDefinition",
+            "InputSlotMorph",
+            "List",
+            "MultiArgMorph",
+            "Project",
+            "ReporterBlockMorph",
+            "Scene",
+            "ScriptsMorph",
+            "SpriteMorph",
+            "StageMorph",
+            "VariableFrame",
+            "WatcherMorph"
+          ],
+          [
+            "string"
+          ]
+        ]
+      ],
+      [
+        "unescape",
         []
       ]
     ]
