@@ -233,12 +233,45 @@ function serializeMap(map: Map<string, FieldTypes | ArgTypes>) {
     });
 }
 
+function mergeFTMap(map: Map<string, FieldTypes>, json) {
+    json.forEach(([key, value]) => {
+        if (!map.has(key)) {
+            map.set(key, new Set());
+        }
+        mergeSet(map.get(key), value);
+    });
+}
+
+function mergeATMap(map: Map<string, ArgTypes>, json) {
+    json.forEach(([key, value]) => {
+        if (!map.has(key)) {
+            map.set(key, []);
+        }
+        mergeSetArray(map.get(key), value);
+    });
+}
+
 function serializeSetArray(arr: ArgTypes) {
     return arr.map(a => serializeSet(a));
 }
 
+function mergeSetArray(arr: ArgTypes, json: any[][]) {
+    json.forEach((value, i) => {
+        if (value == null) return;
+        if (arr[i] == null) {
+            arr[i] = new Set();
+        }
+        mergeSet(arr[i], value);
+    });
+}
+
 function serializeSet(set: FieldTypes) {
     return [...set].sort((a, b) => a.localeCompare(b));
+}
+
+function mergeSet(set: FieldTypes, json: any[]) {
+    if (!set || !json) return;
+    json.forEach(v => set.add(v));
 }
 
 class Instrumenter {
@@ -248,6 +281,7 @@ class Instrumenter {
     proto: object;
     fieldTypes = new Map<string, FieldTypes>();
     argTypes = new Map<string, ArgTypes>();
+    returnTypes = new Map<string, FieldTypes>();
     called = new Set<string>();
     assigned = new Set<string>();
     onProgressCallback: () => void;
@@ -276,10 +310,13 @@ class Instrumenter {
             let myself = this;
             let fKey = key;
             // TODO: pass class for use here!!
-            OverrideRegistry.before(window[this.name], key, function() {
+            OverrideRegistry.extend(window[this.name], key, function(base) {
                 let args = [...arguments];
-                myself.updateArgMap(fKey, args);
-            });         
+                args.shift();
+                let ret = base.apply(this, args);
+                myself.updateArgMap(fKey, args, ret);
+                return ret;
+            }, false);
         }
     }
 
@@ -289,18 +326,22 @@ class Instrumenter {
             assigned: [...this.assigned],
             fieldTypes: serializeMap(this.fieldTypes),
             argTypes: serializeMap(this.argTypes),
+            returnTypes: serializeMap(this.returnTypes),
         };
     }
 
     deserialize(json) {
-        this.called = new Set(json.called);
-        this.assigned = new Set(json.assigned);
-        this.fieldTypes = new Map(json.fieldTypes.map(([key, value]) => {
-            return [key, new Set(value)];
-        }));
-        this.argTypes = new Map(json.argTypes.map(([key, value]) => {
-            return [key, value.map(a => new Set(a))];
-        }));
+        if (json.called) json.called.forEach(c => this.called.add(c));
+        if (json.assigned) json.assigned.forEach(c => this.assigned.add(c));
+        if (json.fieldTypes) {
+            mergeFTMap(this.fieldTypes, json.fieldTypes);
+        }
+        if (json.argTypes) {
+            mergeATMap(this.argTypes, json.argTypes);
+        }
+        if (json.returnTypes) {
+            mergeFTMap(this.returnTypes, json.returnTypes);
+        }
     }
 
     getTypeOf(object: object) {
@@ -318,7 +359,7 @@ class Instrumenter {
         }
     }
 
-    updateArgMap(key: string, args: any[]) {
+    updateArgMap(key: string, args: any[], ret: any) {
         let types = this.argTypes.get(key);
         for (let i = 0; i < args.length; i++) {
             let arg = args[i];
@@ -329,6 +370,12 @@ class Instrumenter {
             }
             types[i].add(type);
         }
+        if (!this.returnTypes.has(key)) {
+            this.returnTypes.set(key, new Set<string>());
+        }
+        let returnString = this.getTypeOf(ret);
+        if (ret === undefined) returnString = 'void';
+        this.returnTypes.get(key).add(returnString);
         if (!this.called.has(key)) {
             this.called.add(key);
             console.log(this.name, `${this.assigned.size} / ${this.nFields} fields; ` +
@@ -470,7 +517,9 @@ class ClassDef {
         let mKeys = [...this.methods.keys()];
         mKeys.sort();
         for (let mKey of mKeys) {
-            code += '    ' + this.methods.get(mKey).toTS(gen, instrumenter?.argTypes?.get(mKey)) + '\n';
+            let argTypes = instrumenter?.argTypes?.get(mKey);
+            let returnType = instrumenter?.returnTypes?.get(mKey);
+            code += '    ' + this.methods.get(mKey).toTS(gen, argTypes, returnType) + '\n';
         }
         code += '}';
         return code;
@@ -515,7 +564,7 @@ class Method {
         return result;
     }
 
-    toTS(gen: DefGenerator, argTypes?: ArgTypes) : string {
+    toTS(gen: DefGenerator, argTypes?: ArgTypes, returnType?: FieldTypes) : string {
         const override = this.checkOverride();
         if (override) return override;
         let code = `${this.name}(`;
@@ -530,7 +579,11 @@ class Method {
             code += `${name}?: ${type}`;
             index++;
         }
-        code += ');';
+        code += ')';
+        if (returnType && returnType.size > 0) {
+            code += `: ${gen.typesToTS(returnType, false)}`;
+        }
+        code += ';';
         return code;
     }
 
