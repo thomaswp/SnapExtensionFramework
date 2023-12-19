@@ -20,8 +20,8 @@ export class Snap {
         return this.IDE?.stage;
     }
 
-    static get currentSprite() : SpriteMorph | StageMorph{
-        return this.IDE?.currentSprite;
+    static get currentSprite() : SpriteMorph | StageMorph {
+        return this.IDE?.currentSprite as SpriteMorph | StageMorph;
     }
 
     static get sprites() : SpriteMorph[] {
