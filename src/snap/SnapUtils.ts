@@ -1,5 +1,5 @@
 // import { Events, ExtensionManager } from "sef";
-import { BlockMorph, Cloud, IDE_Morph, SpriteMorph, StageMorph, WorldMorph } from "./Snap";
+import { BlockMorph, Cloud, IDE_Morph, SpriteMorph, StageMorph, VariableFrame, WorldMorph } from "./Snap";
 import { BlockIDArgs } from "../events/SnapEventListener";
 
 
@@ -30,6 +30,10 @@ export class Snap {
 
     static get cloud() : Cloud {
         return this.IDE?.cloud;
+    }
+
+    static get globalVariables() : VariableFrame {
+        return this.stage?.globalVariables();
     }
 
     static getSprite(name: string) {
