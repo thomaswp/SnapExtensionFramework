@@ -1,6 +1,6 @@
 import { OverrideRegistry } from "../extend/OverrideRegistry";
 import { Snap } from "../snap/SnapUtils";
-import { Color, IDE_Morph, localize, SpriteMorph, StageMorph, SyntaxElementMorph, ToggleMorph } from "../snap/Snap";
+import { Color, IDE_Morph, localize, Process, SpriteMorph, StageMorph, SyntaxElementMorph, ThreadManager, ToggleMorph } from "../snap/Snap";
 
 export namespace Blocks {
 
@@ -63,6 +63,7 @@ export namespace Blocks {
         registerBlock(block: Block) {
             this.blocks.push(block);
             this.queueRefresh();
+            return block;
         }
 
         queueRefresh() {
@@ -214,9 +215,14 @@ export namespace Blocks {
             );
         }
 
-        addSpriteAction(action: (...args : any) => any) : Block {
+        addSpriteAction(action: (this: SpriteMorph, ...args : any) => any) : Block {
             SpriteMorph.prototype[this.selector] =
                 StageMorph.prototype[this.selector] = action;
+            return this;
+        }
+
+        addProcessAction(action: (this: Process, ...args : any) => any) : Block {
+            Process.prototype[this.selector] = action;
             return this;
         }
     }
