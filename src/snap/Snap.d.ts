@@ -2019,7 +2019,7 @@ export class List extends SnapType {
     rest: any;
     type: any;
 
-    add(element?: Costume | Scene | SpriteMorph, index?: any);
+    add(element?: any, index?: any);
     asArray();
     asCSV();
     asChunksOf(size?: any);

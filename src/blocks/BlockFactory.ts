@@ -76,12 +76,12 @@ export namespace Blocks {
         }
 
         refresh() {
+            this.needsInit = false;
             if (!Snap.IDE) return;
             SpriteMorph.prototype.initBlocks();
             Snap.IDE.flushBlocksCache();
             Snap.IDE.refreshPalette();
             Snap.IDE.categories.refreshEmpty();
-            this.needsInit = false;
         }
 
         private addCategoryToPallette(name: string, color: Color) {
