@@ -20,11 +20,7 @@ export class Snap {
         return this.IDE?.stage;
     }
 
-<<<<<<< Updated upstream
     static get currentSprite() : SpriteMorph | StageMorph {
-=======
-    static get currentSprite() : SpriteMorph | StageMorph{
->>>>>>> Stashed changes
         return this.IDE?.currentSprite as SpriteMorph | StageMorph;
     }
 
