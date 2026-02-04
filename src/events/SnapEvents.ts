@@ -55,18 +55,6 @@ export namespace Events {
             }
         }
 
-        export interface RefactorVarErrorArgs extends SnapEventArgs {
-            id: BlockIDArgs;
-            where: any;
-        }
-
-        export class RefactorVarErrorListener extends SnapEventListener {
-            static readonly type = 'Block.refactorVarError';
-            constructor(args: (args: RefactorVarErrorArgs) => void) {
-                super(RefactorVarErrorListener.type, args);
-            }
-        }
-
         export interface RelabelArgs extends SnapEventArgs {
             id: BlockIDArgs;
             selector: any;
