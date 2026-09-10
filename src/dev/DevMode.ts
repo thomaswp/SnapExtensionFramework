@@ -1,4 +1,6 @@
+import { Events } from "../events/SnapEvents";
 import { ExtensionManager } from "../extension/ExtensionManager";
+import { SpriteMorph } from "../snap/Snap";
 import { Snap } from "../snap/SnapUtils";
 
 const DEV_MODE_URLS = [
@@ -29,33 +31,35 @@ export class DevMode {
         }
     }
 
+    loadLastProject() {
+        const lastProject = localStorage.getItem(LAST_PROJECT_KEY);
+        if (!lastProject || lastProject.length == 0) {
+            return;
+        }
+        Snap.IDE.loadProjectXML(lastProject);
+        console.log("Loading last project", Snap.IDE.getProjectName());
+    }
+
+    saveProject() {
+        setTimeout(() => {
+            let xml = Snap.IDE.getProjectXML();
+            if (xml != this.lastProjectXML) {
+                this.lastProjectXML = xml;
+                localStorage.setItem(LAST_PROJECT_KEY, xml);
+            }
+        }, 0);
+    }
+
     init() {
         if (!this.isDevMode) {
             return;
         }
 
-        let lastProject = localStorage.getItem(LAST_PROJECT_KEY);
-        if (lastProject && lastProject.length > 0) {
-            // TODO: Right now we set to 10ms to wait until after blocks are
-            // loaded - should be a callback way to do it
-            setTimeout(() => {
-                Snap.IDE.loadProjectXML(lastProject);
-                console.log("Loading last project", Snap.IDE.getProjectName());
-            }, 500);
-        }
+        this.loadLastProject();
 
         window.onbeforeunload = () => {};
-        ExtensionManager.events.Trace.addGlobalListener((message) => {
-            // Wait for next frame, since some edits occur after the log
-            setTimeout(() => {
-                let xml = Snap.IDE.getProjectXML();
-                if (xml != this.lastProjectXML) {
-                    this.lastProjectXML = xml;
-                    localStorage.setItem(LAST_PROJECT_KEY, xml);
-                    // console.log("Saved project after: " + message);
-                }
-            }, 0);
-        });
+
+        ExtensionManager.events.Trace.addGlobalListener(() => this.saveProject());
     }
 
 }
